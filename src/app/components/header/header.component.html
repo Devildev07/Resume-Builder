@@ -3,7 +3,7 @@
     <div class="mx-auto">
       <div class="flex justify-between py-4 px-4 md:px-2">
         <div class="flex justify-between">
-          <a class="flex items-center justify-center" href="#">
+          <a class="flex items-center justify-center" routerLink="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -22,12 +22,22 @@
           </a>
           <div class="hidden md:flex items-center space-x-3">
             <a
+              routerLink="/dashboard"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="hover:text-gray-600 text-blue-950 font-medium"
+              >Dashboard
+            </a>
+            <a
               routerLink="/templates"
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
+              [routerLinkActiveOptions]="{ exact: true }"
               class="hover:text-gray-600 text-blue-950 font-medium"
               >Templates
             </a>
+
             <a href="#" class="hover:text-gray-600 text-blue-950 font-medium"
               >Contact Us
             </a>
@@ -41,7 +51,7 @@
           </a>
           <a
             href="#"
-            class="hover:shadow-2xl hover:-translate-y-1 hover:transition hover:duration-300 text-sm font-medium px-2 bg-blue-500 rounded text-white py-2"
+            class="hover:shadow-2xl hover:-translate-y-0.5 hover:transition hover:duration-300 text-sm font-medium px-2 bg-blue-500 rounded text-white py-2"
             >Sign Up
           </a>
         </div>
@@ -68,7 +78,20 @@
     <!-- mob menu -->
     <div class="hidden" id="mob-menu">
       <div class="flex items-center flex-col py-2 pb-5 md:hidden">
-        <a href="#" class="py-2 px-4 text-sm font-medium hover:underline"
+        <a
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="py-2 px-4 text-sm font-medium hover:underline"
+          >Dashboard
+        </a>
+        <a
+          routerLink="/templates"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="py-2 px-4 text-sm font-medium hover:underline"
           >Templates
         </a>
         <a href="#" class="py-2 px-4 text-sm font-medium hover:underline"
