@@ -1,29 +1,9 @@
 <header class="bg-gray-100">
-  <!-- <a class="flex items-center justify-center" href="#">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="h-6 w-6"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
-    </svg>
-    <span class="sr-only">Resume.Io</span>
-  </a> -->
   <nav class="container mx-auto">
     <div class="mx-auto">
       <div class="flex justify-between py-4 px-4 md:px-2">
         <div class="flex justify-between">
-          <a
-            class="flex items-center justify-center hover:text-blue-400"
-            href="#"
-          >
+          <a class="flex items-center justify-center" href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -41,10 +21,10 @@
             <span class="font-bold mr-5">Resume.Io</span>
           </a>
           <div class="hidden md:flex items-center space-x-3">
-            <a href="#" class="hover:text-blue-400 text-gray-700 font-medium"
+            <a href="#" class="hover:text-gray-600 text-blue-950 font-medium"
               >Templates
             </a>
-            <a href="#" class="hover:text-blue-400 text-gray-700 font-medium"
+            <a href="#" class="hover:text-gray-600 text-blue-950 font-medium"
               >Contact Us
             </a>
           </div>
@@ -52,62 +32,55 @@
         <div class="hidden md:flex items-center space-x-1">
           <a
             href="#"
-            class="hover:text-blue-400 text-gray-700 font-medium px-3 py-2"
+            class="hover:text-gray-600 text-blue-950 text-sm font-medium px-3 py-2"
             >Log In
           </a>
           <a
             href="#"
-            class="hover:shadow-2xl hover:-translate-y-1 hover:transition hover:duration-300 font-medium px-2 bg-blue-500 rounded text-white py-2"
+            class="hover:shadow-2xl hover:-translate-y-1 hover:transition hover:duration-300 text-sm font-medium px-2 bg-blue-500 rounded text-white py-2"
             >Sign Up
           </a>
         </div>
-        <div class="md:hidden flex items-center"></div>
+        <div class="md:hidden flex items-center">
+          <button (click)="toggleMobMenu()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
     <!-- mob menu -->
-    <div class="flex items-center flex-col py-2 pb-5 md:hidden">
-      <a href="#" class="py-2 px-4 text-sm font-medium hover:underline"
-        >Templates
-      </a>
-      <a href="#" class="py-2 px-4 text-sm font-medium hover:underline"
-        >Contact Us
-      </a>
-      <a
-        href="#"
-        class="hover:text-blue-400 text-gray-700 font-medium px-3 py-2"
-        >Log In
-      </a>
-      <a
-        href="#"
-        class="hover:shadow-2xl hover:-translate-y-1 hover:transition hover:duration-300 font-medium px-2 bg-blue-500 rounded text-white py-2"
-        >Sign Up
-      </a>
+    <div class="hidden" id="mob-menu">
+      <div class="flex items-center flex-col py-2 pb-5 md:hidden">
+        <a href="#" class="py-2 px-4 text-sm font-medium hover:underline"
+          >Templates
+        </a>
+        <a href="#" class="py-2 px-4 text-sm font-medium hover:underline"
+          >Contact Us
+        </a>
+        <a
+          href="#"
+          class="hover:text-blue-400 text-gray-700 font-medium px-3 py-2"
+          >Log In
+        </a>
+        <a
+          href="#"
+          class="hover:shadow-2xl hover:-translate-y-1 hover:transition hover:duration-300 font-medium px-2 bg-blue-500 rounded text-white py-2"
+          >Sign Up
+        </a>
+      </div>
     </div>
-    <!-- <div class="">
-      <a
-        class="text-sm font-medium hover:underline underline-offset-4"
-        href="#"
-      >
-        Templates
-      </a>
-      <a
-        class="text-sm font-medium hover:underline underline-offset-4"
-        href="#"
-      >
-        Pricing
-      </a>
-      <a
-        class="text-sm font-medium hover:underline underline-offset-4"
-        href="#"
-      >
-        About
-      </a>
-      <a
-        class="text-sm font-medium hover:underline underline-offset-4"
-        href="#"
-      >
-        Contact
-      </a>
-    </div> -->
   </nav>
 </header>

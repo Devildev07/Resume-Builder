@@ -5,8 +5,12 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-
+  constructor() {}
+  toggleMobMenu() {
+    const mobMenu = document.getElementById('mob-menu');
+    mobMenu?.classList.toggle('show-menu');
+  }
 }
