@@ -1,4 +1,4 @@
-<header class="bg-gray-100">
+<header class="text-blue-50 bg-gray-900">
   <nav class="container mx-auto">
     <div class="mx-auto">
       <div class="flex justify-between py-4 px-4 md:px-2">
@@ -26,7 +26,7 @@
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
               [routerLinkActiveOptions]="{ exact: true }"
-              class="hover:text-gray-600 text-blue-950 font-medium"
+              class="hover:text-gray-400 text-blue-50 font-medium"
               >Dashboard
             </a>
             <a
@@ -34,19 +34,19 @@
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
               [routerLinkActiveOptions]="{ exact: true }"
-              class="hover:text-gray-600 text-blue-950 font-medium"
+              class="hover:text-gray-400 text-blue-50 font-medium"
               >Templates
             </a>
 
-            <a href="#" class="hover:text-gray-600 text-blue-950 font-medium"
+            <a href="#" class="hover:text-gray-400 text-blue-50 font-medium"
               >Contact Us
             </a>
           </div>
         </div>
         <div class="hidden md:flex items-center space-x-1">
           <a
-            href="#"
-            class="hover:text-gray-600 text-blue-950 text-sm font-medium px-3 py-2"
+            (click)="this.commonService.canShowModal = true"
+            class="hover:text-gray-400 text-blue-50 text-sm font-medium px-3 py-2"
             >Log In
           </a>
           <a
@@ -98,8 +98,8 @@
           >Contact Us
         </a>
         <a
-          href="#"
-          class="hover:text-blue-400 text-gray-700 font-medium px-3 py-2"
+          (click)="this.commonService.canShowModal = true"
+          class=" font-medium px-3 py-2"
           >Log In
         </a>
         <a

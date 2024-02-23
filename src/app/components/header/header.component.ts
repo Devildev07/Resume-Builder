@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonServicesService } from 'src/app/services/common-services.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  constructor() {}
+  constructor(public commonService: CommonServicesService) {}
+  
+
   toggleMobMenu() {
     const mobMenu = document.getElementById('mob-menu');
     mobMenu?.classList.toggle('show-menu');
