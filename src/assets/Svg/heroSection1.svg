@@ -1,0 +1,1242 @@
+<svg class="animated" id="freepik_stories-designer-life" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"
+  version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
+  <style>
+    svg#freepik_stories-designer-life:not(.animated) .animable {
+      opacity: 0;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--background-complete--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideLeft;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Floor--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) fadeIn;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Shadows--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Character--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Table--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Device--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Lamp--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomOut;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Coffee--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedRight;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Camera--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideDown;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--Tools--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) slideUp;
+      animation-delay: 0s;
+    }
+
+    svg#freepik_stories-designer-life.animated #freepik--trash-can--inject-18 {
+      animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) lightSpeedLeft;
+      animation-delay: 0s;
+    }
+
+    @keyframes slideLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomOut {
+      0% {
+        opacity: 0;
+        transform: scale(1.5);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: inherit;
+      }
+    }
+
+    @keyframes lightSpeedLeft {
+      from {
+        transform: translate3d(-50%, 0, 0) skewX(20deg);
+        opacity: 0;
+      }
+
+      60% {
+        transform: skewX(-10deg);
+        opacity: 1;
+      }
+
+      80% {
+        transform: skewX(2deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes lightSpeedRight {
+      from {
+        transform: translate3d(50%, 0, 0) skewX(-20deg);
+        opacity: 0;
+      }
+
+      60% {
+        transform: skewX(10deg);
+        opacity: 1;
+      }
+
+      80% {
+        transform: skewX(-2deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes slideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animator-hidden {
+      display: none;
+    }
+  </style>
+  <g id="freepik--background-complete--inject-18" class="animable" style="transform-origin: 242.615px 230.94px">
+    <path d="M379.18,260.54H227.48V42.28h151.7Zm-147.7-4h143.7V46.28H231.48Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.33px 151.41px" id="elvdypbh4vsle" class="animable"></path>
+    <rect x="299.77" y="47.33" width="4" height="211.21"
+      style="fill: rgb(235, 235, 235); transform-origin: 301.77px 152.935px" id="eloarocdyl8ce" class="animable"></rect>
+    <rect x="223.86" y="50.37" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 53.155px" id="eljpx23vdk2sm" class="animable"></rect>
+    <rect x="223.86" y="56.63" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 59.415px" id="eld916zpmah4o" class="animable"></rect>
+    <rect x="223.86" y="62.9" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 65.685px" id="elu2ksfur205s" class="animable"></rect>
+    <rect x="223.86" y="69.17" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 71.955px" id="el303mjd3ylrj" class="animable"></rect>
+    <rect x="223.86" y="75.43" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 78.215px" id="elj5uomt67c2" class="animable"></rect>
+    <rect x="223.86" y="81.7" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 84.485px" id="elzc0p86496ah" class="animable"></rect>
+    <rect x="223.86" y="87.97" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 90.755px" id="el7lqcdim2kdh" class="animable"></rect>
+    <rect x="223.86" y="94.23" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 97.015px" id="el7n7ma3wzuk3" class="animable"></rect>
+    <rect x="223.86" y="100.5" width="158.95" height="5.57"
+      style="fill: rgb(235, 235, 235); transform-origin: 303.335px 103.285px" id="elp1sibb9atul" class="animable">
+    </rect>
+    <rect x="369.92" y="49.24" width="1" height="108.39"
+      style="fill: rgb(38, 50, 56); transform-origin: 370.42px 103.435px" id="eluq0frgmyvki" class="animable"></rect>
+    <polygon points="372.2 162.28 368.65 162.28 369.54 157.18 371.31 157.18 372.2 162.28"
+      style="fill: rgb(38, 50, 56); transform-origin: 370.425px 159.73px" id="elqwobib3o4e" class="animable"></polygon>
+    <rect x="373.53" y="49.24" width="1" height="165.73"
+      style="fill: rgb(38, 50, 56); transform-origin: 374.03px 132.105px" id="elxbglldspd7l" class="animable"></rect>
+    <polygon points="375.8 218.72 372.25 218.72 373.14 213.62 374.91 213.62 375.8 218.72"
+      style="fill: rgb(38, 50, 56); transform-origin: 374.025px 216.17px" id="elfkhcipwhxo7" class="animable"></polygon>
+    <rect x="217.65" y="41.5" width="171.36" height="11.65"
+      style="fill: rgb(219, 219, 219); transform-origin: 303.33px 47.325px" id="elvrdnsd7ojie" class="animable"></rect>
+    <polygon points="150.71 177.77 149.21 177.77 149.21 176.77 149.71 176.77 149.71 176.27 150.71 176.27 150.71 177.77"
+      style="fill: rgb(235, 235, 235); transform-origin: 149.96px 177.02px" id="elfdnxvugo30v" class="animable">
+    </polygon>
+    <path
+      d="M147.19,177.77h-2v-1h2Zm-4.05,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4.05,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 122.14px 177.27px" id="elpmwwp1mn90c" class="animable"></path>
+    <polygon points="94.58 177.77 93.08 177.77 93.08 176.27 94.08 176.27 94.08 176.77 94.58 176.77 94.58 177.77"
+      style="fill: rgb(235, 235, 235); transform-origin: 93.83px 177.02px" id="elyqyv7kywsn" class="animable"></polygon>
+    <path
+      d="M94.08,174.25h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4h-1v-2h1Zm0-4h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4h-1v-2h1Zm0-4h-1v-2h1Zm0-4h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4h-1v-2h1Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 93.58px 149.125px" id="elg1yonyxykir" class="animable"></path>
+    <polygon points="94.08 121.64 93.08 121.64 93.08 120.14 94.58 120.14 94.58 121.14 94.08 121.14 94.08 121.64"
+      style="fill: rgb(235, 235, 235); transform-origin: 93.83px 120.89px" id="elpjjwdh4k5fr" class="animable">
+    </polygon>
+    <path
+      d="M147.19,121.14h-2v-1h2Zm-4.05,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4.05,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Zm-4,0h-2v-1h2Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 122.14px 120.64px" id="eldbslnd3g4rv" class="animable"></path>
+    <polygon points="150.71 121.64 149.71 121.64 149.71 121.14 149.21 121.14 149.21 120.14 150.71 120.14 150.71 121.64"
+      style="fill: rgb(235, 235, 235); transform-origin: 149.96px 120.89px" id="elgw4qfs210ai" class="animable">
+    </polygon>
+    <path
+      d="M150.71,174.25h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4h-1v-2h1Zm0-4h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4h-1v-2h1Zm0-4h-1v-2h1Zm0-4h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4h-1v-2h1Zm0-4.05h-1v-2h1Zm0-4h-1v-2h1Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 150.21px 149.125px" id="el6vk8op9mgk3" class="animable"></path>
+    <rect x="90.05" y="173.74" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 93.58px 177.27px" id="elqf0u4let5n" class="animable"></rect>
+    <path d="M97.61,181.3H89.55v-8.06h8.06Zm-7.06-1h6.06v-6.06H90.55Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 93.58px 177.27px" id="elwebhbrpmps8" class="animable"></path>
+    <rect x="90.05" y="145.42" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 93.58px 148.95px" id="elctf6h7wa9f7" class="animable"></rect>
+    <path d="M97.61,153H89.55v-8.06h8.06Zm-7.06-1h6.06v-6.06H90.55Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 93.58px 148.97px" id="elf805zwus1wu" class="animable"></path>
+    <rect x="90.05" y="117.11" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 93.58px 120.64px" id="el14e52xmm85u" class="animable"></rect>
+    <path d="M97.61,124.66H89.55v-8h8.06Zm-7.06-1h6.06v-6H90.55Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 93.58px 120.66px" id="elyhgfe9fkc58" class="animable"></path>
+    <rect x="146.69" y="173.74" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 150.22px 177.27px" id="el8tz45ig3za" class="animable"></rect>
+    <path d="M154.24,181.3h-8.05v-8.06h8.05Zm-7.05-1h6.05v-6.06h-6.05Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 150.215px 177.27px" id="elm0zw0il7ovg" class="animable"></path>
+    <rect x="146.69" y="145.42" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 150.22px 148.95px" id="el15g7q04nitl" class="animable"></rect>
+    <path d="M154.24,153h-8.05v-8.06h8.05Zm-7.05-1h6.05v-6.06h-6.05Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 150.215px 148.97px" id="elqfi2h2t82xj" class="animable"></path>
+    <rect x="146.69" y="117.11" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 150.22px 120.64px" id="elgwkapptiple" class="animable"></rect>
+    <path d="M154.24,124.66h-8.05v-8h8.05Zm-7.05-1h6.05v-6h-6.05Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 150.215px 120.66px" id="elptq43hljltt" class="animable"></path>
+    <rect x="118.37" y="117.11" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 121.9px 120.64px" id="el1ysz8zewerv" class="animable"></rect>
+    <path d="M125.93,124.66h-8.06v-8h8.06Zm-7.06-1h6.06v-6h-6.06Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 121.9px 120.66px" id="elemrecgc93e9" class="animable"></path>
+    <rect x="118.37" y="173.74" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 121.9px 177.27px" id="el3tz46jd1uyf" class="animable"></rect>
+    <path d="M125.93,181.3h-8.06v-8.06h8.06Zm-7.06-1h6.06v-6.06h-6.06Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 121.9px 177.27px" id="elsxzmus6u54l" class="animable"></path>
+    <path
+      d="M122.58,155.69h-11.3L106.89,168h4.28v1.08h-8.73V168h2.68l14.55-39.21h4.68L138.73,168h2.63v1.08H122.7V168h4Zm-10.78-1.26h10.33l-5-15Z"
+      style="fill: rgb(219, 219, 219); transform-origin: 121.9px 148.935px" id="elw0dhp7tstq" class="animable"></path>
+    <path
+      d="M428.78,193.83s-.2,11.12-7.32,23.74h-10c-7.12-12.62-7.32-23.74-7.32-23.74,10.31-5.76,10.58-18.66,10.58-18.66h1v20.42a3.15,3.15,0,1,0,1.44,0V175.17h1S418.47,188.07,428.78,193.83Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 416.46px 196.37px" id="elqz7aciy66qc" class="animable"></path>
+    <rect x="409.03" y="216.35" width="14.83" height="6.24"
+      style="fill: rgb(199, 199, 199); transform-origin: 416.445px 219.47px" id="el51fmi91wshb" class="animable"></rect>
+    <path d="M450.86,208.55h-1a33.42,33.42,0,0,0-66.84,0h-1a34.42,34.42,0,0,1,68.84,0Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 416.44px 191.34px" id="elgvijllwmwdi" class="animable"></path>
+    <rect x="381.74" y="173.72" width="68.62" height="1"
+      style="fill: rgb(235, 235, 235); transform-origin: 416.05px 174.22px" id="elkv8inzcrrm" class="animable"></rect>
+    <rect x="378.99" y="205.02" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 382.52px 208.55px" id="el7qc40twbhu" class="animable"></rect>
+    <path d="M386.55,212.58h-8.06v-8.06h8.06Zm-7.06-1h6.06v-6.06h-6.06Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 382.52px 208.55px" id="elesouenzc9wl" class="animable"></path>
+    <rect x="378.99" y="170.69" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 382.52px 174.22px" id="elbtalh2bdlls" class="animable"></rect>
+    <path d="M386.55,178.24h-8.06v-8.05h8.06Zm-7.06-1h6.06v-6.05h-6.06Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 382.52px 174.215px" id="elslquln41o39" class="animable"></path>
+    <rect x="446.83" y="205.02" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 450.36px 208.55px" id="ely6uf1n3v1oh" class="animable"></rect>
+    <path d="M454.39,212.58h-8.06v-8.06h8.06Zm-7.06-1h6.06v-6.06h-6.06Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 450.36px 208.55px" id="elxprtkonpdaf" class="animable"></path>
+    <rect x="446.83" y="170.69" width="7.06" height="7.06"
+      style="fill: rgb(255, 255, 255); transform-origin: 450.36px 174.22px" id="el1bw0tgk6ryx" class="animable"></rect>
+    <path d="M454.39,178.24h-8.06v-8.05h8.06Zm-7.06-1h6.06v-6.05h-6.06Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 450.36px 174.215px" id="el1zw6o5wdbkb" class="animable"></path>
+    <rect x="38.73" y="274.42" width="26.48" height="11.19"
+      style="fill: rgb(235, 235, 235); transform-origin: 51.97px 280.015px" id="el1wdajn7tragh" class="animable"></rect>
+    <rect x="23.96" y="288.53" width="26.48" height="11.19"
+      style="fill: rgb(235, 235, 235); transform-origin: 37.2px 294.125px" id="elv03asptciy9" class="animable"></rect>
+    <rect x="434.79" y="288.53" width="26.48" height="11.19"
+      style="fill: rgb(235, 235, 235); transform-origin: 448.03px 294.125px" id="eltmrbbd4sasf" class="animable"></rect>
+    <rect x="420.02" y="70.06" width="26.48" height="11.19"
+      style="fill: rgb(235, 235, 235); transform-origin: 433.26px 75.655px" id="elnv7r1jlv5w" class="animable"></rect>
+    <rect x="434.79" y="84.17" width="26.48" height="11.19"
+      style="fill: rgb(235, 235, 235); transform-origin: 448.03px 89.765px" id="el0pp92ewc8gho" class="animable"></rect>
+    <rect x="38.73" y="70.06" width="26.48" height="11.19"
+      style="fill: rgb(235, 235, 235); transform-origin: 51.97px 75.655px" id="el8wpaw99zlnq" class="animable"></rect>
+    <path
+      d="M384.06,358.25s16.92-3.83,26.2-12.38S424.72,322,424.72,322a146.21,146.21,0,0,0-19,5,31.77,31.77,0,0,0-5.74,8.12,38.66,38.66,0,0,1-.05-5.8,25.86,25.86,0,0,0-6,3.66C386.23,339.7,384.06,358.25,384.06,358.25Z"
+      style="fill: rgb(219, 219, 219); transform-origin: 404.39px 340.125px" id="elbxth5xlish" class="animable"></path>
+    <path
+      d="M414.15,329.45c2.31-1.6,4.66-3.14,7-4.75a.13.13,0,0,0-.14-.23c-4.36,2.61-8.66,5.39-12.82,8.31-1.46,1-2.88,2.08-4.29,3.15l.3-.5c.51-.85,1-1.68,1.58-2.52a35.61,35.61,0,0,1,3.59-4.79c.05-.06,0-.14-.08-.08-1.32,1.52-2.64,3-3.84,4.64-.57.76-1.1,1.56-1.61,2.37-.26.42-.52.84-.76,1.28l-.25.43c-2.19,1.72-4.32,3.51-6.36,5.41q-1.87,1.75-3.63,3.63c.65-2.05,1.22-4.12,2-6.14,0-.06-.09-.09-.11,0-.74,2.11-1.54,4.24-2.11,6.41-1.3,1.4-2.54,2.85-3.71,4.37l.06-.28c.19-.8.39-1.59.61-2.39.41-1.53.86-3.05,1.38-4.55a26.46,26.46,0,0,1,4.54-8.59c.05-.05,0-.13-.08-.08a32.92,32.92,0,0,0-6.48,13.54c-.18.72-.36,1.44-.52,2.17-.09.38-.19.77-.25,1.17-.51.69-1,1.39-1.5,2.1a73.47,73.47,0,0,0-7.16,14.05A161.52,161.52,0,0,0,374,384.47c0,.12.14.15.18,0,3.31-9.91,6.69-20,12.36-28.81a66.35,66.35,0,0,1,3.86-5.41,31.56,31.56,0,0,0,8.23-1.64,36.5,36.5,0,0,0,8.25-4,48.87,48.87,0,0,0,4.23-3.2c.07-.05,0-.14-.07-.08a33.86,33.86,0,0,1-7.76,4.69,41.43,41.43,0,0,1-8.54,2.86c-1.25.28-2.51.48-3.78.65a70.54,70.54,0,0,1,5-5.53c.57-.57,1.16-1.12,1.75-1.67a39.56,39.56,0,0,1,6.26-3.58c2.77-1.34,5.5-2.76,8.25-4.16,1.54-.79,3.08-1.59,4.64-2.36.07,0,0-.13-.06-.09-2.78,1.34-5.6,2.6-8.41,3.88-2.65,1.21-5.32,2.43-7.86,3.85l-.32.2c2.3-2,4.67-3.9,7.1-5.74C409.56,332.71,411.84,331.05,414.15,329.45Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 397.607px 354.511px" id="elqijh1pty6un" class="animable">
+    </path>
+    <path
+      d="M413.19,338.18c-1.38.6-2.78,1.13-4.14,1.77s-2.73,1.42-4.06,2.21c-.06,0,0,.12.05.09,1.35-.65,2.72-1.25,4.06-1.92s2.72-1.43,4.12-2C413.29,338.26,413.26,338.15,413.19,338.18Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 409.112px 340.215px" id="elq2yxds1imlp" class="animable">
+    </path>
+    <path
+      d="M329.07,273A24.15,24.15,0,0,1,334.12,287c.06,1.51-.18,3.63-.36,6.12a40.06,40.06,0,0,1,11.05,9.44,19.88,19.88,0,0,0-11.16-2.67,33.71,33.71,0,0,0,.64,5.05,19.12,19.12,0,0,1,7.18,1.42,16.08,16.08,0,0,0-6.47,1.29c3,9.6,12,19.46,36.76,23.65a52,52,0,0,0-4.39-34.85C360,281.86,329.07,273,329.07,273Z"
+      style="fill: rgb(219, 219, 219); transform-origin: 351.037px 302.15px" id="elro6fhrlbacn" class="animable"></path>
+    <path
+      d="M380.33,372.39q-.65-6.15-1.61-12.27a244,244,0,0,0-5-24.24,95,95,0,0,0-3.58-11.05,16.41,16.41,0,0,0,.1-2c0-.8,0-1.59,0-2.38,0-1.59-.09-3.17-.23-4.75a57.14,57.14,0,0,0-1.52-9.29c-.45-1.76-1-3.5-1.5-5.25,0-.07-.13,0-.11,0a67.83,67.83,0,0,1,1.83,9.27,87.34,87.34,0,0,1,.83,9.29c0,.85.05,1.7.05,2.55,0,.37,0,.73,0,1.1a79.75,79.75,0,0,0-4.17-8.64,105.67,105.67,0,0,0-8.48-12.68,5.43,5.43,0,0,0-.2-1.39l-.36-1.66c-.26-1.13-.54-2.25-.85-3.37-.61-2.24-1.43-4.41-2.13-6.63a.06.06,0,0,0-.11,0c.66,2.2,1.09,4.47,1.59,6.7.25,1.11.49,2.21.74,3.32.12.55.23,1.1.35,1.66,0,0,0,.08,0,.12-1-1.26-2-2.51-3.07-3.73-4.73-5.55-9.91-10.66-15.13-15.74-.64-.63-1.3-1.24-1.95-1.85-.05-.05-.13,0-.08.08,5,5.2,9.9,10.47,14.55,16,1.11,1.31,2.19,2.63,3.26,4l-1.69-1.12c-1.44-.94-2.9-1.86-4.4-2.7s-3-1.66-4.56-2.43-3.29-1.43-4.82-2.32c-.07,0-.12.07-.06.1a35.6,35.6,0,0,1,4.52,2.51c1.51.89,3,1.79,4.5,2.73s2.92,1.83,4.36,2.77c1.21.78,2.39,1.64,3.64,2.36A118.16,118.16,0,0,1,363,313.05a85,85,0,0,1,4.1,7.78l-.89-.39-2.27-1c-1.45-.65-2.92-1.28-4.38-1.92-2.78-1.2-5.6-2.31-8.32-3.64a37.87,37.87,0,0,1-4.45-2.47c-.06,0-.11.06,0,.1,5.07,3.5,10.77,6,16.39,8.46l2.44,1.08c.66.29,1.34.62,2,.88a86.94,86.94,0,0,1,4.19,11.48,231,231,0,0,1,5.39,24c1.42,8.09,2.38,16.23,3.13,24.41.09,1,.18,2,.3,3.06a.32.32,0,0,0,.64,0C381.19,380.67,380.76,376.52,380.33,372.39Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 358.497px 332.33px" id="el2fgwji975x2" class="animable"></path>
+    <path
+      d="M365.26,304c-.45-2.52-1.13-5-1.8-7.45,0-.07-.13,0-.11,0,.62,2.42,1.07,4.88,1.53,7.34s.87,5,1.22,7.54c0,0,.07,0,.07,0A64.54,64.54,0,0,0,365.26,304Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 364.759px 303.974px" id="el7ve60rmj9g" class="animable"></path>
+    <path
+      d="M354.59,310.82a44.53,44.53,0,0,0-5.39-3c-.9-.47-1.82-.91-2.73-1.36s-1.92-.83-2.86-1.3a.06.06,0,0,0-.06.1c.91.45,1.77,1,2.66,1.49s1.83,1,2.75,1.5c1.81,1,3.59,2,5.49,2.84A.14.14,0,0,0,354.59,310.82Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 349.102px 308.132px" id="elqpxde8dak4" class="animable"></path>
+    <g id="elv3wgnpbxqye">
+      <path
+        d="M384.36,328.93s15.67-3.74,22.86-14.25c6.87-10,9.09-27.14,9.27-28.64-.29,1.38-3.52,16.33-14.18,23.29C394.14,314.67,386.25,319.05,384.36,328.93Z"
+        style="
+          fill: rgb(166, 166, 166);
+          opacity: 0.1;
+          transform-origin: 400.425px 307.485px;
+        " class="animable"></path>
+    </g>
+    <path
+      d="M398.82,301.87a19.92,19.92,0,0,0-5.77,9.51,0,0,0,0,0,.05,0,23.27,23.27,0,0,1,5.8-9.45C399,301.9,398.87,301.82,398.82,301.87Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 395.993px 306.617px" id="elef0eghamf8" class="animable"></path>
+    <path
+      d="M384.36,328.93s15.67-3.74,22.86-14.25c6.87-10,9.09-27.14,9.27-28.64a.87.87,0,0,0,0-.11s-7.51,10.68-15.41,13.4S382.1,311.48,384.36,328.93Z"
+      style="fill: rgb(219, 219, 219); transform-origin: 400.277px 307.43px" id="elz2342vnx2y" class="animable"></path>
+    <path
+      d="M413.73,291.82a64,64,0,0,1-4.85,8.28,32.9,32.9,0,0,1-6.44,6.63c-2.13,1.69-4.38,3.22-6.53,4.88l0-.08c.4-.6.83-1.18,1.28-1.75.9-1.15,1.88-2.23,2.86-3.3,1.95-2.11,3.94-4.18,5.68-6.47a23.08,23.08,0,0,0,2.51-4c0-.07-.07-.11-.1,0-2.54,5.29-7.62,8.68-11.24,13.15a23.36,23.36,0,0,0-1.45,2,8,8,0,0,0-.9,1.59,33.26,33.26,0,0,0-5.34,5.4,21,21,0,0,1,.63-3,14.66,14.66,0,0,1,1.66-4c0-.07-.06-.13-.1-.07a19.31,19.31,0,0,0-1.83,3.94,14.07,14.07,0,0,0-.57,3.39h0a30.63,30.63,0,0,0-2.11,3.29c.06-.34.13-.67.19-1,.31-1.56.66-3.11,1.06-4.65a27.87,27.87,0,0,1,3.77-8.83c0-.06-.05-.12-.1-.06a33.73,33.73,0,0,0-4.17,8.63c-.5,1.54-.9,3.1-1.25,4.68-.17.77-.33,1.54-.48,2.32-.07.4-.16.81-.22,1.22a56.86,56.86,0,0,0-3.62,10.62,157.83,157.83,0,0,0-3.34,19.81,166,166,0,0,0-1.08,21c0,.88.07,1.76.12,2.64,0,.23.35.26.36,0,.15-3.48.24-6.95.45-10.43s.51-6.94.88-10.4a185,185,0,0,1,3.26-20.26c1.27-5.72,2.92-11.49,6.05-16.5a31.18,31.18,0,0,1,5.65-6.73c2.2-2,4.6-3.69,6.92-5.52a38.13,38.13,0,0,0,6.34-6.1,50,50,0,0,0,5-8.08l1.12-2.13C413.86,291.82,413.76,291.75,413.73,291.82Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 395.728px 335.028px" id="elacx9hbgctr" class="animable"></path>
+    <path
+      d="M411,294.12a51.91,51.91,0,0,1-3.49,6.1s0,.09.08,0a42.2,42.2,0,0,0,3.52-6.12C411.16,294.09,411.05,294.05,411,294.12Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 409.316px 297.17px" id="el03o5pc8lo01y" class="animable">
+    </path>
+    <path
+      d="M326.88,322s-.25,22.26,13.06,28.69,20.45,1.07,29.49,3.23c0,0,0,0,0,0-.35-.53-6.81-9.8-17.07-12.36C341.78,338.91,330.08,331.28,326.88,322Z"
+      style="fill: rgb(219, 219, 219); transform-origin: 348.155px 337.992px" id="elpzbhyzjzbw" class="animable"></path>
+    <g id="el4nc3bi3ebmc">
+      <path
+        d="M326.88,322s-.25,22.26,13.06,28.69,20.45,1.07,29.49,3.23c0,0,0,0,0,0a50.63,50.63,0,0,0-15.13-4.46C345.89,348.43,329.86,343,326.88,322Z"
+        style="
+          fill: rgb(166, 166, 166);
+          opacity: 0.1;
+          transform-origin: 348.155px 337.992px;
+        " class="animable"></path>
+    </g>
+    <path
+      d="M370.31,354.31a22.51,22.51,0,0,0-5.29-3.58c-.29-.14-.58-.25-.87-.37a5.47,5.47,0,0,0-.45-.51c-.4-.42-.82-.82-1.25-1.19a18.83,18.83,0,0,0-2.68-1.94c-2.21-1.29-4.62-2.2-6.88-3.4-.06,0-.12.06-.05.1,1.11.58,2.19,1.21,3.28,1.85s2.13,1.2,3.16,1.86a22.89,22.89,0,0,1,2.63,2c.23.2.46.42.68.65a34.65,34.65,0,0,0-4.5-1.19c-2.43-.5-4.9-.85-7.33-1.36a36.09,36.09,0,0,1-3.53-1c-1.1-.89-2.21-1.77-3.25-2.73a25.94,25.94,0,0,1-3.44-3.82c-.05-.06-.15,0-.1.06a39.92,39.92,0,0,0,5.46,6c-.58-.22-1.15-.45-1.71-.7a27.54,27.54,0,0,1-11.34-9.44c0-.06-.14,0-.1.06a31.09,31.09,0,0,0,9.18,8.81,27.71,27.71,0,0,0,5.8,2.74,53.46,53.46,0,0,0,7.2,1.71,50.33,50.33,0,0,1,7.06,1.68,21,21,0,0,1,5.91,3.11,27.53,27.53,0,0,1,8,9.89,49.62,49.62,0,0,1,4.39,16.27c0,.24.4.24.38,0C380,370.55,377.52,360.81,370.31,354.31Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 356.707px 357.813px" id="eld6nlyyjaeb" class="animable"></path>
+    <path
+      d="M354.86,347.05a7.65,7.65,0,0,0-2.73-2.48,10,10,0,0,1-3.26-2.69c0-.06-.14,0-.09.06a11.05,11.05,0,0,0,2.87,2.58,9.92,9.92,0,0,1,3.13,2.59A.05.05,0,1,0,354.86,347.05Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 351.82px 344.493px" id="elr3lutijr7s" class="animable"></path>
+    <polygon points="361.93 370.74 362.53 382.98 364.39 420.38 392.31 420.38 394.17 382.98 394.77 370.74 361.93 370.74"
+      style="fill: rgb(235, 235, 235); transform-origin: 378.35px 395.56px" id="eljevmserjl6k" class="animable">
+    </polygon>
+    <polygon points="361.93 370.74 362.53 382.98 394.17 382.98 394.77 370.74 361.93 370.74"
+      style="fill: rgb(219, 219, 219); transform-origin: 378.35px 376.86px" id="elu72rj6na0b" class="animable">
+    </polygon>
+    <g id="el9xmdysiag47">
+      <rect x="359.97" y="365.63" width="36.76" height="11.68" style="
+          fill: rgb(235, 235, 235);
+          transform-origin: 378.35px 371.47px;
+          transform: rotate(180deg);
+        " class="animable"></rect>
+    </g>
+  </g>
+  <g id="freepik--Floor--inject-18" class="animable" style="transform-origin: 250px 420.76px">
+    <polygon
+      points="66.73 420.76 112.55 420.51 158.37 420.43 250 420.26 341.63 420.43 387.45 420.51 433.27 420.76 387.45 421 341.63 421.09 250 421.26 158.37 421.09 112.55 421 66.73 420.76"
+      style="fill: rgb(38, 50, 56); transform-origin: 250px 420.76px" id="elfzyx3676lz" class="animable"></polygon>
+  </g>
+  <g id="freepik--Shadows--inject-18" class="animable" style="transform-origin: 226.125px 455.47px">
+    <ellipse cx="86.08" cy="456.14" rx="44.28" ry="8.5"
+      style="fill: rgb(235, 235, 235); transform-origin: 86.08px 456.14px" id="elt8gy7y0196a" class="animable">
+    </ellipse>
+    <ellipse cx="250" cy="455.47" rx="160.45" ry="15.73"
+      style="fill: rgb(235, 235, 235); transform-origin: 250px 455.47px" id="elg94hur9hgad" class="animable"></ellipse>
+  </g>
+  <g id="freepik--Character--inject-18" class="animable" style="transform-origin: 228.934px 303.991px">
+    <polygon points="237.66 324.43 240.25 339.94 257.76 434.55 260.59 434.55 247.85 339.94 245.97 324.43 237.66 324.43"
+      style="fill: rgb(199, 199, 199); transform-origin: 249.125px 379.49px" id="eld2izk432o3u" class="animable">
+    </polygon>
+    <polygon points="245.97 324.43 237.66 324.43 240.25 339.94 247.85 339.94 245.97 324.43"
+      style="fill: rgb(166, 166, 166); transform-origin: 242.755px 332.185px" id="elycgfxo4u5z" class="animable">
+    </polygon>
+    <polygon points="182.64 434.55 185.47 434.55 202.99 339.94 205.57 324.43 197.27 324.43 195.38 339.94 182.64 434.55"
+      style="fill: rgb(199, 199, 199); transform-origin: 194.105px 379.49px" id="elm56l3ul6mig" class="animable">
+    </polygon>
+    <polygon points="197.27 324.43 195.38 339.94 202.99 339.94 205.57 324.43 197.27 324.43"
+      style="fill: rgb(166, 166, 166); transform-origin: 200.475px 332.185px" id="elus2e162fvqo" class="animable">
+    </polygon>
+    <polygon points="130.1 434.55 132.92 434.55 150.44 339.94 153.03 324.43 144.72 324.43 142.84 339.94 130.1 434.55"
+      style="fill: rgb(199, 199, 199); transform-origin: 141.565px 379.49px" id="elbohpnsxssd" class="animable">
+    </polygon>
+    <polygon points="142.84 339.94 150.44 339.94 153.03 324.43 144.72 324.43 142.84 339.94"
+      style="fill: rgb(166, 166, 166); transform-origin: 147.935px 332.185px" id="elvt0jzhirl1" class="animable">
+    </polygon>
+    <polygon points="134.58 331.72 262.95 331.72 262.95 318.19 214.89 318.19 198.74 204.22 139.47 204.22 134.58 331.72"
+      style="fill: rgb(199, 199, 199); transform-origin: 198.765px 267.97px" id="elrf2sqa4s94r" class="animable">
+    </polygon>
+    <polygon points="142.06 318.19 262.95 318.19 262.95 331.72 141.57 331.72 142.06 318.19"
+      style="fill: rgb(219, 219, 219); transform-origin: 202.26px 324.955px" id="elq1hdnygccfi" class="animable">
+    </polygon>
+    <polygon points="134.58 331.72 141.57 331.72 146.13 204.22 139.47 204.22 134.58 331.72"
+      style="fill: rgb(219, 219, 219); transform-origin: 140.355px 267.97px" id="el3lduegwsndt" class="animable">
+    </polygon>
+    <path
+      d="M256.35,452.57c-2.49.24-70.46-15.95-72.6-18.15-.27-.25,1.07-6.43,3-14.85l0-.17c1.23-5.34,21-48.54,21-48.54l44.05,12.29-20,40.08s8.29,6,15.4,11.67c0,0,0,0,0,0,4.39,3.49,8.18,6.63,9,7.64C258.36,445.21,258.85,452.35,256.35,452.57Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 220.873px 411.716px" id="elue568gmupd" class="animable"></path>
+    <path
+      d="M256.35,452.57c-2.49.24-70.46-15.95-72.61-18.15-.26-.25,1.08-6.42,3-14.85l0-.16c.45-2,3.5-9.25,7.13-17.57,7.25,2,33.24,9,42.68,11.89l-4.74,9.5s8.29,6,15.4,11.67c0,0,0,0,0,0,4.39,3.49,8.18,6.63,9,7.64C258.36,445.22,258.85,452.36,256.35,452.57Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 220.87px 427.206px" id="el7ezv2fbtjnd" class="animable"></path>
+    <path
+      d="M256.58,452.89c-2.57.23-70.59-16.15-72.79-18.41-.84-.86.67-11.59,4.39-23L232,422.13s22.39,17.72,24.54,20.46S259.14,452.67,256.58,452.89Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 220.948px 432.186px" id="elkfhhku3l22" class="animable"></path>
+    <path
+      d="M256.26,449.94c-11.34-3-57.34-14.16-68.77-16.29-.1,0-.11.05,0,.08,11.17,3.24,57.26,14,68.74,16.4C256.45,450.18,256.5,450,256.26,449.94Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 221.915px 441.894px" id="elkx4rihd6f3j" class="animable"></path>
+    <path
+      d="M252.77,439.09a9.4,9.4,0,0,0-7.49,1.15,9.12,9.12,0,0,0-4,5.47c0,.07.12.1.14,0a10.9,10.9,0,0,1,11.34-6.5A.08.08,0,0,0,252.77,439.09Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 247.036px 442.271px" id="elqi7tya265p" class="animable"></path>
+    <path
+      d="M235.32,424.13c-4.55-1.16-10.23-.82-14,2.23-.14.12,0,.32.18.28a65.48,65.48,0,0,1,13.73-1.93A.29.29,0,0,0,235.32,424.13Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 228.415px 425.08px" id="elwjc956h6g9" class="animable"></path>
+    <path
+      d="M238.51,426.35c-4.54-1.16-10.22-.82-14,2.23-.14.12,0,.32.18.28a65.48,65.48,0,0,1,13.73-1.93A.29.29,0,0,0,238.51,426.35Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 231.605px 427.3px" id="elwrp44x4opll" class="animable"></path>
+    <path
+      d="M241.71,428.58c-4.55-1.17-10.23-.83-14,2.22-.14.12,0,.32.18.29a64.19,64.19,0,0,1,13.73-1.93A.3.3,0,0,0,241.71,428.58Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 234.778px 429.525px" id="ell3joyxux27" class="animable"></path>
+    <path
+      d="M244.9,430.8c-4.55-1.16-10.23-.83-14,2.22-.15.12,0,.32.17.29a64.28,64.28,0,0,1,13.73-1.93A.3.3,0,0,0,244.9,430.8Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 237.965px 431.747px" id="el06aihumhq1vd" class="animable"></path>
+    <path d="M193,423.52c-5.13-1.21-7,6.75-1.9,8S198.13,424.74,193,423.52Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 192.052px 427.523px" id="ele30pbbwkw6m" class="animable"></path>
+    <path
+      d="M243.19,413.14c-1.85-2.47-5.21-1.3-7.12.35a24.6,24.6,0,0,0-6.95,10.67.12.12,0,0,0,.11.16c0,.35.34.72.73.57,3.79-1.47,8-2.56,11.25-5.15C243.1,418.23,244.93,415.48,243.19,413.14Zm-7.94,8.35c-1.85.77-3.72,1.44-5.54,2.27,1.37-2.07,2.63-4.2,4.2-6.14a27.77,27.77,0,0,1,2.41-2.68c1.36-1.26,6.75-4,6,1.07C241.92,418.81,237.45,420.58,235.25,421.49Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 236.501px 418.322px" id="elj1ok233eqrd" class="animable"></path>
+    <path
+      d="M217.37,423.12c3.83,1.57,8.2,1.42,12.25,1.76a.57.57,0,0,0,.54-.75c.07,0,.12-.11.06-.19a24.56,24.56,0,0,0-9.69-8.27c-2.29-1-5.84-1.22-6.92,1.68C212.59,420.08,215.14,422.21,217.37,423.12Zm-2.13-3.26c-2.14-4.66,3.81-3.56,5.46-2.72a26,26,0,0,1,3.07,1.88c2.06,1.42,3.87,3.1,5.77,4.71-2-.29-4-.4-6-.61C221.21,422.86,216.42,422.43,215.24,419.86Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 221.813px 419.937px" id="elratsniln7o" class="animable"></path>
+    <path
+      d="M235.78,418,189,405.48s41.11-85.26,37.79-90c-1.66-2.34-45.5-4.32-59.1-16.57-17.66-15.91-4.81-39-4.81-39h49s-.89,10.23,1,11.83c1.23,1.06,59.45,7.71,65.28,27.6C285.3,323.73,235.78,418,235.78,418Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 218.615px 338.955px" id="elf02j9usv9l" class="animable"></path>
+    <path
+      d="M236.6,411.14a30,30,0,0,0-3.84-1.45c-1.36-.47-2.71-.94-4.08-1.39-2.69-.88-5.39-1.72-8.1-2.5-5.48-1.58-11-3.13-16.47-4.56-2.87-.75-9-2.37-9.41-2.32-.19,0-.23.34-.06.4,5.32,1.93,10.73,3.6,16.13,5.28s10.81,3.33,16.28,4.74c1.52.39,3,.74,4.57,1.11a34.84,34.84,0,0,0,4.84,1.07C236.62,411.53,236.77,411.23,236.6,411.14Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 215.604px 405.22px" id="elbiomclpnc6c" class="animable"></path>
+    <path
+      d="M235.29,311.72c-1-.87-2.43-1-3.66-1.26l-21.11-4.19c-6.58-1.31-13.2-2.5-19.75-4-5.42-1.22-10.93-2.8-15.56-5.9A22.91,22.91,0,0,1,166,283.5a40.74,40.74,0,0,1-.76-16.2c.16-1.31.44-2.62.73-3.91,0-.1-.14-.14-.16,0-2.09,10-2.6,21.65,4.69,29.88,3.55,4,8.52,6.45,13.62,8.09,5.75,1.85,11.79,2.82,17.71,4l21.11,4.17c3.39.67,6.83,1.21,10.18,2a3.52,3.52,0,0,1,1.82.87,2.64,2.64,0,0,1,.23,2.46c-.39,1.66-.89,3.3-1.42,4.92-4.25,13.07-34.08,75-34.89,76.42-.08.15.15.27.24.13,6.83-11.38,29.06-59.19,33.72-71.53a79.82,79.82,0,0,0,3.07-9.63C236.12,314,236.3,312.63,235.29,311.72Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 200.261px 329.846px" id="el04xpnuj8xk98" class="animable"></path>
+    <path
+      d="M250.57,388l-31-49.8c5-12,8.21-21.19,7.18-22.64-.81-1.14-11.57-2.2-24-4.39L171,259.92h40.95s-.89,10.23,1,11.83c1.23,1.07,59.45,7.71,65.28,27.6C282.68,314.78,264.52,358.17,250.57,388Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 224.957px 323.96px" id="eljvjbhq1vfz" class="animable"></path>
+    <path
+      d="M326.34,457.62c-2.4.73-72.23-1.6-74.77-3.33-.31-.19-.23-6.51,0-15.16V439c.14-5.47-.15-52.33-.15-52.33l43.72.94,1.36,46.17s9.31,4.21,17.41,8.37l0,0c5,2.54,9.33,4.86,10.32,5.7C326.84,450,328.74,456.91,326.34,457.62Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 289.404px 422.214px" id="elzz76bhhw5p" class="animable"></path>
+    <path
+      d="M326.34,457.62c-2.4.73-72.23-1.6-74.77-3.34-.31-.18-.23-6.5,0-15.14V439c0-.38,0-.77,0-1.16s0-.56,0-.84,0-.83,0-1.25c0-3.65,0-9.56,0-16l44.54,1,.38,13s9.31,4.22,17.41,8.37l0,0c5,2.55,9.34,4.86,10.32,5.7C326.83,450,328.74,456.91,326.34,457.62Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 289.402px 438.754px" id="eli1nl0boi64" class="animable"></path>
+    <path
+      d="M326.62,457.9c-2.47.73-72.39-1.78-75-3.56-1-.67-1.66-11.49-.27-23.37l45.07,1.67s25.47,12.91,28.12,15.17S329.09,457.17,326.62,457.9Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 289.162px 444.5px" id="elgbv6wrjgq2" class="animable"></path>
+    <path
+      d="M325.72,455.06c-11.71-.7-59-2.45-70.64-2.26-.09,0-.09.06,0,.07,11.59,1,58.9,2.32,70.63,2.39C326,455.26,326,455.08,325.72,455.06Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 290.471px 454.023px" id="elgcl799c2l8h" class="animable"></path>
+    <path
+      d="M320.14,445.13a9.43,9.43,0,0,0-7.11,2.61,9.13,9.13,0,0,0-2.85,6.16c0,.07.13.08.15,0a10.88,10.88,0,0,1,9.81-8.63A.08.08,0,0,0,320.14,445.13Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 315.181px 449.534px" id="elbk3fvsji5hr" class="animable"></path>
+    <path
+      d="M300.06,433.94c-4.68-.23-10.18,1.23-13.24,5-.11.15.09.31.24.25a64.61,64.61,0,0,1,13.06-4.63A.29.29,0,0,0,300.06,433.94Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 293.595px 436.56px" id="eloh2qstsov7" class="animable"></path>
+    <path
+      d="M303.63,435.48c-4.68-.23-10.18,1.23-13.23,5-.12.15.08.31.23.25a64.82,64.82,0,0,1,13.06-4.63A.29.29,0,0,0,303.63,435.48Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 297.167px 438.1px" id="elms12qfjj8fa" class="animable"></path>
+    <path
+      d="M307.21,437c-4.69-.23-10.19,1.23-13.24,5-.12.15.09.32.23.25a64.27,64.27,0,0,1,13.07-4.62A.3.3,0,0,0,307.21,437Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 300.745px 439.621px" id="el3nhjm6cvwyb" class="animable"></path>
+    <path
+      d="M310.78,438.57c-4.69-.24-10.19,1.22-13.24,5-.12.14.09.31.23.24a64.88,64.88,0,0,1,13.07-4.62A.3.3,0,0,0,310.78,438.57Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 304.313px 441.186px" id="elzqduedwqa8" class="animable"></path>
+    <path d="M258.47,441.77c-5.27-.17-5.55,8-.27,8.18S263.74,442,258.47,441.77Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 258.335px 445.86px" id="elrd1zig1zkc" class="animable"></path>
+    <path
+      d="M305.58,421.61c-2.3-2.06-5.36-.24-6.9,1.75A24.58,24.58,0,0,0,294,435.2a.12.12,0,0,0,.14.14.57.57,0,0,0,.83.41c3.42-2.19,7.35-4.11,10-7.28C306.51,426.61,307.76,423.55,305.58,421.61Zm-6.11,9.76c-1.66,1.12-3.36,2.15-5,3.33a73.77,73.77,0,0,1,2.9-6.86,26.75,26.75,0,0,1,1.82-3.1c1.08-1.51,5.82-5.27,6.11-.15C305.47,427.41,301.44,430,299.47,431.37Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 300.375px 428.26px" id="el69u04b4n978" class="animable"></path>
+    <path
+      d="M282.27,436.53c4.06.77,8.32-.24,12.35-.72A.57.57,0,0,0,295,435a.12.12,0,0,0,0-.2,24.71,24.71,0,0,0-11.15-6.18c-2.45-.56-6,0-6.44,3C277,434.5,279.9,436.07,282.27,436.53Zm-2.74-2.78c-3-4.13,3-4.24,4.82-3.75a27.31,27.31,0,0,1,3.38,1.23,73.66,73.66,0,0,1,6.58,3.47c-2,.11-4,.4-5.95.58C286,435.51,281.2,436,279.53,433.75Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 286.216px 432.619px" id="elie2rv0ww0mq" class="animable"></path>
+    <path
+      d="M299.14,427.2l-49.3-1.45s3.13-84-.59-89.08c-5-6.74-77-8.73-91.86-30.67-13.31-19.71-.78-46.67-.78-46.67h54.63a112.46,112.46,0,0,1-5.57,17s65.39,14.09,83.22,34.81C300.91,325.16,299.14,427.2,299.14,427.2Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 225.248px 343.265px" id="elnnvitcywtyk" class="animable"></path>
+    <path
+      d="M215.38,272.92a26.45,26.45,0,0,0-4.67,1.34c-1.58.55-3.15,1.19-4.67,1.88a88.7,88.7,0,0,0-8.79,4.63c-.08.05,0,.17.09.13,3-1.45,6.09-2.74,9.18-4l4.47-1.77a47.87,47.87,0,0,0,4.51-1.84C215.69,273.23,215.6,272.88,215.38,272.92Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 206.41px 276.912px" id="elnohrn646uz" class="animable"></path>
+    <path
+      d="M212.51,259.35c-.7,2.47-1.32,5-2.11,7.41-.36,1.12-.71,2.27-1.17,3.35-.39.92-1,2-2,2.14-1.25.2-1.57-.87-1.44-1.89s.47-2.27.73-3.38c.3-1.29.6-2.57.88-3.87.13-.64.27-1.29.4-1.93,0-.17.19-1.41.29-1.76,0,0,0,.06.07.05h0s.08,0,.08-.06,0-.12-.06-.19a.09.09,0,0,0-.11,0c-.24.12-.27.44-.35.68-.22.62-.44,1.25-.65,1.88-.38,1.18-.75,2.36-1.08,3.55s-.67,2.39-1,3.58a5.67,5.67,0,0,0-.33,2.76,2.11,2.11,0,0,0,1.91,1.65c0,.08-.1.16-.14.24-.11.24-.2.5-.3.75s-.2.51-.28.77a2.87,2.87,0,0,0-.08.38c0,.15,0,.29,0,.43a.21.21,0,0,0,.38.15c.07-.12.17-.22.25-.34a1.92,1.92,0,0,0,.19-.41c.09-.25.17-.49.24-.75s.16-.5.21-.75,0-.31.06-.46a2.75,2.75,0,0,0,1.45-.5,4.88,4.88,0,0,0,1.56-2.23c.41-1,.73-2.1,1-3.15a46.59,46.59,0,0,0,1.83-8A.23.23,0,0,0,212.51,259.35Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 208.777px 267.665px" id="el1zebsjutxcz" class="animable"></path>
+    <path
+      d="M179.87,264.48c-.26,1.23-.44,2.47-.77,3.69s-.67,2.38-1.1,3.54a12.6,12.6,0,0,1-1.62,3.16,11.81,11.81,0,0,1-2.49,2.4,20.41,20.41,0,0,1-5.95,3.08,28.6,28.6,0,0,1-3.27.86c-.58.11-1.17.19-1.75.25a3.73,3.73,0,0,0-1.41.28.29.29,0,0,0,0,.49,5,5,0,0,0,2.59.16,18.83,18.83,0,0,0,2.78-.41,20.13,20.13,0,0,0,5.29-2,16.52,16.52,0,0,0,4.47-3.45,12.41,12.41,0,0,0,2.49-5.05,25.43,25.43,0,0,0,1-6.93A.12.12,0,0,0,179.87,264.48Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 170.755px 273.435px" id="elul8elr3ni2i" class="animable"></path>
+    <path
+      d="M258.62,369.19q-.37-11.64-1.24-23.27c-.14-1.91-.27-3.82-.45-5.73a18.05,18.05,0,0,0-.83-4.37c-1.05-2.94-3.42-4.48-6.32-5.3-3.43-1-7-1.6-10.47-2.28s-7.15-1.31-10.73-1.92c-7.26-1.23-14.54-2.39-21.76-3.82A175.86,175.86,0,0,1,185.53,317c-6.39-2.14-12.93-4.74-18-9.37-10.82-10-10.75-26.11-9-39.57.25-1.9.54-3.8.83-5.69,0-.1-.14-.14-.15,0-1.11,7.58-2.36,15.2-1.83,22.88A37.4,37.4,0,0,0,163,303.17c3.6,5.51,9.06,9.16,15,11.77a121.14,121.14,0,0,0,20.27,6.5c14.32,3.44,29,5.16,43.4,8.07q2.67.54,5.33,1.14a22.2,22.2,0,0,1,4.79,1.43c3.24,1.57,4,4.81,4.36,8.13.72,7.72,1.13,15.48,1.46,23.22.66,15.61.79,31.28.3,46.9-.06,1.93-.13,3.85-.21,5.78,0,.17.26.16.27,0C258.88,400.48,259.14,384.84,258.62,369.19Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 208.07px 339.257px" id="el60tojb5ukr" class="animable"></path>
+    <path
+      d="M297,421.21a29.64,29.64,0,0,0-4.08-.47c-1.43-.12-2.87-.25-4.3-.35-2.82-.19-5.65-.35-8.47-.44-5.69-.19-11.39-.35-17.08-.39-3,0-9.34-.09-9.7.06-.17.07-.13.38,0,.4,5.64.57,11.29.86,16.94,1.16s11.29.59,16.95.62c1.56,0,3.13,0,4.69,0a34.22,34.22,0,0,0,5-.15C297.13,421.58,297.2,421.25,297,421.21Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 275.189px 420.683px" id="elxbbz4fvxen" class="animable"></path>
+    <path
+      d="M210,213.28c4.93,21.08,6.23,36.34,12.21,40.28,4.83,3.17,11.61,5.4,18.58,6.95a172.89,172.89,0,0,0,22.6,3.23c2.34.2,4.29.32,5.67.42,3.42.22,9-22.36,6.59-25.11-.56-.63-2.81-1.12-6-1.52-10.64-1.34-31.59-1.65-32.84-2.84s-10-15.6-17.67-29.06C211.9,192.74,206.9,199.88,210,213.28Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 242.65px 231.506px" id="eli3mp5tv6jeg" class="animable"></path>
+    <path
+      d="M262.24,261.88a81.88,81.88,0,0,0,10.17,3.75c2.76.69,10.77,2.47,11.84-.5.73-2-3.86-3.63-7.08-4.83-1.7-.64-3.82-2.31-3.37-3.4.79-1.91,5.16-.18,8.05,1.36,5.59,3,13.08,8.42,16.32,5.53,1.23-1.1-.31-3-2.53-4.75,3.57,2.06,7.34,3.71,8.75,2.55a1.84,1.84,0,0,0,.32-2.51,2.43,2.43,0,0,0,2.67-.52c1.09-1.22.47-2.95-.84-4.7a1.34,1.34,0,0,0,1-.71c2.26-3.74-10.12-13.79-14.3-14.62-12.31-2.45-25.25-.91-25.25-.91C263.35,241.63,262.23,261.87,262.24,261.88Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 285.09px 251.967px" id="eleojxszwnonj" class="animable"></path>
+    <path
+      d="M279.76,249.84a20,20,0,0,1,8.26,2.84c2.92,1.85,5.28,4.43,8,6.55.07.06,0,.17-.09.11-1.28-1.1-2.68-2.07-4-3.12s-2.57-2.09-3.93-3a19.72,19.72,0,0,0-8.24-3.31S279.73,249.84,279.76,249.84Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 287.898px 254.599px" id="eltsc6wwin0v" class="animable"></path>
+    <path
+      d="M281.84,244.58a49.9,49.9,0,0,1,9.59,2.93c3.32,1.54,6,4.16,8.57,6.67q2.36,2.26,4.59,4.62c.06.07,0,.18-.09.12q-4-3.9-8.16-7.55a26,26,0,0,0-8.84-5.12c-1.86-.64-3.76-1.12-5.67-1.61C281.8,244.63,281.81,244.57,281.84,244.58Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 293.213px 251.758px" id="elyvwcfo616g8" class="animable"></path>
+    <path
+      d="M285.1,239.93c3.14.52,5.88,1,8.7,2.54a44.15,44.15,0,0,1,8.68,6.94c1.43,1.41,2.8,2.86,4.15,4.34.05.06-.05.16-.11.1a103,103,0,0,0-9.85-9.06,20.48,20.48,0,0,0-5.44-3.26A37,37,0,0,0,285.1,240S285.09,239.93,285.1,239.93Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 295.87px 246.899px" id="elo415izt7l4" class="animable"></path>
+    <path
+      d="M257.88,264.61l9.88-27.88s-28.54-1.2-30.38-2.39S226.11,215.83,219,204.19c-5.62-9.14-12.58-8.48-9.4,9.93,3.36,19.4,6.16,34.68,11,39.13C228.79,260.78,257.88,264.61,257.88,264.61Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 238.28px 231.522px" id="elj0vkvbt9e78" class="animable"></path>
+    <g id="elj75ptcf9qw">
+      <g style="opacity: 0.1; transform-origin: 238.27px 231.534px" class="animable">
+        <path d="M214,198.9l-3-.06A2.94,2.94,0,0,1,214,198.9Z" id="el3czwhfbi3r5" class="animable"
+          style="transform-origin: 212.5px 198.679px"></path>
+        <path d="M219.83,205.61l-11.05-.2a17.1,17.1,0,0,1,.33-3.14l8.66.15a21.19,21.19,0,0,1,1.2,1.78Z"
+          id="elb2odirqvzvw" class="animable" style="transform-origin: 214.305px 203.94px"></path>
+        <path d="M223.8,212.29,209.24,212c-.16-1.13-.27-2.18-.35-3.16l13,.24Z" id="elo9ujx66oo6e" class="animable"
+          style="transform-origin: 216.345px 210.565px"></path>
+        <path d="M227.7,219l-17.34-.32c-.18-1-.37-2.09-.56-3.16l16,.29Z" id="el8dekjihvfnv" class="animable"
+          style="transform-origin: 218.75px 217.26px"></path>
+        <path d="M231.61,225.64l-20.06-.37c-.19-1-.38-2.09-.58-3.16l18.77.35C230.39,223.57,231,224.63,231.61,225.64Z"
+          id="elmd0j4ajam5" class="animable" style="transform-origin: 221.29px 223.875px"></path>
+        <path d="M235.74,232.32l-22.9-.42c-.21-1-.42-2.08-.63-3.16l21.5.39C234.48,230.39,235.17,231.47,235.74,232.32Z"
+          id="elh1cqbv5rds9" class="animable" style="transform-origin: 223.975px 230.53px"></path>
+        <path
+          d="M267.76,236.73l-1,2.76-52.45-1c-.25-1-.5-2.07-.75-3.16l42.42.77h0C262.3,236.5,267.76,236.73,267.76,236.73Z"
+          id="elf3xg6qikowc" class="animable" style="transform-origin: 240.66px 237.41px"></path>
+        <path d="M265.56,242.93l-1.1,3.12-48.24-.88c-.33-1-.66-2-1-3.16Z" id="elgynjw6pa1iw" class="animable"
+          style="transform-origin: 240.39px 244.03px"></path>
+        <path d="M263.24,249.49l-1.11,3.13-42.78-.78a18.7,18.7,0,0,1-1.77-3.19Z" id="elqxfse2cs3kq" class="animable"
+          style="transform-origin: 240.41px 250.635px"></path>
+        <path d="M260.91,256.05l-1.1,3.13-28.68-.53a44.19,44.19,0,0,1-7.58-3.29Z" id="el2n5j97345tg" class="animable"
+          style="transform-origin: 242.23px 257.27px"></path>
+        <path d="M258.59,262.61l-.71,2s-5.72-.76-12.81-2.25Z" id="elrgvjcruf8xh" class="animable"
+          style="transform-origin: 251.83px 263.485px"></path>
+      </g>
+    </g>
+    <path
+      d="M257.34,250.07c.79-2.19,1.55-4.38,2.29-6.59s1.34-4.61,2.17-6.86c0-.1-.12-.13-.15,0-.8,2.25-1.84,4.42-2.69,6.65s-1.64,4.33-2.43,6.52c-1.58,4.4-3.19,8.82-4.46,13.32,0,.13.17.22.23.09C254.18,258.89,255.76,254.46,257.34,250.07Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 256.935px 249.898px" id="elqzx3d98dh5k" class="animable"></path>
+    <path d="M235.15,259.91c-6-1.73-11.62-4-14.56-6.65-4.86-4.46-7.66-19.73-11-39.14C207,199.39,211,196,215.54,200Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 221.962px 229.179px" id="el1gprjrabmol" class="animable"></path>
+    <path
+      d="M217.14,271.72c-1.69,1.26-66.57-.56-66.83-1-.7-1.28,19.22-59.83,47.59-77.15,5-3,12.33-.52,15.45,2.13,1.56,1.32,5.87,11.1,6.2,19S218.2,270.92,217.14,271.72Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 184.942px 232.178px" id="elzl02qf40qgi" class="animable"></path>
+    <g id="eldtlqvml4kg9">
+      <g style="opacity: 0.1; transform-origin: 184.949px 233.51px" class="animable">
+        <path d="M215.34,198.93l-24.13-.44c1.27-1.11,2.57-2.14,3.88-3.08l18.33.33A12.67,12.67,0,0,1,215.34,198.93Z"
+          id="el89whdqlfg43" class="animable" style="transform-origin: 203.275px 197.17px"></path>
+        <path d="M217.87,205.58l-33.2-.61q1.43-1.6,2.92-3.09l29.21.53C217.18,203.41,217.54,204.48,217.87,205.58Z"
+          id="elwjqgb344u4n" class="animable" style="transform-origin: 201.27px 203.73px"></path>
+        <path d="M219.34,212.21l-40-.73c.8-1.06,1.62-2.1,2.44-3.11l37,.68C219,210.1,219.2,211.16,219.34,212.21Z"
+          id="elf6nw7sfa4i" class="animable" style="transform-origin: 199.34px 210.29px"></path>
+        <path d="M219.59,218.81,174.72,218c.69-1.05,1.4-2.09,2.12-3.11l42.75.77C219.6,216.5,219.6,217.56,219.59,218.81Z"
+          id="el59fsfux5r4c" class="animable" style="transform-origin: 197.159px 216.85px"></path>
+        <path d="M219.55,222.27c0,1,0,2-.05,3.15l-48.89-.89c.62-1.05,1.25-2.09,1.9-3.12Z" id="elc5vra8eyly7"
+          class="animable" style="transform-origin: 195.08px 223.415px"></path>
+        <path d="M219.42,228.87q0,1.53-.09,3.15l-52.45-1c.57-1,1.14-2.08,1.74-3.12Z" id="el08v6g6l1al87"
+          class="animable" style="transform-origin: 193.15px 229.96px"></path>
+        <path d="M219.22,235.47c0,1-.06,2.09-.09,3.15l-55.66-1c.51-1,1-2.07,1.58-3.12Z" id="elhhmozdu4rwm"
+          class="animable" style="transform-origin: 191.345px 236.56px"></path>
+        <path d="M219,242.07l-.12,3.15-58.58-1.07c.48-1,1-2.07,1.47-3.12Z" id="eltryqggxku78" class="animable"
+          style="transform-origin: 189.65px 243.125px"></path>
+        <path d="M218.75,248.67c0,1.07-.08,2.12-.13,3.15l-61.23-1.12c.44-1,.9-2.06,1.37-3.12Z" id="el5881fu0uaeg"
+          class="animable" style="transform-origin: 188.07px 249.7px"></path>
+        <path d="M218.46,255.27c-.05,1.08-.1,2.13-.16,3.14l-63.59-1.15c.39-1,.81-2,1.25-3.13Z" id="elydnv4nkilq"
+          class="animable" style="transform-origin: 186.585px 256.27px"></path>
+        <path d="M218.11,261.87c-.06,1.12-.13,2.18-.2,3.15l-65.64-1.21c.34-1,.72-2,1.13-3.13Z" id="elu11he4kkzhb"
+          class="animable" style="transform-origin: 185.19px 262.85px"></path>
+        <path d="M217.65,268.47a17.53,17.53,0,0,1-.44,3.14l-66.91-1.23a25.66,25.66,0,0,1,.83-3.13Z" id="elvhzbkjx0tf"
+          class="animable" style="transform-origin: 183.975px 269.43px"></path>
+      </g>
+    </g>
+    <path d="M219.11,173.39c0,3.9,2.77,7.06,6.19,7.06s6.19-3.16,6.19-7.06-2.77-7-6.19-7S219.11,169.49,219.11,173.39Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 225.3px 173.42px" id="elpesu5117zrq" class="animable"></path>
+    <ellipse cx="223.99" cy="173.64" rx="6.89" ry="7.85"
+      style="fill: rgb(199, 199, 199); transform-origin: 223.99px 173.64px" id="elyzi2kcbjime" class="animable">
+    </ellipse>
+    <path
+      d="M212,205.15c-3.76.67-9.79-5.36-12-10.09-.15-.32,1.88-12.82,2-15.34,0-.52,15.58,4.74,15.58,4.74a40,40,0,0,0-2.08,9.59C215.49,194.41,215.64,204.51,212,205.15Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 208.786px 192.443px" id="elb2o45den3ln" class="animable">
+    </path>
+    <path
+      d="M215.55,195.08s0,.11,0,.17h-.08a8.9,8.9,0,0,1-1.55,0c-8.58-.69-10.87-11.41-11.44-15.52,2.65.52,15.09,4.73,15.09,4.73A40,40,0,0,0,215.5,194c0,.12,0,.24,0,.35A3.85,3.85,0,0,0,215.55,195.08Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 210.025px 187.507px" id="elka2w7j2e50l" class="animable"></path>
+    <path
+      d="M204.3,159.87c-2.9,5.1-3.55,21.56-.45,26,4.5,6.38,13.63,8.94,19.49,3.13,5.69-5.63,6.16-27.1,2.53-31.28C220.53,151.52,208.58,152.34,204.3,159.87Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 214.999px 172.917px" id="elbh1795qilwu" class="animable">
+    </path>
+    <path d="M217.86,173s-.09.05-.09.09c0,1.11-.22,2.38-1.24,2.71a0,0,0,0,0,0,.06C217.77,175.71,218,174,217.86,173Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 217.213px 174.43px" id="elca4tsq38sh" class="animable"></path>
+    <path d="M216.92,171.77c-1.78-.22-2.08,3.35-.43,3.55S218.41,172,216.92,171.77Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 216.651px 173.544px" id="elojes8kcsls" class="animable"></path>
+    <path d="M224,173.65s.08.06.08.1c-.13,1.11-.09,2.39.88,2.84,0,0,0,.07,0,.06C223.69,176.38,223.65,174.67,224,173.65Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 224.386px 175.15px" id="elwaankzpkvs" class="animable"></path>
+    <path d="M225,172.58c1.79,0,1.63,3.59,0,3.58S223.54,172.56,225,172.58Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 225.062px 174.37px" id="elst0x5lyyas" class="animable"></path>
+    <path
+      d="M215.65,170c.49-.09.94-.24,1.42-.37a2.39,2.39,0,0,0,1.38-.66.75.75,0,0,0,0-.92,1.89,1.89,0,0,0-1.87-.36,2.79,2.79,0,0,0-1.69,1.06A.81.81,0,0,0,215.65,170Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 216.682px 168.794px" id="elf0jlzd4sb3" class="animable"></path>
+    <path
+      d="M226.57,170.89a13.41,13.41,0,0,1-1.39-.48,2.46,2.46,0,0,1-1.32-.77.76.76,0,0,1,.12-.92,1.88,1.88,0,0,1,1.89-.19,2.69,2.69,0,0,1,1.59,1.19A.8.8,0,0,1,226.57,170.89Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 225.66px 169.637px" id="elcrf1xwrego8" class="animable"></path>
+    <path
+      d="M215.68,183.11c.24.28.48.66.88.72a2.94,2.94,0,0,0,1.21-.17s.07,0,0,.06a1.49,1.49,0,0,1-1.45.48,1.18,1.18,0,0,1-.79-1C215.56,183.08,215.65,183.07,215.68,183.11Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 216.666px 183.662px" id="elrm4vy3l8x6p" class="animable"></path>
+    <path
+      d="M217.12,179.89a3.77,3.77,0,0,0,2.37,1.89,4.77,4.77,0,0,0,1.35.18h.26l.25,0a.28.28,0,0,0,.24-.23h0a.21.21,0,0,0,0-.11h0v-.1c.09-.84.12-2.15.12-2.15.3.19,1.82,1,1.84.59a56.28,56.28,0,0,0-.51-11.52.1.1,0,0,0-.2,0c-.23,3.55.17,7.12,0,10.69a6.52,6.52,0,0,0-1.73-.68c-.13,0,0,2.51-.08,2.89a.1.1,0,0,1,0,0,5.25,5.25,0,0,1-3.8-1.54C217.16,179.73,217.06,179.8,217.12,179.89Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 220.374px 175.15px" id="elf0t2pd91ctt" class="animable"></path>
+    <path
+      d="M220.38,181.48a4.46,4.46,0,0,1-1.91,1.24,2,2,0,0,1-1.22,0c-.87-.3-.82-1.12-.6-1.8a4.78,4.78,0,0,1,.48-1A5.82,5.82,0,0,0,220.38,181.48Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 218.447px 181.368px" id="elj1y0hx5ji1d" class="animable"></path>
+    <path d="M218.47,182.72a2,2,0,0,1-1.22,0c-.87-.3-.82-1.12-.6-1.8A2.08,2.08,0,0,1,218.47,182.72Z"
+      style="fill: rgb(255, 153, 186); transform-origin: 217.492px 181.868px" id="elobtwh67d4ll" class="animable">
+    </path>
+    <path
+      d="M203.2,172c3.82,0,4.64-6.9,4.64-6.9s6.57-1,7.57-5.94c0,0,6.18,4,11.1,2.32s4.29-7.82,3.75-9c-1.25-2.72-5.35.71-5.35.71s-6.13-3.79-13.14-3.17c-5.7.51-8.62,5.84-8.62,5.84s-3.06.62-4.07,2.75S200.77,172,203.2,172Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 214.742px 160.976px" id="elv2l39eno5f" class="animable"></path>
+    <path
+      d="M206.29,165.15c5.07.73,8.47-2.61,9.25-7.46a.05.05,0,0,1,.1,0c-.19,4.52-4.47,9.52-9.4,7.68C206.12,165.33,206.16,165.13,206.29,165.15Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 210.904px 161.701px" id="elwjuzgjqloni" class="animable"></path>
+    <path
+      d="M203.29,155.79c.06,0,.09.08,0,.1-1.43.65-3.06,1.12-4.07,2.41-1.22,1.55-1,3.6-.55,5.38.66,2.76,2,6.35,4.49,8,.14.1,0,.3-.15.22-2.93-1.77-4.6-6.43-5-9.67C197.65,158.58,199.93,156.54,203.29,155.79Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 200.66px 163.854px" id="elquqr7xi5l6o" class="animable"></path>
+    <path
+      d="M221,160.56a7,7,0,0,0,7.75-.12c2.7-2,2.19-5.37,1.08-8.16-.06-.14.13-.29.21-.15,1.54,2.46,1.61,6.19-.61,8.29s-6.21,2.09-8.65.47C220.54,160.76,220.76,160.42,221,160.56Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 225.914px 157.065px" id="elfu10233rss6" class="animable"></path>
+    <path
+      d="M214.86,177.86A4.75,4.75,0,1,1,220.6,173h0A4.76,4.76,0,0,1,216,178,4.63,4.63,0,0,1,214.86,177.86Zm1.84-8.67a4.22,4.22,0,0,0-1-.09,4.13,4.13,0,1,0,1,.09Z"
+      style="fill: rgb(69, 90, 100); transform-origin: 215.856px 173.233px" id="el1pm6m8ux437" class="animable"></path>
+    <path
+      d="M225.72,178.81c-1.78-.38-3-2.54-2.77-5a5.66,5.66,0,0,1,1.3-3.21,3,3,0,0,1,5.05.46,5.75,5.75,0,0,1,.69,3.4c-.24,2.61-2,4.59-4,4.41Zm1.37-8.74-.24,0a2.53,2.53,0,0,0-2.12,1,5,5,0,0,0-1.15,2.85c-.21,2.26.91,4.22,2.51,4.36s3.06-1.57,3.27-3.82a5.09,5.09,0,0,0-.61-3A2.6,2.6,0,0,0,227.09,170.07Z"
+      style="fill: rgb(69, 90, 100); transform-origin: 226.472px 174.154px" id="elaran5po88wc" class="animable"></path>
+    <path d="M220.39,173.56,220,173c.78-.54,2.51-1.2,3.55.15l-.5.38C222.14,172.37,220.46,173.51,220.39,173.56Z"
+      style="fill: rgb(69, 90, 100); transform-origin: 221.775px 172.957px" id="elgpt2pze9lur" class="animable"></path>
+    <path
+      d="M199.2,172.82l-.53-.34c.16-.25,1.6-2.44,3-2.54s9.74,1.49,10.1,1.56l-.12.62c-2.41-.45-8.9-1.62-9.94-1.54S199.59,172.22,199.2,172.82Z"
+      style="fill: rgb(69, 90, 100); transform-origin: 205.22px 171.378px" id="elzhe7cwy37uo" class="animable"></path>
+    <path d="M204.79,173.52s-2.55-5.87-5.14-5.06-1.4,8.8,1.13,10.37a2.83,2.83,0,0,0,4-.73Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 201.495px 173.871px" id="el5plnnrv541u" class="animable">
+    </path>
+    <path
+      d="M200.05,170.74s-.07,0,0,.07c1.76,1.17,2.41,3.15,2.74,5.14a1.57,1.57,0,0,0-2.21-.89.06.06,0,0,0,0,.12,1.73,1.73,0,0,1,1.76,1,8,8,0,0,1,.59,1.7c.06.19.39.17.36-.05v0C203.83,175.33,202.63,171.52,200.05,170.74Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 201.718px 174.375px" id="elzxb8az8wnx" class="animable"></path>
+    <path
+      d="M201.07,169.26s-.48-8.51,2.06-13.18c2.83-5.2,14-8.56,21.78-2.87,0,0-12.39-3.91-18.42,3.28-2.54,3-2.58,13-2.58,13Z"
+      style="fill: rgb(199, 199, 199); transform-origin: 212.972px 159.868px" id="eld3cijbr4qq" class="animable"></path>
+    <ellipse cx="202.11" cy="173.64" rx="6.89" ry="7.85"
+      style="fill: rgb(199, 199, 199); transform-origin: 202.11px 173.64px" id="eljytphurkjg" class="animable">
+    </ellipse>
+    <path d="M207,173.39c0,3.9-2.77,7.06-6.19,7.06s-6.19-3.16-6.19-7.06,2.77-7,6.19-7S207,169.49,207,173.39Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 200.81px 173.42px" id="el5pas33lo568" class="animable"></path>
+    <path d="M308.35,226.68c.54.65,1,1.35.66,1.61h0c-.31.24-.92-.31-1.45-1Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 308.343px 227.514px" id="el82ifddaguvw" class="animable"></path>
+    <path
+      d="M308.11,219.66c.56.68.65,5.48.41,7.23a.86.86,0,0,1-.79.67c-1.74-.11-6.47-1.12-7-1.8-.38-.46-1.24-2.53-2.28-4.55-1.35-2.65-24.16-31.83-24.25-32.29s.66-1.21,1.11-1.57,1.34-1,1.77-.8,24.69,28.16,27,30C305.87,218,307.73,219.2,308.11,219.66Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 291.419px 207.036px" id="el7mk5rh75dov" class="animable"></path>
+    <path
+      d="M308.12,219.66a.79.79,0,0,1,.12.26,23.26,23.26,0,0,1-3.63,3.81A15.17,15.17,0,0,1,301,226a.79.79,0,0,1-.31-.21,3.11,3.11,0,0,1-.22-.33c1.22-.48,4.21-2,7.31-6.08A2.49,2.49,0,0,1,308.12,219.66Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 304.355px 222.69px" id="elmwt1dn53fqb" class="animable"></path>
+    <g id="elxf6k0qemvkj">
+      <rect x="296.98" y="208.83" width="1.98" height="12.1" rx="0.73" style="
+          fill: rgb(38, 50, 56);
+          transform-origin: 297.97px 214.88px;
+          transform: rotate(-39.47deg);
+        " class="animable"></rect>
+    </g>
+    <g id="el8hi720gya7s">
+      <rect x="298.45" y="212.33" width="1.15" height="7.68" rx="0.43" style="
+          fill: rgb(166, 166, 166);
+          transform-origin: 299.025px 216.17px;
+          transform: rotate(-39.47deg);
+        " class="animable"></rect>
+    </g>
+    <g id="el058ymw01jnba">
+      <rect x="299.18" y="216.89" width="1.15" height="0.34" style="
+          fill: rgb(38, 50, 56);
+          transform-origin: 299.755px 217.06px;
+          transform: rotate(-39.46deg);
+        " class="animable"></rect>
+    </g>
+    <path
+      d="M191.13,209.09c6.18,17.32,18.71,34.95,29.12,36.66s37.21-9.86,45.41-13.76c3.16-1.5-7.44-28.64-10.81-27-5.71,2.78-30.48,17-32.48,16.44-1.25-.34-12.18-8.62-21.37-17.28C189,192.88,189.2,203.7,191.13,209.09Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 228.192px 222.568px" id="el6uyqembp15a" class="animable">
+    </path>
+    <path
+      d="M299.82,200.17c.44,3.46-8.19,3.83-8.19,3.83a6.49,6.49,0,0,1,3,3.17c1,2.47-2.5,5.06-2.5,5.06a7.94,7.94,0,0,1,2.66,3.85c.68,2.46-2.44,5.57-2.44,5.57a7,7,0,0,1,.21,4.86c-1.55,4.2-8.24,5.59-12.48,6.52s-17.16-.41-19.64-.42l-6.2-27.19s17.85-9.58,23-10C281.6,195.14,299.15,194.88,299.82,200.17Z"
+      style="fill: rgb(247, 169, 160); transform-origin: 277.038px 214.328px" id="elxki4ofhtem" class="animable"></path>
+    <path
+      d="M291.55,203.91c-4.69-.76-9.56-.4-14.25,0a.08.08,0,0,0,0,.16c4.66-.45,9.55.33,14.22.07A.12.12,0,0,0,291.55,203.91Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 284.422px 203.83px" id="elw033oocvbvh" class="animable"></path>
+    <path
+      d="M292,211.89a12.5,12.5,0,0,0-3.23.22c-1.14.15-2.28.33-3.41.52-2.26.38-4.52.82-6.76,1.32-.1,0-.09.18,0,.17,2.26-.38,4.53-.73,6.8-1,1.14-.15,2.27-.28,3.41-.4a15.12,15.12,0,0,0,3.21-.5A.17.17,0,0,0,292,211.89Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 285.335px 212.993px" id="el0415wkyh8apq" class="animable"></path>
+    <path
+      d="M292.28,221.66a8.71,8.71,0,0,0-2.9.35q-1.54.3-3.09.57c-2.06.37-4.12.74-6.19,1-.11,0-.09.18,0,.16,2.11-.29,4.22-.55,6.33-.86l3.1-.48a8.1,8.1,0,0,0,2.76-.67A.06.06,0,0,0,292.28,221.66Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 286.161px 222.696px" id="elrsuo7cnknb" class="animable"></path>
+    <path
+      d="M246.87,207.79l12.28,29.59s-30.8,12.06-40.31,9.23-22.63-22-26.89-33.42-3.16-21.07,11.39-8.21,18.53,15.61,19.45,15.44S246.87,207.79,246.87,207.79Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 224.461px 222.947px" id="elfbw18t45occ" class="animable"></path>
+    <g id="elb79wgj196ev">
+      <g style="opacity: 0.1; transform-origin: 224.452px 223.725px" class="animable">
+        <path d="M203.71,205.32l-13.85-.25a11.74,11.74,0,0,1,0-3.15l9.91.18q1.62,1.18,3.55,2.89Z" id="el1cqcv7d9e9m"
+          class="animable" style="transform-origin: 196.732px 203.62px"></path>
+        <path d="M207.73,208.85q2,1.77,3.73,3.21l-20.05-.36c-.36-1.09-.67-2.15-.93-3.17Z" id="elr0iag3tawf8"
+          class="animable" style="transform-origin: 200.97px 210.295px"></path>
+        <path d="M248.93,212.75l-10.94-.2,5.7-3.05,3.92.07Z" id="elts4we4ntyr" class="animable"
+          style="transform-origin: 243.46px 211.125px"></path>
+        <path d="M215.67,215.59c1.76,1.44,3.11,2.49,4.14,3.23l-25.6-.47c-.54-1.1-1-2.16-1.47-3.18Z" id="elsx4nf6s4qi"
+          class="animable" style="transform-origin: 206.275px 216.995px"></path>
+        <path d="M251.69,219.4l-25.8-.47c1.58-.81,3.62-1.89,5.82-3.05l18.66.34Z" id="el4z5mxbzyr2c" class="animable"
+          style="transform-origin: 238.79px 217.64px"></path>
+        <path d="M254.45,226.06l-56.54-1c-.66-1.07-1.28-2.14-1.87-3.19l57.09,1Z" id="els76ey0bhv9o" class="animable"
+          style="transform-origin: 225.245px 223.965px"></path>
+        <path d="M257.21,232.71l-54.84-1c-.77-1-1.51-2.11-2.23-3.19l55.75,1Z" id="el4in23fouqx" class="animable"
+          style="transform-origin: 228.675px 230.615px"></path>
+        <path d="M259.15,237.39s-2,.77-5,1.87l-46.28-.84c-.93-1-1.85-2.08-2.76-3.2l53.59,1Z" id="el9ux9jeljck9"
+          class="animable" style="transform-origin: 232.13px 237.24px"></path>
+        <path d="M244.3,242.53c-3.49,1.08-7.24,2.14-10.84,3l-17.81-.33a28.5,28.5,0,0,1-4.29-3.23Z" id="el80x9swtdaun"
+          class="animable" style="transform-origin: 227.83px 243.75px"></path>
+      </g>
+    </g>
+    <path
+      d="M258.82,237.37c-4.65,1.71-9.3,3.37-14.06,4.76s-16.93,4.45-21.93,4.63a12.47,12.47,0,0,1-6.59-1.91,26.39,26.39,0,0,1-5.43-4.39c-1.7-1.7-3.31-3.49-4.9-5.29-1.82-2-3.57-4.15-5.32-6.26s-3.68-4.45-5.36-6.78c-.06-.08-.19,0-.14.08,1.47,2.08,2.87,4.2,4.38,6.25.62.84,1.26,1.67,1.91,2.49-.34-.25-.68-.51-1-.75-1.3-.9-2.64-1.76-3.89-2.73-.09-.07-.19.06-.1.12,1.28.91,2.46,1.94,3.65,2.94.59.49,1.18,1,1.78,1.44l.86.64.12.09,1.33,1.65c1.6,2,3.24,3.87,4.93,5.73a31.2,31.2,0,0,0,5.23,4.78,14.06,14.06,0,0,0,6.31,2.74c4.67.54,17.26-2.57,22.17-4A127.72,127.72,0,0,0,259,237.9C259.3,237.76,259.16,237.24,258.82,237.37Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 227.122px 234.88px" id="el0ki9vezjfnx" class="animable"></path>
+    <path
+      d="M227.12,218.21c-.69.32-3.12,1.81-4,1.88a3.15,3.15,0,0,1-2.15-.87c-.66-.52-1.32-1.06-2-1.57l-2.51-1.91-.12-.17c-.12-.18-.25-.36-.38-.53l-.81-1c-.54-.66-1.1-1.3-1.65-1.95-.07-.07-.18,0-.11.12.55.67,1.06,1.38,1.57,2.09l.49.7-.4-.3c-.66-.5-2.75-2-4-3-.09-.07-.19,0-.09.12,1.17.91,3.76,3.18,4.48,3.79,1.4,1.2,2.81,2.38,4.25,3.53,1.09.86,2.26,2,3.77,1.63a18.31,18.31,0,0,0,3.78-2.3C227.39,218.3,227.23,218.16,227.12,218.21Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 219.11px 216.257px" id="el419hd12zj7d" class="animable"></path>
+    <path
+      d="M248.29,224.74q-1.29-3.24-2.65-6.45c-.93-2.2-2-4.35-2.92-6.58,0-.09-.18,0-.14.07.9,2.21,1.56,4.53,2.39,6.76s1.64,4.34,2.5,6.49c1.74,4.34,3.46,8.73,5.49,12.94a.13.13,0,0,0,.23-.09C251.77,233.44,250,229.08,248.29,224.74Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 247.882px 224.845px" id="el9cqkw22925e" class="animable"></path>
+  </g>
+  <g id="freepik--Table--inject-18" class="animable" style="transform-origin: 250px 356.025px">
+    <rect x="70.73" y="260.2" width="358.54" height="12.75"
+      style="fill: rgb(55, 71, 79); transform-origin: 250px 266.575px" id="el226upizyzxu" class="animable"></rect>
+    <rect x="70.73" y="267.97" width="358.54" height="4.98"
+      style="fill: rgb(69, 90, 100); transform-origin: 250px 270.46px" id="el9bm46s01gzw" class="animable"></rect>
+    <polygon points="83.59 451.85 78.44 451.85 93.44 272.95 106.59 272.95 83.59 451.85"
+      style="fill: rgb(69, 90, 100); transform-origin: 92.515px 362.4px" id="elvuy4gnfxzcd" class="animable"></polygon>
+    <polygon points="106.59 272.95 105.05 284.92 92.44 284.92 93.44 272.95 106.59 272.95"
+      style="fill: rgb(38, 50, 56); transform-origin: 99.515px 278.935px" id="elcsstk8bwr05" class="animable"></polygon>
+    <polygon points="416.41 451.85 421.56 451.85 406.56 272.95 393.41 272.95 416.41 451.85"
+      style="fill: rgb(69, 90, 100); transform-origin: 407.485px 362.4px" id="elaequkenke76" class="animable"></polygon>
+    <polygon points="393.41 272.95 394.95 284.92 407.56 284.92 406.56 272.95 393.41 272.95"
+      style="fill: rgb(38, 50, 56); transform-origin: 400.485px 278.935px" id="el6l0nb0a9tdb" class="animable">
+    </polygon>
+  </g>
+  <g id="freepik--Device--inject-18" class="animable" style="transform-origin: 338.675px 230.485px">
+    <polygon points="370.81 260.2 281.75 260.2 303.38 200.77 392.44 200.77 370.81 260.2"
+      style="fill: rgb(38, 50, 56); transform-origin: 337.095px 230.485px" id="el7h3eluzb358" class="animable">
+    </polygon>
+    <polygon points="373.96 260.2 284.91 260.2 306.54 200.77 395.59 200.77 373.96 260.2"
+      style="fill: rgb(55, 71, 79); transform-origin: 340.25px 230.485px" id="elu7d46wfi00f" class="animable"></polygon>
+    <polygon points="395.6 200.77 373.96 260.2 337.94 260.2 387.26 200.77 395.6 200.77"
+      style="fill: rgb(38, 50, 56); transform-origin: 366.77px 230.485px" id="elp9lygr41549" class="animable"></polygon>
+    <polygon points="389.83 260.2 378.99 260.2 369.26 243.35 380.1 243.35 389.83 260.2"
+      style="fill: rgb(69, 90, 100); transform-origin: 379.545px 251.775px" id="el9hjthf2n1l" class="animable">
+    </polygon>
+    <polygon points="369.26 243.35 369.26 260.2 378.99 260.2 369.26 243.35"
+      style="fill: rgb(55, 71, 79); transform-origin: 374.125px 251.775px" id="elo4yp26fh56s" class="animable">
+    </polygon>
+    <polygon points="329.03 260.2 318.19 260.2 308.47 243.35 319.31 243.35 329.03 260.2"
+      style="fill: rgb(69, 90, 100); transform-origin: 318.75px 251.775px" id="elpeik1mx96j9" class="animable">
+    </polygon>
+    <polygon points="308.47 243.35 308.47 260.2 318.19 260.2 308.47 243.35"
+      style="fill: rgb(38, 50, 56); transform-origin: 313.33px 251.775px" id="elq1g2me1d4e" class="animable"></polygon>
+  </g>
+  <g id="freepik--Lamp--inject-18" class="animable" style="transform-origin: 125.445px 210.275px">
+    <polygon points="95.27 254.05 93.47 253.82 102.73 183.34 136.37 164.88 137.24 166.47 104.41 184.49 95.27 254.05"
+      style="fill: rgb(38, 50, 56); transform-origin: 115.355px 209.465px" id="el13pnuv9yimem" class="animable">
+    </polygon>
+    <path d="M101,183.91a2.56,2.56,0,1,0,2.56-2.56A2.56,2.56,0,0,0,101,183.91Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 103.56px 183.91px" id="el2bwo6pg81md" class="animable"></path>
+    <path d="M133.88,165.67a2.56,2.56,0,1,0,2.56-2.56A2.56,2.56,0,0,0,133.88,165.67Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 136.44px 165.67px" id="el33vjqf2mcel" class="animable"></path>
+    <polygon points="153.65 168.02 141.62 181.45 136.07 174.59 132.69 170.41 141.71 160.35 146.23 163.25 153.65 168.02"
+      style="fill: rgb(64, 123, 255); transform-origin: 143.17px 170.9px" id="elqfbk4csqmb" class="animable"></polygon>
+    <g id="eloem1hqrth8b">
+      <polygon points="153.65 168.02 141.62 181.45 136.07 174.59 146.23 163.25 153.65 168.02"
+        style="opacity: 0.1; transform-origin: 144.86px 172.35px" class="animable"></polygon>
+    </g>
+    <polygon points="171.09 174.65 150.11 198.06 136.18 180.28 151.9 162.74 171.09 174.65"
+      style="fill: rgb(64, 123, 255); transform-origin: 153.635px 180.4px" id="elbtf1hwdzjl8" class="animable">
+    </polygon>
+    <polygon points="110.84 260.2 79.8 260.2 81.7 250.45 108.94 250.45 110.84 260.2"
+      style="fill: rgb(64, 123, 255); transform-origin: 95.32px 255.325px" id="elr8k85q2y0ym" class="animable">
+    </polygon>
+  </g>
+  <g id="freepik--Coffee--inject-18" class="animable" style="transform-origin: 280.825px 242.76px">
+    <polygon points="290.75 232.39 288.54 260.2 273.24 260.2 271.03 232.39 290.75 232.39"
+      style="fill: rgb(64, 123, 255); transform-origin: 280.89px 246.295px" id="elo1rhcyhnm0c" class="animable">
+    </polygon>
+    <rect x="269.58" y="229.88" width="22.49" height="4.05"
+      style="fill: rgb(69, 90, 100); transform-origin: 280.825px 231.905px" id="elcvs6k9m6ims" class="animable"></rect>
+    <polygon points="290.53 229.88 271.12 229.88 272.26 225.32 289.39 225.32 290.53 229.88"
+      style="fill: rgb(55, 71, 79); transform-origin: 280.825px 227.6px" id="elrb6vzxt1axd" class="animable"></polygon>
+    <path
+      d="M286.2,246.54c0,3.61-2.38,6.54-5.31,6.54s-5.31-2.93-5.31-6.54S278,240,280.89,240,286.2,242.93,286.2,246.54Z"
+      style="fill: rgb(255, 255, 255); transform-origin: 280.89px 246.54px" id="eltq4ba6p6v3j" class="animable"></path>
+  </g>
+  <g id="freepik--Camera--inject-18" class="animable animator-hidden" style="transform-origin: 139.038px 275.36px">
+    <path
+      d="M140.7,315.26c-6.54,0-11.72-2-15.41-5.88-7.85-8.31-7-23-6.56-30.91.07-1.33.14-2.47.14-3.27,0-4.14-1.13-7.41-2.32-10.88a42.83,42.83,0,0,1-2.1-7.63c-.69-4.43,1.13-10.4,3.2-13.39,1.59-2.3,5.06-1.86,5.21-1.84l-.27,2,.13-1-.13,1c-.66-.09-2.56-.08-3.3,1-1.82,2.64-3.45,8.19-2.87,12a42,42,0,0,0,2,7.28c1.19,3.47,2.43,7.06,2.43,11.53,0,.85-.07,2-.15,3.38-.43,7.6-1.24,21.74,6,29.43,3.3,3.49,8,5.25,14,5.25,4.53,0,8-1.33,10.7-4.08,6.83-7,6.4-22,6.12-31.85-.09-3.05-.16-5.68,0-7.63a40.86,40.86,0,0,1,2.32-10.11c1.57-4.83,2.93-9,1-14.34a3.09,3.09,0,0,0-3.23-1.95l-.25-2a5.06,5.06,0,0,1,5.36,3.26c2.14,6,.62,10.67-1,15.63a38.8,38.8,0,0,0-2.22,9.63c-.13,1.85-.06,4.43,0,7.43.29,10.22.74,25.66-6.69,33.31C149.81,313.69,145.73,315.26,140.7,315.26Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 139.038px 278.296px" id="elmzcahk1ntti" class="animable">
+    </path>
+    <rect x="121.86" y="238.4" width="35.88" height="21.8"
+      style="fill: rgb(38, 50, 56); transform-origin: 139.8px 249.3px" id="elegs6nso4su" class="animable"></rect>
+    <rect x="125.89" y="237.46" width="6.32" height="0.94"
+      style="fill: rgb(38, 50, 56); transform-origin: 129.05px 237.93px" id="el7heizdl34v" class="animable"></rect>
+    <rect x="127.06" y="236.54" width="3.99" height="0.94"
+      style="fill: rgb(38, 50, 56); transform-origin: 129.055px 237.01px" id="elldjt8dtkkon" class="animable"></rect>
+    <polygon points="150.86 238.4 141.32 238.4 142.32 235.46 149.86 235.46 150.86 238.4"
+      style="fill: rgb(38, 50, 56); transform-origin: 146.09px 236.93px" id="eltdjdqcvrapj" class="animable"></polygon>
+    <rect x="143.68" y="236.64" width="4.82" height="1.76"
+      style="fill: rgb(255, 255, 255); transform-origin: 146.09px 237.52px" id="elk8o4o8vw56e" class="animable"></rect>
+    <polygon
+      points="120.94 241.29 120.94 243.03 121.86 243.34 121.86 244.08 120.37 243.57 120.37 240.75 121.86 240.24 121.86 240.98 120.94 241.29"
+      style="fill: rgb(38, 50, 56); transform-origin: 121.115px 242.16px" id="el6bvszqqby8j" class="animable"></polygon>
+    <polygon
+      points="158.66 241.29 158.66 243.03 157.74 243.34 157.74 244.08 159.24 243.57 159.24 240.75 157.74 240.24 157.74 240.98 158.66 241.29"
+      style="fill: rgb(38, 50, 56); transform-origin: 158.49px 242.16px" id="elfnc9m0yb0mk" class="animable"></polygon>
+    <path d="M132.21,241.88a61.32,61.32,0,0,1,0,15.63,61.32,61.32,0,0,1,0-15.63Z"
+      style="fill: rgb(69, 90, 100); transform-origin: 132.21px 249.695px" id="el4zvjt1mgcqd" class="animable"></path>
+    <path
+      d="M146.09,258.59a8.9,8.9,0,1,1,8.9-8.9A8.9,8.9,0,0,1,146.09,258.59Zm0-17.29a8.4,8.4,0,1,0,8.4,8.39A8.39,8.39,0,0,0,146.09,241.3Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 146.09px 249.69px" id="els923rlcuhp" class="animable"></path>
+    <path d="M152.94,249.69a6.85,6.85,0,1,1-6.85-6.84A6.85,6.85,0,0,1,152.94,249.69Z"
+      style="fill: rgb(69, 90, 100); transform-origin: 146.09px 249.7px" id="elk5zp2wiki4" class="animable"></path>
+    <circle cx="155.56" cy="240.24" r="0.72" style="fill: rgb(64, 123, 255); transform-origin: 155.56px 240.24px"
+      id="eliees0nvts8e" class="animable"></circle>
+  </g>
+  <g id="freepik--Tools--inject-18" class="animable" style="transform-origin: 248.82px 132.845px">
+    <path d="M355.45,166.46l-19.82,19.68a3.44,3.44,0,0,1-4.84-4.88l19.81-19.68Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 342.665px 174.306px" id="el0mxs13z95oof" class="animable">
+    </path>
+    <polygon points="355.45 166.46 349.81 172.06 346.07 166.08 350.6 161.58 355.45 166.46"
+      style="fill: rgb(199, 199, 199); transform-origin: 350.76px 166.82px" id="elt3fhzi3qhd" class="animable">
+    </polygon>
+    <path d="M329.48,187.4h0a.87.87,0,0,1,0-1.23l4.48-4.45,1.23,1.24-4.48,4.45A.87.87,0,0,1,329.48,187.4Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 332.208px 184.69px" id="el0y1e45gm0qy" class="animable"></path>
+    <path d="M335.19,183l-4.48,4.46a.86.86,0,0,1-1.23,0,.87.87,0,0,1,0-1.23l.76-.75,3.72-3.7Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 332.208px 184.749px" id="elgivwwsflqr6" class="animable">
+    </path>
+    <g id="elnjkpagenxbb">
+      <rect x="346.42" y="163.08" width="10.29" height="4.85" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 351.565px 165.505px;
+          transform: rotate(45.2deg);
+        " class="animable"></rect>
+    </g>
+    <path d="M353.74,168.16l-4.85-4.88,4.1-4.07a3.44,3.44,0,0,1,4.86,0h0a3.43,3.43,0,0,1,0,4.86Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 353.875px 163.182px" id="elgaspv4o66c" class="animable"></path>
+    <path
+      d="M343,178.83l-7.36,7.31a3.41,3.41,0,0,1-4.16.51l-.76.76a.86.86,0,0,1-1.23,0,.87.87,0,0,1,0-1.23l.76-.75a3.43,3.43,0,0,1,.54-4.16l2.49-2.47Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 336.118px 183.234px" id="el0x9q727i9c6" class="animable"></path>
+    <path d="M329.77,195.83c-2.49,0-1.64-4.92,0-6.56C331.46,191,332.26,195.83,329.77,195.83Z"
+      style="fill: rgb(64, 123, 255); transform-origin: 329.778px 192.55px" id="eljjk2eqo2bg" class="animable"></path>
+    <polygon points="291.95 183.36 250.11 183.36 250.11 129.65 281.17 129.65 291.95 139.88 291.95 183.36"
+      style="fill: rgb(219, 219, 219); transform-origin: 271.03px 156.505px" id="elsb8twweuy1" class="animable">
+    </polygon>
+    <rect x="250.11" y="167.64" width="41.84" height="15.72"
+      style="fill: rgb(235, 235, 235); transform-origin: 271.03px 175.5px" id="el2mat3rmm8z" class="animable"></rect>
+    <polygon points="250.11 167.64 263.34 154.96 275.34 167.64 250.11 167.64"
+      style="fill: rgb(64, 123, 255); transform-origin: 262.725px 161.3px" id="elj2ka8ozpbk9" class="animable">
+    </polygon>
+    <polygon points="267.11 167.64 282.82 147.78 291.95 159.31 291.95 167.64 267.11 167.64"
+      style="fill: rgb(64, 123, 255); transform-origin: 279.53px 157.71px" id="elsnyrizvpccj" class="animable">
+    </polygon>
+    <path d="M263.81,146.6a4.69,4.69,0,1,1-4.69-4.69A4.69,4.69,0,0,1,263.81,146.6Z"
+      style="fill: rgb(255, 255, 255); transform-origin: 259.12px 146.6px" id="el1yqvv3q4kpz" class="animable"></path>
+    <polygon points="281.17 129.65 291.95 139.88 281.17 139.88 281.17 129.65"
+      style="fill: rgb(235, 235, 235); transform-origin: 286.56px 134.765px" id="elzl36g6emsw9" class="animable">
+    </polygon>
+    <path
+      d="M259.83,177.24a.29.29,0,0,1,.36.18,2.26,2.26,0,0,0,4.42-.68v-5.27a.29.29,0,1,1,.58,0v5.27a2.85,2.85,0,0,1-5.56.87A.31.31,0,0,1,259.83,177.24Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 262.405px 175.379px" id="eleb06iian8ak" class="animable">
+    </path>
+    <path
+      d="M267.46,171.47a.3.3,0,0,1,.29-.29h2.37a2.4,2.4,0,0,1,0,4.79l-2.07,0v3.3a.3.3,0,0,1-.3.29.29.29,0,0,1-.29-.29Zm2.66,3.94a1.84,1.84,0,0,0,1.81-1.83,1.82,1.82,0,0,0-1.81-1.81h-2.07v3.64Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 269.913px 175.37px" id="el4m0ft4b0u2" class="animable"></path>
+    <path
+      d="M278.38,175.8a.29.29,0,0,1-.3-.29.3.3,0,0,1,.3-.3H281a.31.31,0,0,1,.27.3v2.93a.42.42,0,0,1-.11.22,4.39,4.39,0,0,1-2.71.92,4.26,4.26,0,1,1,0-8.52,4.38,4.38,0,0,1,2.72.95.31.31,0,0,1,0,.41.32.32,0,0,1-.42.05,3.68,3.68,0,0,0-2.34-.82,3.67,3.67,0,1,0,0,7.34,3.77,3.77,0,0,0,2.22-.72V175.8Z"
+      style="fill: rgb(166, 166, 166); transform-origin: 277.73px 175.32px" id="eloskzpefdm1" class="animable"></path>
+    <rect x="138.78" y="69.86" width="18.16" height="57.11"
+      style="fill: rgb(199, 199, 199); transform-origin: 147.86px 98.415px" id="elzbrr2fs9k3i" class="animable"></rect>
+    <rect x="140.8" y="71.67" width="14.13" height="7.9"
+      style="fill: rgb(64, 123, 255); transform-origin: 147.865px 75.62px" id="el41gvpd93bbx" class="animable"></rect>
+    <rect x="140.8" y="81.25" width="14.13" height="7.9"
+      style="fill: rgb(64, 123, 255); transform-origin: 147.865px 85.2px" id="ellslz6obvujp" class="animable"></rect>
+    <rect x="140.8" y="90.82" width="14.13" height="7.9"
+      style="fill: rgb(64, 123, 255); transform-origin: 147.865px 94.77px" id="elc4mw07ks9t" class="animable"></rect>
+    <rect x="140.8" y="100.39" width="14.13" height="7.9"
+      style="fill: rgb(64, 123, 255); transform-origin: 147.865px 104.34px" id="elb9vh784n9ib" class="animable"></rect>
+    <rect x="140.8" y="109.97" width="14.13" height="7.9"
+      style="fill: rgb(64, 123, 255); transform-origin: 147.865px 113.92px" id="eldfry7wr1ptw" class="animable"></rect>
+    <g id="elscsyak0xkkq">
+      <rect x="140.8" y="71.67" width="14.13" height="7.9" style="opacity: 0.3; transform-origin: 147.865px 75.62px"
+        class="animable"></rect>
+    </g>
+    <g id="elbacebiwzaj">
+      <rect x="140.8" y="81.25" width="14.13" height="7.9" style="opacity: 0.1; transform-origin: 147.865px 85.2px"
+        class="animable"></rect>
+    </g>
+    <g id="elw5o8p9pyuqo">
+      <rect x="140.8" y="100.39" width="14.13" height="7.9" style="
+          fill: rgb(255, 255, 255);
+          opacity: 0.2;
+          transform-origin: 147.865px 104.34px;
+        " class="animable"></rect>
+    </g>
+    <g id="el5at3f8muds">
+      <rect x="140.8" y="109.97" width="14.13" height="7.9" style="
+          fill: rgb(255, 255, 255);
+          opacity: 0.4;
+          transform-origin: 147.865px 113.92px;
+        " class="animable"></rect>
+    </g>
+    <path d="M149,123.41a1.67,1.67,0,1,1-1.67-1.67A1.66,1.66,0,0,1,149,123.41Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 147.33px 123.41px" id="elsqjzg5vr6sk" class="animable"></path>
+    <g id="elvzrxsic2o3j">
+      <rect x="156.44" y="77.74" width="18.16" height="57.11" style="
+          fill: rgb(219, 219, 219);
+          transform-origin: 165.52px 106.295px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elpxck0qxzqc">
+      <rect x="174.57" y="86.22" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 181.635px 90.17px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="el82ma2zkxhg4">
+      <rect x="167.8" y="92.99" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 174.865px 96.94px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elqjk67uopvn">
+      <rect x="161.03" y="99.76" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 168.095px 103.71px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="ellpobf6z8ap9">
+      <rect x="154.26" y="106.53" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 161.325px 110.48px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="el6myqwqzphmi">
+      <rect x="147.49" y="113.3" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 154.555px 117.25px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elftsmu9j45kb">
+      <rect x="174.57" y="86.22" width="14.13" height="7.9" style="
+          opacity: 0.3;
+          transform-origin: 181.635px 90.17px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elnjqq5vx57m">
+      <rect x="167.8" y="92.99" width="14.13" height="7.9" style="
+          opacity: 0.1;
+          transform-origin: 174.865px 96.94px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elfef9k9qfdk6">
+      <rect x="154.26" y="106.53" width="14.13" height="7.9" style="
+          fill: rgb(255, 255, 255);
+          opacity: 0.2;
+          transform-origin: 161.325px 110.48px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elq56ffqu4w1">
+      <rect x="147.49" y="113.3" width="14.13" height="7.9" style="
+          fill: rgb(255, 255, 255);
+          opacity: 0.4;
+          transform-origin: 154.555px 117.25px;
+          transform: rotate(45deg);
+        " class="animable"></rect>
+    </g>
+    <path d="M148.65,124.76a1.67,1.67,0,1,1,0-2.36A1.67,1.67,0,0,1,148.65,124.76Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 147.468px 123.58px" id="elgb9j5af6bbh" class="animable"></path>
+    <g id="elm52srvbgmu8">
+      <rect x="163.35" y="95.79" width="18.16" height="57.11" style="
+          fill: rgb(235, 235, 235);
+          transform-origin: 172.43px 124.345px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elziuly5r7hs">
+      <rect x="188.16" y="120.4" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 195.225px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="el4nr0nmkharm">
+      <rect x="178.59" y="120.4" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 185.655px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="el5hwd2j7l3e4">
+      <rect x="169.02" y="120.4" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 176.085px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="el7r17wrkitnk">
+      <rect x="159.44" y="120.4" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 166.505px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elbdijumr5sta">
+      <rect x="149.87" y="120.4" width="14.13" height="7.9" style="
+          fill: rgb(64, 123, 255);
+          transform-origin: 156.935px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elgk6h9mml9tn">
+      <rect x="188.16" y="120.4" width="14.13" height="7.9" style="
+          opacity: 0.3;
+          transform-origin: 195.225px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elf7vswwdwojw">
+      <rect x="178.59" y="120.4" width="14.13" height="7.9" style="
+          opacity: 0.1;
+          transform-origin: 185.655px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elyubegfll6x">
+      <rect x="159.44" y="120.4" width="14.13" height="7.9" style="
+          fill: rgb(255, 255, 255);
+          opacity: 0.2;
+          transform-origin: 166.505px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elhx8ncehs9s">
+      <rect x="149.87" y="120.4" width="14.13" height="7.9" style="
+          fill: rgb(255, 255, 255);
+          opacity: 0.4;
+          transform-origin: 156.935px 124.35px;
+          transform: rotate(90deg);
+        " class="animable"></rect>
+    </g>
+    <path d="M147.44,125.48a1.67,1.67,0,1,1,1.67-1.67A1.67,1.67,0,0,1,147.44,125.48Z"
+      style="fill: rgb(38, 50, 56); transform-origin: 147.44px 123.81px" id="elk2on68xe5ti" class="animable"></path>
+  </g>
+  <g id="freepik--trash-can--inject-18" class="animable" style="transform-origin: 85.1723px 424.699px">
+    <path
+      d="M79,449.81c1.35.44,2.56,1.43,3.33.11s2.83-.93,3.6-1.21,1.85-2.51,1.8-3.2-.63-1.41-.63-2.07,0-1.63-.13-2.54A3,3,0,0,0,85.4,438a7,7,0,0,0-3.11-.5c-.89-.09-1.54-1.51-3.3-2.05s-4.08,1.43-4.28,2.22-.37,3.19-1,4.08-1.57.6-1.73,1.71-.1,2.95.23,3.28,1.18-.16,1.57.5.75,2.44,1.55,2.84S78,449.47,79,449.81Z"
+      style="fill: rgb(235, 235, 235); transform-origin: 79.8133px 442.969px" id="el4mnorswrs47" class="animable">
+    </path>
+    <polygon points="64.35 395.83 62.63 397.56 62.57 396.93 62.57 396.92 63.67 395.83 64.35 395.83"
+      style="fill: rgb(55, 71, 79); transform-origin: 63.46px 396.695px" id="elc6owuc73m4e" class="animable"></polygon>
+    <polygon
+      points="70.87 395.83 65.02 401.72 63.13 403.59 63.1 403.2 63.1 403.19 63.08 402.97 64.67 401.37 70.24 395.83 70.87 395.83"
+      style="fill: rgb(55, 71, 79); transform-origin: 66.975px 399.71px" id="ell3zr2u37cz" class="animable"></polygon>
+    <polygon points="77.4 395.83 68.29 405 63.65 409.61 63.64 409.52 63.6 409.01 67.94 404.64 76.81 395.83 77.4 395.83"
+      style="fill: rgb(55, 71, 79); transform-origin: 70.5px 402.72px" id="el0zhgtq76f" class="animable"></polygon>
+    <polygon points="83.93 395.83 71.57 408.27 64.16 415.63 64.11 415.06 71.21 407.92 83.37 395.83 83.93 395.83"
+      style="fill: rgb(55, 71, 79); transform-origin: 74.02px 405.73px" id="elszfpp0omdcb" class="animable"></polygon>
+    <path
+      d="M90.43,395.83c-.88.91-1.77,1.81-2.66,2.71l-12.93,13L64.67,421.66l0-.54,9.86-9.93,13-12.92c.82-.82,1.65-1.63,2.48-2.44Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 77.55px 408.745px" id="el4jh6cahtwlb" class="animable"></path>
+    <path d="M96.93,395.83q-2.94,3-5.89,6l-12.92,13L65.18,427.67l0-.5,12.62-12.7,13-12.93,5.8-5.71Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 81.055px 411.75px" id="el82mmsdqh26e" class="animable"></path>
+    <path
+      d="M103.39,395.83q-4.52,4.65-9.08,9.26l-12.92,13L68.38,431c-.89.89-1.79,1.77-2.69,2.65l0-.42c.81-.84,1.64-1.67,2.46-2.5l12.93-13,13-12.92q4.56-4.51,9.16-9Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 84.54px 414.73px" id="elfvh10r58yj" class="animable"></path>
+    <path
+      d="M109.76,395.9v0q-6.06,6.24-12.17,12.42l-12.93,13-13,12.92-5.46,5.37,0-.33q2.6-2.65,5.22-5.31l12.92-13,13-12.92Q103.5,402,109.76,395.9Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 87.98px 417.755px" id="elvjq8uypr878" class="animable"></path>
+    <path
+      d="M109.17,403v0l0,.22h0q-4.14,4.23-8.29,8.44l-12.92,13-13,12.93q-4.09,4.05-8.23,8.08v0l0-.2q4-4.08,8-8.13l12.92-13,13-12.93Q104.87,407.15,109.17,403Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 87.95px 424.335px" id="eln227d3wv109" class="animable"></path>
+    <path
+      d="M108.57,410l0,.44-4.39,4.46-12.93,13-13,12.92q-5.31,5.25-10.67,10.46h-.12q5.22-5.4,10.51-10.73l12.93-13,13-12.92Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 88.015px 430.64px" id="elfxrebm4njg" class="animable"></path>
+    <path
+      d="M108,417.09l0,.57-.51.52-12.92,13-13,12.92q-3.65,3.61-7.31,7.19h-.29q3.66-3.74,7.33-7.46l12.92-13,13-12.93Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 90.985px 434.19px" id="elhkum6xqgdrw" class="animable"></path>
+    <path d="M107.36,424.22l0,.63-9.55,9.61-13,12.93-4,3.91h-.42q2.06-2.1,4.12-4.18l12.93-13Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 93.875px 437.76px" id="elmhg1wli7m3" class="animable"></path>
+    <path d="M106.76,431.34l-.06.69L101,437.74,88,450.66l-.65.64h-.52l.9-.91,12.92-13Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 96.795px 441.32px" id="el0zsw42rwjtvd" class="animable"></path>
+    <polygon points="106.15 438.47 106.09 439.22 104.31 441.01 93.95 451.3 93.38 451.3 103.95 440.66 106.15 438.47"
+      style="fill: rgb(55, 71, 79); transform-origin: 99.765px 444.885px" id="elpsis9l9o21b" class="animable"></polygon>
+    <polygon points="105.55 445.62 105.55 445.65 105.49 446.37 100.53 451.3 99.91 451.3 105.55 445.62"
+      style="fill: rgb(55, 71, 79); transform-origin: 102.73px 448.46px" id="elv6z5fqy3se" class="animable"></polygon>
+    <polygon points="109.68 396.92 109.62 397.57 107.9 395.83 108.58 395.83 109.68 396.92"
+      style="fill: rgb(55, 71, 79); transform-origin: 108.79px 396.7px" id="eltk8mruoq63b" class="animable"></polygon>
+    <polygon points="109.17 402.97 109.11 403.59 107.23 401.72 101.37 395.83 102.01 395.83 107.58 401.37 109.17 402.97"
+      style="fill: rgb(55, 71, 79); transform-origin: 105.27px 399.71px" id="elw6obni4418" class="animable"></polygon>
+    <polygon
+      points="108.65 409.01 108.61 409.52 108.6 409.62 103.95 405 94.84 395.83 95.44 395.83 104.31 404.64 108.65 409.01"
+      style="fill: rgb(55, 71, 79); transform-origin: 101.745px 402.725px" id="eletfeeg3ucsv" class="animable">
+    </polygon>
+    <polygon points="108.14 415.07 108.09 415.64 100.68 408.27 88.32 395.83 88.87 395.83 101.03 407.92 108.14 415.07"
+      style="fill: rgb(55, 71, 79); transform-origin: 98.23px 405.735px" id="eltc0d9tnzj8k" class="animable"></polygon>
+    <path
+      d="M107.63,421.13l0,.53L97.41,411.55l-12.93-13c-.89-.9-1.78-1.8-2.66-2.71h.45c.83.81,1.66,1.62,2.48,2.44l13,12.92Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 94.725px 408.75px" id="el81zbrvi18bc" class="animable"></path>
+    <path d="M107.11,427.17l0,.5L94.13,414.82l-12.92-13q-3-3-5.89-6h.36l5.8,5.71,13,12.93Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 91.215px 411.745px" id="eljj6l51hzcim" class="animable"></path>
+    <path
+      d="M106.6,433.25l0,.43-2.7-2.66-13-12.93-12.93-13q-4.55-4.62-9.07-9.26h.19q4.59,4.47,9.16,9l13,12.92,12.93,13Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 87.75px 414.755px" id="elvsqnka6qhk" class="animable"></path>
+    <path
+      d="M106.08,439.33l0,.33c-1.83-1.77-3.65-3.57-5.47-5.37l-13-12.92-12.92-13q-6.12-6.18-12.17-12.42v0q6.25,6.08,12.44,12.19l13,12.92,12.92,13Q103.49,436.68,106.08,439.33Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 84.3px 417.805px" id="el77qyr5fxse3" class="animable"></path>
+    <path
+      d="M105.57,445.42l0,.23q-4.14-4-8.23-8.08l-13-12.93-12.92-13q-4.15-4.2-8.29-8.44h0l0-.24q4.31,4.19,8.58,8.41l13,12.93,12.93,13Q101.6,441.34,105.57,445.42Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 84.35px 424.305px" id="elvsa99uyx30j" class="animable"></path>
+    <path
+      d="M104.83,451.3h-.12Q99.36,446.1,94,440.84L81,427.92l-12.93-13-4.39-4.46,0-.44q2.35,2.31,4.7,4.63l13,12.92,12.92,13C97.83,444.13,101.35,447.7,104.83,451.3Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 84.255px 430.66px" id="elxwiea3zpa4" class="animable"></path>
+    <path
+      d="M98.37,451.3h-.29q-3.67-3.58-7.31-7.19l-13-12.92-12.92-13-.51-.52,0-.56c.28.26.55.54.83.81l13,12.93,12.92,13Q94.71,447.56,98.37,451.3Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 81.355px 434.205px" id="ely2v3x1x27gd" class="animable"></path>
+    <path
+      d="M91.88,451.3h-.41q-2-1.95-4-3.91l-13-12.93-9.55-9.6,0-.64,10,9.89,12.93,13C89.14,448.51,90.52,449.9,91.88,451.3Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 78.4px 437.76px" id="elzzuudyyx2r" class="animable"></path>
+    <path d="M85.39,451.3h-.52l-.65-.64-13-12.92L65.55,432l-.06-.7,6.08,6,12.92,13Z"
+      style="fill: rgb(55, 71, 79); transform-origin: 75.44px 441.3px" id="eltolw6stwdqq" class="animable"></path>
+    <polygon
+      points="78.87 451.3 78.3 451.3 67.94 441.01 66.16 439.22 66.16 439.21 66.09 438.48 68.29 440.66 78.87 451.3"
+      style="fill: rgb(55, 71, 79); transform-origin: 72.48px 444.89px" id="elxytt0jtnswk" class="animable"></polygon>
+    <polygon points="72.34 451.3 71.72 451.3 66.76 446.37 66.7 445.62 72.34 451.3"
+      style="fill: rgb(55, 71, 79); transform-origin: 69.52px 448.46px" id="el3ikaujv7heg" class="animable"></polygon>
+    <g id="ellp86fjgw1ll">
+      <rect x="64.51" y="395.82" width="1" height="55.59" style="
+          fill: rgb(55, 71, 79);
+          transform-origin: 65.01px 423.615px;
+          transform: rotate(-5.14276deg);
+        " class="animable"></rect>
+    </g>
+    <g id="elvq5d6str7os">
+      <rect x="79.56" y="423.12" width="55.59" height="1" style="
+          fill: rgb(55, 71, 79);
+          transform-origin: 107.355px 423.62px;
+          transform: rotate(-84.73deg);
+        " class="animable"></rect>
+    </g>
+    <rect x="59.56" y="389.77" width="53.04" height="8.98"
+      style="fill: rgb(38, 50, 56); transform-origin: 86.08px 394.26px" id="elafxexyy2aua" class="animable"></rect>
+    <rect x="65.03" y="446.49" width="42.1" height="8.98"
+      style="fill: rgb(38, 50, 56); transform-origin: 86.08px 450.98px" id="el3s31uv8cr1x" class="animable"></rect>
+    <path
+      d="M103.43,443.11c1.6-.22,3.65-.22,3.76.69s-.61,1.4-.38,1.86a19.14,19.14,0,0,0,2.13,1.89,4.51,4.51,0,0,1,1.06,1.9c0,.23.38.61,0,1.06s-.59,1.14-.9,1.49-.45.72,0,1.32a3,3,0,0,1-.62,3c-.68.61-2.66-.83-3.26-.68s-.69.45-1.22.83a5.93,5.93,0,0,1-3.19,1.3c-1.36,0-2-1.22-2.88-1.75a11.2,11.2,0,0,0-2.35-.91,4.39,4.39,0,0,1-1.75-1.29c-.15-.31-.68-.38-.45-1.22s.6-1.06.6-1.74,0-.8,0-1.58-.61-2.14-.08-2.75.91-1.52,1.74-1.52,3.49.46,3.49.46a6.93,6.93,0,0,0,.76-1,2.21,2.21,0,0,1,1.84-1.06A5.68,5.68,0,0,0,103.43,443.11Z"
+      style="fill: rgb(245, 245, 245); transform-origin: 101.746px 450.379px" id="eli1dbkdaty7" class="animable"></path>
+    <path
+      d="M94,450.82c1.09.5,2.19.95,3.3,1.38s2.21.91,3.32,1.32a31.58,31.58,0,0,0,3.34,1.08,2.49,2.49,0,0,0,.69.08l.67-.34a10.15,10.15,0,0,0,1.46-.89,4.06,4.06,0,0,0,1.1-1.13A2.39,2.39,0,0,0,108,452l0-.17,0-.08s0,0,0,0a1.24,1.24,0,0,0-.29-.51,16.47,16.47,0,0,0-2.6-2.27c-1-.7-1.93-1.37-2.94-2-.5-.33-1-.64-1.52-.93-.26-.15-.52-.29-.79-.42a2.87,2.87,0,0,0-.4-.18c-.13,0-.3-.15-.41,0,.1-.14.3-.06.43-.05s.29.08.44.12a7.67,7.67,0,0,1,.84.32c.56.23,1.11.48,1.65.74,1.07.55,2.11,1.14,3.14,1.79a14.11,14.11,0,0,1,2.89,2.3,2,2,0,0,1,.53,1.05,1.85,1.85,0,0,1,0,.23l0,.14-.08.26a2.65,2.65,0,0,1-.23.48,4.79,4.79,0,0,1-1.35,1.44,10.93,10.93,0,0,1-1.6,1l-.41.2-.2.1-.12.05-.22.07a2.92,2.92,0,0,1-1.08-.11,22.45,22.45,0,0,1-3.41-1.3A44.81,44.81,0,0,1,94,450.82Z"
+      style="fill: rgb(199, 199, 199); transform-origin: 101.487px 450.524px" id="ele06pktfpxm" class="animable"></path>
+    <path
+      d="M98.51,452.88a20.25,20.25,0,0,1,2-2.63c.36-.42.75-.8,1.14-1.2.19-.19.41-.37.63-.56a3.07,3.07,0,0,1,.8-.52.67.67,0,0,1,.15-.06,1.13,1.13,0,0,1,.32,0,.84.84,0,0,1,.41.22,2.62,2.62,0,0,1,.32.39,6.13,6.13,0,0,1,.45.72,14.59,14.59,0,0,1,.74,1.48,13,13,0,0,1,1,3.12l-1.72-2.76c-.29-.45-.56-.91-.86-1.35-.14-.22-.28-.44-.43-.63a1.38,1.38,0,0,0-.21-.25s0,0,.08,0a.17.17,0,0,0,.12,0l0,0a2.66,2.66,0,0,0-.56.36l-.6.49L101,450.8C100.22,451.51,99.4,452.22,98.51,452.88Z"
+      style="fill: rgb(199, 199, 199); transform-origin: 102.49px 450.869px" id="elgr2n8uu0meh" class="animable"></path>
+    <path
+      d="M78.33,459.46c-.86.2-2,.31-2.1-.19s.26-.8.12-1a10,10,0,0,0-1.27-.93,2.61,2.61,0,0,1-.68-1c0-.12-.23-.31-.05-.58s.27-.66.42-.86a.5.5,0,0,0-.07-.73,1.6,1.6,0,0,1,.19-1.65c.34-.37,1.49.32,1.82.21s.35-.29.62-.52a3.22,3.22,0,0,1,1.68-.87c.75-.07,1.19.56,1.67.8a6,6,0,0,0,1.34.38,2.38,2.38,0,0,1,1,.62c.1.16.39.17.31.64s-.28.62-.24,1,0,.44.08.86.44,1.15.18,1.51-.42.87-.88.92-1.93-.07-1.93-.07a4,4,0,0,0-.37.58,1.18,1.18,0,0,1-1,.67A3,3,0,0,0,78.33,459.46Z"
+      style="fill: rgb(245, 245, 245); transform-origin: 78.862px 455.481px" id="el46z93izm50v" class="animable"></path>
+    <path
+      d="M75,454.58c.46-.49,1-.93,1.42-1.4l.37-.33.18-.16a.87.87,0,0,1,.37-.18,5.94,5.94,0,0,1,1.06-.14,11.12,11.12,0,0,1,2.07.12,3.4,3.4,0,0,1,1.11.34,1.13,1.13,0,0,1,.49.68,1.87,1.87,0,0,1,.08.64,6.78,6.78,0,0,1-.46,2.1,9.12,9.12,0,0,1-.45.95,4,4,0,0,1-.29.47,1.21,1.21,0,0,1-.56.43,5.06,5.06,0,0,1-2.13.14,13.37,13.37,0,0,1-2-.35c.67-.05,1.34-.06,2-.14a5.93,5.93,0,0,0,1.81-.36c.12-.06.09-.06.19-.19a3.73,3.73,0,0,0,.2-.4,6.49,6.49,0,0,0,.33-.87,5.64,5.64,0,0,0,.36-1.79.72.72,0,0,1,.23-.47,5.71,5.71,0,0,0-1.09-.25,13.23,13.23,0,0,0-1.89-.27,5.77,5.77,0,0,0-.93,0c-.06,0-.11,0-.09,0l-.21.14-.43.27C76.18,453.9,75.62,454.27,75,454.58Z"
+      style="fill: rgb(199, 199, 199); transform-origin: 78.5761px 455.329px" id="elo1k8d748sis" class="animable">
+    </path>
+    <path
+      d="M77.09,453.31c0,.63,0,1.25.06,1.81,0,.26.08.58.15.6s0,0,0,0h.06a1.61,1.61,0,0,0,.34,0c.54-.08,1.12-.24,1.71-.37a13.18,13.18,0,0,1,1.83-.3,7.46,7.46,0,0,1-3.38,1.66,3.26,3.26,0,0,1-.56,0,1.21,1.21,0,0,1-.39-.09.82.82,0,0,1-.36-.32,1.74,1.74,0,0,1-.16-1.18A4.6,4.6,0,0,1,77.09,453.31Z"
+      style="fill: rgb(199, 199, 199); transform-origin: 78.7951px 455.016px" id="elrkyu503v7kr" class="animable">
+    </path>
+    <path
+      d="M71.08,446.44c-.44-1.35-.36-2.91-1.88-2.75s-2.43-1.73-3.11-2.18-3.11,0-3.65.45-.75,1.34-1.29,1.73-1.29,1-2,1.61a3,3,0,0,0-1.37,3,6.82,6.82,0,0,0,1.45,2.8c.45.77-.31,2.14.3,3.88s3.57,2.43,4.33,2.13,2.78-1.6,3.89-1.6,1.42.91,2.41.38,2.43-1.67,2.5-2.12-.83-.86-.53-1.57,1.52-2,1.37-2.93S71.43,447.47,71.08,446.44Z"
+      style="fill: rgb(245, 245, 245); transform-origin: 65.6287px 449.251px" id="elefpbo6s4xfn" class="animable">
+    </path>
+    <path
+      d="M68.27,443.53a42.16,42.16,0,0,0-5.47,2.19,2.76,2.76,0,0,0-.55.36c-.07,0-.12.34-.16.55-.08.48-.14,1-.19,1.45-.1,1-.17,2-.18,2.93a8.11,8.11,0,0,0,.08,1.41,1,1,0,0,0,.1.37,1.63,1.63,0,0,0,.53.17,15.9,15.9,0,0,0,2.86.14c.48,0,1-.05,1.42-.11s1-.21,1.43-.29c1-.2,1.94-.38,2.87-.62a4.56,4.56,0,0,0,.65-.2l.12,0h0a.15.15,0,0,0-.07.09.52.52,0,0,0,0,.36.38.38,0,0,0,.1.17s.06.06.06.05h0l-.13-.05c-.42-.14-.91-.26-1.38-.37l-2.89-.64c-1-.21-1.93-.43-2.9-.67-.49-.13-1-.25-1.46-.42a2.5,2.5,0,0,1-.82-.43l-.08-.1a.49.49,0,0,1-.07-.19,1.09,1.09,0,0,1,0-.18.9.9,0,0,1,.06-.27,1.94,1.94,0,0,1,.17-.41,12.86,12.86,0,0,1,1.88-2.41c.18-.18.36-.36.55-.53a3.61,3.61,0,0,1,.3-.25l.17-.12a.67.67,0,0,1,.25-.13.73.73,0,0,1,.56.14,2.13,2.13,0,0,1,.32.26,5.52,5.52,0,0,1,.53.56,39.17,39.17,0,0,1,3.23,5,45,45,0,0,0-3.6-4.68,4.81,4.81,0,0,0-.51-.5,1.12,1.12,0,0,0-.39-.25c.06,0,0,0-.07.06a.91.91,0,0,0-.13.1,2.77,2.77,0,0,0-.25.24c-.17.16-.34.34-.5.52A12.2,12.2,0,0,0,63,449.12a2.57,2.57,0,0,0-.11.27s0,.1,0,.09h0a.34.34,0,0,0,0-.1l0,0a2.67,2.67,0,0,0,.52.2c.44.14.92.26,1.39.38,1,.22,1.92.42,2.89.62l3.7.71c.49.11.17.1.69.26l.22.08a.76.76,0,0,1,.15.08.53.53,0,0,1,.13.11.62.62,0,0,1,.12.2.59.59,0,0,1,0,.41.83.83,0,0,1-.2.22.75.75,0,0,1-.14.08l-.23.11a6.47,6.47,0,0,1-.76.23c-1,.24-2,.41-2.94.59-.51.09-.91.19-1.48.28s-1,.08-1.53.09a14.35,14.35,0,0,1-3.05-.2,2.2,2.2,0,0,1-.86-.31.91.91,0,0,1-.34-.52,1.5,1.5,0,0,1-.09-.44A11.52,11.52,0,0,1,61,451c.06-1,.18-2,.32-3,.08-.49.16-1,.27-1.48.09-.25,0-.48.33-.81a2.86,2.86,0,0,1,.71-.43,24.87,24.87,0,0,1,2.82-1C66.35,444,67.3,443.73,68.27,443.53Z"
+      style="fill: rgb(199, 199, 199); transform-origin: 66.8676px 448.786px" id="el5rrgsvfg44c" class="animable">
+    </path>
+  </g>
+  <defs>
+    <filter id="active" height="200%">
+      <feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="2"></feMorphology>
+      <feFlood flood-color="#32DFEC" flood-opacity="1" result="PINK"></feFlood>
+      <feComposite in="PINK" in2="DILATED" operator="in" result="OUTLINE"></feComposite>
+      <feMerge>
+        <feMergeNode in="OUTLINE"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+    <filter id="hover" height="200%">
+      <feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="2"></feMorphology>
+      <feFlood flood-color="#ff0000" flood-opacity="0.5" result="PINK"></feFlood>
+      <feComposite in="PINK" in2="DILATED" operator="in" result="OUTLINE"></feComposite>
+      <feMerge>
+        <feMergeNode in="OUTLINE"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+      <feColorMatrix type="matrix"
+        values="0   0   0   0   0                0   1   0   0   0                0   0   0   0   0                0   0   0   1   0 ">
+      </feColorMatrix>
+    </filter>
+  </defs>
+</svg> 
+

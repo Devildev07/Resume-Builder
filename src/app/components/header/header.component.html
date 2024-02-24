@@ -1,4 +1,6 @@
-<header class="text-blue-50 bg-gray-950">
+<header
+  class="sticky top-0 z-10 bg-blue-400 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-10 text-gray-900 dark:text-blue-50 dark:bg-gray-950"
+>
   <nav class="container mx-auto">
     <div class="mx-auto">
       <div class="flex justify-between py-4 px-4 md:px-6">
@@ -26,7 +28,7 @@
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
               [routerLinkActiveOptions]="{ exact: true }"
-              class="hover:text-gray-400 text-blue-50 font-medium"
+              class="hover:text-gray-500 dark:text-blue-50 font-medium"
               >Dashboard
             </a>
             <a
@@ -34,19 +36,39 @@
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
               [routerLinkActiveOptions]="{ exact: true }"
-              class="hover:text-gray-400 text-blue-50 font-medium"
+              class="hover:text-gray-500 dark:text-blue-50 font-medium"
               >Templates
             </a>
-
-            <a href="#" class="hover:text-gray-400 text-blue-50 font-medium"
+            <a
+              href="#"
+              class="hover:text-gray-500 dark:text-blue-50 font-medium"
               >Contact Us
             </a>
           </div>
         </div>
         <div class="hidden md:flex items-center space-x-1">
+          <button
+            class="theme rounded-full p-1 border hover:rotate-360 duration-300"
+            (click)="toggleTheme()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+              />
+            </svg>
+          </button>
           <a
             (click)="this.commonService.canShowModal = true"
-            class="hover:text-gray-50 text-blue-50 w-full px-5 py-2 text-sm tracking-wider uppercase transition-colors duration-300 transform rounded-lg lg:w-auto hover:border hover:border-blue-500 focus:outline-none focus:bg-blue-500 font-medium border border-transparent text-nowrap"
+            class="dark:hover:text-gray-50 dark:text-blue-50 w-full px-5 py-2 text-sm tracking-wider uppercase transition-colors duration-300 transform rounded-lg lg:w-auto hover:border hover:border-blue-500 focus:outline-none focus:bg-blue-500 font-medium border border-transparent text-nowrap"
             >Log In
           </a>
           <a
@@ -55,7 +77,26 @@
             >Sign Up
           </a>
         </div>
-        <div class="md:hidden flex items-center">
+        <div class="md:hidden flex items-center gap-3">
+          <button
+            class="theme rounded-full p-1 border hover:rotate-360 duration-300"
+            (click)="toggleTheme()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+              />
+            </svg>
+          </button>
           <button (click)="toggleMobMenu()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +118,7 @@
     </div>
     <!-- mob menu -->
     <div class="hidden" id="mob-menu">
-      <div class="flex items-center flex-col py-2 pb-5 md:hidden">
+      <div class="flex items-center gap-2 flex-col py-2 pb-5 md:hidden">
         <a
           routerLink="/dashboard"
           routerLinkActive="active"
@@ -99,7 +140,7 @@
         </a>
         <a
           (click)="this.commonService.canShowModal = true"
-          class="hover:text-gray-50 text-blue-50 px-5 py-2 text-sm tracking-wider uppercase transition-colors duration-300 transform rounded-lg lg:w-auto hover:border hover:border-blue-500 focus:outline-none focus:bg-blue-500 font-medium border border-transparent"
+          class="dark:hover:text-gray-50 dark:text-blue-50 px-5 py-2 text-sm tracking-wider uppercase transition-colors duration-300 transform rounded-lg lg:w-auto hover:border hover:border-blue-500 focus:outline-none focus:bg-blue-500 font-medium border border-transparent text-nowrap"
           >Log In
         </a>
         <a
