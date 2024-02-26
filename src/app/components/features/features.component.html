@@ -2,30 +2,22 @@
   <div
     class="grid max-w-3xl items-center gap-4 px-4 md:px-6 md:grid-cols-2 lg:max-w-5xl xl:grid-cols-3 xl:gap-8"
   >
+    @for (feature of features; track $index) {
     <div class="flex flex-col gap-1.5">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="w-20 h-20 rounded-xl p-5 bg-gray-100 grid place-items-center dark:bg-gray-800"
-      >
-        <rect width="20" height="14" x="2" y="3" rx="2"></rect>
-        <line x1="8" x2="16" y1="21" y2="21"></line>
-        <line x1="12" x2="12" y1="17" y2="21"></line>
-      </svg>
+      
+     <div [innerHTML]="[feature.svg]"></div>
       <div class="flex flex-col gap-1.5">
-        <h3 class="text-xl font-bold">{{features[0].Feature}}</h3>
+        <h3 class="text-xl font-bold">{{ feature.Feature }}</h3>
         <p class="text-sm text-gray-500 dark:text-gray-400">
-         {{features[0].Description}}
+          {{ feature.Description }}
         </p>
       </div>
     </div>
+    
+    }
+
+
+
     <!--  -->
   </div>
 </div>
