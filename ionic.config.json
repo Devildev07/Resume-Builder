@@ -1,0 +1,7 @@
+{
+  "name": "resume-builder",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}

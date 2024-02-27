@@ -6,11 +6,7 @@
     <div
       class="flex flex-col gap-1.5 py-3 px-5 hover:shadow-lg hover:rounded-lg"
     >
-      <img
-        [src]="feature.svg"
-        [alt]="feature.Feature"
-        class="w-20 h-20 rounded-xl p-5 bg-gray-200 grid place-items-center dark:bg-gray-800 dark:text-blue-600"
-      />
+      <div [innerHTML]="sanitizeSVG(feature.svg)"></div>
 
       <div class="flex flex-col gap-1.5">
         <h3 class="text-xl font-bold">{{ feature.Feature }}</h3>
