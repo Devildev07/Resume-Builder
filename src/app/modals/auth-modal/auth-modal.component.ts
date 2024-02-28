@@ -12,10 +12,14 @@ import { CommonServicesService } from 'src/app/services/common-services.service'
 export class AuthModalComponent {
   @Input('show')
   show = false;
-  constructor(public commonService: CommonServicesService, public elementRef: ElementRef, public renderer: Renderer2) {
-    if (this.show === true) {
-      const bodyElement = this.elementRef.nativeElement.ownerDocument.body;
-      this.renderer.addClass(bodyElement, 'overflow-hidden');
-    }
+  constructor(
+    public commonService: CommonServicesService,
+    public elementRef: ElementRef,
+    public renderer: Renderer2
+  ) {
+    // if (this.show === true) {
+    //   const bodyElement = this.elementRef.nativeElement.ownerDocument.body;
+    //   this.renderer.addClass(bodyElement, 'overflow-hidden');
+    // }
   }
 }

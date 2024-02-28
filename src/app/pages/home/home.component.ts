@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FeaturesComponent } from '../../components/features/features.component';
+import { CommonServicesService } from 'src/app/services/common-services.service';
 
 @Component({
   selector: 'app-home',
@@ -35,6 +36,8 @@ export class HomeComponent {
         'Update your resume anytime, anywhere, and tailor it to specific job applications effortlessly.',
     },
   ];
+
+  constructor(public commonService: CommonServicesService) {}
 
   ngOninit() {
     this.getChoose();

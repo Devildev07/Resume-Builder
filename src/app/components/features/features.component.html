@@ -1,6 +1,6 @@
 <div class="w-full pt-10">
   <div
-    class="grid pb-12 max-w-3xl lg:px-1 gap-4 px-4 md:px-6 md:grid-cols-2 lg:max-w-full xl:grid-cols-4 xl:gap-8"
+    class="grid pb-12 max-w-3xl lg:px-1 gap-4 md:px-6 md:grid-cols-2 lg:max-w-full xl:grid-cols-4 xl:gap-8"
   >
     @for (feature of features; track $index) {
     <div
@@ -33,9 +33,9 @@
       <span class="text-blue-500 font-bold">4 Simple Steps:</span>
     </p>
   </div>
-  <div class="text-gray-600 pt-10 flex flex-wrap">
+  <div class="text-gray-600 pt-10 flex flex-wrap px-2">
     @for (step of steps; track $index) {
-    <div class="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
+    <div class="flex relative pb-14 sm:items-center md:w-2/3 mx-auto">
       <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
         <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
       </div>
