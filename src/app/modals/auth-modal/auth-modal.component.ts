@@ -17,9 +17,11 @@ export class AuthModalComponent {
     public elementRef: ElementRef,
     public renderer: Renderer2
   ) {
-    // if (this.show === true) {
-    //   const bodyElement = this.elementRef.nativeElement.ownerDocument.body;
-    //   this.renderer.addClass(bodyElement, 'overflow-hidden');
-    // }
+    console.log(`log from authm  ${this.show}`);
+  }
+  closeModal() {
+    this.commonService.canShowModal = false;
+    const bodyElement = this.elementRef.nativeElement.ownerDocument.body;
+    this.renderer.removeClass(bodyElement, 'overflow-hidden');
   }
 }
