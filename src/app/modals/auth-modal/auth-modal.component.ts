@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonServicesService } from 'src/app/services/common-services.service';
 
@@ -12,5 +12,10 @@ import { CommonServicesService } from 'src/app/services/common-services.service'
 export class AuthModalComponent {
   @Input('show')
   show = false;
-  constructor(public commonService: CommonServicesService) {}
+  constructor(public commonService: CommonServicesService, public elementRef: ElementRef, public renderer: Renderer2) {
+    if (this.show === true) {
+      const bodyElement = this.elementRef.nativeElement.ownerDocument.body;
+      this.renderer.addClass(bodyElement, 'overflow-hidden');
+    }
+  }
 }
