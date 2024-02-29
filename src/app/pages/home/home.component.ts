@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { FeaturesComponent } from '../../components/features/features.component';
 import { CommonServicesService } from 'src/app/services/common-services.service';
 
@@ -37,7 +37,9 @@ export class HomeComponent {
     },
   ];
 
-  constructor(public commonService: CommonServicesService) {}
+  constructor(public commonService: CommonServicesService,
+    public elementRef: ElementRef,
+    public renderer: Renderer2) {}
 
   ngOninit() {
     this.getChoose();
@@ -45,5 +47,12 @@ export class HomeComponent {
 
   getChoose() {
     return this.whyChoose;
+  }
+  openLoginModal() {
+    this.commonService.canShowModal = true;
+    if (this.commonService.canShowModal) {
+      const bodyElement = this.elementRef.nativeElement.ownerDocument.body;
+      this.renderer.addClass(bodyElement, 'overflow-hidden');
+    }
   }
 }
