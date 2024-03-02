@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthModalComponent } from "./modals/auth-modal/auth-modal.component";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
     declarations: [AppComponent],
-    providers: [],
+    providers: [
+    provideAnimationsAsync()
+  ],
     bootstrap: [AppComponent],
     imports: [BrowserModule, AppRoutingModule, HeaderComponent, FooterComponent, AuthModalComponent]
 })

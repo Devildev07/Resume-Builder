@@ -117,10 +117,16 @@
 
 /*  */
 
-html {
-  font-family: "Poppins", sans-serif;
-}
 /* body,
 app-root {
   min-height: 100vh;
 } */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", Roboto, "Helvetica Neue", sans-serif;
+}

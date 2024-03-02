@@ -1,6 +1,8 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonServicesService } from 'src/app/services/common-services.service';
+import { AuthModalComponent } from 'src/app/modals/auth-modal/auth-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +15,7 @@ export class HeaderComponent {
   theme = '';
   constructor(
     public commonService: CommonServicesService,
-    public elementRef: ElementRef,
-    public renderer: Renderer2
+    public dialog: MatDialog,
   ) {}
 
   toggleMobMenu() {
@@ -34,11 +35,11 @@ export class HeaderComponent {
     }
   }
 
-  openLoginModal() {
-    this.commonService.canShowModal = true;
-    if (this.commonService.canShowModal) {
-      const bodyElement = this.elementRef.nativeElement.ownerDocument.body;
-      this.renderer.addClass(bodyElement, 'overflow-hidden');
-    }
+  openAuthModal() {
+    this.dialog.open(AuthModalComponent, {
+      backdropClass: 'backdrop-blur',
+      width: '500px',
+      panelClass: 'rounded-md',
+    });
   }
 }

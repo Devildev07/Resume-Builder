@@ -1,6 +1,8 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { FeaturesComponent } from '../../components/features/features.component';
 import { CommonServicesService } from 'src/app/services/common-services.service';
+import { AuthModalComponent } from 'src/app/modals/auth-modal/auth-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -37,9 +39,10 @@ export class HomeComponent {
     },
   ];
 
-  constructor(public commonService: CommonServicesService,
-    public elementRef: ElementRef,
-    public renderer: Renderer2) {}
+  constructor(
+    public commonService: CommonServicesService,
+    public dialog: MatDialog
+  ) {}
 
   ngOninit() {
     this.getChoose();
@@ -48,11 +51,11 @@ export class HomeComponent {
   getChoose() {
     return this.whyChoose;
   }
-  openLoginModal() {
-    this.commonService.canShowModal = true;
-    if (this.commonService.canShowModal) {
-      const bodyElement = this.elementRef.nativeElement.ownerDocument.body;
-      this.renderer.addClass(bodyElement, 'overflow-hidden');
-    }
+  openAuthModal() {
+    this.dialog.open(AuthModalComponent, {
+      backdropClass: 'backdrop-blur',
+      width: '500px',
+      panelClass: 'rounded-lg',
+    });
   }
 }
