@@ -1,0 +1,43 @@
+/* carousel */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+.carousel-main {
+  width: fit-content;
+}
+.carousel-main .slide {
+  width: 20rem;
+  /* height: 250px;
+  justify-content: space-between; */
+}
+.carousel-controls {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  left: 0;
+  top: 45%;
+}
+.carousel-controls .prev {
+  margin-left: -1.1rem;
+}
+.carousel-controls .next {
+  margin-right: -1.1rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .carousel-controls {
+    position: unset;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
