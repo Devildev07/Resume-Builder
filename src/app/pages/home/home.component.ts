@@ -5,13 +5,19 @@ import { AuthModalComponent } from 'src/app/modals/auth-modal/auth-modal.compone
 import { MatDialog } from '@angular/material/dialog';
 import { CarousalNextDirective } from 'src/app/directives/carousal-next.directive';
 import { CarousalPrevDirective } from 'src/app/directives/carousal-prev.directive';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  imports: [FeaturesComponent, CarousalNextDirective, CarousalPrevDirective],
+  imports: [
+    FeaturesComponent,
+    CarousalNextDirective,
+    CarousalPrevDirective,
+    MatTooltipModule,
+  ],
 })
 export class HomeComponent implements OnInit {
   whyChoose = [

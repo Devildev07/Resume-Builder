@@ -3,19 +3,21 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonServicesService } from 'src/app/services/common-services.service';
 import { AuthModalComponent } from 'src/app/modals/auth-modal/auth-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, MatTooltipModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   theme = '';
+  savedTheme: any = 'light';
   constructor(
     public commonService: CommonServicesService,
-    public dialog: MatDialog,
+    public dialog: MatDialog
   ) {}
 
   toggleMobMenu() {
@@ -25,13 +27,13 @@ export class HeaderComponent {
   toggleTheme() {
     const html = document.documentElement;
     html.classList.toggle('dark');
-    const currentTheme = html.classList.contains('dark') ? 'dark' : '';
+    const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem('theme', currentTheme);
 
-    const savedTheme = localStorage.getItem('theme');
-    // console.log(savedTheme);
-    if (savedTheme) {
-      document.documentElement.classList.add(savedTheme);
+     this.savedTheme = localStorage.getItem('theme');
+    console.log(this.savedTheme);
+    if (this.savedTheme) {
+      document.documentElement.classList.add(this.savedTheme);
     }
   }
 

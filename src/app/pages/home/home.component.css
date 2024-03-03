@@ -14,9 +14,9 @@
   width: fit-content;
 }
 .carousel-main .slide {
-  width: 20rem;
-  /* height: 250px;
-  justify-content: space-between; */
+  width: 17rem;
+  /* height: 17rem; */
+  justify-content: space-between;
 }
 .carousel-controls {
   position: absolute;
@@ -35,9 +35,22 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .carousel-main .slide {
+    width: 20rem;
+  }
   .carousel-controls {
     position: unset;
     justify-content: center;
     gap: 0.5rem;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+  .carousel-main .slide {
+    width: 19.7rem;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1024px) {
+  .carousel-main .slide {
+    width: 18rem;
   }
 }
