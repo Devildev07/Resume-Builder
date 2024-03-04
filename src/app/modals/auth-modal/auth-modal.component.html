@@ -44,10 +44,9 @@
                 <label for="email" class="block text-sm font-medium">
                   Email address
                 </label>
-                <div class="mt-1">
+                <div class="mt-1 dark:text-slate-800">
                   <input
                     id="email"
-                    name="email"
                     type="email"
                     autocomplete="email"
                     formControlName="email"
@@ -62,10 +61,9 @@
                 <label for="password" class="block text-sm font-medium">
                   Password
                 </label>
-                <div class="mt-1">
+                <div class="mt-1 dark:text-slate-800">
                   <input
                     id="password"
-                    name="password"
                     type="password"
                     autocomplete="current-password"
                     required
@@ -141,7 +139,13 @@
                     alt=""
                     class="w-6 h-6"
                   />
-                  <span class="ml-4"> {{formMode === 'login' ? 'Log in with Google' : 'Sign up with Google'}}</span>
+                  <span class="ml-4">
+                    {{
+                      formMode === "login"
+                        ? "Log in with Google"
+                        : "Sign up with Google"
+                    }}</span
+                  >
                 </div>
               </button>
               <!--  -->
