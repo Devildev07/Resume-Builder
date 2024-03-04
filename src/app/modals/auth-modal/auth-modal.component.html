@@ -28,7 +28,9 @@
             <span class="font-bold mx-3 text-blue-600">Resumify</span>
           </div>
 
-          <h2 class="mt-6 text-3xl font-extrabold text-center">{{ formMode === 'login' ? 'Login' : 'Sign Up' }}</h2>
+          <h2 class="mt-6 text-3xl font-extrabold text-center">
+            {{ formMode === "login" ? "Login" : "Sign Up" }}
+          </h2>
         </div>
 
         <div class="mt-8">
@@ -107,14 +109,13 @@
                   {{ formMode === "login" ? "Login" : "Sign Up" }}
                 </button>
 
-                <div class="toggle">
-                  <span>{{
-                    formMode === "login"
-                      ? "Don't have an account?"
-                      : "Already have an account?"
-                  }}</span>
-                  <button mat-button color="primary" (click)="toggleFormMode()">
-                    {{ formMode === "login" ? "Sign Up" : "Login" }}
+                <div class="p-2 text-center">
+                  <button class="text-blue-600" (click)="toggleFormMode()">
+                    {{
+                      formMode === "login"
+                        ? "Don't have an account? Sign Up"
+                        : "Already have an account? Login"
+                    }}
                   </button>
                 </div>
               </div>
@@ -140,7 +141,7 @@
                     alt=""
                     class="w-6 h-6"
                   />
-                  <span class="ml-4"> Log in with Google</span>
+                  <span class="ml-4"> {{formMode === 'login' ? 'Log in with Google' : 'Sign up with Google'}}</span>
                 </div>
               </button>
               <!--  -->
