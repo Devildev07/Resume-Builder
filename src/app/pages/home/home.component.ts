@@ -95,11 +95,14 @@ export class HomeComponent implements OnInit {
     return this.whyChoose;
   }
 
-  openAuthModal() {
+  openAuthModal(formModeClicked: 'login' | 'signup') {
     this.dialog.open(AuthModalComponent, {
       backdropClass: 'backdrop-blur',
       width: '500px',
       panelClass: 'rounded-lg',
+      data: { formMode: formModeClicked },
     });
+    // console.log(formModeClicked);
+    
   }
 }

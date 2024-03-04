@@ -30,18 +30,21 @@ export class HeaderComponent {
     const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem('theme', currentTheme);
 
-     this.savedTheme = localStorage.getItem('theme');
+    this.savedTheme = localStorage.getItem('theme');
     console.log(this.savedTheme);
     if (this.savedTheme) {
       document.documentElement.classList.add(this.savedTheme);
     }
   }
 
-  openAuthModal() {
+  openAuthModal(formModeClicked: 'login' | 'signup' = 'login') {
     this.dialog.open(AuthModalComponent, {
       backdropClass: 'backdrop-blur',
       width: '500px',
       panelClass: 'rounded-md',
+      data: { formMode: formModeClicked },
+      
     });
+    // console.log(formModeClicked);
   }
 }
