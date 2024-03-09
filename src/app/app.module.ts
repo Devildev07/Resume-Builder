@@ -12,6 +12,9 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,20 +26,9 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
     HeaderComponent,
     FooterComponent,
     AuthModalComponent,
-    provideFirebaseApp(() =>
-      initializeApp({
-        projectId: 'resume-builder-6dcc1',
-        appId: '1:144213628994:web:490f476f97f2b86e16b5db',
-        databaseURL:
-          'https://resume-builder-6dcc1-default-rtdb.asia-southeast1.firebasedatabase.app',
-        storageBucket: 'resume-builder-6dcc1.appspot.com',
-        // locationId: 'asia-south1',
-        apiKey: 'AIzaSyA6HP5S3EFSRcGvlUOUZTCcvyA5mCHwe1I',
-        authDomain: 'resume-builder-6dcc1.firebaseapp.com',
-        messagingSenderId: '144213628994',
-        measurementId: 'G-JKB2259F3Q',
-      })
-    ),
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),

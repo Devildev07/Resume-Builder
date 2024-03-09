@@ -4,6 +4,7 @@ import { ResumeTemplatesComponent } from './pages/resume-templates/resume-templa
 import { HomeComponent } from './pages/home/home.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { authGaurdGuard } from './services/auth/auth-gaurd.guard';
 
 const routes: Routes = [
   {
@@ -15,11 +16,13 @@ const routes: Routes = [
     path: 'dashboard',
     title: 'Dashboard',
     component: UserDashboardComponent,
+    canActivate: [authGaurdGuard],
   },
   {
     path: 'templates',
     title: 'Resume Templates',
     component: ResumeTemplatesComponent,
+    canActivate: [authGaurdGuard],
   },
   {
     path: '',
