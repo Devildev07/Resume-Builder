@@ -56,8 +56,7 @@
                   />
                   @if (authForm.get('email').touched) {
                   <div>
-                    @if (authForm.get('email').hasError('required')) { Email is
-                    required }
+                    @if (authForm.get('email').hasError('required')) {  <span class="text-red-500">Email is required</span> }
                   </div>
                   }
                 </div>
@@ -80,16 +79,16 @@
                   @if (authForm.get('password').touched) {
                   <div>
                     @if (authForm.get('password').hasError('required')) {
-                    Password is required }
+                      <span class="text-red-500"> Password is required </span> }
                   </div>
                   <div>
                     @if (authForm.get('password').hasError('minlength')) {
-                    Password must be at least 6 characters }
+                      <span class="text-red-500"> Password must be at least 6 characters </span> }
                   </div>
                   <div>
-                    @if (authForm.get('password').hasError('pattern')) {
+                    @if (authForm.get('password').hasError('pattern')) { <span class="text-red-500">
                     Password must contain at least one uppercase letter, one
-                    lowercase letter, one number, and one special character }
+                    lowercase letter, one number, and one special character </span> }
                   </div>
                   }
                 </div>
