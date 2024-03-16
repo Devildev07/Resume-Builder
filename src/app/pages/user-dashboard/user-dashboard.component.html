@@ -4,37 +4,42 @@
       class="sideBar flex flex-col justify-between shadow-xl bg-white dark:bg-gray-800"
     >
       <div class="topBox pt-2">
-        <div class="flex gap-3 items-center m-2 px-2 rounded-md">
-          <div
-            (click)="toggleSideMenu()"
-            class="icon basis-14 flex items-center justify-center p-2 py-3 text-blue-500"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
+        <div class="relative dashMenu cursor-pointer">
+          <div class="flex gap-3 items-center m-2 px-2 rounded-md">
+            <div
+              (click)="toggleSideMenu()"
+              class="icon basis-14 flex items-center justify-center p-2 py-3 text-blue-500"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
-              />
-            </svg>
-          </div>
-          <div
-            class="iconText flex gap-2 justify-between items-center basis-48 relative"
-          >
-            <div class="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+                />
+              </svg>
+            </div>
+            <div
+              class="iconText flex gap-2 justify-between items-center basis-48 relative"
+            >
               <h3 class="font-bold text-xl">Resumify</h3>
             </div>
           </div>
+          <span
+            class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
+          >
+            Toggle Menu
+          </span>
         </div>
         <!--  -->
         @for (dMenu of dashMenu; track $index) {
-        <div class="relative dashMenu">
+        <div class="relative dashMenu cursor-pointer">
           <div
             routerLink="{{ dMenu.pageUrl }}"
             routerLinkActive="active"
@@ -55,8 +60,9 @@
           </div>
           <span
             class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
-            >{{ dMenu.menu }}</span
           >
+            {{ dMenu.menu }}
+          </span>
         </div>
         }
       </div>
