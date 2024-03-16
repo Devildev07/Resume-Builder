@@ -15,16 +15,21 @@
   opacity: 0;
 }
 
-.sideBar .user {
-  /* display: none; */
-  opacity: 0;
+.sideBar .user h3,
+.sideBar .userImg {
+  display: none;
+  /* opacity: 0; */
+}
+.sideBar.open .user h3,
+.sideBar.open .userImg {
+  display: block;
 }
 
 .sideBar.open .iconText h3,
 .sideBar.open .user {
   opacity: 1;
   display: flex;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
 }
 
 .sideBar .tooltip {
@@ -47,7 +52,6 @@
   top: 50%;
   transform: translateY(-50%);
 }
-
 
 .mainArea {
   position: relative;
