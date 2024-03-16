@@ -49,4 +49,9 @@ export class UserDashboardComponent {
   sanitizeSVG(svg: string): any {
     return this.sanitizer.bypassSecurityTrustHtml(svg);
   }
+
+  toggleSideMenu() {
+    const sideBar = document.querySelector('.sideBar');
+    sideBar?.classList.toggle('open')
+  }
 }

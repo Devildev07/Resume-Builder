@@ -1,6 +1,8 @@
 <section class="bg-white dark:bg-gray-900 h-screen">
   <div class="flex h-full">
-    <div class="sideBar flex flex-col justify-between shadow-xl">
+    <div
+      class="sideBar flex flex-col justify-between shadow-xl bg-white dark:bg-gray-800"
+    >
       <div class="topBox pt-2">
         <div class="flex gap-3 items-center m-2 px-2 rounded-md">
           <div
@@ -22,13 +24,14 @@
             </svg>
           </div>
           <div
-            class="iconText flex gap-2 justify-between items-center basis-48"
+            class="iconText flex gap-2 justify-between items-center basis-48 relative"
           >
             <div class="">
               <h3 class="font-bold text-xl">Resumify</h3>
             </div>
             <div
-              class="toggle relative -right-8 shadow-xl bg-blue-400 text-gray-50 p-2 rounded-full"
+              (click)="toggleSideMenu()"
+              class="toggle shadow-xl bg-blue-400 text-gray-50 p-2 rounded-full"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +39,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-5 h-5"
+                class="w-3.5 h-3.5"
               >
                 <path
                   stroke-linecap="round"
@@ -49,7 +52,7 @@
         </div>
         <!--  -->
         @for (dMenu of dashMenu; track $index) {
-        <div class="relative">
+        <div class="relative dashMenu">
           <div
             routerLink="{{ dMenu.pageUrl }}"
             routerLinkActive="active"
@@ -69,7 +72,7 @@
             </div>
           </div>
           <span
-            class="tooltip shadow-md font-medium text-sm whitespace-nowrap bg-white px-2 py-1 rounded-md"
+            class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
             >{{ dMenu.menu }}</span
           >
         </div>
@@ -136,7 +139,7 @@
         </div>
       </div>
     </div>
-    <div class="mainArea basis-full">
+    <div class="mainArea">
       <div class="bg-slate-500 text-gray-100 h-screen">
         <h1 class="text-3xl font-bold underline text-center p-5">
           Resume Builder Dashboard works!

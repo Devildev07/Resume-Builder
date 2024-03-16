@@ -1,11 +1,29 @@
 .sideBar {
-  width: 250px;
+  width: 74px;
   min-height: 100vh;
   z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
+}
+
+.sideBar.open {
+  width: 250px;
+}
+.sideBar .iconText h3 {
+  opacity: 0;
+}
+
+.sideBar .user {
+  /* display: none; */
+  opacity: 0;
+}
+
+.sideBar.open .iconText h3,
+.sideBar.open .user {
+  opacity: 1;
+  display: flex;
 }
 
 .sideBar .tooltip {
@@ -13,13 +31,45 @@
   top: 8px;
   left: calc(100% + 15px);
   z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sideBar.open .tooltip {
+  display: none;
+}
+
+.sideBar .dashMenu:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease-in-out;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sideBar .toggle {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.sideBar.open .toggle {
+  position: unset;
+  transition: all 0.4s ease-in-out;
 }
 
 .mainArea {
   position: relative;
   top: 0;
+  left: 74px;
+  width: calc(100% - 74px);
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+}
+
+.sideBar.open ~ .mainArea {
   left: 250px;
   width: calc(100% - 250px);
-  transition: all 0.5s ease;
-  z-index: 2;
 }
