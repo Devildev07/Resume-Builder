@@ -24,6 +24,7 @@
 .sideBar.open .user {
   opacity: 1;
   display: flex;
+  transition: all 0.5s ease-in-out;
 }
 
 .sideBar .tooltip {
@@ -47,18 +48,6 @@
   transform: translateY(-50%);
 }
 
-.sideBar .toggle {
-  position: absolute;
-  top: 0;
-  left: -6px;
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-}
-
-.sideBar.open .toggle {
-  position: unset;
-  transition: all 0.4s ease-in-out;
-}
 
 .mainArea {
   position: relative;

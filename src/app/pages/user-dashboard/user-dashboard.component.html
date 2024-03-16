@@ -6,21 +6,22 @@
       <div class="topBox pt-2">
         <div class="flex gap-3 items-center m-2 px-2 rounded-md">
           <div
+            (click)="toggleSideMenu()"
             class="icon basis-14 flex items-center justify-center p-2 py-3 text-blue-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
               fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="h-6 w-6"
+              class="w-6 h-6"
             >
-              <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+              />
             </svg>
           </div>
           <div
@@ -28,25 +29,6 @@
           >
             <div class="">
               <h3 class="font-bold text-xl">Resumify</h3>
-            </div>
-            <div
-              (click)="toggleSideMenu()"
-              class="toggle shadow-xl bg-blue-400 text-gray-50 p-2 rounded-full"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-3.5 h-3.5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-              </svg>
             </div>
           </div>
         </div>
