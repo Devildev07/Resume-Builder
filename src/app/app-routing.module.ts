@@ -16,7 +16,7 @@ const routes: Routes = [
     path: 'dashboard',
     title: 'Dashboard',
     component: UserDashboardComponent,
-    canActivate: [authGaurdGuard],
+    // canActivate: [authGaurdGuard],
   },
   {
     path: 'templates',
