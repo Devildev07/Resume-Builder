@@ -1,0 +1,25 @@
+.sideBar {
+  width: 250px;
+  min-height: 100vh;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
+}
+
+.sideBar .tooltip {
+  position: absolute;
+  top: 8px;
+  left: calc(100% + 15px);
+  z-index: 3;
+}
+
+.mainArea {
+  position: relative;
+  top: 0;
+  left: 250px;
+  width: calc(100% - 250px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}

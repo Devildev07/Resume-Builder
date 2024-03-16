@@ -1,6 +1,6 @@
 <section class="bg-white dark:bg-gray-900 h-screen">
   <div class="flex h-full">
-    <div class="sideBar flex flex-col justify-between basis-80 shadow-xl">
+    <div class="sideBar flex flex-col justify-between shadow-xl">
       <div class="topBox pt-2">
         <div class="flex gap-3 items-center m-2 px-2 rounded-md">
           <div
@@ -49,23 +49,29 @@
         </div>
         <!--  -->
         @for (dMenu of dashMenu; track $index) {
-        <div
-          routerLink="{{ dMenu.pageUrl }}"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="flex gap-3 items-center m-2 px-2 hover:bg-slate-100 rounded-md dark:hover:text-blue-500 transition-all"
-        >
+        <div class="relative">
           <div
-            class="icon basis-14 flex items-center justify-center p-2 py-3 text-blue-500"
+            routerLink="{{ dMenu.pageUrl }}"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="flex gap-3 items-center m-2 px-2 hover:bg-slate-100 rounded-md dark:hover:text-blue-500 transition-all"
           >
-            <div [innerHTML]="sanitizeSVG(dMenu.icon)"></div>
+            <div
+              class="icon basis-14 flex items-center justify-center p-2 text-blue-500"
+            >
+              <div [innerHTML]="sanitizeSVG(dMenu.icon)"></div>
+            </div>
+            <div
+              class="iconText flex gap-2 justify-between items-center basis-48"
+            >
+              <h3 class="font-medium capitalize text-base">{{ dMenu.menu }}</h3>
+            </div>
           </div>
-          <div
-            class="iconText flex gap-2 justify-between items-center basis-48"
+          <span
+            class="tooltip shadow-md font-medium text-sm whitespace-nowrap bg-white px-2 py-1 rounded-md"
+            >{{ dMenu.menu }}</span
           >
-            <h3 class="font-medium capitalize text-base">{{ dMenu.menu }}</h3>
-          </div>
         </div>
         }
       </div>
@@ -131,7 +137,7 @@
       </div>
     </div>
     <div class="mainArea basis-full">
-      <div class="container mx-auto bg-slate-500 text-gray-100 h-screen">
+      <div class="bg-slate-500 text-gray-100 h-screen">
         <h1 class="text-3xl font-bold underline text-center p-5">
           Resume Builder Dashboard works!
         </h1>
