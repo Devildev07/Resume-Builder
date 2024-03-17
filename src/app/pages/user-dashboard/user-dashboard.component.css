@@ -44,7 +44,11 @@
 .sideBar.open .tooltip {
   display: none;
 }
+.sideBar.open .toggleTheme:hover .tooltip {
+  display: block;
+}
 
+.sideBar .toggleTheme:hover .tooltip,
 .sideBar .dashMenu:hover .tooltip {
   opacity: 1;
   pointer-events: auto;
@@ -65,4 +69,45 @@
 .sideBar.open ~ .mainArea {
   left: 250px;
   width: calc(100% - 250px);
+}
+.toggleSideMenu {
+  display: none;
+}
+
+@media (max-width: 576px) and (min-width: 320px) {
+  .toggleSideMenu {
+    display: block;
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    z-index: 9;
+    padding: 0.6rem;
+    border-radius: 50%;
+  }
+  .sideBar {
+    width: 250px;
+    left: -1000px;
+  }
+  .sideBar .iconText h3 {
+    opacity: 1;
+  }
+  .sideBar .user h3,
+  .sideBar .userImg {
+    display: block;
+  }
+
+  .sideBar .tooltip {
+    display: none;
+  }
+  .sideBar.open ~ .mainArea,
+  .mainArea {
+    left: 0;
+    width: 100%;
+  }
+
+  .sideBar.open {
+    width: 250px;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+  }
 }

@@ -1,5 +1,24 @@
 <section class="bg-white dark:bg-gray-900 h-screen">
-  <div class="flex h-full">
+  <div class="flex h-full relative">
+    <div
+      (click)="toggleSideMenu()"
+      class="toggleSideMenu text-blue-500 bg-slate-50 dark:bg-slate-800 shadow-xl"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+        />
+      </svg>
+    </div>
     <div
       class="sideBar flex flex-col justify-between shadow-xl bg-white dark:bg-gray-800"
     >
@@ -10,6 +29,7 @@
               (click)="toggleSideMenu()"
               class="icon basis-14 flex items-center justify-center p-2 py-3 text-blue-500"
             >
+              <!-- <div class="toggleSideMenu bg-slate-50"> -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -24,6 +44,7 @@
                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
                 />
               </svg>
+              <!-- </div> -->
             </div>
             <div
               class="iconText flex gap-2 justify-between items-center basis-48 relative"
@@ -68,7 +89,7 @@
       </div>
       <div class="bottomBox">
         <div
-          class="flex gap-3 items-center m-2 bg-gray-200 dark:bg-gray-700 rounded-md px-2"
+          class="flex gap-3 items-center m-2 bg-gray-200 dark:bg-gray-700 rounded-md px-2 relative"
         >
           <div class="userImg basis-16 px-1 py-3">
             <img
@@ -84,10 +105,6 @@
             <div class="toggleTheme py-1.5 pr-2">
               <button
                 class="theme rounded-full p-1 border hover:rotate-360 duration-300"
-                [matTooltip]="
-                  savedTheme === 'light' ? 'Dark Mode' : 'Light Mode'
-                "
-                matTooltipClass="text-xs tracking-wider"
                 (click)="toggleTheme()"
               >
                 @if (savedTheme === 'light') {
@@ -122,6 +139,19 @@
                 </svg>
                 }
               </button>
+              @if (savedTheme === 'light') {
+              <span
+                class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
+              >
+                Dark
+              </span>
+              } @else if (savedTheme === 'dark') {
+              <span
+                class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
+              >
+                light
+              </span>
+              }
             </div>
           </div>
         </div>
