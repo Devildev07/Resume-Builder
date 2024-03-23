@@ -110,4 +110,13 @@
     left: 0;
     transition: all 0.5s ease-in-out;
   }
+  .sideBar-backdrop {
+    left: -1000px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .sideBar.open ~ .sideBar-backdrop {
+    left: 0;
+    display: block;
+  }
 }

@@ -20,7 +20,7 @@
       </svg>
     </div>
     <div
-      class="sideBar flex flex-col justify-between shadow-xl bg-white dark:bg-gray-800"
+      class="sideBar flex flex-col justify-between shadow-xl bg-slate-50 dark:bg-gray-800 open"
     >
       <div class="topBox pt-2">
         <div class="relative dashMenu cursor-pointer">
@@ -89,7 +89,7 @@
       </div>
       <div class="bottomBox">
         <div
-          class="flex gap-3 items-center m-2 bg-gray-200 dark:bg-gray-700 rounded-md px-2 relative"
+          class="flex gap-3 items-center m-2 bg-gray-100 dark:bg-gray-700 rounded-md px-2 relative"
         >
           <div class="userImg basis-16 px-1 py-3">
             <img
@@ -157,8 +157,13 @@
         </div>
       </div>
     </div>
+    <div
+      (click)="toggleSideMenu()"
+      class="sideBar-backdrop absolute backdrop-blur top-0 hidden h-full w-full z-10 sm:hidden"
+    ></div>
+
     <div class="mainArea">
-      <div class="bg-slate-500 text-gray-100 h-screen">
+      <div class="h-screen">
         <h1 class="text-3xl font-bold underline text-center p-5">
           Resume Builder Dashboard works!
         </h1>
