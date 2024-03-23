@@ -56,5 +56,13 @@ export class UserDashboardComponent {
   toggleSideMenu() {
     const sideBar = document.querySelector('.sideBar');
     sideBar?.classList.toggle('open');
+
+    // const body = document.body;
+    // // console.log(body);
+    // if (sideBar?.classList.contains('open')) {
+    //   body.classList.add('overflow-hidden');
+    // } else {
+    //   body.classList.remove('overflow-hidden');
+    // }
   }
 }

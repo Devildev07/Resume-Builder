@@ -126,9 +126,29 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: "Poppins", Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  /* background-color: transparent; */
+  background-color: #dbeafe;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: #111827;
 }
 
 @media (min-width: 1536px) {
