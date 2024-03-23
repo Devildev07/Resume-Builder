@@ -5,24 +5,27 @@
   position: fixed;
   top: 0;
   left: 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .sideBar.open {
   width: 250px;
 }
-.sideBar .iconText h3 {
+/* .sideBar .iconText h3 {
   opacity: 0;
-}
-
+} */
+.sideBar .iconText,
 .sideBar .user h3,
 .sideBar .userImg {
   display: none;
   /* opacity: 0; */
 }
+
+.sideBar.open .iconText,
 .sideBar.open .user h3,
 .sideBar.open .userImg {
   display: block;
+  /* transition: all 0.2s ease-in-out; */
 }
 
 .sideBar.open .iconText h3,
@@ -62,7 +65,7 @@
   top: 0;
   left: 74px;
   width: calc(100% - 74px);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   z-index: 2;
 }
 

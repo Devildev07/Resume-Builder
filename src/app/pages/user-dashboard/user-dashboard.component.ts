@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { MatTooltipModule, TooltipPosition } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-
+import { CommonServicesService } from 'src/app/services/common-services.service';
 
 @Component({
   selector: 'app-user-dashboard',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, MatTooltipModule],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './user-dashboard.component.html',
   styleUrl: './user-dashboard.component.css',
 })
@@ -32,7 +31,10 @@ export class UserDashboardComponent {
     },
   ];
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(
+    private sanitizer: DomSanitizer,
+    public commonService: CommonServicesService
+  ) {}
 
   toggleTheme() {
     const html = document.documentElement;
@@ -53,6 +55,6 @@ export class UserDashboardComponent {
 
   toggleSideMenu() {
     const sideBar = document.querySelector('.sideBar');
-    sideBar?.classList.toggle('open')
+    sideBar?.classList.toggle('open');
   }
 }

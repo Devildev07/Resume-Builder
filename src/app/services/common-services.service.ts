@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CommonServicesService {
   // canShowModal: boolean = false;
+  superAdmin = 'Dewanshu';
 
   constructor() {}
 
