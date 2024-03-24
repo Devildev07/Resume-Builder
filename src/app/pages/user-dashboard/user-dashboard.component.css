@@ -1,3 +1,7 @@
+.h-web-fit {
+  height: -webkit-fill-available;
+}
+
 .sideBar {
   width: 74px;
   min-height: 100vh;

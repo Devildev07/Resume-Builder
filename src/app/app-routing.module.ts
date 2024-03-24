@@ -10,18 +10,18 @@ import { ProfileComponent } from './pages/profile/profile.component';
 const routes: Routes = [
   {
     path: 'home',
-    title: 'Home',
+    // title: 'Resumify | Home',
     component: HomeComponent,
   },
   {
     path: 'dashboard',
-    title: 'Dashboard',
+    title: 'Resumify | Dashboard',
     component: UserDashboardComponent,
     // canActivate: [authGaurdGuard],
     children: [
       {
         path: 'profile',
-        title: 'Profile',
+        title: 'Resumify | Profile',
         component: ProfileComponent,
         // canActivate: [authGaurdGuard],
       },
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'templates',
-    title: 'Resume Templates',
+    title: 'Resumify | Resume Templates',
     component: ResumeTemplatesComponent,
     // canActivate: [authGaurdGuard],
   },
