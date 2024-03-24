@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { authGaurdGuard } from './services/auth/auth-gaurd.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -17,13 +18,22 @@ const routes: Routes = [
     title: 'Dashboard',
     component: UserDashboardComponent,
     // canActivate: [authGaurdGuard],
+    children: [
+      {
+        path: 'profile',
+        title: 'Profile',
+        component: ProfileComponent,
+        // canActivate: [authGaurdGuard],
+      },
+    ],
   },
   {
     path: 'templates',
     title: 'Resume Templates',
     component: ResumeTemplatesComponent,
-    canActivate: [authGaurdGuard],
+    // canActivate: [authGaurdGuard],
   },
+
   {
     path: '',
     redirectTo: '/home',

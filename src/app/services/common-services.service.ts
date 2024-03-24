@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -6,8 +7,11 @@ import { Injectable } from '@angular/core';
 export class CommonServicesService {
   // canShowModal: boolean = false;
   superAdmin = 'Dewanshu';
-
-  constructor() {}
+  currentUrl?: string;
+  routerSubscription: any;
+  constructor(public router: Router) {
+    this.getCurrentUrl();
+  }
 
   // localStorage
   setLocalStorage(key: string, value: string): void {
@@ -21,5 +25,18 @@ export class CommonServicesService {
 
   removeLocalStorage(key: string): void {
     localStorage.removeItem(key);
+  }
+
+  ngOnDestroy() {
+    this.routerSubscription.unsubscribe();
+  }
+
+  getCurrentUrl() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.url;
+        // console.log('Current URL:', this.currentUrl);
+      }
+    });
   }
 }
