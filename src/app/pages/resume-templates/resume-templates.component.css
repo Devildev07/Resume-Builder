@@ -1,0 +1,28 @@
+.template {
+    overflow: hidden;
+}
+
+.template .templateOptions {
+    position: absolute;
+    bottom: -100%;
+    width: 90%;
+    margin: auto;
+}
+
+.template:hover .templateOptions {
+    bottom: 2%;
+    transition: all 0.4s ease-in-out;
+}
+
+
+
+.template-preview button .tooltip {
+    left: 15%;
+    bottom: -5%;
+    display: none;
+}
+
+.template-preview button:hover .tooltip {
+    transition: all 0.5s ease-in-out;
+    display: block;
+}
