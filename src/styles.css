@@ -132,6 +132,8 @@ body {
   font-family: "Poppins", Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* scrollbar */
+
 ::-webkit-scrollbar {
   width: 8px;
   border-radius: 8px;
@@ -149,6 +151,24 @@ body {
 
 .dark ::-webkit-scrollbar-track {
   background-color: #111827;
+}
+
+/* material stepper custom css */
+.mat-step-icon-selected {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity)) !important;
+}
+
+.mat-stepper-vertical-line::before {
+  border-left-color: rgb(95, 95, 95) !important;
+}
+
+.mat-step-header:hover:not([aria-disabled]),
+.mat-step-header:hover[aria-disabled=false],
+.mat-step-header.cdk-keyboard-focused,
+.mat-step-header.cdk-program-focused {
+  background-color: rgb(0 100 255 / 8%) !important;
+  border-radius: .625rem !important;
 }
 
 @media (min-width: 1536px) {

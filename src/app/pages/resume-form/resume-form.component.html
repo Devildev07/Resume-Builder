@@ -1,4 +1,132 @@
-<h1 class="text-4xl font-bold pt-6 mt-10 sm:mt-0 sm:pt-0">
-    Get Started !
-</h1>
-<p class="py-3"><strong>Craft Your Career</strong> : Welcome to Our Resume Builder</p>
+<h1 class="text-4xl font-bold pt-6 mt-10 sm:mt-0 sm:pt-0">Get Started !</h1>
+<p class="py-3">
+  <strong>Craft Your Career</strong> : Welcome to Our Resume Builder
+</p>
+<mat-stepper orientation="vertical" #stepper class="dark:bg-gray-900">
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel
+        ><span class="text-gray-900 dark:text-white"
+          >Personal Details</span
+        ></ng-template
+      >
+      <div class="flex gap-4 flex-wrap mt-2">
+        <div class="basis-80 grow">
+          <label for="firstName" class="block text-sm font-medium">
+            First name
+          </label>
+          <div class="mt-1 dark:text-slate-800">
+            <input
+              id="firstName"
+              type="text"
+              autocomplete="name"
+              formControlName="firstName"
+              required
+              placeholder="First name"
+              class="block w-full px-5 py-3 text-base placeholder-gray-800 transition duration-500 ease-in-out transform rounded-lg bg-gray-50 border-gray-200 border focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 hover:outline-none hover:border-transparent hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-gray-300"
+            />
+          </div>
+        </div>
+        <div class="basis-80 grow">
+          <label for="lastName" class="block text-sm font-medium">
+            Last name
+          </label>
+          <div class="mt-1 dark:text-slate-800">
+            <input
+              id="lastName"
+              type="text"
+              autocomplete="family-name"
+              formControlName="lastName"
+              required
+              placeholder="Last name"
+              class="block w-full px-5 py-3 text-base placeholder-gray-800 transition duration-500 ease-in-out transform rounded-lg bg-gray-50 border-gray-200 border focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 hover:outline-none hover:border-transparent hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-gray-300"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="py-3 mt-3">
+        <button
+          class="hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium w-fit"
+          matStepperNext
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel
+        ><span class="text-gray-900 dark:text-white"
+          >Educational Details</span
+        ></ng-template
+      >
+      <div class="flex gap-4 flex-wrap mt-2">
+        <div class="basis-80 grow">
+          <label for="firstName" class="block text-sm font-medium">
+            First name
+          </label>
+          <div class="mt-1 dark:text-slate-800">
+            <input
+              id="firstName"
+              type="text"
+              autocomplete="name"
+              formControlName="firstName"
+              required
+              placeholder="First name"
+              class="block w-full px-5 py-3 text-base placeholder-gray-800 transition duration-500 ease-in-out transform rounded-lg bg-gray-50 border-gray-200 border focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 hover:outline-none hover:border-transparent hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-gray-300"
+            />
+          </div>
+        </div>
+        <div class="basis-80 grow">
+          <label for="lastName" class="block text-sm font-medium">
+            Last name
+          </label>
+          <div class="mt-1 dark:text-slate-800">
+            <input
+              id="lastName"
+              type="text"
+              autocomplete="family-name"
+              formControlName="lastName"
+              required
+              placeholder="Last name"
+              class="block w-full px-5 py-3 text-base placeholder-gray-800 transition duration-500 ease-in-out transform rounded-lg bg-gray-50 border-gray-200 border focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 hover:outline-none hover:border-transparent hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-gray-300"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="py-3 mt-3 space-x-2">
+        <button
+          class="hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium w-fit"
+          matStepperPrevious
+        >
+          Back
+        </button>
+        <button
+          class="hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium w-fit"
+          matStepperNext
+        >
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div class="py-3 mt-3 space-x-2">
+      <button
+        class="hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium w-fit"
+        matStepperPrevious
+      >
+        Back
+      </button>
+      <button
+        class="hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium w-fit"
+        (click)="stepper.reset()"
+      >
+        Reset
+      </button>
+    </div>
+  </mat-step>
+</mat-stepper>
