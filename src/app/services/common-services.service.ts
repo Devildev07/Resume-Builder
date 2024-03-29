@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
@@ -9,7 +10,7 @@ export class CommonServicesService {
   superAdmin = 'Dewanshu';
   currentUrl?: string;
   routerSubscription: any;
-  constructor(public router: Router) {
+  constructor(public router: Router, private http: HttpClient) {
     this.getCurrentUrl();
   }
 
@@ -37,6 +38,13 @@ export class CommonServicesService {
         this.currentUrl = event.url;
         // console.log('Current URL:', this.currentUrl);
       }
+    });
+  }
+
+  // template rendering
+  getHtmlContent(filepath: string) {
+    return this.http.get('assets/templates/' + filepath, {
+      responseType: 'text',
     });
   }
 }
