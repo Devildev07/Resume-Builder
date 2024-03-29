@@ -1,9 +1,11 @@
 @if (commonService.currentUrl !== '/dashboard' && commonService.currentUrl !==
-'/dashboard/profile') {
+'/dashboard/profile' && commonService.currentUrl !==
+'/dashboard/builder') {
 <app-header></app-header>
 }
 <router-outlet></router-outlet>
 @if (commonService.currentUrl !== '/dashboard' && commonService.currentUrl !==
-'/dashboard/profile') {
+'/dashboard/profile' && commonService.currentUrl !==
+'/dashboard/builder') {
 <app-footer></app-footer>
 }

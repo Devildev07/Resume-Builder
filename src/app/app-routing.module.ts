@@ -6,6 +6,7 @@ import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.co
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { authGaurdGuard } from './services/auth/auth-gaurd.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ResumeFormComponent } from './pages/resume-form/resume-form.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,12 @@ const routes: Routes = [
         path: 'profile',
         title: 'Resumify | Profile',
         component: ProfileComponent,
+        // canActivate: [authGaurdGuard],
+      },
+      {
+        path: 'builder',
+        title: 'Resumify | Resume Builder',
+        component: ResumeFormComponent,
         // canActivate: [authGaurdGuard],
       },
     ],

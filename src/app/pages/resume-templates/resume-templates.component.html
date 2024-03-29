@@ -27,7 +27,8 @@
                 </button>
               </div>
               <button
-                class="templateOptions flex gap-2 justify-between shadow-md font-bold text-xs bg-blue-50 text-slate-800 py-3 px-3 rounded-md">
+                class="templateOptions flex gap-2 justify-between shadow-md font-bold text-xs bg-blue-50 text-slate-800 py-3 px-3 rounded-md"  routerLink="/dashboard/builder" routerLinkActive="active" ariaCurrentWhenActive="page"
+                [routerLinkActiveOptions]="{ exact: true }">
                 <p>Choose template</p>
                 <div class="flex items-center space-x-2">
                   <label for="" class="items-center flex">
