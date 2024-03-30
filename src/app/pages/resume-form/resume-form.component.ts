@@ -33,18 +33,39 @@ import { MatStepperModule } from '@angular/material/stepper';
   styleUrl: './resume-form.component.css',
 })
 export class ResumeFormComponent {
+  resumetitle: any;
+  allResumeData: any = {};
   firstFormGroup: FormGroup | any;
   secondFormGroup: FormGroup | any;
+  personalDetails: any[] = [];
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
+    this.firstFormGroup = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      birthDate: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      country: ['', Validators.required],
+      website: [''],
+      description: [''],
     });
-    this.secondFormGroup = this._formBuilder.group({
+
+    this.secondFormGroup = this.formBuilder.group({
       secondCtrl: ['', Validators.required],
     });
-   
+  }
+
+  submitPerDetForm() {
+    if (this.firstFormGroup.valid) {
+      this.personalDetails = this.firstFormGroup.value;
+      this.allResumeData = this.personalDetails.push(this.resumetitle);
+      console.log('firstFormGroup data here', this.allResumeData);
+    }
   }
 }
