@@ -207,6 +207,11 @@ body {
   padding: 18px 24px !important;
 }
 
+/* custom classes */
+.delete-ripple-button {
+  @apply text-red-500 p-2 rounded-md bg-red-100 min-w-fit px-3 !important;
+}
+
 @media (min-width: 1536px) {
   .container {
     max-width: 1280px;
