@@ -45,11 +45,8 @@ import { map } from 'rxjs/operators';
 export class ResumeFormComponent {
   resumetitle: any;
   allResumeData: any = {};
-  // firstFormGroup: FormGroup | any;
-  // secondFormGroup: FormGroup | any;
   resumeFormGroup: FormGroup | any;
-  // personalDetails: any[] = [];
-  // educationalDetails: any[] = [];
+
   FormArray: any;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -78,45 +75,10 @@ export class ResumeFormComponent {
       educationalDetails: this.formBuilder.array([
         this.createdEduDetailsFormGroup(),
       ]),
+      experienceDetails: this.formBuilder.array([
+        this.createdExpDetailsFormGroup(),
+      ]),
     });
-  }
-
-  createdEduDetailsFormGroup(): FormGroup {
-    return this.formBuilder.group({
-      institutionName: ['', Validators.required],
-      studyField: ['', Validators.required],
-      degree: ['', Validators.required],
-      city: [''],
-      startDate: [''],
-      endDate: [''],
-    });
-  }
-
-  addEduDetails(): void {
-    const eduDetails = this.resumeFormGroup.get(
-      'educationalDetails'
-    ) as FormArray;
-    eduDetails.push(this.createdEduDetailsFormGroup());
-  }
-
-  removeEduDetails(i: number): void {
-    const eduDetails = this.resumeFormGroup.get(
-      'educationalDetails'
-    ) as FormArray;
-    eduDetails.removeAt(i);
-  }
-
-  get educationalDetails(): FormArray {
-    return this.resumeFormGroup.get('educationalDetails') as FormArray;
-  }
-
-  submitResumeForm() {
-    if (this.resumeFormGroup.valid) {
-      this.allResumeData = this.resumeFormGroup.value;
-      // this.allResumeData = this.personalDetails.push(this.resumetitle);
-      console.log('firstFormGroup data here', this.allResumeData);
-    }
-    console.log('firstFormGroup not valid enteries');
   }
 
   asyncEmailValidator(
@@ -136,5 +98,76 @@ export class ResumeFormComponent {
         observer.complete();
       }, 1000); // Adjust timeout as needed
     });
+  }
+
+  addDetails(type: 'educationalDetails' | 'experienceDetails'): void {
+    const details = this.resumeFormGroup.get(type) as FormArray;
+    if (type === 'educationalDetails') {
+      details.push(this.createdEduDetailsFormGroup());
+    } else if (type === 'experienceDetails') {
+      details.push(this.createdExpDetailsFormGroup());
+    }
+  }
+
+  deleteDetails(
+    type: 'educationalDetails' | 'experienceDetails',
+    i: number
+  ): void {
+    const details = this.resumeFormGroup.get(type) as FormArray;
+    details.removeAt(i);
+  }
+
+  // educationsection
+  createdEduDetailsFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      institutionName: ['', Validators.required],
+      studyField: ['', Validators.required],
+      degree: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      city: [''],
+    });
+  }
+  get educationalDetails(): FormArray {
+    return this.resumeFormGroup.get('educationalDetails') as FormArray;
+  }
+
+  removeEduDetails(i: number): void {
+    const eduDetails = this.resumeFormGroup.get(
+      'educationalDetails'
+    ) as FormArray;
+    eduDetails.removeAt(i);
+  }
+
+  // experiencesection
+  createdExpDetailsFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      jobTitle: ['', Validators.required],
+      companyName: ['', Validators.required],
+      city: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      description: [''],
+    });
+  }
+
+  get experienceDetails(): FormArray {
+    return this.resumeFormGroup.get('experienceDetails') as FormArray;
+  }
+
+  removeExpDetails(i: number): void {
+    const expDetails = this.resumeFormGroup.get(
+      'experienceDetails'
+    ) as FormArray;
+    expDetails.removeAt(i);
+  }
+
+  submitResumeForm() {
+    if (this.resumeFormGroup.valid) {
+      this.allResumeData = this.resumeFormGroup.value;
+      // this.allResumeData = this.personalDetails.push(this.resumetitle);
+      console.log('firstFormGroup data here', this.allResumeData);
+    }
+    console.log('firstFormGroup not valid enteries');
   }
 }
