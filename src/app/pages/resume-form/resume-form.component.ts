@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormArray,
   FormGroup,
   FormsModule,
@@ -18,7 +17,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-resume-form',
@@ -38,6 +37,7 @@ import { map } from 'rxjs/operators';
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatSliderModule,
   ],
   templateUrl: './resume-form.component.html',
   styleUrl: './resume-form.component.css',
@@ -78,6 +78,7 @@ export class ResumeFormComponent {
       experienceDetails: this.formBuilder.array([
         this.createdExpDetailsFormGroup(),
       ]),
+      skill: this.formBuilder.array([]),
     });
   }
 
@@ -132,13 +133,6 @@ export class ResumeFormComponent {
     return this.resumeFormGroup.get('educationalDetails') as FormArray;
   }
 
-  removeEduDetails(i: number): void {
-    const eduDetails = this.resumeFormGroup.get(
-      'educationalDetails'
-    ) as FormArray;
-    eduDetails.removeAt(i);
-  }
-
   // experiencesection
   createdExpDetailsFormGroup(): FormGroup {
     return this.formBuilder.group({
@@ -155,13 +149,6 @@ export class ResumeFormComponent {
     return this.resumeFormGroup.get('experienceDetails') as FormArray;
   }
 
-  removeExpDetails(i: number): void {
-    const expDetails = this.resumeFormGroup.get(
-      'experienceDetails'
-    ) as FormArray;
-    expDetails.removeAt(i);
-  }
-
   submitResumeForm() {
     if (this.resumeFormGroup.valid) {
       this.allResumeData = this.resumeFormGroup.value;
@@ -170,4 +157,40 @@ export class ResumeFormComponent {
     }
     console.log('firstFormGroup not valid enteries');
   }
+
+  // custome chip and slider
+
+  get skill(): FormArray {
+    return this.resumeFormGroup.get('skill') as FormArray;
+  }
+
+  skills: string[] = [];
+  newSkill: string = '';
+  sliderValue: number = 0;
+  sliderValues: number[] = [];
+  max = 100;
+  min = 0;
+  step = 1;
+  thumbLabel = true;
+
+  addSkill(): void {
+    if (this.newSkill.trim() !== '' && !this.skills.includes(this.newSkill)) {
+      this.skills.push(this.newSkill);
+      this.sliderValues.push(this.sliderValue);
+      this.newSkill = '';
+    }
+  }
+
+  removeSkill(index: number): void {
+    this.skills.splice(index, 1);
+    this.sliderValues.splice(index, 1);
+  }
+
+  updateSliderValue(): void {
+    if (this.sliderValues.length > 0) {
+      this.sliderValues[this.sliderValues.length - 1] = this.sliderValue;
+    }
+  }
+
+  // matskillslider
 }

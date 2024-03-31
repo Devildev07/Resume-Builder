@@ -24,6 +24,7 @@
     />
   </div>
 </div>
+
 <div class="flex gap-3 flex-col lg:flex-row">
   <div class="basis-3/5">
     <form [formGroup]="resumeFormGroup" (ngSubmit)="submitResumeForm()">
@@ -596,6 +597,77 @@
             </div>
           </mat-step>
         </div>
+        <!--  -->
+        <div class="" formArrayName="skill">
+          <!-- <mat-step
+            [stepControl]="skill"
+            formGroupName="0"
+            errorMessage="Skills are required."
+          > -->
+          <mat-step errorMessage="Skills are required.">
+            <ng-template matStepLabel
+              ><span class="text-gray-900 dark:text-white"
+                >Skills</span
+              ></ng-template
+            >
+            <div class="skills-container">
+              <div class="skill-input-container">
+                <input
+                  type="text"
+                  [(ngModel)]="newSkill"
+                  (keyup.enter)="addSkill()"
+                  placeholder="Add skill..."
+                  class="block w-fit px-5 py-3 text-base placeholder-gray-500 transition duration-500 ease-in-out transform rounded-lg bg-gray-50 border-gray-200 border focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 hover:outline-none hover:border-transparent hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-gray-300"
+                />
+                <mat-slider
+                  [(ngModel)]="sliderValue"
+                  (change)="updateSliderValue()"
+                  [max]="max"
+                  [min]="min"
+                  [step]="step"
+                  [discrete]="thumbLabel"
+                >
+                  <input matSliderThumb [(ngModel)]="sliderValue" #slider />
+                </mat-slider>
+                <span class="slider-value">{{ sliderValue }}</span>
+              </div>
+              @for (skill of skills; track $index) {
+              <div class="skill">
+                {{ skill }}
+                <span>{{ sliderValues[$index] }}</span>
+                <button class="close-button" (click)="removeSkill($index)">
+                  x
+                </button>
+              </div>
+              }
+            </div>
+            <div class="py-3 mt-3 flex gap-2 flex-wrap">
+              <button
+                (click)="addSkill()"
+                type="button"
+                class="hover:shadow-xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:bg-green-600 font-medium w-fit"
+              >
+                Add Skills
+              </button>
+              <button
+                type="button"
+                class="hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium w-fit"
+                matStepperPrevious
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                class="hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium w-fit"
+                matStepperNext
+              >
+                Next
+              </button>
+            </div>
+          </mat-step>
+        </div>
+        <!--  -->
+
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
           <p>You are now done.</p>
