@@ -599,27 +599,29 @@
         </div>
         <!--  -->
         <div class="" formArrayName="skill">
-          <!-- <mat-step
+          <mat-step
             [stepControl]="skill"
             formGroupName="0"
             errorMessage="Skills are required."
-          > -->
-          <mat-step errorMessage="Skills are required.">
+          >
+          <!-- <mat-step errorMessage="Skills are required."> -->
             <ng-template matStepLabel
               ><span class="text-gray-900 dark:text-white"
                 >Skills</span
               ></ng-template
             >
-            <div class="skills-container">
+            <div class="skills-container"> 
+              {{newSkill }}
               <div class="skill-input-container">
                 <input
                   type="text"
                   [(ngModel)]="newSkill"
+                  formControlName="skill"
                   (keyup.enter)="addSkill()"
                   placeholder="Add skill..."
                   class="block w-fit px-5 py-3 text-base placeholder-gray-500 transition duration-500 ease-in-out transform rounded-lg bg-gray-50 border-gray-200 border focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 hover:outline-none hover:border-transparent hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-gray-300"
                 />
-                <mat-slider
+                <!-- <mat-slider
                   [(ngModel)]="sliderValue"
                   (change)="updateSliderValue()"
                   [max]="max"
@@ -629,7 +631,7 @@
                 >
                   <input matSliderThumb [(ngModel)]="sliderValue" #slider />
                 </mat-slider>
-                <span class="slider-value">{{ sliderValue }}</span>
+                <span class="slider-value">{{ sliderValue }}</span> -->
               </div>
               @for (skill of skills; track $index) {
               <div class="skill">

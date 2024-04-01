@@ -78,7 +78,7 @@ export class ResumeFormComponent {
       experienceDetails: this.formBuilder.array([
         this.createdExpDetailsFormGroup(),
       ]),
-      skill: this.formBuilder.array([]),
+      skill: this.formBuilder.array([this.createdSkillFormGroup()]),
     });
   }
 
@@ -175,8 +175,8 @@ export class ResumeFormComponent {
 
   addSkill(): void {
     if (this.newSkill.trim() !== '' && !this.skills.includes(this.newSkill)) {
-      this.skills.push(this.newSkill);
-      this.sliderValues.push(this.sliderValue);
+      this.skills.push(JSON.parse(JSON.stringify(this.newSkill)) );
+      this.sliderValues.push(JSON.parse(JSON.stringify(this.sliderValue)));
       this.newSkill = '';
     }
   }
@@ -192,5 +192,14 @@ export class ResumeFormComponent {
     }
   }
 
-  // matskillslider
+  // experiencesection
+  createdSkillFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      skill: ['', Validators.required],
+    });
+  }
+
+  get skillDetails(): FormArray {
+    return this.resumeFormGroup.get('skill') as FormArray;
+  }
 }
