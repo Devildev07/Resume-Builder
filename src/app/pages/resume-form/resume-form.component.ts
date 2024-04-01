@@ -78,44 +78,8 @@ export class ResumeFormComponent {
       experienceDetails: this.formBuilder.array([
         this.createdExpDetailsFormGroup(),
       ]),
-      skill: this.formBuilder.array([this.createdSkillFormGroup()]),
+      skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
     });
-  }
-
-  asyncEmailValidator(
-    control: AbstractControl
-  ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    return new Observable((observer) => {
-      // Simulating asynchronous validation with a timeout
-      setTimeout(() => {
-        if (
-          control.value &&
-          !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
-        ) {
-          observer.next({ invalidEmail: true }); // Return validation error
-        } else {
-          observer.next(null); // No error
-        }
-        observer.complete();
-      }, 1000); // Adjust timeout as needed
-    });
-  }
-
-  addDetails(type: 'educationalDetails' | 'experienceDetails'): void {
-    const details = this.resumeFormGroup.get(type) as FormArray;
-    if (type === 'educationalDetails') {
-      details.push(this.createdEduDetailsFormGroup());
-    } else if (type === 'experienceDetails') {
-      details.push(this.createdExpDetailsFormGroup());
-    }
-  }
-
-  deleteDetails(
-    type: 'educationalDetails' | 'experienceDetails',
-    i: number
-  ): void {
-    const details = this.resumeFormGroup.get(type) as FormArray;
-    details.removeAt(i);
   }
 
   // educationsection
@@ -149,6 +113,58 @@ export class ResumeFormComponent {
     return this.resumeFormGroup.get('experienceDetails') as FormArray;
   }
 
+  //skillsection
+  createdSkillFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      skillName: ['', Validators.required],
+      skillValue: [''],
+    });
+  }
+
+  get skillDetails(): FormArray {
+    return this.resumeFormGroup.get('skillDetails') as FormArray;
+  }
+
+  asyncEmailValidator(
+    control: AbstractControl
+  ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+    return new Observable((observer) => {
+      // Simulating asynchronous validation with a timeout
+      setTimeout(() => {
+        if (
+          control.value &&
+          !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
+        ) {
+          observer.next({ invalidEmail: true }); // Return validation error
+        } else {
+          observer.next(null); // No error
+        }
+        observer.complete();
+      }, 1000); // Adjust timeout as needed
+    });
+  }
+
+  addDetails(
+    type: 'educationalDetails' | 'experienceDetails' | 'skillDetails'
+  ): void {
+    const details = this.resumeFormGroup.get(type) as FormArray;
+    if (type === 'educationalDetails') {
+      details.push(this.createdEduDetailsFormGroup());
+    } else if (type === 'experienceDetails') {
+      details.push(this.createdExpDetailsFormGroup());
+    } else if (type === 'skillDetails') {
+      details.push(this.createdSkillFormGroup());
+    }
+  }
+
+  deleteDetails(
+    type: 'educationalDetails' | 'experienceDetails' | 'skillDetails',
+    i: number
+  ): void {
+    const details = this.resumeFormGroup.get(type) as FormArray;
+    details.removeAt(i);
+  }
+
   submitResumeForm() {
     if (this.resumeFormGroup.valid) {
       this.allResumeData = this.resumeFormGroup.value;
@@ -156,50 +172,5 @@ export class ResumeFormComponent {
       console.log('firstFormGroup data here', this.allResumeData);
     }
     console.log('firstFormGroup not valid enteries');
-  }
-
-  // custome chip and slider
-
-  get skill(): FormArray {
-    return this.resumeFormGroup.get('skill') as FormArray;
-  }
-
-  skills: string[] = [];
-  newSkill: string = '';
-  sliderValue: number = 0;
-  sliderValues: number[] = [];
-  max = 100;
-  min = 0;
-  step = 1;
-  thumbLabel = true;
-
-  addSkill(): void {
-    if (this.newSkill.trim() !== '' && !this.skills.includes(this.newSkill)) {
-      this.skills.push(JSON.parse(JSON.stringify(this.newSkill)) );
-      this.sliderValues.push(JSON.parse(JSON.stringify(this.sliderValue)));
-      this.newSkill = '';
-    }
-  }
-
-  removeSkill(index: number): void {
-    this.skills.splice(index, 1);
-    this.sliderValues.splice(index, 1);
-  }
-
-  updateSliderValue(): void {
-    if (this.sliderValues.length > 0) {
-      this.sliderValues[this.sliderValues.length - 1] = this.sliderValue;
-    }
-  }
-
-  // experiencesection
-  createdSkillFormGroup(): FormGroup {
-    return this.formBuilder.group({
-      skill: ['', Validators.required],
-    });
-  }
-
-  get skillDetails(): FormArray {
-    return this.resumeFormGroup.get('skill') as FormArray;
   }
 }
