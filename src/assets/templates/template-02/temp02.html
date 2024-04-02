@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template 1</title>
+  <link rel="stylesheet" href="../../../styles.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* color */
+      --primary-color: #6425eb;
+      --gray-color: #5c5c5c;
+      --white: #f4f4f4;
+
+      /* font */
+      /* --base-font-family: "Poppins", "sans-serif"; */
+      --font-xs: 0.25rem;
+      --font-sm: 0.5rem;
+      --font-sm1: 0.75rem;
+      --font-sm2: 0.8rem;
+      --font-base: 1rem;
+      --font-md: 1.125rem;
+      --font-lg: 1.25rem;
+      --font-xl: 1.375rem;
+      --font-2xl: 1.5rem;
+      --font-3xl: 1.625rem;
+      --font-4xl: 1.75rem;
+      --font-5xl: 1.875rem;
+      --font-6xl: 2rem;
+    }
+
+    /* classes */
+    .w-90 {
+      width: 90%;
+    }
+
+    .container {
+      font-size: var(--font-base);
+    }
+
+    .title {
+      margin: auto;
+      margin-top: 1rem;
+      width: 90%;
+    }
+
+    .title h1 {
+      font-size: var(--font-5xl);
+      color: var(--primary-color);
+    }
+
+    .title p {
+      font-size: var(--font-md);
+      color: var(--gray-color);
+    }
+
+    .title span {
+      font-size: var(--font-sm2);
+      line-height: 1.25 !important;
+      display: block;
+    }
+
+    .contact_area {
+      border: 2px solid #131313;
+      border-left: none;
+      border-right: none;
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+    }
+
+    .contact_box {
+      width: 85%;
+      margin: auto;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--font-sm2);
+    }
+
+    .skill_area,
+    .exp_area,
+    .edu_area,
+    .lang_area {
+      width: 90%;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+
+    .skill_area h3,
+    .exp_area h3,
+    .edu_area h3,
+    .lang_area h3 {
+      color: var(--primary-color);
+      font-size: var(--font-xl);
+      padding-bottom: 0.4rem;
+    }
+
+    .skill_area span {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 0.2rem 0.5rem;
+      border-radius: 5px;
+    }
+
+    .edu_area .edu_detail,
+    .exp_area .exp_detail,
+    .lang_area .lang_box {
+      margin-bottom: 0.7rem;
+    }
+
+    .edu_area .course_title,
+    .exp_area .job_title {
+      font-size: var(--font-md);
+    }
+
+    .edu_area .university_name,
+    .exp_area .company_name {
+      font-size: var(--font-base);
+    }
+
+    .edu_area .time_period,
+    .exp_area .time_period {
+      font-size: var(--font-sm2);
+      color: var(--gray-color);
+    }
+
+    .exp_area ul {
+      padding-left: 1rem;
+      font-size: var(--font-sm2);
+    }
+
+    .lang_area .lang_level {
+      color: var(--primary-color);
+      font-size: var(--font-sm2);
+    }
+
+    .lang_area .lang {
+      display: flex;
+      gap: 0.8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container poppins-medium  dark:text-gray-900">
+    <div class=" title">
+      <h1 class="poppins-medium">Your_name_key</h1>
+      <p class="poppins-light">Your Job Title</p>
+      <span class="poppins-medium">Your description here... Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Alias, aliquam beatae quis eveniet ipsa vel,
+        sapiente cumque enim est dolor magni voluptate laborum, quisquam a
+        temporibus. Vitae, dolore soluta expedita culpa ratione dolorum in
+        optio accusantium. Sit nihil delectus voluptas ullam harum iure sed
+        officiis, adipisci ratione illo dolore est!</span>
+    </div>
+    <!--  -->
+    <div class="contact_area">
+      <div class="contact_box">
+        <p>example@mail.com</p>
+        <p>9876543210</p>
+        <p>Abc,Abc state,001100,abc</p>
+        <p><a href="#">linkedin.com</a></p>
+      </div>
+    </div>
+    <!--  -->
+    <div class="skill_area">
+      <h3>SKILLS</h3>
+      <span>Skill 1</span>
+      <span>Skill 1</span>
+      <span>Skill 1</span>
+      <span>Skill 1</span>
+      <span>Skill 1</span>
+    </div>
+    <!--  -->
+    <div class="exp_area">
+      <h3>WORK EXPERIENCE</h3>
+      <div class="exp_detail poppins-medium">
+        <div class="job_title poppins-bold">Job title</div>
+        <div class="company_name">Company Name</div>
+        <div class="time_period poppins-light-italic">02/2024-02/2020</div>
+        <ul>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+        </ul>
+      </div>
+      <!--  -->
+      <div class="exp_detail poppins-medium">
+        <div class="job_title poppins-bold">Job title</div>
+        <div class="company_name">Company Name</div>
+        <div class="time_period poppins-light-italic">02/2024-02/2020</div>
+        <ul>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+          <li>list</li>
+        </ul>
+      </div>
+    </div>
+    <!--  -->
+    <div class="edu_area">
+      <h3>EDUCATION</h3>
+      <div class="edu_detail poppins-medium">
+        <div class="course_title poppins-bold">Course title</div>
+        <div class="university_name">University Name</div>
+        <div class="time_period poppins-light-italic">02/2024-02/2020</div>
+      </div>
+      <!--  -->
+      <div class="edu_detail poppins-medium">
+        <div class="course_title poppins-bold">Course title</div>
+        <div class="university_name">University Name</div>
+        <div class="time_period poppins-light-italic">02/2024-02/2020</div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="lang_area">
+      <h3>LANGUAGES</h3>
+      <div class="lang">
+        <div class="lang_box">
+          <div class="lang_title poppins-bold">Language title</div>
+          <div class="lang_level poppins-light-italic">Limited Working Proficiency</div>
+        </div>
+        <div class="lang_box">
+          <div class="lang_title poppins-bold">Language title</div>
+          <div class="lang_level poppins-light-italic">Limited Working Proficiency</div>
+        </div>
+        <div class="lang_box">
+          <div class="lang_title poppins-bold">Language title</div>
+          <div class="lang_level poppins-light-italic">Limited Working Proficiency</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
