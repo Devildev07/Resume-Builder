@@ -167,8 +167,14 @@ export class ResumeFormComponent {
 
   submitResumeForm() {
     if (this.resumeFormGroup.valid) {
-      this.allResumeData = this.resumeFormGroup.value;
-      // this.allResumeData = this.personalDetails.push(this.resumetitle);
+      this.allResumeData ={}
+      var data = {
+        "formBuilder" : this.resumeFormGroup.value,
+        "title" : this.resumetitle
+      }
+      this.allResumeData = data;
+      // this.allResumeData.push(this.resumeFormGroup.value)
+      // this.allResumeData.push(this.resumetitle)
       console.log('firstFormGroup data here', this.allResumeData);
     }
     console.log('firstFormGroup not valid enteries');
