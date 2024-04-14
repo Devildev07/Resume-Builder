@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+/resume-builder
 
 # Node
 /node_modules
