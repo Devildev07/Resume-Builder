@@ -55,7 +55,7 @@ export class ResumeTemplatesComponent implements OnInit {
     const templatesPath = 'assets/templates/'; // Base path for templates
 
     // Use a loop to iterate through template directories (template-01, template-02, etc.)
-    for (let i = 1; i <= 2; i++) {
+    for (let i = 1; i <= 5; i++) {
       const templateUrl = `${templatesPath}template-${i
         .toString()
         .padStart(2, '0')}/temp${i}.html`;

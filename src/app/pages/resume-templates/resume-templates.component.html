@@ -3,10 +3,13 @@
     <p class="mt-4 py-3 poppins-semibold text-xl text-center">
       Select a template
     </p>
-    <div class="templatesArea mt-4 flex gap-3">
+    <div class="templatesArea mt-4 flex flex-wrap gap-4">
       @for (template of templates; track $index) {
+      <!-- <div
+        class="templateBox w-64 sm:h-[23rem] h-fit sm:basis-[18.5rem]  basis-full flex flex-col justify-between gap-2"
+      > -->
       <div
-        class="templateBox w-64 h-80 basis-64 flex flex-col justify-between gap-3"
+        class="templateBox h-fit xl:basis-[18.5rem] lg:basis-[19rem] sm:basis-[21rem] basis-full flex flex-col justify-between gap-2"
       >
         <div
           class="template border-2 rounded-lg h-80 hover:border-blue-500 hover:border-3 group flex-col relative"
@@ -58,7 +61,7 @@
                 [routerLinkActiveOptions]="{ exact: true }"
               >
                 <p>Choose template</p>
-                <div class="flex items-center space-x-2">
+                <!-- <div class="flex items-center space-x-2">
                   <label for="" class="items-center flex">
                     <input
                       type="radio"
@@ -71,7 +74,7 @@
                       class="block w-4 h-4 bg-red-500 ring-2 ring-red-300 rounded-full cursor-pointer"
                     ></span>
                   </label>
-                  <!--  -->
+
                   <label for="" class="items-center flex">
                     <input
                       type="radio"
@@ -84,7 +87,7 @@
                       class="block w-4 h-4 bg-blue-500 ring-2 ring-blue-300 rounded-full cursor-pointer"
                     ></span>
                   </label>
-                  <!--  -->
+
                   <label for="" class="items-center flex">
                     <input
                       type="radio"
@@ -97,8 +100,8 @@
                       class="block w-4 h-4 bg-green-500 ring-2 ring-green-300 rounded-full cursor-pointer"
                     ></span>
                   </label>
-                  <!--  -->
                 </div>
+               -->
               </button>
             </div>
           </div>
