@@ -1,31 +1,30 @@
-<div class="container py-3 px-4 relative">
-  <mat-dialog-actions class="absolute right-1 top-1">
-    <button
-      type="button"
-      class="delete-ripple-button-rounded"
-      mat-dialog-close
-      mat-button
-      color="warn"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-6 h-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-        />
-      </svg>
-    </button>
-  </mat-dialog-actions>
+<div
+  class="container flex flex-col justify-between mt-4 px-1 rounded-md relative h-full"
+>
   <mat-dialog-content [innerHTML]="templateContent"></mat-dialog-content>
   <!-- <div [innerHTML]="templateContent"></div> -->
-  <mat-dialog-actions>
-    <button class="success-btn">Select template</button>
-  </mat-dialog-actions>
+  <div class="flex items-center flex-wrap gap-2 px-4">
+    <mat-dialog-actions>
+      <button class="success-btn">Select template</button>
+    </mat-dialog-actions>
+    <mat-dialog-actions class="">
+      <button class="danger-btn flex items-center gap-1" mat-dialog-close>
+        Close
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+      </button>
+    </mat-dialog-actions>
+  </div>
 </div>

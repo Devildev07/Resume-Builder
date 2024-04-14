@@ -1,0 +1,13 @@
+.mdc-dialog__actions {
+    padding: 0 !important;
+}
+
+.mat-mdc-dialog-content {
+    max-height: 75vh;
+}
+
+@media (max-width: 768px) {
+    .mat-mdc-dialog-content {
+        max-height: 83vh !important;
+    }
+}

@@ -44,7 +44,7 @@ export class ResumeTemplatesComponent implements OnInit {
 
     this.dialog.open(ViewTemplateComponent, {
       backdropClass: 'backdrop-blur',
-      width: '1000px',
+      width: '1024px',
       height: '600px',
       panelClass: 'rounded-md',
       data: { templateContent: template.content },
