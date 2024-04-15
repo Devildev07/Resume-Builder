@@ -16,6 +16,7 @@
         >
           <div class="templateImg w-full h-80">
             <img src="../../../assets/Svg/heroSection.svg" alt="" srcset="" />
+            <!-- <img [src]="templateImg[$index]" alt="" srcset="" /> -->
           </div>
           <div
             class="templateMisc h-full w-full absolute top-0 left-0 group-hover:backdrop-blur"
@@ -107,7 +108,9 @@
           </div>
         </div>
         <p class="text-center">
-          {{ template.name || "Template " + ($index + 1) }}
+          <!-- {{ template.name || "Template " + ($index + 1) }} -->
+          {{templateName[$index]}}
+          
         </p>
       </div>
       }
