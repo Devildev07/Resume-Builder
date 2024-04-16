@@ -12,8 +12,8 @@
 </head>
 
 <body>
-  <div class="container m-auto p-4 poppins-medium  dark:text-gray-900">
-    <div class=" title">
+  <div class="container mx-auto px-6 py-8  poppins-medium  dark:text-gray-900">
+    <div class=" title pb-3">
       <h1 class="poppins-bold text-4xl text-blue-500 pb-1">Your_name_key</h1>
       <p class="poppins-light text-gray-500 text-xl">Your Job Title</p>
       <span class="poppins-medium text-base">Your description here... Lorem ipsum dolor sit amet consectetur
@@ -25,11 +25,11 @@
     </div>
     <!--  -->
     <div class="my-2 py-2 border-t-2 border-b-2 border-gray-900">
-      <div class="flex justify-between gap-2 flex-wrap">
-        <p>example@mail.com</p>
-        <p>9876543210</p>
-        <p>Abc,Abc state,001100,abc</p>
-        <p><a href="#">linkedin.com</a></p>
+      <div class="flex justify-between gap-2 flex-wrap flex-col sm:flex-row">
+        <p class="sm:basis-32">your@mail.com</p>
+        <p class="sm:basis-32">phone number</p>
+        <p class="sm:basis-56">city, pincode, state, country</p>
+        <p class="text-ellipsis sm:basis-32"><a href="#">yourweblink.com</a></p>
       </div>
     </div>
     <!--  -->
@@ -46,46 +46,50 @@
     <!--  -->
     <div class="exp_area mt-6">
       <h3 class=" text-blue-500 text-xl poppins-bold">WORK EXPERIENCE</h3>
-      <div class="exp_detail poppins-medium pb-4">
-        <div class="job_title poppins-bold text-base">Job title</div>
-        <div class="company_name text-sm">Company Name</div>
-        <div class="time_period text-gray-600 text-xs poppins-light-italic">02/2024-02/2020</div>
-        <ul class="list-disc ms-4 text-sm text-gray-800">
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-        </ul>
-      </div>
-      <!--  -->
-      <div class="exp_detail poppins-medium last:pb-2">
-        <div class="job_title poppins-bold text-base">Job title</div>
-        <div class="company_name text-sm">Company Name</div>
-        <div class="time_period text-gray-600 text-xs poppins-light-italic">02/2024-02/2020</div>
-        <ul class="list-disc ms-4 text-sm text-gray-800">
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-          <li>list</li>
-        </ul>
+      <div class="flex flex-col gap-4 pb-2">
+        <div class="exp_detail poppins-medium ">
+          <div class="job_title poppins-bold text-base">Job title</div>
+          <div class="company_name text-sm">Company Name</div>
+          <div class="time_period text-gray-600 text-xs poppins-light-italic">02/2024-02/2020</div>
+          <ul class="list-disc ms-4 text-sm text-gray-800">
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+          </ul>
+        </div>
+        <!--  -->
+        <div class="exp_detail poppins-medium">
+          <div class="job_title poppins-bold text-base">Job title</div>
+          <div class="company_name text-sm">Company Name</div>
+          <div class="time_period text-gray-600 text-xs poppins-light-italic">02/2024-02/2020</div>
+          <ul class="list-disc ms-4 text-sm text-gray-800">
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+          </ul>
+        </div>
       </div>
 
     </div>
     <!--  -->
     <div class="edu_area mt-6">
       <h3 class=" text-blue-500 text-xl poppins-bold">EDUCATION</h3>
-      <div class="edu_detail poppins-medium pb-4">
-        <div class="course_title text-base poppins-bold">Course title</div>
-        <div class="university_name text-sm">University Name</div>
-        <div class="time_period text-gray-600 text-xs poppins-light-italic">02/2024-02/2020</div>
-      </div>
-      <!--  -->
-      <div class="edu_detail poppins-medium pb-4">
-        <div class="course_title text-base poppins-bold">Course title</div>
-        <div class="university_name text-sm">University Name</div>
-        <div class="time_period text-gray-600 text-xs poppins-light-italic">02/2024-02/2020</div>
+      <div class="flex flex-col gap-4 pb-2">
+        <div class="edu_detail poppins-medium ">
+          <div class="course_title text-base poppins-bold">Course title</div>
+          <div class="university_name text-sm">University Name</div>
+          <div class="time_period text-gray-600 text-xs poppins-light-italic">02/2024-02/2020</div>
+        </div>
+        <!--  -->
+        <div class="edu_detail poppins-medium ">
+          <div class="course_title text-base poppins-bold">Course title</div>
+          <div class="university_name text-sm">University Name</div>
+          <div class="time_period text-gray-600 text-xs poppins-light-italic">02/2024-02/2020</div>
+        </div>
       </div>
     </div>
     <!--  -->
