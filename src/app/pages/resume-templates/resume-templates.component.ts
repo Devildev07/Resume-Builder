@@ -43,7 +43,7 @@ export class ResumeTemplatesComponent implements OnInit {
     this.dialog.open(ViewTemplateComponent, {
       backdropClass: 'backdrop-blur',
       width: '1024px',
-      height: '600px',
+      height: '580px',
       panelClass: 'rounded-md',
       data: { templateContent: template.content },
     });
@@ -65,7 +65,7 @@ export class ResumeTemplatesComponent implements OnInit {
       );
       console.log('this.safeImg === ', this.safeImg);
       this.templates.push({ content: this.safeImg });
-      this.templates.push({ content: temp.Id });
+      // this.templates.push({ content: temp.Id });
       // console.log("this.templateImg === ", this.templateImg);
       // this.http.get(temp.Path, { responseType: 'text' }).subscribe(
       //   (templateContent) => {

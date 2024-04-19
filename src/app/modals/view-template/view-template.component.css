@@ -3,11 +3,13 @@
 }
 
 .mat-mdc-dialog-content {
-    max-height: 75vh;
+    max-height: 500px;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
 }
 
 @media (max-width: 768px) {
     .mat-mdc-dialog-content {
-        max-height: 83vh !important;
+        max-height: 500px !important;
     }
 }
