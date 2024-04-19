@@ -4,8 +4,8 @@
 
 .mat-mdc-dialog-content {
     max-height: 500px;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
+    /* margin-left: 0.75rem;
+    margin-right: 0.75rem; */
 }
 
 @media (max-width: 768px) {

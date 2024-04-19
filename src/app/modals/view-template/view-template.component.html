@@ -1,11 +1,15 @@
 <div
-  class="container flex flex-col justify-between mt-4 px-1 rounded-md relative h-full"
+  class="container flex flex-col justify-between mt-4 rounded-md relative h-full"
 >
-  <mat-dialog-content class="bg-gray-100 rounded-md mx-3" [innerHTML]="templateContent"> </mat-dialog-content>
- 
-  <div class="flex items-center justify-end flex-wrap gap-2 px-4">
+<h3 class="text-2xl font-semibold leading-6 text-gray-900 py-3 px-4">{{templateContent.name}}</h3>
+  <div class="bg-gray-100 rounded-md mx-3 overflow-hidden">
+    <mat-dialog-content [innerHTML]="templateContent.img"> </mat-dialog-content>
+  </div>
+  <div class="flex items-center flex-wrap gap-2 bg-gray-50 mt-2 px-4 py-2 sm:flex sm:flex-row-reverse">
     <mat-dialog-actions>
-      <button class="success-btn">Select template</button>
+      <button class="success-btn" (click)="selectTemplate()">
+        Select template
+      </button>
     </mat-dialog-actions>
     <mat-dialog-actions class="">
       <button class="danger-btn flex items-center gap-1" mat-dialog-close>
@@ -16,7 +20,7 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="w-5 h-5"
+          class="w-6 h-6"
         >
           <path
             stroke-linecap="round"

@@ -21,6 +21,7 @@ export class ResumeTemplatesComponent implements OnInit {
   fileArray: any = [];
   templateName: any = [];
   templateImg: any = [];
+  templateId: any = [];
   safeImg: SafeHtml | undefined;
 
   constructor(
@@ -43,7 +44,7 @@ export class ResumeTemplatesComponent implements OnInit {
     this.dialog.open(ViewTemplateComponent, {
       backdropClass: 'backdrop-blur',
       width: '1024px',
-      height: '580px',
+      height: '640px',
       panelClass: 'rounded-md',
       data: { templateContent: template.content },
     });
@@ -57,14 +58,20 @@ export class ResumeTemplatesComponent implements OnInit {
       this.templateName[index] = temp.Name;
       // console.log("this.templateName === ", this.templateName);
       this.templateImg.push(temp.Img);
+      this.templateId.push(temp.Id)
       // this.templateImg[index] = temp.Img
       const imgPath = temp.Img;
 
       this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
         `<img src="${imgPath}" alt="Dynamic Image">`
       );
-      console.log('this.safeImg === ', this.safeImg);
-      this.templates.push({ content: this.safeImg });
+      // console.log('this.safeImg === ', this.safeImg);
+      const content = {
+        img: this.safeImg,
+        id: this.templateId[index],
+        name: this.templateName[index],
+      }
+      this.templates.push({ content });
       // this.templates.push({ content: temp.Id });
       // console.log("this.templateImg === ", this.templateImg);
       // this.http.get(temp.Path, { responseType: 'text' }).subscribe(

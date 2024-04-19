@@ -26,31 +26,21 @@ import { MatButtonModule } from '@angular/material/button';
 export class ViewTemplateComponent {
   // htmlContent: SafeHtml = '';
 
-  templateContent: string | any;
+  templateContent: any;
 
   constructor(
     public commonService: CommonServicesService,
     private sanitizer: DomSanitizer,
     public dialogRef: MatDialogRef<ViewTemplateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { templateContent: string }
+    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any }
   ) {
-    // this.loadHtmlContent();
-
     this.templateContent = data.templateContent;
+    // console.log("this.templateContent === ",this.templateContent);
+
   }
 
-  // close() {
-  //   this.dialogRef.close();
-  // }
-  // loadHtmlContent() {
-  //   this.commonService
-  //     .getHtmlContent('template-01/temp01.html')
-  //     .subscribe((content: string) => {
-  //       let temp = content.replace('Your_name_key', 'dewanshu');
-  //       this.htmlContent = this.getSafeHtmlContent(temp);
-  //     });
-  // }
-  // getSafeHtmlContent(content: string): SafeHtml {
-  //   return this.sanitizer.bypassSecurityTrustHtml(content);
-  // }
+  selectTemplate(){
+    console.log("this.templateContent.id === ",this.templateContent.id);
+  }
+
 }
