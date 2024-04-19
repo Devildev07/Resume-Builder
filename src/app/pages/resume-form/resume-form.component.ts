@@ -18,6 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { Observable } from 'rxjs';
 import { MatSliderModule } from '@angular/material/slider';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-resume-form',
@@ -49,7 +50,15 @@ export class ResumeFormComponent {
 
   FormArray: any;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    public actRoute: ActivatedRoute
+  ) {
+    this.actRoute.queryParams.subscribe(param =>{
+      const recivedTemplateId = param['id']
+      console.log("recivedTemplateId === ",recivedTemplateId);
+    })
+  }
 
   ngOnInit() {
     this.resumeFormGroup = this.formBuilder.group({
@@ -79,6 +88,7 @@ export class ResumeFormComponent {
         this.createdExpDetailsFormGroup(),
       ]),
       skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
+      projectDetails: this.formBuilder.array([this.createdProjectFormGroup()]),
     });
   }
 
@@ -124,6 +134,21 @@ export class ResumeFormComponent {
   get skillDetails(): FormArray {
     return this.resumeFormGroup.get('skillDetails') as FormArray;
   }
+  //skillsection
+  createdProjectFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      projectTitle: ['', Validators.required],
+      projectLink: ['', Validators.required],
+      projectCodeLink: [''],
+      projectTechUsed: [''],
+      projectYear: [''],
+      projectDescription: [''],
+    });
+  }
+
+  get projectDetails(): FormArray {
+    return this.resumeFormGroup.get('projectDetails') as FormArray;
+  }
 
   asyncEmailValidator(
     control: AbstractControl
@@ -145,7 +170,11 @@ export class ResumeFormComponent {
   }
 
   addDetails(
-    type: 'educationalDetails' | 'experienceDetails' | 'skillDetails'
+    type:
+      | 'educationalDetails'
+      | 'experienceDetails'
+      | 'skillDetails'
+      | 'projectDetails'
   ): void {
     const details = this.resumeFormGroup.get(type) as FormArray;
     if (type === 'educationalDetails') {
@@ -154,11 +183,17 @@ export class ResumeFormComponent {
       details.push(this.createdExpDetailsFormGroup());
     } else if (type === 'skillDetails') {
       details.push(this.createdSkillFormGroup());
+    } else if (type === 'projectDetails') {
+      details.push(this.createdProjectFormGroup());
     }
   }
 
   deleteDetails(
-    type: 'educationalDetails' | 'experienceDetails' | 'skillDetails',
+    type:
+      | 'educationalDetails'
+      | 'experienceDetails'
+      | 'skillDetails'
+      | 'projectDetails',
     i: number
   ): void {
     const details = this.resumeFormGroup.get(type) as FormArray;
@@ -167,11 +202,11 @@ export class ResumeFormComponent {
 
   submitResumeForm() {
     if (this.resumeFormGroup.valid) {
-      this.allResumeData ={}
+      this.allResumeData = {};
       var data = {
-        "formBuilder" : this.resumeFormGroup.value,
-        "title" : this.resumetitle
-      }
+        formBuilder: this.resumeFormGroup.value,
+        title: this.resumetitle,
+      };
       this.allResumeData = data;
       // this.allResumeData.push(this.resumeFormGroup.value)
       // this.allResumeData.push(this.resumetitle)

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonServicesService } from 'src/app/services/common-services.service';
 import { RouterModule } from '@angular/router';
 
@@ -36,7 +36,8 @@ export class UserDashboardComponent {
 
   constructor(
     private sanitizer: DomSanitizer,
-    public commonService: CommonServicesService
+    public commonService: CommonServicesService,
+    public route: Router
   ) {}
 
   toggleTheme() {
@@ -67,5 +68,9 @@ export class UserDashboardComponent {
     // } else {
     //   body.classList.remove('overflow-hidden');
     // }
+  }
+
+  createResume(){
+    this.route.navigate(['/templates'])
   }
 }

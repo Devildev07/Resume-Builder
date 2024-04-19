@@ -9,6 +9,7 @@ import {
   MatDialogContent,
 } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-template',
@@ -30,8 +31,8 @@ export class ViewTemplateComponent {
 
   constructor(
     public commonService: CommonServicesService,
-    private sanitizer: DomSanitizer,
     public dialogRef: MatDialogRef<ViewTemplateComponent>,
+    public route: Router,
     @Inject(MAT_DIALOG_DATA) public data: { templateContent: any }
   ) {
     this.templateContent = data.templateContent;
@@ -40,6 +41,8 @@ export class ViewTemplateComponent {
   }
 
   selectTemplate(){
+    this.route.navigate(['/dashboard/builder'],{ queryParams: { id: this.templateContent.id } }) 
+    this.dialogRef.close();
     console.log("this.templateContent.id === ",this.templateContent.id);
   }
 
