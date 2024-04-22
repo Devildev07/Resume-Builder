@@ -1,3 +1,77 @@
+export const templateData:any = {
+    name_key:'Your Name',
+    jobTitle:'Your Job Title',
+    email: 'demo@email.com',
+    phone: '+91 9876543210',
+    webLink: 'yourLink.com',
+    address:'Your Address',
+    pincode:'Your Pincode',
+    city: 'Your City',
+    state:'Your State',
+    country: 'Your Country',
+    summary: 'summary or discription',
+    experience: [
+        {
+            companyName: 'Your company name',
+            jobTitle: 'Your Job Title',
+            from: '2022-01-01',
+            to: '2022-01-01',
+            description: 'summary or discription',
+            experienceYear:'year of experience in company',
+            responsibilities: [
+                'summary or discription',
+            ],
+            skills: [
+                'summary or discription',
+            ],
+            achievements: [
+                'summary or discription',
+            ],
+            certificates: [
+                'summary or discription',
+            ],
+        }
+    ],
+    education: [
+        {
+            institutionName: 'Your school name',
+            courseTitle: 'Your Course Title',
+            from: '2022-01-01',
+            to: '2022-01-01',
+            grades: 'Your grades',
+            description: 'summary or discription',
+        },
+    ],
+    skills: [
+        {
+            skillTitle: 'Your Skill',
+            skillvalues: 'summary or discription',
+        },
+        {
+            skillTitle: 'Your Skil 1',
+            skillvalues: 'summary or discription',
+        },
+    ],
+    projects: [
+        {
+            projectName: 'Your Project Name',
+            from: '2022-01-01',
+            to: '2022-01-01',
+            year: 'year of project',
+            description: 'summary or discription',
+            skills: [
+                'summary or discription',
+            ],
+          
+        },
+    ],
+    language:[
+        {
+        languagetitle: 'language title',
+        languagevalues: 'language values',
+        },
+    ]
+}
 export const template = [
     {
         "Id": "template_01",

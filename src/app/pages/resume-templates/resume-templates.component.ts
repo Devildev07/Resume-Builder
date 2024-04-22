@@ -22,6 +22,7 @@ export class ResumeTemplatesComponent implements OnInit {
   templateName: any = [];
   templateImg: any = [];
   templateId: any = [];
+  templatePath: any
   safeImg: SafeHtml | undefined;
 
   constructor(
@@ -70,18 +71,19 @@ export class ResumeTemplatesComponent implements OnInit {
         img: this.safeImg,
         id: this.templateId[index],
         name: this.templateName[index],
+        // path: this.templatePath[index],
       }
-      this.templates.push({ content });
+      // this.templates.push({ content });
       // this.templates.push({ content: temp.Id });
       // console.log("this.templateImg === ", this.templateImg);
-      // this.http.get(temp.Path, { responseType: 'text' }).subscribe(
-      //   (templateContent) => {
-      //     this.templates.push({ content: templateContent });
-      //   },
-      //   (error) => {
-      //     console.error('Error fetching template:', error);
-      //   }
-      // );
+      this.http.get(temp.Path, { responseType: 'text' }).subscribe(
+        (templateContent) => {
+          this.templates.push({ content: templateContent });
+        },
+        (error) => {
+          console.error('Error fetching template:', error);
+        }
+      );
     });
   }
 }
