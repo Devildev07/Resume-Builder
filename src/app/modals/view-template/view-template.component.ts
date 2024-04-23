@@ -38,15 +38,15 @@ export class ViewTemplateComponent {
     @Inject(MAT_DIALOG_DATA) public data: { templateContent: any }
   ) {
     this.templateContent = data.templateContent;
-    // console.log("this.templateContent === ", this.templateContent);
+    console.log("this.templateContent === ", this.templateContent);
     // console.log('templateData', templateData)
     Object.keys(templateData).forEach((key: any) => {
       if (Array.isArray(templateData[key]) && key == 'skills_list') {
         console.log('key if', key, templateData[key]);
         let html = '';
-        console.log("templateArraySection === ", templateArraySection);
+        // console.log("templateArraySection === ", templateArraySection);
         templateData[key].forEach((keyItem: any, index: any) => {
-          console.log("keyItem === ", templateArraySection['template_01'], typeof templateArraySection['template_01']);
+          // console.log("keyItem === ", templateArraySection['template_01'], typeof templateArraySection['template_01']);
           let temp = '';
 
           temp += templateArraySection['template_01'][key].replace('{{skillTitle}}', keyItem.skillTitle)
@@ -55,11 +55,11 @@ export class ViewTemplateComponent {
           html += temp;
 
         })
-        console.log("html === ", key, html);
+        // console.log("html === ", key, html);
         const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
         this.templateContent = this.templateContent.replace(regex, html);
       } else {
-        console.log("else === ");
+        // console.log("else === ");
         const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
         this.templateContent = this.templateContent.replace(regex, templateData[key]);
         // console.log('this.templateContent', this.templateContent);
