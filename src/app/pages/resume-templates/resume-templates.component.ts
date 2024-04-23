@@ -29,7 +29,7 @@ export class ResumeTemplatesComponent implements OnInit {
     public dialog: MatDialog,
     public commonService: CommonServicesService,
     private http: HttpClient,
-    private sanitizer: DomSanitizer
+    
   ) {}
 
   ngOnInit() {
@@ -37,14 +37,15 @@ export class ResumeTemplatesComponent implements OnInit {
   }
 
   viewTemplate(template: any) {
+
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
-        (templateContent) => {
+        (tempContent) => {
           this.dialog.open(ViewTemplateComponent, {
             backdropClass: 'backdrop-blur',
             width: '1024px',
             height: '640px',
             panelClass: 'rounded-md',
-            data: { templateContent: templateContent },
+            data: { templateContent: tempContent, templateInfo: template },
           });
         },
         (error) => {

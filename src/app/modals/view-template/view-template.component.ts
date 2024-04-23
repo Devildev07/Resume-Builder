@@ -27,29 +27,44 @@ import { templateArraySection, templateData } from 'src/assets/templates/templat
   encapsulation: ViewEncapsulation.None,
 })
 export class ViewTemplateComponent {
-  // htmlContent: SafeHtml = '';
+  safeImg: SafeHtml = '';
 
   templateContent: any;
+  templateInfo: any;
+  temp_id: any;
 
   constructor(
     public commonService: CommonServicesService,
     public dialogRef: MatDialogRef<ViewTemplateComponent>,
     public route: Router,
-    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any }
+    private sanitizer: DomSanitizer,
+    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any }
   ) {
     this.templateContent = data.templateContent;
-    console.log("this.templateContent === ", this.templateContent);
+    this.templateInfo = data.templateInfo;
+    // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
     // console.log('templateData', templateData)
+    this.temp_id = this.templateInfo.Id
+    this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
+      `<img src="${this.templateInfo.Img}" alt="Dynamic Image">`
+    );
     Object.keys(templateData).forEach((key: any) => {
-      if (Array.isArray(templateData[key]) && key == 'skills_list') {
-        console.log('key if', key, templateData[key]);
+
+      console.log(this.temp_id);
+
+      Object.keys(templateArraySection[this.temp_id]).forEach((keyItem: any) => {
+        console.log(keyItem);
+
+      })
+
+
+      if (Array.isArray(templateData[key]) && key == templateArraySection[this.temp_id][key]) {
         let html = '';
-        // console.log("templateArraySection === ", templateArraySection);
-        templateData[key].forEach((keyItem: any, index: any) => {
-          // console.log("keyItem === ", templateArraySection['template_01'], typeof templateArraySection['template_01']);
+
+        templateData[key].forEach((keyItem: any) => {
           let temp = '';
 
-          temp += templateArraySection['template_01'][key].replace('{{skillTitle}}', keyItem.skillTitle)
+          temp += templateArraySection[this.temp_id][key].replace('{{skillTitle}}', keyItem.skillTitle)
           temp = temp.replace('{{skillvalues}}', keyItem.skillvalues)
           const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
           html += temp;
@@ -69,9 +84,9 @@ export class ViewTemplateComponent {
   }
 
   selectTemplate() {
-    this.route.navigate(['/dashboard/builder'], { queryParams: { id: this.templateContent.id } })
+    this.route.navigate(['/dashboard/builder'], { queryParams: { id: this.temp_id } })
     this.dialogRef.close();
-    console.log("this.templateContent.id === ", this.templateContent.id);
+    console.log("this.templateContent.id === ", this.temp_id);
   }
 
 }
