@@ -10,7 +10,7 @@ import {
 } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
-import { templateData } from 'src/assets/templates/templates';
+import { templateArraySection, templateData } from 'src/assets/templates/templates';
 
 
 @Component({
@@ -41,20 +41,29 @@ export class ViewTemplateComponent {
     // console.log("this.templateContent === ", this.templateContent);
     // console.log('templateData', templateData)
     Object.keys(templateData).forEach((key: any) => {
-      // console.log('key',key,templateData[key]);
-      if (Array.isArray(templateData[key])) {
+      if (Array.isArray(templateData[key]) && key == 'skills_list') {
+        console.log('key if', key, templateData[key]);
+        let html = '';
+        console.log("templateArraySection === ", templateArraySection);
         templateData[key].forEach((keyItem: any, index: any) => {
-          Object.keys(keyItem).forEach((childKey: any) => {
-            const regex = new RegExp(`{{\\s*${key}\\[${index}\\].${childKey}\\s*}}`, 'g')
-            this.templateContent = this.templateContent.replace(regex, keyItem[childKey])
-            console.log('this.templateContent', this.templateContent);
+          console.log("keyItem === ", templateArraySection['template_01'], typeof templateArraySection['template_01']);
+          let temp = '';
 
-          })
+          temp += templateArraySection['template_01'][key].replace('{{skillTitle}}', keyItem.skillTitle)
+          temp = temp.replace('{{skillvalues}}', keyItem.skillvalues)
+          const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+          html += temp;
+
         })
+        console.log("html === ", key, html);
+        const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+        this.templateContent = this.templateContent.replace(regex, html);
+      } else {
+        console.log("else === ");
+        const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+        this.templateContent = this.templateContent.replace(regex, templateData[key]);
+        // console.log('this.templateContent', this.templateContent);
       }
-      const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-      this.templateContent = this.templateContent.replace(regex, templateData[key]);
-      // console.log('this.templateContent', this.templateContent);
 
     })
   }

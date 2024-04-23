@@ -37,53 +37,28 @@ export class ResumeTemplatesComponent implements OnInit {
   }
 
   viewTemplate(template: any) {
-    if (!template || !template.content) {
-      console.error('Invalid template data provided.');
-      return;
-    }
-
-    this.dialog.open(ViewTemplateComponent, {
-      backdropClass: 'backdrop-blur',
-      width: '1024px',
-      height: '640px',
-      panelClass: 'rounded-md',
-      data: { templateContent: template.content },
-    });
-  }
-
-  fetchTemplates() {
-    const temp = template;
-    console.log('this.templates === ', temp);
-    temp.forEach((temp: any, index: any) => {
-      // console.log("temp === ", temp);
-      this.templateName[index] = temp.Name;
-      // console.log("this.templateName === ", this.templateName);
-      this.templateImg.push(temp.Img);
-      this.templateId.push(temp.Id)
-      // this.templateImg[index] = temp.Img
-      const imgPath = temp.Img;
-
-      this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
-        `<img src="${imgPath}" alt="Dynamic Image">`
-      );
-      // console.log('this.safeImg === ', this.safeImg);
-      const content = {
-        img: this.safeImg,
-        id: this.templateId[index],
-        name: this.templateName[index],
-        // path: this.templatePath[index],
-      }
-      // this.templates.push({ content });
-      // this.templates.push({ content: temp.Id });
-      // console.log("this.templateImg === ", this.templateImg);
-      this.http.get(temp.Path, { responseType: 'text' }).subscribe(
+    this.http.get(template.Path, { responseType: 'text' }).subscribe(
         (templateContent) => {
-          this.templates.push({ content: templateContent });
+          this.dialog.open(ViewTemplateComponent, {
+            backdropClass: 'backdrop-blur',
+            width: '1024px',
+            height: '640px',
+            panelClass: 'rounded-md',
+            data: { templateContent: templateContent },
+          });
         },
         (error) => {
           console.error('Error fetching template:', error);
         }
       );
+  }
+
+  fetchTemplates() {
+    const temp = template;
+    this.templates=[];
+    temp.forEach((temp: any, index: any) => {
+      this.templates.push(temp);      
     });
+    console.log("templates === ",this.templates);
   }
 }

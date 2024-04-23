@@ -1,13 +1,13 @@
-export const templateData:any = {
-    name_key:'Your Name',
-    jobTitle:'Your Job Title',
+export const templateData: any = {
+    name_key: 'Your Name',
+    jobTitle: 'Your Job Title',
     email: 'demo@email.com',
     phone: '+91 9876543210',
     webLink: 'yourLink.com',
-    address:'Your Address',
-    pincode:'Your Pincode',
+    address: 'Your Address',
+    pincode: 'Your Pincode',
     city: 'Your City',
-    state:'Your State',
+    state: 'Your State',
     country: 'Your Country',
     summary: 'summary or discription',
     experience: [
@@ -17,7 +17,7 @@ export const templateData:any = {
             from: '2022-01-01',
             to: '2022-01-01',
             description: 'summary or discription',
-            experienceYear:'year of experience in company',
+            experienceYear: 'year of experience in company',
             responsibilities: [
                 'summary or discription',
             ],
@@ -42,14 +42,18 @@ export const templateData:any = {
             description: 'summary or discription',
         },
     ],
-    skills: [
+    skills_list: [
         {
             skillTitle: 'Your Skill',
-            skillvalues: 'summary or discription',
+            skillvalues: 'summary or discription'
         },
         {
-            skillTitle: 'Your Skil 1',
-            skillvalues: 'summary or discription',
+            skillTitle: 'Your Skill2',
+            skillvalues: 'summary or discription'
+        },
+        {
+            skillTitle: 'Your Skill3',
+            skillvalues: 'summary or discription'
         },
     ],
     projects: [
@@ -62,16 +66,32 @@ export const templateData:any = {
             skills: [
                 'summary or discription',
             ],
-          
+
         },
     ],
-    language:[
+    language: [
         {
-        languagetitle: 'language title',
-        languagevalues: 'language values',
+            languagetitle: 'language title',
+            languagevalues: 'language values',
         },
-    ]
+    ],
+
 }
+
+export const templateArraySection: any = {
+    template_01: {
+        skills_list: "<span class=\"rounded-md p-2 bg-blue-500 text-white\">{{skillTitle}} {{skillvalues}}</span>",
+        experience: '<div class="exp_detail poppins-medium "> <div class="job_title poppins-bold text-base">{{jobTitle}}</div>            < div class= "company_name text-sm" > {{ companyName }}</div> < div class="time_period text-gray-600 text-xs poppins-light-italic" > {{ from }}-{{ to }}</div> < div class="company_name text-sm" > {{ experienceYear }}</div> < ul class="list-disc ms-4 text-sm text-gray-800" > <li>{{ responsibilities }}</li>  < /ul>  < /div>',
+        education: '<div class="edu_detail poppins-medium "> <div class="course_title text-base poppins-bold">{{courseTitle}}</div> <div class="university_name text-sm">{{institutionName}}</div> <div class="time_period text-gray-600 text-xs poppins-light-italic"> {{from}}-{{to}} </div> </div>',
+        language: '<div class="lang_box"> <div class="lang_title poppins-bold text-base">{{languagetitle}}</div> <div class="lang_level poppins-light-italic text-gray-600 text-xs">{{languagevalues}}</div> </div>'
+    },
+    template_02: {
+        skills_list: "<span class=\"rounded-md p-2 bg-blue-500 text-white\">{{skills[0].skillTitle}}</span>",
+        projects: "<span class=\"rounded-md p-2 bg-blue-500 text-white\">{{projects[0].projectName}}</span>",
+    }
+}
+
+
 export const template = [
     {
         "Id": "template_01",
