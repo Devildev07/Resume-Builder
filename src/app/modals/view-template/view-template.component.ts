@@ -48,62 +48,96 @@ export class ViewTemplateComponent {
     this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
       `<img src="${this.templateInfo.Img}" alt="Dynamic Image">`
     );
-    // Object.keys(templateData).forEach((key: any) => {
-
-    //   console.log(this.temp_id);
-
-    //   Object.keys(templateArraySection[this.temp_id]).forEach((keyItem: any) => {
-    //     console.log(keyItem);
-
-    //   })
-
-
-    //   if (Array.isArray(templateData[key]) && key == "skills_list") {
-    //     let html = '';
-
-    //     templateData[key].forEach((keyItem: any) => {
-    //       let temp = '';
-
-    //       temp += templateArraySection[this.temp_id][key].replace('{{skillTitle}}', keyItem.skillTitle)
-    //       temp = temp.replace('{{skillvalues}}', keyItem.skillvalues)
-    //       const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-    //       html += temp;
-
-    //     })
-    //     // console.log("html === ", key, html);
-    //     const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-    //     this.templateContent = this.templateContent.replace(regex, html);
-    //   } else {
-    //     // console.log("else === ");
-    //     const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-    //     this.templateContent = this.templateContent.replace(regex, templateData[key]);
-    //     // console.log('this.templateContent', this.templateContent);
-    //   }
-
-    // })
-
-    Object.keys(templateData).forEach((key: string) => {
-      if (Array.isArray(templateData[key]) && templateArraySection.hasOwnProperty(key)) {
+    Object.keys(templateData).forEach((key: any) => {
+      if (Array.isArray(templateData[key])) {
+        // console.log("templateArraySection[this.temp_id][key] === ", key, templateData[key]);
         let html = '';
-        templateData[key].forEach((keyItem: any) => {
-          let temp = '';
-          const templateKeys = Object.keys(templateArraySection[key]);
-          templateKeys.forEach((templateKey: string) => {
-            temp += templateArraySection[key][templateKey].replace(new RegExp(`{{\\s*${templateKey}\\s*}}`, 'g'), keyItem[templateKey]);
-          });
-          html += temp;
-        });
+        switch (key) {
+          case 'skills_list':
+            // console.log("templateData[key] === ", templateData[key]);
+            templateData[key].forEach((keyItem: any) => {
+              let temp = '';
+              temp += templateArraySection[this.temp_id][key].replace('{{skillTitle}}', keyItem.skillTitle)
+              temp = temp.replace('{{skillvalues}}', keyItem.skillvalues)
+              const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+              html += temp;
+            })
+            // console.log("html === ", key, html);
+            const skillRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+            this.templateContent = this.templateContent.replace(skillRegex, html);
+            break;
+          case 'experience_list':
+            // console.log("templateData[key] === ", templateData[key]);
+            templateData[key].forEach((keyItem: any) => {
+              let temp = '';
+              temp += templateArraySection[this.temp_id][key].replace('{{jobTitle}}', keyItem.jobTitle)
+              temp = temp.replace('{{companyName}}', keyItem.companyName)
+              temp = temp.replace('{{from}}', keyItem.from)
+              temp = temp.replace('{{to}}', keyItem.to)
+              temp = temp.replace('{{experienceYear}}', keyItem.experienceYear)
+              temp = temp.replace('{{responsibilities}}', keyItem.responsibilities)
+              const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+              html += temp;
+            })
+            console.log("html === ", key, typeof html, typeof this.templateContent);
+            const expRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+            this.templateContent = this.templateContent.replace(expRegex, html);
+            break;
+          case 'education_list':
+            // console.log("templateData[key] === ", templateData[key]);
+            templateData[key].forEach((keyItem: any) => {
+              let temp = '';
+              temp += templateArraySection[this.temp_id][key].replace('{{courseTitle}}', keyItem.courseTitle)
+              temp = temp.replace('{{institutionName}}', keyItem.institutionName)
+              temp = temp.replace('{{from}}', keyItem.from)
+              temp = temp.replace('{{to}}', keyItem.to)
+              temp = temp.replace('{{educationYear}}', keyItem.educationYear)
+              temp = temp.replace('{{degree}}', keyItem.degree)
+              const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+              html += temp;
+            })
+            console.log("html === ", key, typeof html, typeof this.templateContent);
+            const eduRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+            this.templateContent = this.templateContent.replace(eduRegex, html);
+            break;
+          case 'language_list':
+            // console.log("templateData[key] === ", templateData[key]);
+            templateData[key].forEach((keyItem: any) => {
+              let temp = '';
+              temp += templateArraySection[this.temp_id][key].replace('{{languagetitle}}', keyItem.languagetitle)
+              temp = temp.replace('{{languagevalues}}', keyItem.languagevalues)
+
+              const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+              html += temp;
+            })
+            console.log("html === ", key, typeof html, typeof this.templateContent);
+            const langRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+            this.templateContent = this.templateContent.replace(langRegex, html);
+            break;
+        }
+
+        // templateData[key].forEach((keyItem: any) => {
+        //   let temp = '';
+        //   temp += templateArraySection[this.temp_id][key].replace('{{skillTitle}}', keyItem.skillTitle)
+        //   temp = temp.replace('{{skillvalues}}', keyItem.skillvalues)
+        //   const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+        //   html += temp;
+        // })
+        // console.log("html === ", key, html);
         const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
         this.templateContent = this.templateContent.replace(regex, html);
       } else {
-        console.log('else');
-        
+        // console.log("else === ");
         const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
         this.templateContent = this.templateContent.replace(regex, templateData[key]);
+        // console.log('this.templateContent', this.templateContent);
       }
-    });
-    
-    
+
+    })
+
+
+
+
   }
 
   selectTemplate() {
