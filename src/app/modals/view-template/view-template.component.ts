@@ -41,15 +41,21 @@ export class ViewTemplateComponent {
     private sanitizer: DomSanitizer,
     @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any, recivedTemplateData: any }
   ) {
-    this.templateContent = data?.templateContent;
-    this.templateInfo = data?.templateInfo;
     this.recievedDataInfo = data?.recivedTemplateData;
-    // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
-    // console.log('templateData', templateData)
-    this.temp_id = this.templateInfo.Id
-    this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
-      `<img src="${this.templateInfo.Img}" alt="Dynamic Image">`
-    );
+
+    if (commonService.currentUrl === '/templates') {
+      this.templateContent = data?.templateContent;
+      this.templateInfo = data?.templateInfo;
+      // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
+      // console.log('templateData', templateData)
+      this.temp_id = this.templateInfo.Id
+      this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
+        `<img src="${this.templateInfo.Img}" alt="Dynamic Image">`
+      );
+    }
+    // elseif(){}
+
+
     Object.keys(templateData).forEach((key: any) => {
       if (Array.isArray(templateData[key])) {
         // console.log("templateArraySection[this.temp_id][key] === ", key, templateData[key]);
