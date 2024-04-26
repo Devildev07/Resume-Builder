@@ -1,8 +1,7 @@
 <h1 class="text-4xl font-bold pt-6 mt-10 sm:mt-0 sm:pt-0">
   <span
-    class="bg-gradient-to-r from-blue-300 via-blue-600 to-blue-950 text-transparent bg-clip-text animate-gradient"
-    >Get Started . . .</span
-  >
+    class="bg-gradient-to-r from-blue-300 via-blue-600 to-blue-950 text-transparent bg-clip-text animate-gradient">Get
+    Started . . .</span>
   🥳
 </h1>
 <p class="py-3">
@@ -13,15 +12,8 @@
     Resume Title
   </label>
   <div class="mt-1 dark:text-slate-800">
-    <input
-      id="resumetitle"
-      type="text"
-      autocomplete="on"
-      [(ngModel)]="resumetitle"
-      required
-      placeholder="Enter Your Resume Title"
-      class="cust-input-box"
-    />
+    <input id="resumetitle" type="text" autocomplete="on" [(ngModel)]="resumetitle" required
+      placeholder="Enter Your Resume Title" class="cust-input-box" />
   </div>
 </div>
 
@@ -29,31 +21,17 @@
   <div class="basis-3/5">
     <form [formGroup]="resumeFormGroup" (ngSubmit)="submitResumeForm()">
       <mat-stepper orientation="vertical" #stepper class="dark:bg-gray-900">
-        <mat-step
-          [formGroup]="resumeFormGroup.get('personalDetails')"
-          [stepControl]="resumeFormGroup.get('personalDetails')"
-          errorMessage="Personal Details is required."
-        >
-          <ng-template matStepLabel
-            ><span class="text-gray-900 dark:text-white"
-              >Personal Details</span
-            ></ng-template
-          >
+        <mat-step [formGroup]="resumeFormGroup.get('personalDetails')"
+          [stepControl]="resumeFormGroup.get('personalDetails')" errorMessage="Personal Details is required.">
+          <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Personal Details</span></ng-template>
           <div class="flex gap-4 flex-wrap mt-2">
             <div class="basis-64 grow">
               <label for="firstName" class="block text-sm font-medium">
                 First name
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="firstName"
-                  type="text"
-                  autocomplete="given-name"
-                  formControlName="firstName"
-                  required
-                  placeholder="First name"
-                  class="cust-input-box"
-                />
+                <input id="firstName" type="text" autocomplete="given-name" formControlName="firstName" required
+                  placeholder="First name" class="cust-input-box" />
               </div>
             </div>
             <div class="basis-64 grow">
@@ -61,15 +39,8 @@
                 Last name
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="lastName"
-                  type="text"
-                  autocomplete="family-name"
-                  formControlName="lastName"
-                  required
-                  placeholder="Last name"
-                  class="cust-input-box"
-                />
+                <input id="lastName" type="text" autocomplete="family-name" formControlName="lastName" required
+                  placeholder="Last name" class="cust-input-box" />
               </div>
             </div>
             <div class="basis-64 grow">
@@ -77,15 +48,8 @@
                 Email address
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="email"
-                  type="email"
-                  autocomplete="email"
-                  formControlName="email"
-                  required
-                  placeholder="Email"
-                  class="cust-input-box"
-                />
+                <input id="email" type="email" autocomplete="email" formControlName="email" required placeholder="Email"
+                  class="cust-input-box" />
               </div>
             </div>
             <div class="basis-64 grow">
@@ -93,15 +57,8 @@
                 Phone
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="phone"
-                  type="tel"
-                  autocomplete="tel"
-                  formControlName="phone"
-                  required
-                  placeholder="Phone"
-                  class="cust-input-box"
-                />
+                <input id="phone" type="tel" autocomplete="tel" formControlName="phone" required placeholder="Phone"
+                  class="cust-input-box" />
               </div>
             </div>
             <!-- datePicker -->
@@ -110,20 +67,10 @@
                 Birth Date
               </label>
               <div class="mt-1 dark:text-slate-800 relative">
-                <input
-                  id="birthDate"
-                  [matDatepicker]="picker"
-                  autocomplete="bday"
-                  formControlName="birthDate"
-                  required
-                  placeholder="Birth Date"
-                  class="cust-input-box"
-                />
+                <input id="birthDate" [matDatepicker]="picker" autocomplete="bday" formControlName="birthDate" required
+                  placeholder="Birth Date" class="cust-input-box" />
                 <div class="absolute top-0 right-1 w-12">
-                  <mat-datepicker-toggle
-                    matIconSuffix
-                    [for]="picker"
-                  ></mat-datepicker-toggle>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </div>
               </div>
@@ -134,29 +81,15 @@
                 Address
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="address"
-                  type="text"
-                  autocomplete="address-level1"
-                  formControlName="address"
-                  required
-                  placeholder="Address"
-                  class="cust-input-box"
-                />
+                <input id="address" type="text" autocomplete="address-level1" formControlName="address" required
+                  placeholder="Address" class="cust-input-box" />
               </div>
             </div>
             <div class="basis-64 grow">
               <label for="city" class="block text-sm font-medium"> City </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="city"
-                  type="text"
-                  autocomplete="on"
-                  formControlName="city"
-                  required
-                  placeholder="City"
-                  class="cust-input-box"
-                />
+                <input id="city" type="text" autocomplete="on" formControlName="city" required placeholder="City"
+                  class="cust-input-box" />
               </div>
             </div>
             <div class="basis-64 grow">
@@ -164,15 +97,8 @@
                 Postal Code
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="postalCode"
-                  type="text"
-                  autocomplete="postal-code"
-                  formControlName="postalCode"
-                  required
-                  placeholder="Postal Code"
-                  class="cust-input-box"
-                />
+                <input id="postalCode" type="text" autocomplete="postal-code" formControlName="postalCode" required
+                  placeholder="Postal Code" class="cust-input-box" />
               </div>
             </div>
             <div class="basis-64 grow">
@@ -180,15 +106,8 @@
                 Country
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="country"
-                  type="text"
-                  autocomplete="country"
-                  formControlName="country"
-                  required
-                  placeholder="Country"
-                  class="cust-input-box"
-                />
+                <input id="country" type="text" autocomplete="country" formControlName="country" required
+                  placeholder="Country" class="cust-input-box" />
               </div>
             </div>
             <div class="basis-64 grow">
@@ -196,14 +115,8 @@
                 Website
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input
-                  id="website"
-                  type="url"
-                  autocomplete="url"
-                  formControlName="website"
-                  placeholder="Website Url"
-                  class="cust-input-box"
-                />
+                <input id="website" type="url" autocomplete="url" formControlName="website" placeholder="Website Url"
+                  class="cust-input-box" />
               </div>
             </div>
             <div class="basis-64 grow">
@@ -211,15 +124,9 @@
                 Write description
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <textarea
-                  rows="3"
-                  id="description"
-                  type="text"
-                  autocomplete="on"
-                  formControlName="description"
+                <textarea rows="3" id="description" type="text" autocomplete="on" formControlName="description"
                   placeholder="Add information about yourself or what you are looking for "
-                  class="cust-input-box"
-                ></textarea>
+                  class="cust-input-box"></textarea>
               </div>
             </div>
           </div>
@@ -231,61 +138,32 @@
         </mat-step>
         <!--  -->
         <div class="" formArrayName="educationalDetails">
-          <mat-step
-            [stepControl]="educationalDetails"
-            errorMessage="Educational Details are required."
-          >
-            <ng-template matStepLabel
-              ><span class="text-gray-900 dark:text-white"
-                >Educational Details</span
-              ></ng-template
-            >
+          <mat-step [stepControl]="educationalDetails" errorMessage="Educational Details are required.">
+            <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Educational
+                Details</span></ng-template>
             @for (item of resumeFormGroup.get('educationalDetails').controls;
             track $index) {
             <div class="" formGroupName="{{ $index }}">
               <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
                 <div class="flex gap-2 justify-between">
                   <p>Education #{{ $index + 1 }}</p>
-                  <button
-                    (click)="deleteDetails('educationalDetails', $index)"
-                    mat-button
-                    color="warn"
-                    class="delete-ripple-button"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-4 h-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-                      />
+                  <button (click)="deleteDetails('educationalDetails', $index)" mat-button color="warn"
+                    class="delete-ripple-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                     </svg>
                   </button>
                 </div>
                 <div class="flex gap-4 flex-wrap mt-2">
                   <div class="basis-64 grow">
-                    <label
-                      for="institutionName"
-                      class="block text-sm font-medium"
-                    >
+                    <label for="institutionName" class="block text-sm font-medium">
                       Institution name
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="institutionName"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="institutionName"
-                        required
-                        placeholder="Institution name"
-                        class="cust-input-box"
-                      />
+                      <input id="institutionName" type="text" autocomplete="on" formControlName="institutionName"
+                        required placeholder="Institution name" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -293,15 +171,8 @@
                       Field of Study
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="studyField"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="studyField"
-                        required
-                        placeholder="Field of Study"
-                        class="cust-input-box"
-                      />
+                      <input id="studyField" type="text" autocomplete="on" formControlName="studyField" required
+                        placeholder="Field of Study" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -309,15 +180,8 @@
                       Degree
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="degree"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="degree"
-                        required
-                        placeholder="Degree"
-                        class="cust-input-box"
-                      />
+                      <input id="degree" type="text" autocomplete="on" formControlName="degree" required
+                        placeholder="Degree" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -325,14 +189,8 @@
                       City
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="city"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="city"
-                        placeholder="City"
-                        class="cust-input-box"
-                      />
+                      <input id="city" type="text" autocomplete="on" formControlName="city" placeholder="City"
+                        class="cust-input-box" />
                     </div>
                   </div>
 
@@ -341,21 +199,11 @@
                       Start Date
                     </label>
                     <div class="mt-1 dark:text-slate-800 relative">
-                      <input
-                        id="startDate"
-                        [matDatepicker]="picker1"
-                        autocomplete="on"
-                        formControlName="startDate"
-                        required
-                        placeholder="Start Date"
-                        class="cust-input-box"
-                      />
+                      <input id="startDate" [matDatepicker]="picker1" autocomplete="on" formControlName="startDate"
+                        required placeholder="Start Date" class="cust-input-box" />
 
                       <div class="absolute top-0 right-1 w-12">
-                        <mat-datepicker-toggle
-                          matIconSuffix
-                          [for]="picker1"
-                        ></mat-datepicker-toggle>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
                       </div>
                     </div>
@@ -365,21 +213,11 @@
                       End Date
                     </label>
                     <div class="mt-1 dark:text-slate-800 relative">
-                      <input
-                        id="endDate"
-                        [matDatepicker]="picker2"
-                        autocomplete="on"
-                        formControlName="endDate"
-                        required
-                        placeholder="End Date"
-                        class="cust-input-box"
-                      />
+                      <input id="endDate" [matDatepicker]="picker2" autocomplete="on" formControlName="endDate" required
+                        placeholder="End Date" class="cust-input-box" />
 
                       <div class="absolute top-0 right-1 w-12">
-                        <mat-datepicker-toggle
-                          matIconSuffix
-                          [for]="picker2"
-                        ></mat-datepicker-toggle>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
                       </div>
                     </div>
@@ -389,11 +227,7 @@
             </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button
-                (click)="addDetails('educationalDetails')"
-                type="button"
-                class="success-btn"
-              >
+              <button (click)="addDetails('educationalDetails')" type="button" class="success-btn">
                 Add Education
               </button>
               <button type="button" class="primary-btn" matStepperPrevious>
@@ -407,40 +241,21 @@
         </div>
         <!--  -->
         <div class="" formArrayName="experienceDetails">
-          <mat-step
-            [stepControl]="experienceDetails"
-            errorMessage="Work Experience Details are required."
-          >
-            <ng-template matStepLabel
-              ><span class="text-gray-900 dark:text-white"
-                >Work Experience Details</span
-              ></ng-template
-            >
+          <mat-step [stepControl]="experienceDetails" errorMessage="Work Experience Details are required.">
+            <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Work Experience
+                Details</span></ng-template>
             @for (item of resumeFormGroup.get('experienceDetails').controls;
             track $index) {
             <div class="" formGroupName="{{ $index }}">
               <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
                 <div class="flex gap-2 justify-between">
                   <p>Experience #{{ $index + 1 }}</p>
-                  <button
-                    (click)="deleteDetails('experienceDetails', $index)"
-                    mat-button
-                    color="warn"
-                    class="delete-ripple-button"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-4 h-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-                      />
+                  <button (click)="deleteDetails('experienceDetails', $index)" mat-button color="warn"
+                    class="delete-ripple-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                     </svg>
                   </button>
                 </div>
@@ -450,15 +265,8 @@
                       Company name
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="companyName"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="companyName"
-                        required
-                        placeholder="Company name"
-                        class="cust-input-box"
-                      />
+                      <input id="companyName" type="text" autocomplete="on" formControlName="companyName" required
+                        placeholder="Company name" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -466,15 +274,8 @@
                       Job Title
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="jobTitle"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="jobTitle"
-                        required
-                        placeholder="Job Title"
-                        class="cust-input-box"
-                      />
+                      <input id="jobTitle" type="text" autocomplete="on" formControlName="jobTitle" required
+                        placeholder="Job Title" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -482,14 +283,8 @@
                       City
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="city"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="city"
-                        placeholder="City"
-                        class="cust-input-box"
-                      />
+                      <input id="city" type="text" autocomplete="on" formControlName="city" placeholder="City"
+                        class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -497,21 +292,11 @@
                       Start Date
                     </label>
                     <div class="mt-1 dark:text-slate-800 relative">
-                      <input
-                        id="startDate"
-                        [matDatepicker]="picker3"
-                        autocomplete="on"
-                        formControlName="startDate"
-                        required
-                        placeholder="Start Date"
-                        class="cust-input-box"
-                      />
+                      <input id="startDate" [matDatepicker]="picker3" autocomplete="on" formControlName="startDate"
+                        required placeholder="Start Date" class="cust-input-box" />
 
                       <div class="absolute top-0 right-1 w-12">
-                        <mat-datepicker-toggle
-                          matIconSuffix
-                          [for]="picker3"
-                        ></mat-datepicker-toggle>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
                         <mat-datepicker #picker3></mat-datepicker>
                       </div>
                     </div>
@@ -521,21 +306,11 @@
                       End Date
                     </label>
                     <div class="mt-1 dark:text-slate-800 relative">
-                      <input
-                        id="endDate"
-                        [matDatepicker]="picker4"
-                        autocomplete="on"
-                        formControlName="endDate"
-                        required
-                        placeholder="End Date"
-                        class="cust-input-box"
-                      />
+                      <input id="endDate" [matDatepicker]="picker4" autocomplete="on" formControlName="endDate" required
+                        placeholder="End Date" class="cust-input-box" />
 
                       <div class="absolute top-0 right-1 w-12">
-                        <mat-datepicker-toggle
-                          matIconSuffix
-                          [for]="picker4"
-                        ></mat-datepicker-toggle>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
                         <mat-datepicker #picker4></mat-datepicker>
                       </div>
                     </div>
@@ -545,15 +320,9 @@
                       Write description
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <textarea
-                        rows="3"
-                        id="description"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="description"
+                      <textarea rows="3" id="description" type="text" autocomplete="on" formControlName="description"
                         placeholder="Add information about yourself or what you are looking for "
-                        class="cust-input-box"
-                      ></textarea>
+                        class="cust-input-box"></textarea>
                     </div>
                   </div>
                 </div>
@@ -561,11 +330,7 @@
             </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button
-                (click)="addDetails('experienceDetails')"
-                type="button"
-                class="success-btn"
-              >
+              <button (click)="addDetails('experienceDetails')" type="button" class="success-btn">
                 Add Work Experience
               </button>
               <button type="button" class="primary-btn" matStepperPrevious>
@@ -579,40 +344,20 @@
         </div>
         <!--  -->
         <div class="" formArrayName="projectDetails">
-          <mat-step
-            [stepControl]="projectDetails"
-            errorMessage="Project Details are required."
-          >
-            <ng-template matStepLabel
-              ><span class="text-gray-900 dark:text-white"
-                >Project Details</span
-              ></ng-template
-            >
+          <mat-step [stepControl]="projectDetails" errorMessage="Project Details are required.">
+            <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Project Details</span></ng-template>
             @for (item of resumeFormGroup.get('projectDetails').controls;
             track $index) {
             <div class="" formGroupName="{{ $index }}">
               <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
                 <div class="flex gap-2 justify-between">
                   <p>Project #{{ $index + 1 }}</p>
-                  <button
-                    (click)="deleteDetails('projectDetails', $index)"
-                    mat-button
-                    color="warn"
-                    class="delete-ripple-button"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-4 h-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-                      />
+                  <button (click)="deleteDetails('projectDetails', $index)" mat-button color="warn"
+                    class="delete-ripple-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                     </svg>
                   </button>
                 </div>
@@ -622,15 +367,8 @@
                       Ptoject Title
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="projectTitle"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="projectTitle"
-                        required
-                        placeholder="Ptoject Title"
-                        class="cust-input-box"
-                      />
+                      <input id="projectTitle" type="text" autocomplete="on" formControlName="projectTitle" required
+                        placeholder="Ptoject Title" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -638,15 +376,8 @@
                       Project Link
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="projectLink"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="projectLink"
-                        required
-                        placeholder="Project Link"
-                        class="cust-input-box"
-                      />
+                      <input id="projectLink" type="text" autocomplete="on" formControlName="projectLink" required
+                        placeholder="Project Link" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -654,14 +385,8 @@
                       Project Code Link
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="projectCodeLink"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="projectCodeLink"
-                        placeholder="Project Code Link"
-                        class="cust-input-box"
-                      />
+                      <input id="projectCodeLink" type="text" autocomplete="on" formControlName="projectCodeLink"
+                        placeholder="Project Code Link" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -669,14 +394,8 @@
                       Project Tech Used
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="projectTechUsed"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="projectTechUsed"
-                        placeholder="Project Tech Used"
-                        class="cust-input-box"
-                      />
+                      <input id="projectTechUsed" type="text" autocomplete="on" formControlName="projectTechUsed"
+                        placeholder="Project Tech Used" class="cust-input-box" />
                     </div>
                   </div>
                   <div class="basis-64 grow">
@@ -684,31 +403,19 @@
                       Year
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <input
-                        id="projectYear"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="projectYear"
-                        placeholder="Year"
-                        class="cust-input-box"
-                      />
+                      <input id="projectYear" type="text" autocomplete="on" formControlName="projectYear"
+                        placeholder="Year" class="cust-input-box" />
                     </div>
                   </div>
-                 
+
                   <div class="basis-64 grow">
                     <label for="projectDescription" class="block text-sm font-medium">
                       Write Project Description
                     </label>
                     <div class="mt-1 dark:text-slate-800">
-                      <textarea
-                        rows="3"
-                        id="projectDescription"
-                        type="text"
-                        autocomplete="on"
-                        formControlName="projectDescription"
-                        placeholder="Add information about project "
-                        class="cust-input-box"
-                      ></textarea>
+                      <textarea rows="3" id="projectDescription" type="text" autocomplete="on"
+                        formControlName="projectDescription" placeholder="Add information about project "
+                        class="cust-input-box"></textarea>
                     </div>
                   </div>
                 </div>
@@ -716,11 +423,7 @@
             </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button
-                (click)="addDetails('projectDetails')"
-                type="button"
-                class="success-btn"
-              >
+              <button (click)="addDetails('projectDetails')" type="button" class="success-btn">
                 Add Project
               </button>
               <button type="button" class="primary-btn" matStepperPrevious>
@@ -734,66 +437,28 @@
         </div>
         <!--  -->
         <div class="" formArrayName="skillDetails">
-          <mat-step
-            [stepControl]="skillDetails"
-            errorMessage="Skills are required."
-          >
-            <ng-template matStepLabel
-              ><span class="text-gray-900 dark:text-white"
-                >Skills</span
-              ></ng-template
-            >
+          <mat-step [stepControl]="skillDetails" errorMessage="Skills are required.">
+            <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Skills</span></ng-template>
             @for (skillGroup of resumeFormGroup.get('skillDetails').controls;
             track $index) {
             <div class="" formGroupName="{{ $index }}">
               <div class="skill-item flex gap-2 my-2">
                 <div class="basis-4/5">
-                  <input
-                    type="text"
-                    formControlName="skillName"
-                    placeholder="Skill Name"
-                    class="cust-input-box"
-                  />
+                  <input type="text" formControlName="skillName" placeholder="Skill Name" class="cust-input-box" />
                   <div class="relative">
-                    <input
-                      id="skillValue"
-                      type="range"
-                      min="0"
-                      max="100"
-                      formControlName="skillValue"
-                      step="0.5"
-                      class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                    />
-                    <span
-                      class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4"
-                      >Min 0</span
-                    >
-                    <span
-                      class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4"
-                      >Max 100</span
-                    >
+                    <input id="skillValue" type="range" min="0" max="100" formControlName="skillValue" step="0.5"
+                      class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+                    <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4">Min 0</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4">Max 100</span>
                   </div>
                 </div>
                 <div class="basis-4/5">
-                  <button
-                    (click)="deleteDetails('skillDetails', $index)"
-                    mat-button
-                    color="warn"
-                    class="delete-ripple-button mt-2"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-4 h-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-                      />
+                  <button (click)="deleteDetails('skillDetails', $index)" mat-button color="warn"
+                    class="delete-ripple-button mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                     </svg>
                   </button>
                 </div>
@@ -801,11 +466,7 @@
             </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button
-                (click)="addDetails('skillDetails')"
-                type="button"
-                class="success-btn"
-              >
+              <button (click)="addDetails('skillDetails')" type="button" class="success-btn">
                 Add Skills
               </button>
               <button type="button" class="primary-btn" matStepperPrevious>
@@ -835,7 +496,10 @@
     <p class="py-1 text-center">
       <strong>Preview</strong>
     </p>
-    <div class="bg-gray-100 rounded-md h-[500px] w-full"></div>
-    <button class="my-4 mx-auto primary-btn">Next</button>
+    <!-- <div class="bg-gray-100 rounded-md h-[500px] w-full">
+
+    </div> -->
+    <button class="my-4 mx-auto primary-btn" (click)="viewResume()">
+      Preview</button>
   </div>
 </div>

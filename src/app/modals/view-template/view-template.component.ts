@@ -32,16 +32,18 @@ export class ViewTemplateComponent {
   templateContent: any;
   templateInfo: any;
   temp_id: any;
+  recievedDataInfo: any
 
   constructor(
     public commonService: CommonServicesService,
     public dialogRef: MatDialogRef<ViewTemplateComponent>,
     public route: Router,
     private sanitizer: DomSanitizer,
-    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any }
+    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any, recivedTemplateData: any }
   ) {
-    this.templateContent = data.templateContent;
-    this.templateInfo = data.templateInfo;
+    this.templateContent = data?.templateContent;
+    this.templateInfo = data?.templateInfo;
+    this.recievedDataInfo = data?.recivedTemplateData;
     // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
     // console.log('templateData', templateData)
     this.temp_id = this.templateInfo.Id
@@ -192,8 +194,8 @@ export class ViewTemplateComponent {
 
   selectTemplate() {
     const selectedTempData = {
-      id: this.temp_id,
-      content: this.templateContent
+      Id: this.temp_id,
+      Content: this.templateContent
     }
     this.commonService.setData(selectedTempData);
     this.route.navigate(['/dashboard/builder'])

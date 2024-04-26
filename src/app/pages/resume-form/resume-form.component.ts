@@ -19,6 +19,8 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { Observable } from 'rxjs';
 import { MatSliderModule } from '@angular/material/slider';
 import { CommonServicesService } from 'src/app/services/common-services.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewTemplateComponent } from 'src/app/modals/view-template/view-template.component';
 
 @Component({
   selector: 'app-resume-form',
@@ -56,7 +58,7 @@ export class ResumeFormComponent {
   constructor(
     public commonService: CommonServicesService,
     private formBuilder: FormBuilder,
-    
+    public dialog: MatDialog,
   ) {
 
     commonService.getData()
@@ -218,5 +220,15 @@ export class ResumeFormComponent {
       console.log('firstFormGroup data here', this.allResumeData);
     }
     console.log('firstFormGroup not valid enteries');
+  }
+
+  viewResume() {
+    this.dialog.open(ViewTemplateComponent, {
+      backdropClass: 'backdrop-blur',
+      width: '1024px',
+      height: '640px',
+      panelClass: 'rounded-md',
+      data: this.recivedTemplateData,
+    })
   }
 }
