@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
@@ -10,7 +9,7 @@ export class CommonServicesService {
   superAdmin = 'Dewanshu';
   currentUrl?: string;
   routerSubscription: any;
-  constructor(public router: Router, private http: HttpClient) {
+  constructor(public router: Router, ) {
     this.getCurrentUrl();
   }
 
