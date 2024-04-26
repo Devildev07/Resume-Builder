@@ -19,6 +19,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { Observable } from 'rxjs';
 import { MatSliderModule } from '@angular/material/slider';
 import { ActivatedRoute } from '@angular/router';
+import { CommonServicesService } from 'src/app/services/common-services.service';
 
 @Component({
   selector: 'app-resume-form',
@@ -50,14 +51,24 @@ export class ResumeFormComponent {
 
   FormArray: any;
 
+  recivedTemplateData: any;
+
+
   constructor(
+    public commonService: CommonServicesService,
     private formBuilder: FormBuilder,
     public actRoute: ActivatedRoute
   ) {
-    this.actRoute.queryParams.subscribe(param =>{
-      const recivedTemplateId = param['id']
-      console.log("recivedTemplateId === ",recivedTemplateId);
-    })
+    // this.actRoute.queryParams.subscribe(param => {
+    //   const recivedTemplateId = param['data']
+    //   // const recivedTemplateContent = param['content']
+    //   console.log("recivedTemplateId and content === ", recivedTemplateId);
+    // })
+
+    commonService.getData()
+    this.recivedTemplateData = this.commonService.getData();
+    console.log(this.recivedTemplateData);
+
   }
 
   ngOnInit() {

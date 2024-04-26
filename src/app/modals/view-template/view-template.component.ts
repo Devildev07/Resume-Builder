@@ -137,7 +137,6 @@ export class ViewTemplateComponent {
             break;
           case 'projects_list':
             if (templateArraySection[this.temp_id].hasOwnProperty('projects_list')) {
-              console.log("templateData[key] 1546 === ", templateData.hasOwnProperty("projects_list"));
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replace('{{projectName}}', keyItem.projectName)
@@ -192,9 +191,14 @@ export class ViewTemplateComponent {
   }
 
   selectTemplate() {
-    this.route.navigate(['/dashboard/builder'], { queryParams: { id: this.temp_id } })
+    const selectedTempData = {
+      id: this.temp_id,
+      content: this.templateContent
+    }
+    this.commonService.setData(selectedTempData);
+    this.route.navigate(['/dashboard/builder'])
     this.dialogRef.close();
-    console.log("this.templateContent.id === ", this.temp_id);
+    // console.log("this.templateContent.id === ", this.temp_id);
   }
 
 }

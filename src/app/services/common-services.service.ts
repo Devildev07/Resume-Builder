@@ -41,10 +41,12 @@ export class CommonServicesService {
     });
   }
 
-  // template rendering
-  getHtmlContent(filepath: string) {
-    return this.http.get('assets/templates/' + filepath, {
-      responseType: 'text',
-    });
+  private sharedData: any;
+  setData(data: any) {
+    this.sharedData = data;
+  }
+
+  getData() {
+    return this.sharedData;
   }
 }
