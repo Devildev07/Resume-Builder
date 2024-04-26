@@ -20,16 +20,9 @@ export const templateData: any = {
             experienceYear: 'year of experience in company',
             responsibilities: [
                 'summary or discription',
-            ],
-            skills: [
                 'summary or discription',
             ],
-            achievements: [
-                'summary or discription',
-            ],
-            certificates: [
-                'summary or discription',
-            ],
+
         }
     ],
     education_list: [
@@ -81,11 +74,17 @@ export const templateData: any = {
 export const templateArraySection: any = {
     template_01: {
         skills_list: "<span class=\"rounded-md p-2 bg-blue-500 text-white\">{{skillTitle}}</span>",
-        experience_list: "<div class=\"exp_detail poppins-medium \"> <div class=\"job_title poppins-bold text-base\">{{jobTitle}}</div> <div class= \"company_name text-sm\" > {{companyName}}</div> <div class=\"time_period text-gray-600 text-xs poppins-light-italic\" > {{from}} to {{to}}</div> <div class=\"company_name text-sm\" > {{experienceYear}}</div> <ul class=\"list-disc ms-4 text-sm text-gray-800\" > <li>{{responsibilities}}</li>  </ul>  </div>",
+        experience_list: "<div class=\"exp_detail poppins-medium \"> <div class=\"job_title poppins-bold text-base\">{{jobTitle}}</div> <div class= \"company_name text-sm\" > {{companyName}}</div> <div class=\"time_period text-gray-600 text-xs poppins-light-italic\" > {{from}} to {{to}}</div> <div class=\"company_name text-sm\" > {{experienceYear}}</div> <ul class=\"list-disc ms-4 text-sm text-gray-800\" > {{responsibilities}}  </ul>  </div>",
         education_list: "<div class=\"edu_detail poppins-medium \"> <div class=\"course_title text-base poppins-bold\">{{courseTitle}}</div> <div class=\"university_name text-sm\">{{institutionName}}</div> <div class=\"time_period text-gray-600 text-xs poppins-light-italic\"> {{from}} to {{to}} </div> </div>",
-        language_list: "<div class=\"lang_box\"> <div class=\"lang_title poppins-bold text-base\">{{languagetitle}}</div> <div class=\"lang_level poppins-light-italic text-gray-600 text-xs\">{{languagevalues}}</div> </div>"
+        language_list: "<div class=\"lang_box\"> <div class=\"lang_title poppins-bold text-base\">{{languagetitle}}</div> <div class=\"lang_level poppins-light-italic text-gray-600 text-xs\">{{languagevalues}}</div> </div>",
     },
     template_02: {
+        skills_list: "<span class=\"rounded-md p-2 bg-violet-500 text-white\">{{skillTitle}}</span>",
+        experience_list: "<div class=\"exp_detail poppins-medium \"> <div class=\"job_title poppins-bold text-base\">{{jobTitle}}</div> <div class= \"company_name text-sm\" > {{companyName}}</div> <div class=\"time_period text-gray-600 text-xs poppins-light-italic\" > {{from}} to {{to}}</div> <div class=\"company_name text-sm\" > {{experienceYear}}</div> <ul class=\"list-disc ms-4 text-sm text-gray-800\" > {{responsibilities}}  </ul>  </div>",
+        education_list: "<div class=\"edu_detail poppins-medium \"> <div class=\"course_title text-base poppins-bold\">{{courseTitle}}</div> <div class=\"university_name text-sm\">{{institutionName}}</div> <div class=\"time_period text-gray-600 text-xs poppins-light-italic\"> {{from}} to {{to}} </div> </div>",
+        language_list: "<div class=\"lang_box\"> <div class=\"lang_title poppins-bold text-base\">{{languagetitle}}</div> <div class=\"lang_level poppins-light-italic text-gray-600 text-xs\">{{languagevalues}}</div> </div>",
+    },
+    template_03: {
         skills_list: "<span class=\"rounded-md p-2 bg-blue-500 text-white\">{{skills[0].skillTitle}}</span>",
         projects_list: "<span class=\"rounded-md p-2 bg-blue-500 text-white\">{{projects[0].projectName}}</span>",
     }
