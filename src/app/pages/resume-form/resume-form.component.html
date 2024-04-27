@@ -8,146 +8,146 @@
   <strong>Craft Your Career</strong> : Welcome to Our Resume Builder
 </p>
 <div class="resumeTitle mb-2 w-fit">
-  <label for="resumetitle" class="block text-base font-medium">
+  <label class="block text-base font-medium" for="resumetitle">
     Resume Title
   </label>
   <div class="mt-1 dark:text-slate-800">
-    <input id="resumetitle" type="text" autocomplete="on" [(ngModel)]="resumetitle" required
-      placeholder="Enter Your Resume Title" class="cust-input-box" />
+    <input [(ngModel)]="resumeTitle" autocomplete="on" class="cust-input-box" id="resumetitle" placeholder="Enter Your Resume Title"
+           required type="text"/>
   </div>
 </div>
 
 <div class="flex gap-3 flex-col lg:flex-row">
   <div class="basis-3/5">
-    <form [formGroup]="resumeFormGroup" (ngSubmit)="submitResumeForm()">
-      <mat-stepper orientation="vertical" #stepper class="dark:bg-gray-900">
+    <form (ngSubmit)="submitResumeForm()" [formGroup]="resumeFormGroup">
+      <mat-stepper #stepper class="dark:bg-gray-900" orientation="vertical">
         <mat-step [formGroup]="resumeFormGroup.get('personalDetails')"
-          [stepControl]="resumeFormGroup.get('personalDetails')" errorMessage="Personal Details is required.">
+                  [stepControl]="resumeFormGroup.get('personalDetails')" errorMessage="Personal Details is required.">
           <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Personal Details</span></ng-template>
           <div class="flex gap-4 flex-wrap mt-2">
             <div class="basis-64 grow">
-              <label for="firstName" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="firstName">
                 First name
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="firstName" type="text" autocomplete="given-name" formControlName="firstName" required
-                  placeholder="First name" class="cust-input-box" />
+                <input autocomplete="given-name" class="cust-input-box" formControlName="firstName" id="firstName" placeholder="First name"
+                       required type="text"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="lastName" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="lastName">
                 Last name
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="lastName" type="text" autocomplete="family-name" formControlName="lastName" required
-                  placeholder="Last name" class="cust-input-box" />
+                <input autocomplete="family-name" class="cust-input-box" formControlName="lastName" id="lastName" placeholder="Last name"
+                       required type="text"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="jobTitle" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="jobTitle">
                 Job Title
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="jobTitle" type="text" autocomplete="on" formControlName="jobTitle" required
-                       placeholder="Job Title" class="cust-input-box" />
+                <input autocomplete="on" class="cust-input-box" formControlName="jobTitle" id="jobTitle" placeholder="Job Title"
+                       required type="text"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="email" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="email">
                 Email address
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="email" type="email" autocomplete="email" formControlName="email" required placeholder="Email"
-                  class="cust-input-box" />
+                <input autocomplete="email" class="cust-input-box" formControlName="email" id="email" placeholder="Email" required
+                       type="email"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="phone" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="phone">
                 Phone
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="phone" type="tel" autocomplete="tel" formControlName="phone" required placeholder="Phone"
-                  class="cust-input-box" />
+                <input autocomplete="tel" class="cust-input-box" formControlName="phone" id="phone" placeholder="Phone" required
+                       type="tel"/>
               </div>
             </div>
             <!-- datePicker -->
             <div class="basis-64 grow">
-              <label for="birthDate" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="birthDate">
                 Birth Date
               </label>
               <div class="mt-1 dark:text-slate-800 relative">
-                <input id="birthDate" [matDatepicker]="picker" autocomplete="bday" formControlName="birthDate" required
-                  placeholder="Birth Date" class="cust-input-box" />
+                <input [matDatepicker]="picker" autocomplete="bday" class="cust-input-box" formControlName="birthDate" id="birthDate"
+                       placeholder="Birth Date" required/>
                 <div class="absolute top-0 right-1 w-12">
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </div>
               </div>
             </div>
             <!-- datePicker -->
             <div class="basis-64 grow">
-              <label for="address" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="address">
                 Address
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="address" type="text" autocomplete="address-level1" formControlName="address" required
-                  placeholder="Address" class="cust-input-box" />
+                <input autocomplete="address-level1" class="cust-input-box" formControlName="address" id="address" placeholder="Address"
+                       required type="text"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="city" class="block text-sm font-medium"> City </label>
+              <label class="block text-sm font-medium" for="city"> City </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="city" type="text" autocomplete="on" formControlName="city" required placeholder="City"
-                  class="cust-input-box" />
+                <input autocomplete="on" class="cust-input-box" formControlName="city" id="city" placeholder="City" required
+                       type="text"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="state" class="block text-sm font-medium"> State </label>
+              <label class="block text-sm font-medium" for="state"> State </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="state" type="text" autocomplete="on" formControlName="state" required placeholder="State"
-                       class="cust-input-box" />
+                <input autocomplete="on" class="cust-input-box" formControlName="state" id="state" placeholder="State" required
+                       type="text"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="postalCode" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="postalCode">
                 Postal Code
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="postalCode" type="text" autocomplete="postal-code" formControlName="postalCode" required
-                  placeholder="Postal Code" class="cust-input-box" />
+                <input autocomplete="postal-code" class="cust-input-box" formControlName="postalCode" id="postalCode" placeholder="Postal Code"
+                       required type="text"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="country" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="country">
                 Country
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="country" type="text" autocomplete="country" formControlName="country" required
-                  placeholder="Country" class="cust-input-box" />
+                <input autocomplete="country" class="cust-input-box" formControlName="country" id="country" placeholder="Country"
+                       required type="text"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="website" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="website">
                 Website
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <input id="website" type="url" autocomplete="url" formControlName="website" placeholder="Website Url"
-                  class="cust-input-box" />
+                <input autocomplete="url" class="cust-input-box" formControlName="website" id="website" placeholder="Website Url"
+                       type="url"/>
               </div>
             </div>
             <div class="basis-64 grow">
-              <label for="description" class="block text-sm font-medium">
+              <label class="block text-sm font-medium" for="description">
                 Write description
               </label>
               <div class="mt-1 dark:text-slate-800">
-                <textarea rows="3" id="description" type="text" autocomplete="on" formControlName="description"
-                  placeholder="Add information about yourself or what you are looking for "
-                  class="cust-input-box"></textarea>
+                <textarea autocomplete="on" class="cust-input-box" formControlName="description" id="description" placeholder="Add information about yourself or what you are looking for "
+                          rows="3"
+                          type="text"></textarea>
               </div>
             </div>
           </div>
           <div class="py-3 mt-3">
-            <button type="button" class="primary-btn" matStepperNext>
+            <button class="primary-btn" matStepperNext type="button">
               Next
             </button>
           </div>
@@ -158,117 +158,119 @@
             <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Educational
                 Details</span></ng-template>
             @for (item of resumeFormGroup.get('educationalDetails').controls;
-            track $index) {
-            <div class="" formGroupName="{{ $index }}">
-              <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
-                <div class="flex gap-2 justify-between">
-                  <p>Education #{{ $index + 1 }}</p>
-                  <button (click)="deleteDetails('educationalDetails', $index)" mat-button color="warn"
-                    class="delete-ripple-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                      stroke="currentColor" class="w-4 h-4">
-                      <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="flex gap-4 flex-wrap mt-2">
-                  <div class="basis-64 grow">
-                    <label for="institutionName" class="block text-sm font-medium">
-                      Institution name
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="institutionName" type="text" autocomplete="on" formControlName="institutionName"
-                        required placeholder="Institution name" class="cust-input-box" />
-                    </div>
+              track $index) {
+              <div class="" formGroupName="{{ $index }}">
+                <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
+                  <div class="flex gap-2 justify-between">
+                    <p>Education #{{ $index + 1 }}</p>
+                    <button (click)="deleteDetails('educationalDetails', $index)" mat-button color="warn"
+                            class="delete-ripple-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                           stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                      </svg>
+                    </button>
                   </div>
-                  <div class="basis-64 grow">
-                    <label for="studyField" class="block text-sm font-medium">
-                      Field of Study
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="studyField" type="text" autocomplete="on" formControlName="studyField" required
-                        placeholder="Field of Study" class="cust-input-box" />
+                  <div class="flex gap-4 flex-wrap mt-2">
+                    <div class="basis-64 grow">
+                      <label for="institutionName" class="block text-sm font-medium">
+                        Institution name
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="institutionName" type="text" autocomplete="on" formControlName="institutionName"
+                               required placeholder="Institution name" class="cust-input-box"/>
+                      </div>
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="degree" class="block text-sm font-medium">
-                      Degree
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="degree" type="text" autocomplete="on" formControlName="degree" required
-                        placeholder="Degree" class="cust-input-box" />
+                    <div class="basis-64 grow">
+                      <label for="studyField" class="block text-sm font-medium">
+                        Field of Study
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="studyField" type="text" autocomplete="on" formControlName="studyField" required
+                               placeholder="Field of Study" class="cust-input-box"/>
+                      </div>
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="city" class="block text-sm font-medium">
-                      City
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="city" type="text" autocomplete="on" formControlName="city" placeholder="City"
-                        class="cust-input-box" />
+                    <div class="basis-64 grow">
+                      <label for="degree" class="block text-sm font-medium">
+                        Degree
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="degree" type="text" autocomplete="on" formControlName="degree" required
+                               placeholder="Degree" class="cust-input-box"/>
+                      </div>
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="grade" class="block text-sm font-medium">
-                      Grade
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="grade" type="text" autocomplete="on" formControlName="grade" placeholder="Grade in CGPA or %"
-                        class="cust-input-box" />
+                    <div class="basis-64 grow">
+                      <label for="city" class="block text-sm font-medium">
+                        City
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="city" type="text" autocomplete="on" formControlName="city" placeholder="City"
+                               class="cust-input-box"/>
+                      </div>
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="description" class="block text-sm font-medium">
-                      Write description
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
+                    <div class="basis-64 grow">
+                      <label for="grade" class="block text-sm font-medium">
+                        Grade
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="grade" type="text" autocomplete="on" formControlName="grade"
+                               placeholder="Grade in CGPA or %"
+                               class="cust-input-box"/>
+                      </div>
+                    </div>
+                    <div class="basis-64 grow">
+                      <label for="description" class="block text-sm font-medium">
+                        Write description
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
                       <textarea rows="3" id="description" type="text" autocomplete="on" formControlName="description"
                                 placeholder="Add information about yourself or what you are looking for "
                                 class="cust-input-box"></textarea>
-                    </div>
-                  </div>
-
-                  <div class="basis-64 grow">
-                    <label for="startDate" class="block text-sm font-medium">
-                      Start Date
-                    </label>
-                    <div class="mt-1 dark:text-slate-800 relative">
-                      <input id="startDate" [matDatepicker]="picker1" autocomplete="on" formControlName="startDate"
-                        required placeholder="Start Date" class="cust-input-box" />
-
-                      <div class="absolute top-0 right-1 w-12">
-                        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-                        <mat-datepicker #picker1></mat-datepicker>
                       </div>
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="endDate" class="block text-sm font-medium">
-                      End Date
-                    </label>
-                    <div class="mt-1 dark:text-slate-800 relative">
-                      <input id="endDate" [matDatepicker]="picker2" autocomplete="on" formControlName="endDate" required
-                        placeholder="End Date" class="cust-input-box" />
 
-                      <div class="absolute top-0 right-1 w-12">
-                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-                        <mat-datepicker #picker2></mat-datepicker>
+                    <div class="basis-64 grow">
+                      <label for="startDate" class="block text-sm font-medium">
+                        Start Date
+                      </label>
+                      <div class="mt-1 dark:text-slate-800 relative">
+                        <input id="startDate" [matDatepicker]="picker1" autocomplete="on" formControlName="startDate"
+                               required placeholder="Start Date" class="cust-input-box"/>
+
+                        <div class="absolute top-0 right-1 w-12">
+                          <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                          <mat-datepicker #picker1></mat-datepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="basis-64 grow">
+                      <label for="endDate" class="block text-sm font-medium">
+                        End Date
+                      </label>
+                      <div class="mt-1 dark:text-slate-800 relative">
+                        <input id="endDate" [matDatepicker]="picker2" autocomplete="on" formControlName="endDate"
+                               required
+                               placeholder="End Date" class="cust-input-box"/>
+
+                        <div class="absolute top-0 right-1 w-12">
+                          <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                          <mat-datepicker #picker2></mat-datepicker>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button (click)="addDetails('educationalDetails')" type="button" class="success-btn">
+              <button (click)="addDetails('educationalDetails')" class="success-btn" type="button">
                 Add Education
               </button>
-              <button type="button" class="primary-btn" matStepperPrevious>
+              <button class="primary-btn" matStepperPrevious type="button">
                 Back
               </button>
-              <button type="button" class="primary-btn" matStepperNext>
+              <button class="primary-btn" matStepperNext type="button">
                 Next
               </button>
             </div>
@@ -280,111 +282,112 @@
             <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Work Experience
                 Details</span></ng-template>
             @for (item of resumeFormGroup.get('experienceDetails').controls;
-            track $index) {
-            <div class="" formGroupName="{{ $index }}">
-              <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
-                <div class="flex gap-2 justify-between">
-                  <p>Experience #{{ $index + 1 }}</p>
-                  <button (click)="deleteDetails('experienceDetails', $index)" mat-button color="warn"
-                    class="delete-ripple-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                      stroke="currentColor" class="w-4 h-4">
-                      <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="flex gap-4 flex-wrap mt-2">
-                  <div class="basis-64 grow">
-                    <label for="companyName" class="block text-sm font-medium">
-                      Company name
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="companyName" type="text" autocomplete="on" formControlName="companyName" required
-                        placeholder="Company name" class="cust-input-box" />
-                    </div>
+              track $index) {
+              <div class="" formGroupName="{{ $index }}">
+                <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
+                  <div class="flex gap-2 justify-between">
+                    <p>Experience #{{ $index + 1 }}</p>
+                    <button (click)="deleteDetails('experienceDetails', $index)" mat-button color="warn"
+                            class="delete-ripple-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                           stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                      </svg>
+                    </button>
                   </div>
-                  <div class="basis-64 grow">
-                    <label for="jobTitle" class="block text-sm font-medium">
-                      Job Title
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="jobTitle" type="text" autocomplete="on" formControlName="jobTitle" required
-                        placeholder="Job Title" class="cust-input-box" />
-                    </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="city" class="block text-sm font-medium">
-                      City
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="city" type="text" autocomplete="on" formControlName="city" placeholder="City"
-                        class="cust-input-box" />
-                    </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="startDate" class="block text-sm font-medium">
-                      Start Date
-                    </label>
-                    <div class="mt-1 dark:text-slate-800 relative">
-                      <input id="startDate" [matDatepicker]="picker3" autocomplete="on" formControlName="startDate"
-                        required placeholder="Start Date" class="cust-input-box" />
-
-                      <div class="absolute top-0 right-1 w-12">
-                        <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
-                        <mat-datepicker #picker3></mat-datepicker>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="endDate" class="block text-sm font-medium">
-                      End Date
-                    </label>
-                    <div class="mt-1 dark:text-slate-800 relative">
-                      <input id="endDate" [matDatepicker]="picker4" autocomplete="on" formControlName="endDate" required
-                        placeholder="End Date" class="cust-input-box" />
-
-                      <div class="absolute top-0 right-1 w-12">
-                        <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
-                        <mat-datepicker #picker4></mat-datepicker>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="experienceYear" class="block text-sm font-medium">
-                      Add Experience Year
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
+                  <div class="flex gap-4 flex-wrap mt-2">
+                    <div class="basis-64 grow">
+                      <label for="companyName" class="block text-sm font-medium">
+                        Company name
+                      </label>
                       <div class="mt-1 dark:text-slate-800">
-                        <input id="experienceYear" type="text" autocomplete="on" formControlName="experienceYear"
-                               placeholder="Add Your Experience Year "
-                               class="cust-input-box" />
+                        <input id="companyName" type="text" autocomplete="on" formControlName="companyName" required
+                               placeholder="Company name" class="cust-input-box"/>
                       </div>
-
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="description" class="block text-sm font-medium">
-                      Write description
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
+                    <div class="basis-64 grow">
+                      <label for="jobTitle" class="block text-sm font-medium">
+                        Job Title
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="jobTitle" type="text" autocomplete="on" formControlName="jobTitle" required
+                               placeholder="Job Title" class="cust-input-box"/>
+                      </div>
+                    </div>
+                    <div class="basis-64 grow">
+                      <label for="city" class="block text-sm font-medium">
+                        City
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="city" type="text" autocomplete="on" formControlName="city" placeholder="City"
+                               class="cust-input-box"/>
+                      </div>
+                    </div>
+                    <div class="basis-64 grow">
+                      <label for="startDate" class="block text-sm font-medium">
+                        Start Date
+                      </label>
+                      <div class="mt-1 dark:text-slate-800 relative">
+                        <input id="startDate" [matDatepicker]="picker3" autocomplete="on" formControlName="startDate"
+                               required placeholder="Start Date" class="cust-input-box"/>
+
+                        <div class="absolute top-0 right-1 w-12">
+                          <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+                          <mat-datepicker #picker3></mat-datepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="basis-64 grow">
+                      <label for="endDate" class="block text-sm font-medium">
+                        End Date
+                      </label>
+                      <div class="mt-1 dark:text-slate-800 relative">
+                        <input id="endDate" [matDatepicker]="picker4" autocomplete="on" formControlName="endDate"
+                               required
+                               placeholder="End Date" class="cust-input-box"/>
+
+                        <div class="absolute top-0 right-1 w-12">
+                          <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+                          <mat-datepicker #picker4></mat-datepicker>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="basis-64 grow">
+                      <label for="experienceYear" class="block text-sm font-medium">
+                        Add Experience Year
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <div class="mt-1 dark:text-slate-800">
+                          <input id="experienceYear" type="text" autocomplete="on" formControlName="experienceYear"
+                                 placeholder="Add Your Experience Year "
+                                 class="cust-input-box"/>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="basis-64 grow">
+                      <label for="description" class="block text-sm font-medium">
+                        Write description
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
                       <textarea rows="3" id="description" type="text" autocomplete="on" formControlName="description"
-                        placeholder="Add information about yourself or what you are looking for "
-                        class="cust-input-box"></textarea>
+                                placeholder="Add information about yourself or what you are looking for "
+                                class="cust-input-box"></textarea>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button (click)="addDetails('experienceDetails')" type="button" class="success-btn">
+              <button (click)="addDetails('experienceDetails')" class="success-btn" type="button">
                 Add Work Experience
               </button>
-              <button type="button" class="primary-btn" matStepperPrevious>
+              <button class="primary-btn" matStepperPrevious type="button">
                 Back
               </button>
-              <button type="button" class="primary-btn" matStepperNext>
+              <button class="primary-btn" matStepperNext type="button">
                 Next
               </button>
             </div>
@@ -395,89 +398,89 @@
           <mat-step [stepControl]="projectDetails" errorMessage="Project Details are required.">
             <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Project Details</span></ng-template>
             @for (item of resumeFormGroup.get('projectDetails').controls;
-            track $index) {
-            <div class="" formGroupName="{{ $index }}">
-              <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
-                <div class="flex gap-2 justify-between">
-                  <p>Project #{{ $index + 1 }}</p>
-                  <button (click)="deleteDetails('projectDetails', $index)" mat-button color="warn"
-                    class="delete-ripple-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                      stroke="currentColor" class="w-4 h-4">
-                      <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="flex gap-4 flex-wrap mt-2">
-                  <div class="basis-64 grow">
-                    <label for="projectTitle" class="block text-sm font-medium">
-                      Ptoject Title
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="projectTitle" type="text" autocomplete="on" formControlName="projectTitle" required
-                        placeholder="Ptoject Title" class="cust-input-box" />
-                    </div>
+              track $index) {
+              <div class="" formGroupName="{{ $index }}">
+                <div class="p-3 bg-gray-100 rounded-md mt-2 dark:bg-slate-800">
+                  <div class="flex gap-2 justify-between">
+                    <p>Project #{{ $index + 1 }}</p>
+                    <button (click)="deleteDetails('projectDetails', $index)" mat-button color="warn"
+                            class="delete-ripple-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                           stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                      </svg>
+                    </button>
                   </div>
-                  <div class="basis-64 grow">
-                    <label for="projectLink" class="block text-sm font-medium">
-                      Project Link
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="projectLink" type="text" autocomplete="on" formControlName="projectLink" required
-                        placeholder="Project Link" class="cust-input-box" />
+                  <div class="flex gap-4 flex-wrap mt-2">
+                    <div class="basis-64 grow">
+                      <label for="projectTitle" class="block text-sm font-medium">
+                        Ptoject Title
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="projectTitle" type="text" autocomplete="on" formControlName="projectTitle" required
+                               placeholder="Ptoject Title" class="cust-input-box"/>
+                      </div>
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="projectCodeLink" class="block text-sm font-medium">
-                      Project Code Link
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="projectCodeLink" type="text" autocomplete="on" formControlName="projectCodeLink"
-                        placeholder="Project Code Link" class="cust-input-box" />
+                    <div class="basis-64 grow">
+                      <label for="projectLink" class="block text-sm font-medium">
+                        Project Link
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="projectLink" type="text" autocomplete="on" formControlName="projectLink" required
+                               placeholder="Project Link" class="cust-input-box"/>
+                      </div>
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="projectTechUsed" class="block text-sm font-medium">
-                      Project Tech Used
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="projectTechUsed" type="text" autocomplete="on" formControlName="projectTechUsed"
-                        placeholder="Project Tech Used" class="cust-input-box" />
+                    <div class="basis-64 grow">
+                      <label for="projectCodeLink" class="block text-sm font-medium">
+                        Project Code Link
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="projectCodeLink" type="text" autocomplete="on" formControlName="projectCodeLink"
+                               placeholder="Project Code Link" class="cust-input-box"/>
+                      </div>
                     </div>
-                  </div>
-                  <div class="basis-64 grow">
-                    <label for="projectYear" class="block text-sm font-medium">
-                      Year
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
-                      <input id="projectYear" type="text" autocomplete="on" formControlName="projectYear"
-                        placeholder="Year" class="cust-input-box" />
+                    <div class="basis-64 grow">
+                      <label for="projectTechUsed" class="block text-sm font-medium">
+                        Project Tech Used
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="projectTechUsed" type="text" autocomplete="on" formControlName="projectTechUsed"
+                               placeholder="Project Tech Used" class="cust-input-box"/>
+                      </div>
                     </div>
-                  </div>
+                    <div class="basis-64 grow">
+                      <label for="projectYear" class="block text-sm font-medium">
+                        Year
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
+                        <input id="projectYear" type="text" autocomplete="on" formControlName="projectYear"
+                               placeholder="Year" class="cust-input-box"/>
+                      </div>
+                    </div>
 
-                  <div class="basis-64 grow">
-                    <label for="projectDescription" class="block text-sm font-medium">
-                      Write Project Description
-                    </label>
-                    <div class="mt-1 dark:text-slate-800">
+                    <div class="basis-64 grow">
+                      <label for="projectDescription" class="block text-sm font-medium">
+                        Write Project Description
+                      </label>
+                      <div class="mt-1 dark:text-slate-800">
                       <textarea rows="3" id="projectDescription" type="text" autocomplete="on"
-                        formControlName="projectDescription" placeholder="Add information about project "
-                        class="cust-input-box"></textarea>
+                                formControlName="projectDescription" placeholder="Add information about project "
+                                class="cust-input-box"></textarea>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button (click)="addDetails('projectDetails')" type="button" class="success-btn">
+              <button (click)="addDetails('projectDetails')" class="success-btn" type="button">
                 Add Project
               </button>
-              <button type="button" class="primary-btn" matStepperPrevious>
+              <button class="primary-btn" matStepperPrevious type="button">
                 Back
               </button>
-              <button type="button" class="primary-btn" matStepperNext>
+              <button class="primary-btn" matStepperNext type="button">
                 Next
               </button>
             </div>
@@ -488,39 +491,39 @@
           <mat-step [stepControl]="skillDetails" errorMessage="Skills are required.">
             <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Skills</span></ng-template>
             @for (skillGroup of resumeFormGroup.get('skillDetails').controls;
-            track $index) {
-            <div class="" formGroupName="{{ $index }}">
-              <div class="skill-item flex gap-2 my-2 mb-5">
-                <div class="basis-4/5">
-                  <input type="text" formControlName="skillName" placeholder="Skill Name" class="cust-input-box" />
-                  <div class="relative">
-                    <input id="skillValue" type="range" min="0" max="100" formControlName="skillValue" step="0.5"
-                      class="cust-range" />
-                    <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4">Min 0</span>
-                    <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4">Max 100</span>
+              track $index) {
+              <div class="" formGroupName="{{ $index }}">
+                <div class="skill-item flex gap-2 my-2 mb-5">
+                  <div class="basis-4/5">
+                    <input type="text" formControlName="skillName" placeholder="Skill Name" class="cust-input-box"/>
+                    <div class="relative">
+                      <input id="skillValue" type="range" min="0" max="100" formControlName="skillValue" step="0.5"
+                             class="cust-range"/>
+                      <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4">Min 0</span>
+                      <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4">Max 100</span>
+                    </div>
+                  </div>
+                  <div class="basis-4/5">
+                    <button (click)="deleteDetails('skillDetails', $index)" mat-button color="warn"
+                            class="delete-ripple-button mt-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                           stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                      </svg>
+                    </button>
                   </div>
                 </div>
-                <div class="basis-4/5">
-                  <button (click)="deleteDetails('skillDetails', $index)" mat-button color="warn"
-                    class="delete-ripple-button mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                      stroke="currentColor" class="w-4 h-4">
-                      <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                    </svg>
-                  </button>
-                </div>
               </div>
-            </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button (click)="addDetails('skillDetails')" type="button" class="success-btn">
+              <button (click)="addDetails('skillDetails')" class="success-btn" type="button">
                 Add Skills
               </button>
-              <button type="button" class="primary-btn" matStepperPrevious>
+              <button class="primary-btn" matStepperPrevious type="button">
                 Back
               </button>
-              <button type="button" class="primary-btn" matStepperNext>
+              <button class="primary-btn" matStepperNext type="button">
                 Next
               </button>
             </div>
@@ -528,42 +531,44 @@
         </div>
         <!--  -->
         <div class="" formArrayName="languageDetails">
-          <mat-step [stepControl]="languageDetails" >
+          <mat-step [stepControl]="languageDetails">
             <ng-template matStepLabel><span class="text-gray-900 dark:text-white">Language</span></ng-template>
             @for (langGroup of resumeFormGroup.get('languageDetails').controls;
-            track $index) {
-            <div class="" formGroupName="{{ $index }}">
-              <div class="lang-item flex gap-2 my-2 mb-5">
-                <div class="basis-4/5">
-                  <input type="text" formControlName="languageName" placeholder="Language Name" class="cust-input-box" />
-                  <div class="relative">
-                    <input id="languageValue" type="range" min="0" max="100" formControlName="languageValue" step="0.5"
-                      class="cust-range" />
-                    <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4">Min 0</span>
-                    <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4">Max 100</span>
+              track $index) {
+              <div class="" formGroupName="{{ $index }}">
+                <div class="lang-item flex gap-2 my-2 mb-5">
+                  <div class="basis-4/5">
+                    <input type="text" formControlName="languageName" placeholder="Language Name"
+                           class="cust-input-box"/>
+                    <div class="relative">
+                      <input id="languageValue" type="range" min="0" max="100" formControlName="languageValue"
+                             step="0.5"
+                             class="cust-range"/>
+                      <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4">Min 0</span>
+                      <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4">Max 100</span>
+                    </div>
+                  </div>
+                  <div class="basis-4/5">
+                    <button (click)="deleteDetails('languageDetails', $index)" mat-button color="warn"
+                            class="delete-ripple-button mt-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                           stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/>
+                      </svg>
+                    </button>
                   </div>
                 </div>
-                <div class="basis-4/5">
-                  <button (click)="deleteDetails('languageDetails', $index)" mat-button color="warn"
-                    class="delete-ripple-button mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                      stroke="currentColor" class="w-4 h-4">
-                      <path stroke-linecap="round" stroke-linejoin="round"
-                        d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                    </svg>
-                  </button>
-                </div>
               </div>
-            </div>
             }
             <div class="py-3 mt-3 flex gap-2 flex-wrap">
-              <button (click)="addDetails('languageDetails')" type="button" class="success-btn">
+              <button (click)="addDetails('languageDetails')" class="success-btn" type="button">
                 Add Languages
               </button>
-              <button type="button" class="primary-btn" matStepperPrevious>
+              <button class="primary-btn" matStepperPrevious type="button">
                 Back
               </button>
-              <button type="button" class="primary-btn" matStepperNext>
+              <button class="primary-btn" matStepperNext type="button">
                 Next
               </button>
             </div>
@@ -576,8 +581,8 @@
           <p>You are now done.</p>
           <div class="py-3 mt-3 space-x-2">
             <button class="primary-btn" matStepperPrevious>Back</button>
-            <button class="primary-btn" (click)="stepper.reset()">Reset</button>
-            <button type="submit" class="primary-btn">Done</button>
+            <button (click)="stepper.reset()" class="primary-btn">Reset</button>
+            <button class="primary-btn" type="submit">Done</button>
           </div>
         </mat-step>
       </mat-stepper>
@@ -590,7 +595,8 @@
     <!-- <div class="bg-gray-100 rounded-md h-[500px] w-full">
 
     </div> -->
-    <button class="my-4 mx-auto primary-btn" (click)="viewResume()">
-      Preview</button>
+    <button (click)="viewResume()" class="my-4 mx-auto primary-btn">
+      Preview
+    </button>
   </div>
 </div>

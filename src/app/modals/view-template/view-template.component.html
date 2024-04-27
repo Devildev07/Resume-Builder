@@ -1,32 +1,39 @@
 <div
   class="container flex flex-col justify-between mt-4 rounded-md relative h-full"
 >
-<h3 class="text-2xl font-semibold leading-6 text-gray-900 py-3 px-4">{{templateContent.name}}</h3>
+  <h3 class="text-2xl font-semibold leading-6 text-gray-900 py-3 px-4">{{ templateContent.name }}</h3>
   <div class="bg-gray-100 rounded-md mx-3 overflow-hidden">
     <!-- <mat-dialog-content [innerHTML]="safeImg"> </mat-dialog-content> -->
-    <mat-dialog-content [innerHTML]="templateContent"> </mat-dialog-content>
+    <mat-dialog-content [innerHTML]="templateContent"></mat-dialog-content>
   </div>
   <div class="flex items-center flex-wrap gap-2 bg-gray-50 mt-2 px-4 py-2 sm:flex sm:flex-row-reverse">
     <mat-dialog-actions>
-      <button class="success-btn" (click)="selectTemplate()">
-        Select template
-      </button>
+      @if (commonService.currentUrl === '/dashboard/builder') {
+        <button (click)="downloadTemplate()" class="primary-btn">
+          Download template
+        </button>
+      }
+      @if (commonService.currentUrl === '/templates') {
+        <button (click)="selectTemplate()" class="success-btn">
+          Select template
+        </button>
+      }
     </mat-dialog-actions>
     <mat-dialog-actions class="">
       <button class="danger-btn flex items-center gap-1" mat-dialog-close>
         Close
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
           fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
           stroke="currentColor"
-          class="w-6 h-6"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
             stroke-linecap="round"
             stroke-linejoin="round"
-            d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
           />
         </svg>
       </button>

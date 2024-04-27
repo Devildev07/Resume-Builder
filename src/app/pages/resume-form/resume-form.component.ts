@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {
   FormBuilder,
   FormArray,
@@ -9,18 +9,18 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { Observable } from 'rxjs';
-import { MatSliderModule } from '@angular/material/slider';
-import { CommonServicesService } from 'src/app/services/common-services.service';
-import { MatDialog } from '@angular/material/dialog';
-import { ViewTemplateComponent } from 'src/app/modals/view-template/view-template.component';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {Observable} from 'rxjs';
+import {MatSliderModule} from '@angular/material/slider';
+import {CommonServicesService} from 'src/app/services/common-services.service';
+import {MatDialog} from '@angular/material/dialog';
+import {ViewTemplateComponent} from 'src/app/modals/view-template/view-template.component';
 
 @Component({
   selector: 'app-resume-form',
@@ -28,7 +28,7 @@ import { ViewTemplateComponent } from 'src/app/modals/view-template/view-templat
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { showError: true },
+      useValue: {showError: true},
     },
     provideNativeDateAdapter(),
   ],
@@ -46,13 +46,13 @@ import { ViewTemplateComponent } from 'src/app/modals/view-template/view-templat
   styleUrl: './resume-form.component.css',
 })
 export class ResumeFormComponent {
-  resumetitle: any;
+  resumeTitle: any;
   allResumeData: any = {};
   resumeFormGroup: FormGroup | any;
 
   FormArray: any;
 
-  recivedTemplateData: any;
+  // receivedTemplateData: any;
 
 
   constructor(
@@ -65,6 +65,26 @@ export class ResumeFormComponent {
     // this.recivedTemplateData = this.commonService.getData();
     // console.log(this.recivedTemplateData);
 
+  }
+
+  get educationalDetails(): FormArray {
+    return this.resumeFormGroup.get('educationalDetails') as FormArray;
+  }
+
+  get experienceDetails(): FormArray {
+    return this.resumeFormGroup.get('experienceDetails') as FormArray;
+  }
+
+  get skillDetails(): FormArray {
+    return this.resumeFormGroup.get('skillDetails') as FormArray;
+  }
+
+  get languageDetails(): FormArray {
+    return this.resumeFormGroup.get('languageDetails') as FormArray;
+  }
+
+  get projectDetails(): FormArray {
+    return this.resumeFormGroup.get('projectDetails') as FormArray;
   }
 
   ngOnInit() {
@@ -105,12 +125,9 @@ export class ResumeFormComponent {
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       city: [''],
-      grade:['',Validators.required],
-      description:['', Validators.required],
+      grade: ['', Validators.required],
+      description: ['', Validators.required],
     });
-  }
-  get educationalDetails(): FormArray {
-    return this.resumeFormGroup.get('educationalDetails') as FormArray;
   }
 
   // experience-section
@@ -125,9 +142,6 @@ export class ResumeFormComponent {
       description: [''],
     });
   }
-  get experienceDetails(): FormArray {
-    return this.resumeFormGroup.get('experienceDetails') as FormArray;
-  }
 
   //skill-section
   createdSkillFormGroup(): FormGroup {
@@ -136,9 +150,6 @@ export class ResumeFormComponent {
       skillValue: [''],
     });
   }
-  get skillDetails(): FormArray {
-    return this.resumeFormGroup.get('skillDetails') as FormArray;
-  }
 
   //skill-section
   createdLanguageFormGroup(): FormGroup {
@@ -146,9 +157,6 @@ export class ResumeFormComponent {
       languageName: [''],
       languageValue: [''],
     });
-  }
-  get languageDetails(): FormArray {
-    return this.resumeFormGroup.get('languageDetails') as FormArray;
   }
 
   //project-section
@@ -162,9 +170,6 @@ export class ResumeFormComponent {
       projectDescription: [''],
     });
   }
-  get projectDetails(): FormArray {
-    return this.resumeFormGroup.get('projectDetails') as FormArray;
-  }
 
   asyncEmailValidator(
     control: AbstractControl
@@ -176,7 +181,7 @@ export class ResumeFormComponent {
           control.value &&
           !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
         ) {
-          observer.next({ invalidEmail: true }); // Return validation error
+          observer.next({invalidEmail: true}); // Return validation error
         } else {
           observer.next(null); // No error
         }
@@ -202,7 +207,7 @@ export class ResumeFormComponent {
       details.push(this.createdSkillFormGroup());
     } else if (type === 'projectDetails') {
       details.push(this.createdProjectFormGroup());
-    }else if (type === 'languageDetails') {
+    } else if (type === 'languageDetails') {
       details.push(this.createdLanguageFormGroup());
     }
   }
@@ -225,7 +230,7 @@ export class ResumeFormComponent {
       this.allResumeData = {};
       var data = {
         formBuilder: this.resumeFormGroup.value,
-        title: this.resumetitle,
+        title: this.resumeTitle,
       };
       this.allResumeData = data;
       // this.allResumeData.push(this.resumeFormGroup.value)
@@ -236,15 +241,17 @@ export class ResumeFormComponent {
   }
 
   viewResume() {
-    // this.commonService.getData()
-    this.recivedTemplateData = this.commonService.getData();
-    console.log("this.recivedTemplateData",this.recivedTemplateData);
+    if (typeof Storage !== 'undefined') {
+      this.commonService.getLocalStorage('selectedTempData')
+    } else {
+      console.log('Local storage is not available.');
+    }
     this.dialog.open(ViewTemplateComponent, {
       backdropClass: 'backdrop-blur',
       width: '1024px',
       height: '640px',
       panelClass: 'rounded-md',
-      data: this.recivedTemplateData,
+      data: {receivedTemplateData: this.commonService.getLocalStorage('selectedTempData')},
     })
   }
 }

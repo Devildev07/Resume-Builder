@@ -1,6 +1,6 @@
-import { Component, Inject, ViewEncapsulation } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { CommonServicesService } from 'src/app/services/common-services.service';
+import {Component, Inject, ViewEncapsulation} from '@angular/core';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {CommonServicesService} from 'src/app/services/common-services.service';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -8,9 +8,9 @@ import {
   MAT_DIALOG_DATA,
   MatDialogContent,
 } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
-import { templateArraySection, templateData } from 'src/assets/templates/templates';
+import {MatButtonModule} from '@angular/material/button';
+import {Router} from '@angular/router';
+import {templateArraySection, templateData} from 'src/assets/templates/templates';
 
 
 @Component({
@@ -42,7 +42,8 @@ export class ViewTemplateComponent {
     @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any, receivedTemplateData: any }
   ) {
 
-    if (commonService.currentUrl === '/templates') {
+
+    if (this.commonService.currentUrl === '/templates') {
       this.templateContent = data?.templateContent;
       this.templateInfo = data?.templateInfo;
       // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
@@ -51,10 +52,9 @@ export class ViewTemplateComponent {
       this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
         `<img ngSrc="${this.templateInfo.Img}" alt="Dynamic Image" fill>`
       );
-    }
-    else if (commonService.currentUrl === '/dashboard/builder') {
-    this.receivedDataInfo = data?.receivedTemplateData;
-      console.log("received data", this.receivedDataInfo,data?.receivedTemplateData.Content)
+    } else if (this.commonService.currentUrl === '/dashboard/builder') {
+      this.receivedDataInfo = data?.receivedTemplateData;
+      console.log("received data", this.receivedDataInfo,)
       this.templateContent = data?.receivedTemplateData.Content
       this.temp_id = data?.receivedTemplateData.Id
     }
@@ -207,10 +207,15 @@ export class ViewTemplateComponent {
       Id: this.temp_id,
       Content: this.templateContent
     }
-    this.commonService.setData(selectedTempData);
+    this.commonService.setLocalStorage('selectedTempData', selectedTempData);
+    // console.log("this.commonService.setData(selectedTempData)", selectedTempData)
     this.route.navigate(['/dashboard/builder'])
     this.dialogRef.close();
     // console.log("this.templateContent.id === ", this.temp_id);
+  }
+
+  downloadTemplate() {
+    console.log("download in progress")
   }
 
 }

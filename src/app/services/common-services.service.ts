@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +9,14 @@ export class CommonServicesService {
   superAdmin = 'Dewanshu';
   currentUrl?: string;
   routerSubscription: any;
-  constructor(public router: Router, ) {
+  private sharedData: any;
+
+  constructor(public router: Router,) {
     this.getCurrentUrl();
   }
 
   // localStorage
-  setLocalStorage(key: string, value: string): void {
+  setLocalStorage(key: string, value: any): void {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
@@ -38,14 +40,5 @@ export class CommonServicesService {
         // console.log('Current URL:', this.currentUrl);
       }
     });
-  }
-
-  private sharedData: any;
-  setData(data: any) {
-    this.sharedData = data;
-  }
-
-  getData() {
-    return this.sharedData;
   }
 }
