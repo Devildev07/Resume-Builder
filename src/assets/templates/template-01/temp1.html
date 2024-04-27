@@ -15,17 +15,17 @@
 <body>
   <div class="container mx-auto px-6 py-8  poppins-medium  dark:text-gray-900">
     <div class=" title pb-3">
-      <h1 class="poppins-bold text-4xl text-blue-500 pb-1">{{name_key}}</h1>
+      <h1 class="poppins-bold text-4xl text-blue-500 pb-1">{{firstName}} {{lastName}}</h1>
       <p class="poppins-light text-gray-500 text-xl">{{jobTitle}}</p>
-      <span class="poppins-medium text-base">{{summary}}</span>
+      <span class="poppins-medium text-base">{{description}}</span>
     </div>
     <!--  -->
     <div class="my-2 py-2 border-t-2 border-b-2 border-gray-900">
       <div class="flex justify-between gap-2 flex-wrap flex-col sm:flex-row">
         <p class="sm:basis-32">{{email}}</p>
         <p class="sm:basis-32">{{phone}}</p>
-        <p class="sm:basis-56">{{address}}, {{city}}, {{pincode}}, {{state}}, {{country}}</p>
-        <p class="text-ellipsis sm:basis-32"><a href="{{webLink}}">{{webLink}}</a></p>
+        <p class="sm:basis-56">{{address}}, {{city}}, {{postalCode}}, {{state}}, {{country}}</p>
+        <p class="text-ellipsis sm:basis-32"><a href="{{website}}">{{website}}</a></p>
       </div>
     </div>
     <!--  -->
@@ -33,7 +33,7 @@
       <h3 class=" text-blue-500 text-xl poppins-bold">SKILLS</h3>
 
       <div class="pt-3 flex gap-2 items-center">
-        {{skills_list}}
+        {{skillDetails}}
         <!-- <span class="rounded-md p-2 bg-blue-500 text-white">{{skills[0].skillTitle}}</span>-->
 
       </div>
@@ -42,7 +42,7 @@
     <div class="exp_area mt-6">
       <h3 class=" text-blue-500 text-xl poppins-bold">WORK EXPERIENCE</h3>
       <div class="flex flex-col gap-4 pb-2">
-        {{experience_list}}
+        {{experienceDetails}}
         <!-- <div class="exp_detail poppins-medium ">
           <div class="job_title poppins-bold text-base">{{experience[0].jobTitle}}</div>
           <div class="company_name text-sm">{{experience[0].companyName}}</div>
@@ -62,7 +62,7 @@
     <div class="edu_area mt-6">
       <h3 class=" text-blue-500 text-xl poppins-bold">EDUCATION</h3>
       <div class="flex flex-col gap-4 pb-2">
-        {{education_list}}
+        {{educationalDetails}}
         <!-- <div class="edu_detail poppins-medium ">
           <div class="course_title text-base poppins-bold">{{education[0].courseTitle}}</div>
           <div class="university_name text-sm">{{education[0].institutionName}}</div>
@@ -76,7 +76,7 @@
     <div class="lang_area mt-6">
       <h3 class=" text-blue-500 text-xl poppins-bold">LANGUAGES</h3>
       <div class="lang flex items-center gap-2 flex-wrap">
-        {{language_list}}
+        {{languageDetails}}
         <!-- <div class="lang_box">
           <div class="lang_title poppins-bold text-base">{{language[0].languagetitle}}</div>
           <div class="lang_level poppins-light-italic text-gray-600 text-xs">{{language[0].languagevalues}}</div>

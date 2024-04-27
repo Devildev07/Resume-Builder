@@ -32,16 +32,15 @@ export class ViewTemplateComponent {
   templateContent: any;
   templateInfo: any;
   temp_id: any;
-  recievedDataInfo: any
+  receivedDataInfo: any
 
   constructor(
     public commonService: CommonServicesService,
     public dialogRef: MatDialogRef<ViewTemplateComponent>,
     public route: Router,
     private sanitizer: DomSanitizer,
-    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any, recivedTemplateData: any }
+    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any, receivedTemplateData: any }
   ) {
-    this.recievedDataInfo = data?.recivedTemplateData;
 
     if (commonService.currentUrl === '/templates') {
       this.templateContent = data?.templateContent;
@@ -50,10 +49,15 @@ export class ViewTemplateComponent {
       // console.log('templateData', templateData)
       this.temp_id = this.templateInfo.Id
       this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
-        `<img src="${this.templateInfo.Img}" alt="Dynamic Image">`
+        `<img ngSrc="${this.templateInfo.Img}" alt="Dynamic Image" fill>`
       );
     }
-    // elseif(){}
+    else if (commonService.currentUrl === '/dashboard/builder') {
+    this.receivedDataInfo = data?.receivedTemplateData;
+      console.log("received data", this.receivedDataInfo,data?.receivedTemplateData.Content)
+      this.templateContent = data?.receivedTemplateData.Content
+      this.temp_id = data?.receivedTemplateData.Id
+    }
 
 
     Object.keys(templateData).forEach((key: any) => {
@@ -61,13 +65,13 @@ export class ViewTemplateComponent {
         // console.log("templateArraySection[this.temp_id][key] === ", key, templateData[key]);
         let html = '';
         switch (key) {
-          case 'skills_list':
-            if (templateArraySection[this.temp_id].hasOwnProperty('skills_list')) {
+          case 'skillDetails':
+            if (templateArraySection[this.temp_id].hasOwnProperty('skillDetails')) {
               // console.log("templateData[key] === ", templateData[key]);
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{skillTitle}}', keyItem.skillTitle)
-                temp = temp.replace('{{skillvalues}}', keyItem.skillvalues)
+                temp += templateArraySection[this.temp_id][key].replace('{{skillName}}', keyItem.skillName)
+                temp = temp.replace('{{skillValue}}', keyItem.skillValue)
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               })
@@ -76,83 +80,86 @@ export class ViewTemplateComponent {
               this.templateContent = this.templateContent.replace(skillRegex, html);
             }
             break;
-          case 'experience_list':
-            if (templateArraySection[this.temp_id].hasOwnProperty('experience_list')) {
+          case 'experienceDetails':
+            if (templateArraySection[this.temp_id].hasOwnProperty('experienceDetails')) {
               // console.log("templateData[key] === ", templateData[key]);
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replace('{{jobTitle}}', keyItem.jobTitle)
                 temp = temp.replace('{{companyName}}', keyItem.companyName)
-                temp = temp.replace('{{from}}', keyItem.from)
-                temp = temp.replace('{{to}}', keyItem.to)
+                temp = temp.replace('{{city}}', keyItem.city)
+                temp = temp.replace('{{startDate}}', keyItem.startDate)
+                temp = temp.replace('{{endDate}}', keyItem.endDate)
                 temp = temp.replace('{{experienceYear}}', keyItem.experienceYear)
                 temp = temp.replace('{{description}}', keyItem.description)
-                if (Array.isArray(keyItem.responsibilities)) {
-                  let responsibilitiesHTML = '';
-                  // console.log("keyItem.responsibilities",keyItem.responsibilities);
-
-                  keyItem.responsibilities.forEach((responsibility: string, index: number) => {
-                    if (index > 0 || responsibility.trim() !== '') {
-                      responsibilitiesHTML += `<li>${responsibility}</li>`;
-                    }
-                  });
-                  temp = temp.replace('{{responsibilities}}', responsibilitiesHTML);
-                } else {
-                  temp = temp.replace('{{responsibilities}}', keyItem.responsibilities);
-                }
+                // if (Array.isArray(keyItem.responsibilities)) {
+                //   let responsibilitiesHTML = '';
+                //   // console.log("keyItem.responsibilities",keyItem.responsibilities);
+                //
+                //   keyItem.responsibilities.forEach((responsibility: string, index: number) => {
+                //     if (index > 0 || responsibility.trim() !== '') {
+                //       responsibilitiesHTML += `<li>${responsibility}</li>`;
+                //     }
+                //   });
+                //   temp = temp.replace('{{responsibilities}}', responsibilitiesHTML);
+                // } else {
+                //   temp = temp.replace('{{responsibilities}}', keyItem.responsibilities);
+                // }
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               })
-              console.log("html === ", key, typeof html, typeof this.templateContent);
+              // console.log("html === ", key, typeof html, typeof this.templateContent);
               const expRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replace(expRegex, html);
             }
             break;
-          case 'education_list':
-            if (templateArraySection[this.temp_id].hasOwnProperty('education_list')) {
+          case 'educationalDetails':
+            if (templateArraySection[this.temp_id].hasOwnProperty('educationalDetails')) {
               // console.log("templateData[key] === ", templateData[key]);
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{courseTitle}}', keyItem.courseTitle)
-                temp = temp.replace('{{institutionName}}', keyItem.institutionName)
-                temp = temp.replace('{{from}}', keyItem.from)
-                temp = temp.replace('{{to}}', keyItem.to)
-                temp = temp.replace('{{educationYear}}', keyItem.educationYear)
+                temp += templateArraySection[this.temp_id][key].replace('{{institutionName}}', keyItem.institutionName)
+                temp = temp.replace('{{studyField}}', keyItem.studyField)
                 temp = temp.replace('{{degree}}', keyItem.degree)
+                temp = temp.replace('{{grades}}', keyItem.grades)
+                temp = temp.replace('{{startDate}}', keyItem.startDate)
+                temp = temp.replace('{{endDate}}', keyItem.endDate)
+                temp = temp.replace('{{description}}', keyItem.description)
+                temp = temp.replace('{{city}}', keyItem.city)
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               })
-              console.log("html === ", key, typeof html, typeof this.templateContent);
+              // console.log("html === ", key, typeof html, typeof this.templateContent);
               const eduRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replace(eduRegex, html);
             }
             break;
-          case 'language_list':
-            if (templateArraySection[this.temp_id].hasOwnProperty('language_list')) {
+          case 'languageDetails':
+            if (templateArraySection[this.temp_id].hasOwnProperty('languageDetails')) {
               // console.log("templateData[key] === ", templateData[key]);
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{languagetitle}}', keyItem.languagetitle)
-                temp = temp.replace('{{languagevalues}}', keyItem.languagevalues)
+                temp += templateArraySection[this.temp_id][key].replace('{{languageName}}', keyItem.languageName)
+                temp = temp.replace('{{languageValue}}', keyItem.languageValue)
 
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               })
-              console.log("html === ", key, typeof html, typeof this.templateContent);
+              // console.log("html === ", key, typeof html, typeof this.templateContent);
               const langRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replace(langRegex, html);
             }
             break;
-          case 'projects_list':
-            if (templateArraySection[this.temp_id].hasOwnProperty('projects_list')) {
+          case 'projectDetails':
+            if (templateArraySection[this.temp_id].hasOwnProperty('projectDetails')) {
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{projectName}}', keyItem.projectName)
-                temp = temp.replace('{{languagevalues}}', keyItem.languagevalues),
-                  temp = temp.replace('{{from}}', keyItem.from)
-                temp = temp.replace('{{to}}', keyItem.to)
-                temp = temp.replace('{{year}}', keyItem.year)
-                temp = temp.replace('{{description}}', keyItem.description)
+                temp += templateArraySection[this.temp_id][key].replace('{{projectTitle}}', keyItem.projectTitle)
+                temp = temp.replace('{{projectLink}}', keyItem.projectLink)
+                temp = temp.replace('{{projectCodeLink}}', keyItem.projectCodeLink)
+                temp = temp.replace('{{projectYear}}', keyItem.projectYear)
+                temp = temp.replace('{{projectTechUsed}}', keyItem.projectTechUsed)
+                temp = temp.replace('{{projectDescription}}', keyItem.projectDescription)
                 if (Array.isArray(keyItem.skills)) {
                   let skillsHTML = '';
                   // console.log("keyItem.skills",keyItem.skills);
@@ -192,9 +199,6 @@ export class ViewTemplateComponent {
       }
 
     })
-
-
-
 
   }
 

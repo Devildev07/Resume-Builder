@@ -61,9 +61,9 @@ export class ResumeFormComponent {
     public dialog: MatDialog,
   ) {
 
-    commonService.getData()
-    this.recivedTemplateData = this.commonService.getData();
-    console.log(this.recivedTemplateData);
+    // commonService.getData()
+    // this.recivedTemplateData = this.commonService.getData();
+    // console.log(this.recivedTemplateData);
 
   }
 
@@ -72,17 +72,13 @@ export class ResumeFormComponent {
       personalDetails: this.formBuilder.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
-        // email: [
-        //   '',
-        //   Validators.required,
-        //   Validators.email,
-        //   Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
-        // ],
+        jobTitle: ['', Validators.required],
         email: ['', Validators.required, [this.asyncEmailValidator]],
         phone: ['', Validators.required],
         birthDate: ['', Validators.required],
         address: ['', Validators.required],
         city: ['', Validators.required],
+        state: ['', Validators.required],
         postalCode: ['', Validators.required],
         country: ['', Validators.required],
         website: [''],
@@ -95,11 +91,12 @@ export class ResumeFormComponent {
         this.createdExpDetailsFormGroup(),
       ]),
       skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
+      languageDetails: this.formBuilder.array([this.createdLanguageFormGroup()]),
       projectDetails: this.formBuilder.array([this.createdProjectFormGroup()]),
     });
   }
 
-  // educationsection
+  // education-section
   createdEduDetailsFormGroup(): FormGroup {
     return this.formBuilder.group({
       institutionName: ['', Validators.required],
@@ -108,13 +105,15 @@ export class ResumeFormComponent {
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       city: [''],
+      grade:['',Validators.required],
+      description:['', Validators.required],
     });
   }
   get educationalDetails(): FormArray {
     return this.resumeFormGroup.get('educationalDetails') as FormArray;
   }
 
-  // experiencesection
+  // experience-section
   createdExpDetailsFormGroup(): FormGroup {
     return this.formBuilder.group({
       jobTitle: ['', Validators.required],
@@ -122,26 +121,37 @@ export class ResumeFormComponent {
       city: ['', Validators.required],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
+      experienceYear: [''],
       description: [''],
     });
   }
-
   get experienceDetails(): FormArray {
     return this.resumeFormGroup.get('experienceDetails') as FormArray;
   }
 
-  //skillsection
+  //skill-section
   createdSkillFormGroup(): FormGroup {
     return this.formBuilder.group({
       skillName: ['', Validators.required],
       skillValue: [''],
     });
   }
-
   get skillDetails(): FormArray {
     return this.resumeFormGroup.get('skillDetails') as FormArray;
   }
-  //skillsection
+
+  //skill-section
+  createdLanguageFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      languageName: [''],
+      languageValue: [''],
+    });
+  }
+  get languageDetails(): FormArray {
+    return this.resumeFormGroup.get('languageDetails') as FormArray;
+  }
+
+  //project-section
   createdProjectFormGroup(): FormGroup {
     return this.formBuilder.group({
       projectTitle: ['', Validators.required],
@@ -152,7 +162,6 @@ export class ResumeFormComponent {
       projectDescription: [''],
     });
   }
-
   get projectDetails(): FormArray {
     return this.resumeFormGroup.get('projectDetails') as FormArray;
   }
@@ -182,6 +191,7 @@ export class ResumeFormComponent {
       | 'experienceDetails'
       | 'skillDetails'
       | 'projectDetails'
+      | 'languageDetails'
   ): void {
     const details = this.resumeFormGroup.get(type) as FormArray;
     if (type === 'educationalDetails') {
@@ -192,6 +202,8 @@ export class ResumeFormComponent {
       details.push(this.createdSkillFormGroup());
     } else if (type === 'projectDetails') {
       details.push(this.createdProjectFormGroup());
+    }else if (type === 'languageDetails') {
+      details.push(this.createdLanguageFormGroup());
     }
   }
 
@@ -200,7 +212,8 @@ export class ResumeFormComponent {
       | 'educationalDetails'
       | 'experienceDetails'
       | 'skillDetails'
-      | 'projectDetails',
+      | 'projectDetails'
+      | 'languageDetails',
     i: number
   ): void {
     const details = this.resumeFormGroup.get(type) as FormArray;
@@ -223,6 +236,9 @@ export class ResumeFormComponent {
   }
 
   viewResume() {
+    // this.commonService.getData()
+    this.recivedTemplateData = this.commonService.getData();
+    console.log("this.recivedTemplateData",this.recivedTemplateData);
     this.dialog.open(ViewTemplateComponent, {
       backdropClass: 'backdrop-blur',
       width: '1024px',
