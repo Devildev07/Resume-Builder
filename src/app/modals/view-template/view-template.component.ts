@@ -158,20 +158,20 @@ export class ViewTemplateComponent {
                 temp = temp.replace('{{projectLink}}', keyItem.projectLink)
                 temp = temp.replace('{{projectCodeLink}}', keyItem.projectCodeLink)
                 temp = temp.replace('{{projectYear}}', keyItem.projectYear)
-                temp = temp.replace('{{projectTechUsed}}', keyItem.projectTechUsed)
+                // temp = temp.replace('{{projectTechUsed}}', keyItem.projectTechUsed)
                 temp = temp.replace('{{projectDescription}}', keyItem.projectDescription)
-                if (Array.isArray(keyItem.skills)) {
-                  let skillsHTML = '';
-                  // console.log("keyItem.skills",keyItem.skills);
+                if (Array.isArray(keyItem.projectTechUsed)) {
+                  let projectSkillHTML = '';
+                  // console.log("keyItem.projectSkill",keyItem.projectSkill);
 
-                  keyItem.skills.forEach((skill: string, index: number) => {
-                    if (index > 0 || skill.trim() !== '') {
-                      skillsHTML += `<li>${skill}</li>`;
+                  keyItem.projectTechUsed.forEach((skillUsed: string, index: number) => {
+                    if (index > 0 || skillUsed.trim() !== '') {
+                      projectSkillHTML += `<li class="bg-gray-600 text-white px-2 py-1 ml-1 text-xs rounded mb-1">${skillUsed}</li>`;
                     }
                   });
-                  temp = temp.replace('{{skills}}', skillsHTML);
+                  temp = temp.replace('{{projectTechUsed}}', projectSkillHTML);
                 } else {
-                  temp = temp.replace('{{skills}}', keyItem.skills);
+                  temp = temp.replace('{{projectSkill}}', keyItem.projectTechUsed);
                 }
 
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
@@ -180,6 +180,22 @@ export class ViewTemplateComponent {
               console.log("html === ", key, typeof html, typeof this.templateContent);
               const projectRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replace(projectRegex, html);
+            }
+            break;
+          case 'hobbyDetails':
+            if (templateArraySection[this.temp_id].hasOwnProperty('hobbyDetails')) {
+              let html = '';
+
+              // Iterate through each hobby in the hobbyDetails array
+              templateData[key].forEach((hobby: string, index: number) => {
+                if (index > 0 || hobby.trim() !== '') {
+                  html += `<li class="px-2 mt-1">${hobby}</li>`;
+                }
+              });
+
+              // Replace '{{hobbyDetails}}' placeholder in template with the generated HTML
+              const hobbyRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+              this.templateContent = this.templateContent.replace(hobbyRegex, html);
             }
             break;
           default:

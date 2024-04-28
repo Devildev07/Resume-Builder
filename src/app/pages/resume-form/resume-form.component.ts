@@ -60,11 +60,6 @@ export class ResumeFormComponent {
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
   ) {
-
-    // commonService.getData()
-    // this.recivedTemplateData = this.commonService.getData();
-    // console.log(this.recivedTemplateData);
-
   }
 
   get educationalDetails(): FormArray {
@@ -85,6 +80,10 @@ export class ResumeFormComponent {
 
   get projectDetails(): FormArray {
     return this.resumeFormGroup.get('projectDetails') as FormArray;
+  }
+
+  get hobbyDetails(): FormArray {
+    return this.resumeFormGroup.get('hobbyDetails') as FormArray;
   }
 
   ngOnInit() {
@@ -113,6 +112,7 @@ export class ResumeFormComponent {
       skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
       languageDetails: this.formBuilder.array([this.createdLanguageFormGroup()]),
       projectDetails: this.formBuilder.array([this.createdProjectFormGroup()]),
+      hobbyDetails: this.formBuilder.array([this.createdHobbyFormGroup()]),
     });
   }
 
@@ -151,11 +151,18 @@ export class ResumeFormComponent {
     });
   }
 
-  //skill-section
+  //Language-section
   createdLanguageFormGroup(): FormGroup {
     return this.formBuilder.group({
       languageName: [''],
       languageValue: [''],
+    });
+  }
+
+  //Hobby-section
+  createdHobbyFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      hobby: [''],
     });
   }
 
@@ -197,6 +204,7 @@ export class ResumeFormComponent {
       | 'skillDetails'
       | 'projectDetails'
       | 'languageDetails'
+      | 'hobbyDetails'
   ): void {
     const details = this.resumeFormGroup.get(type) as FormArray;
     if (type === 'educationalDetails') {
@@ -209,6 +217,8 @@ export class ResumeFormComponent {
       details.push(this.createdProjectFormGroup());
     } else if (type === 'languageDetails') {
       details.push(this.createdLanguageFormGroup());
+    } else if (type === 'hobbyDetails') {
+      details.push(this.createdHobbyFormGroup());
     }
   }
 
@@ -218,7 +228,8 @@ export class ResumeFormComponent {
       | 'experienceDetails'
       | 'skillDetails'
       | 'projectDetails'
-      | 'languageDetails',
+      | 'languageDetails'
+      | 'hobbyDetails',
     i: number
   ): void {
     const details = this.resumeFormGroup.get(type) as FormArray;
