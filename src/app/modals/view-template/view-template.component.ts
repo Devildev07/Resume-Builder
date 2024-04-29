@@ -1,6 +1,6 @@
-import {Component, Inject, ViewEncapsulation} from '@angular/core';
-import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
-import {CommonServicesService} from 'src/app/services/common-services.service';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CommonServicesService } from 'src/app/services/common-services.service';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -8,9 +8,9 @@ import {
   MAT_DIALOG_DATA,
   MatDialogContent,
 } from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
-import {Router} from '@angular/router';
-import {templateArraySection, templateData} from 'src/assets/templates/templates';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
+import { templateArraySection, templateData } from 'src/assets/templates/templates';
 
 
 @Component({
@@ -39,7 +39,7 @@ export class ViewTemplateComponent {
     public dialogRef: MatDialogRef<ViewTemplateComponent>,
     public route: Router,
     private sanitizer: DomSanitizer,
-    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any, receivedTemplateData: any }
+    @Inject(MAT_DIALOG_DATA) public data: { templateContent: any, templateInfo: any, receivedTemplateData: any, resumeData: any }
   ) {
 
 
@@ -53,10 +53,38 @@ export class ViewTemplateComponent {
         `<img ngSrc="${this.templateInfo.Img}" alt="Dynamic Image" fill>`
       );
     } else if (this.commonService.currentUrl === '/dashboard/builder') {
+
+      console.log(data?.resumeData);
+
+
       this.receivedDataInfo = data?.receivedTemplateData;
       console.log("received data", this.receivedDataInfo,)
       this.templateContent = data?.receivedTemplateData.Content
       this.temp_id = data?.receivedTemplateData.Id
+
+      const formData = data?.resumeData;
+
+      Object.keys(templateData).forEach((key) => {
+        if (formData.formBuilder.hasOwnProperty(key)) {
+
+          templateData[key] = formData.formBuilder[key];
+        } else if (Array.isArray(templateData[key])) {
+
+          templateData[key].forEach((item: any, index: number) => {
+            if (formData.formBuilder[key] && formData.formBuilder[key][index]) {
+
+              Object.keys(item).forEach((subKey) => {
+                if (formData.formBuilder[key][index].hasOwnProperty(subKey)) {
+                  item[subKey] = formData.formBuilder[key][index][subKey];
+                }
+              });
+            }
+          });
+        }
+      });
+
+      // Now templateData contains your form data values instead of placeholders
+      console.log(templateData);
     }
 
 
