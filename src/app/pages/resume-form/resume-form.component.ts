@@ -1,26 +1,26 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {
-  FormBuilder,
+  AbstractControl,
   FormArray,
+  FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  Validators,
-  AbstractControl,
   ValidationErrors,
+  Validators,
 } from '@angular/forms';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { Observable } from 'rxjs';
-import { MatSliderModule } from '@angular/material/slider';
-import { CommonServicesService } from 'src/app/services/common-services.service';
-import { MatDialog } from '@angular/material/dialog';
-import { ViewTemplateComponent } from 'src/app/modals/view-template/view-template.component';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {Observable} from 'rxjs';
+import {MatSliderModule} from '@angular/material/slider';
+import {CommonServicesService} from 'src/app/services/common-services.service';
+import {MatDialog} from '@angular/material/dialog';
+import {ViewTemplateComponent} from 'src/app/modals/view-template/view-template.component';
 
 @Component({
   selector: 'app-resume-form',
@@ -28,7 +28,7 @@ import { ViewTemplateComponent } from 'src/app/modals/view-template/view-templat
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { showError: true },
+      useValue: {showError: true},
     },
     provideNativeDateAdapter(),
   ],
@@ -195,7 +195,7 @@ export class ResumeFormComponent {
           control.value &&
           !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
         ) {
-          observer.next({ invalidEmail: true }); // Return validation error
+          observer.next({invalidEmail: true}); // Return validation error
         } else {
           observer.next(null); // No error
         }
@@ -246,16 +246,15 @@ export class ResumeFormComponent {
   submitResumeForm() {
     if (this.resumeFormGroup.valid) {
       this.allResumeData = {};
-      var data = {
+      this.allResumeData = {
         formBuilder: this.resumeFormGroup.value,
         title: this.resumeTitle,
       };
-      this.allResumeData = data;
-      // this.allResumeData.push(this.resumeFormGroup.value)
-      // this.allResumeData.push(this.resumetitle)
+
       console.log('firstFormGroup data here', this.allResumeData);
+    } else {
+      console.log('firstFormGroup not have valid enteries');
     }
-    console.log('firstFormGroup not valid enteries');
   }
 
   viewResume() {
@@ -269,7 +268,10 @@ export class ResumeFormComponent {
       width: '1024px',
       height: '640px',
       panelClass: 'rounded-md',
-      data: { receivedTemplateData: this.commonService.getLocalStorage('selectedTempData'), resumeData: this.allResumeData },
+      data: {
+        receivedTemplateData: this.commonService.getLocalStorage('selectedTempData'),
+        resumeData: this.allResumeData
+      },
     })
   }
 

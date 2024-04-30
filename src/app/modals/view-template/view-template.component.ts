@@ -46,8 +46,6 @@ export class ViewTemplateComponent {
       resumeData: any
     }
   ) {
-
-
     if (this.commonService.currentUrl === '/templates') {
       this.templateContent = data?.templateContent;
       this.templateInfo = data?.templateInfo;
@@ -62,7 +60,7 @@ export class ViewTemplateComponent {
       // console.log(data?.resumeData);
 
       this.receivedDataInfo = data?.receivedTemplateData;
-      console.log("received data", this.receivedDataInfo,)
+      // console.log("received data", this.receivedDataInfo,)
 
       this.templateContent = data?.receivedTemplateData.Content
       this.temp_id = data?.receivedTemplateData.Id
@@ -71,7 +69,7 @@ export class ViewTemplateComponent {
 
       Object.keys(templateData).forEach((key) => {
         if (formData.formBuilder.hasOwnProperty(key)) {
-          console.log("key", key);
+          // console.log("key", key);
           templateData[key] = formData.formBuilder[key];
         } else if (Array.isArray(templateData[key])) {
           templateData[key].forEach((item: any, index: number) => {
@@ -90,7 +88,26 @@ export class ViewTemplateComponent {
 
 
     Object.keys(templateData).forEach((key: any) => {
-      if (Array.isArray(templateData[key])) {
+      const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+      if (key === 'personalDetails' && templateData[key]) {
+        let html = '';
+        const personalDetails = templateData[key];
+        html += this.templateContent
+          .replace('{{ firstName }}', personalDetails.firstName)
+          .replace('{{ lastName }}', personalDetails.lastName)
+          .replace('{{ jobTitle }}', personalDetails.jobTitle)
+          .replace('{{ email }}', personalDetails.email)
+          .replace('{{ phone }}', personalDetails.phone)
+          .replace('{{ birthDate }}', personalDetails.birthDate)
+          .replace('{{ website }}', personalDetails.website)
+          .replace('{{ address }}', personalDetails.address)
+          .replace('{{ postalCode }}', personalDetails.postalCode)
+          .replace('{{ city }}', personalDetails.city)
+          .replace('{{ state }}', personalDetails.state)
+          .replace('{{ country }}', personalDetails.country)
+          .replace('{{ description }}', personalDetails.description);
+        this.templateContent = html;
+      } else if (Array.isArray(templateData[key])) {
         // console.log("templateArraySection[this.temp_id][key] === ", key, templateData[key]);
         let html = '';
         switch (key) {
@@ -236,16 +253,10 @@ export class ViewTemplateComponent {
         this.templateContent = this.templateContent.replace(regex, html);
       } else {
         // console.log("else === ");
-        const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-        if (key === 'personalDetails' && templateData[key]) {
-          Object.keys(templateData[key]).forEach((subKey) => {
-            const subRegex = new RegExp(`{{personalDetails.${subKey}}}`, 'g');
-            this.templateContent = this.templateContent.replace(subRegex, templateData[key][subKey]);
-          });
-        }
         this.templateContent = this.templateContent.replace(regex, templateData[key]);
         // console.log('this.templateContent', this.templateContent);
       }
+      // this.templateContent = this.templateContent.replace(regex, html);
     })
 
   }
