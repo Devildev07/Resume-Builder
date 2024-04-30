@@ -6,11 +6,12 @@ import {
   MatDialogClose,
   MatDialogRef,
   MAT_DIALOG_DATA,
-  MatDialogContent,
+  MatDialogContent, MatDialog,
 } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {Router} from '@angular/router';
 import {templateArraySection, templateData} from 'src/assets/templates/templates';
+import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
 
 
 @Component({
@@ -39,6 +40,7 @@ export class ViewTemplateComponent {
     public dialogRef: MatDialogRef<ViewTemplateComponent>,
     public route: Router,
     private sanitizer: DomSanitizer,
+    public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: {
       templateContent: any,
       templateInfo: any,
@@ -66,24 +68,34 @@ export class ViewTemplateComponent {
       this.temp_id = data?.receivedTemplateData.Id
 
       const formData = data?.resumeData;
+      // console.log("formData", formData);
 
-      Object.keys(templateData).forEach((key) => {
-        if (formData.formBuilder.hasOwnProperty(key)) {
-          // console.log("key", key);
-          templateData[key] = formData.formBuilder[key];
-        } else if (Array.isArray(templateData[key])) {
-          templateData[key].forEach((item: any, index: number) => {
-            if (formData.formBuilder[key] && formData.formBuilder[key][index]) {
-              Object.keys(item).forEach((subKey) => {
-                if (formData.formBuilder[key][index].hasOwnProperty(subKey)) {
-                  item[subKey] = formData.formBuilder[key][index][subKey];
-                }
-              });
-            }
-          });
-        }
-      });
-      console.log(templateData);
+      if (!formData) {
+        this.dialog.open(DialogBoxComponent, {
+          backdropClass: 'backdrop-blur',
+          width: '1024px',
+          height: '640px',
+          panelClass: 'rounded-md',
+        })
+      } else {
+        Object.keys(templateData).forEach((key) => {
+          if (formData.formBuilder.hasOwnProperty(key)) {
+            // console.log("key", key);
+            templateData[key] = formData.formBuilder[key];
+          } else if (Array.isArray(templateData[key])) {
+            templateData[key].forEach((item: any, index: number) => {
+              if (formData.formBuilder[key] && formData.formBuilder[key][index]) {
+                Object.keys(item).forEach((subKey) => {
+                  if (formData.formBuilder[key][index].hasOwnProperty(subKey)) {
+                    item[subKey] = formData.formBuilder[key][index][subKey];
+                  }
+                });
+              }
+            });
+          }
+        });
+        console.log(templateData);
+      }
     }
 
 
