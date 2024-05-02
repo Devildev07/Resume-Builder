@@ -1,6 +1,6 @@
-import { Component, Inject, ViewEncapsulation } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { CommonServicesService } from 'src/app/services/common-services.service';
+import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {CommonServicesService} from 'src/app/services/common-services.service';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -8,9 +8,9 @@ import {
   MAT_DIALOG_DATA,
   MatDialogContent, MatDialog,
 } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
-import { templateArraySection, templateData } from 'src/assets/templates/templates';
+import {MatButtonModule} from '@angular/material/button';
+import {Router} from '@angular/router';
+import {templateArraySection, templateData} from 'src/assets/templates/templates';
 
 
 @Component({
@@ -26,13 +26,14 @@ import { templateArraySection, templateData } from 'src/assets/templates/templat
   styleUrl: './view-template.component.css',
   encapsulation: ViewEncapsulation.None,
 })
-export class ViewTemplateComponent {
+export class ViewTemplateComponent implements OnInit {
   safeImg: SafeHtml = '';
 
   templateContent: any;
   templateInfo: any;
   temp_id: any;
   receivedDataInfo: any
+
 
   constructor(
     public commonService: CommonServicesService,
@@ -54,7 +55,7 @@ export class ViewTemplateComponent {
       // console.log('templateData', templateData)
       this.temp_id = this.templateInfo.Id
       this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
-        `<img ngSrc="${this.templateInfo.Img}" alt="Dynamic Image" fill>`
+        `<img src="${this.templateInfo.Img}" alt="Dynamic Image" fill>`
       );
     } else if (this.commonService.currentUrl === '/dashboard/builder') {
 
@@ -87,7 +88,6 @@ export class ViewTemplateComponent {
         }
       });
       console.log(templateData);
-
     }
 
 
@@ -262,6 +262,27 @@ export class ViewTemplateComponent {
       }
       // this.templateContent = this.templateContent.replace(regex, html);
     })
+
+  }
+
+  ngOnInit() {
+    const templateFrame: HTMLIFrameElement | null = document.getElementById("template_content") as HTMLIFrameElement;
+    // console.log("templateFrame", templateFrame);
+
+    if (templateFrame) {
+      templateFrame.onload = () => {
+        const templateFrameHead = templateFrame.contentDocument?.head;
+        if (templateFrameHead) {
+          const templateScript = document.createElement("script");
+          templateScript.src = 'https://cdn.tailwindcss.com';
+          templateScript.async = true;
+          templateScript.type = 'text/javascript';
+          templateFrameHead.appendChild(templateScript);
+        }
+      };
+    } else {
+      console.error("Template frame not found.");
+    }
 
   }
 

@@ -5,7 +5,6 @@
 @import './fonts/fonts.css';
 
 
-
 /*  */
 
 /* body,
@@ -98,6 +97,13 @@ body {
   padding: 18px 24px !important;
 }
 
+/* */
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 0.375rem !important;
+}
+
+/* */
+
 /* custom classes */
 .delete-ripple-button {
   @apply text-red-500 p-2 rounded-md bg-red-100 min-w-fit px-3 !important;
@@ -110,7 +116,6 @@ body {
 .cust-input-box {
   @apply block w-full px-5 py-3 text-base placeholder-gray-500 transition duration-500 ease-in-out transform rounded-lg bg-gray-50 border-gray-200 border focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 hover:outline-none hover:border-transparent hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-gray-300;
 }
-
 
 
 @layer components {
@@ -150,7 +155,7 @@ body {
     @apply outline-none bg-red-600
   }
 
-  .cust-range{
+  .cust-range {
     @apply w-full bg-transparent cursor-pointer appearance-none disabled:opacity-50 disabled:pointer-events-none focus:outline-none
     [&::-webkit-slider-thumb]:w-2.5
     [&::-webkit-slider-thumb]:h-2.5
