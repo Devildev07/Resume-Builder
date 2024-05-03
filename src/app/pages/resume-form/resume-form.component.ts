@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -9,19 +9,19 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { Observable } from 'rxjs';
-import { MatSliderModule } from '@angular/material/slider';
-import { CommonServicesService } from 'src/app/services/common-services.service';
-import { MatDialog } from '@angular/material/dialog';
-import { ViewTemplateComponent } from 'src/app/modals/view-template/view-template.component';
-import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.component';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {Observable} from 'rxjs';
+import {MatSliderModule} from '@angular/material/slider';
+import {CommonServicesService} from 'src/app/services/common-services.service';
+import {MatDialog} from '@angular/material/dialog';
+import {ViewTemplateComponent} from 'src/app/modals/view-template/view-template.component';
+import {DialogBoxComponent} from 'src/app/modals/dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-resume-form',
@@ -29,7 +29,7 @@ import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.compone
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { showError: true },
+      useValue: {showError: true},
     },
     provideNativeDateAdapter(),
   ],
@@ -196,7 +196,7 @@ export class ResumeFormComponent {
           control.value &&
           !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
         ) {
-          observer.next({ invalidEmail: true }); // Return validation error
+          observer.next({invalidEmail: true}); // Return validation error
         } else {
           observer.next(null); // No error
         }
@@ -267,7 +267,7 @@ export class ResumeFormComponent {
       this.dialog.open(ViewTemplateComponent, {
         backdropClass: 'backdrop-blur',
         width: '1024px',
-        height: '640px',
+        height: '80vh',
         panelClass: 'rounded-md',
         data: {
           receivedTemplateData: this.commonService.getLocalStorage('selectedTempData'),

@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {CommonServicesService} from 'src/app/services/common-services.service';
 import {
@@ -25,6 +25,7 @@ import {templateArraySection, templateData} from 'src/assets/templates/templates
   templateUrl: './view-template.component.html',
   styleUrl: './view-template.component.css',
   encapsulation: ViewEncapsulation.None,
+
 })
 export class ViewTemplateComponent implements OnInit {
   safeImg: SafeHtml = '';
@@ -36,6 +37,7 @@ export class ViewTemplateComponent implements OnInit {
 
   templateName: any
 
+  zoomFactor = 0.1;
 
   constructor(
     public commonService: CommonServicesService,
@@ -43,6 +45,7 @@ export class ViewTemplateComponent implements OnInit {
     public route: Router,
     private sanitizer: DomSanitizer,
     public dialog: MatDialog,
+    private renderer: Renderer2, private elementRef: ElementRef,
     @Inject(MAT_DIALOG_DATA) public data: {
       templateContent: any,
       templateInfo: any,
@@ -56,6 +59,8 @@ export class ViewTemplateComponent implements OnInit {
       // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
       // console.log('templateData', templateData)
       this.temp_id = this.templateInfo.Id
+      this.templateName = this.templateInfo.Name
+
       this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
         `<img src="${this.templateInfo.Img}" alt="Dynamic Image" fill>`
       );
@@ -64,6 +69,8 @@ export class ViewTemplateComponent implements OnInit {
 
       this.templateContent = data?.receivedTemplateData.Content
       this.temp_id = data?.receivedTemplateData.Id
+      this.templateName = data?.receivedTemplateData.Name
+
 
       const formData = data?.resumeData;
 
@@ -86,7 +93,6 @@ export class ViewTemplateComponent implements OnInit {
       console.log(templateData);
     }
 
-    this.templateName = this.templateInfo.Name
 
     Object.keys(templateData).forEach((key: any) => {
       const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
@@ -258,27 +264,22 @@ export class ViewTemplateComponent implements OnInit {
         // console.log('this.templateContent', this.templateContent);
       }
       // this.templateContent = this.templateContent.replaceAll(regex, html);
-      this.templateContent = this.templateContent
-        .replaceAll(/text-4xl/g, 'text-2xl')
-        .replaceAll(/text-2xl/g, 'text-xl')
-        .replaceAll(/text-xl/g, 'text-base')
-        .replaceAll(/text-base/g, 'text-sm');
-    })
 
+    })
   }
 
   ngOnInit() {
-    // let viewModal = document.getElementById()
-
   }
 
   selectTemplate() {
     const selectedTempData = {
       Id: this.temp_id,
-      Content: this.templateContent
+      Content: this.templateContent,
+      Name: this.templateName
+
     }
     this.commonService.setLocalStorage('selectedTempData', selectedTempData);
-    // console.log("this.commonService.setData(selectedTempData)", selectedTempData)
+    console.log("this.commonService.setData(selectedTempData)", selectedTempData)
     this.route.navigate(['/dashboard/builder'])
     this.dialogRef.close();
     // console.log("this.templateContent.id === ", this.temp_id);
@@ -287,5 +288,26 @@ export class ViewTemplateComponent implements OnInit {
   downloadTemplate() {
     console.log("download in progress")
   }
+
+  zoomIn() {
+    this.zoomText(this.zoomFactor);
+  }
+
+  zoomOut() {
+    this.zoomText(-this.zoomFactor);
+  }
+
+  private zoomText(factor: number) {
+    const elements = this.elementRef.nativeElement.querySelectorAll('.zoomable-text [class*=text-]');
+    elements.forEach((element: HTMLElement) => {
+      const currentFontSize = parseFloat(getComputedStyle(element).fontSize || '16');
+      const newFontSize = currentFontSize + (currentFontSize * factor);
+      const currentLineHeight = parseFloat(getComputedStyle(element).lineHeight || `${newFontSize * 1.2}`);
+      const newLineHeight = currentLineHeight + (currentLineHeight * factor);
+      this.renderer.setStyle(element, 'fontSize', `${newFontSize}px`);
+      this.renderer.setStyle(element, 'lineHeight', `${newLineHeight}px`);
+    });
+  }
+
 
 }

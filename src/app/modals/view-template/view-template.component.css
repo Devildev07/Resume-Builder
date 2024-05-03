@@ -4,20 +4,36 @@
 
 .mat-mdc-dialog-content {
   max-height: 500px;
-  height: 500px;
+  height: 350px;
   /* margin-left: 0.75rem;
   margin-right: 0.75rem; */
 }
 
-mat-dialog-content .container {
-  transform: scale(0.6);
-  transform-origin: top center;
+mat-dialog-content .template {
+  /*transform: scale(0.8);*/
+  /*transform-origin: top center;*/
   white-space: normal;
-  width: 770px;
+  /*width: 720px;*/
+}
+
+.zoom-effect {
+  transition: transform 0.3s ease;
+}
+
+.zoom-effect.zoom-in {
+  transform: scale(1.2); /* Zoom in by 20% */
+}
+
+.zoom-effect.zoom-out {
+  transform: scale(0.8); /* Zoom out by 20% */
 }
 
 @media (max-width: 768px) {
   .mat-mdc-dialog-content {
-    max-height: 500px !important;
+    max-height: 350px !important;
+  }
+
+  mat-dialog-content .template {
+    width: 1024px;
   }
 }

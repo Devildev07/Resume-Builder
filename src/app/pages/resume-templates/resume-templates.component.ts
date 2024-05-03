@@ -41,7 +41,7 @@ export class ResumeTemplatesComponent implements OnInit {
         this.dialog.open(ViewTemplateComponent, {
           backdropClass: 'backdrop-blur',
           width: '1024px',
-          height: '640px',
+          height: '80vh',
           panelClass: 'rounded-md',
           data: {templateContent: tempContent, templateInfo: template},
         });
@@ -68,7 +68,8 @@ export class ResumeTemplatesComponent implements OnInit {
         this.templateContent = tempContent;
         const selectedTempData = {
           Id: this.temp_id,
-          Content: this.templateContent
+          Content: this.templateContent,
+          Name: template.Name
         }
         console.log("this.commonService.setData(selectedTempData)", selectedTempData)
         this.commonService.setLocalStorage('selectedTempData', selectedTempData);
