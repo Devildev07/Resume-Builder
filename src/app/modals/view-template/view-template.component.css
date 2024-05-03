@@ -35,5 +35,7 @@ mat-dialog-content .template {
 
   mat-dialog-content .template {
     width: 1024px;
+    /*transform: scale(.3);*/
+    /*transform-origin: -2rem 0;*/
   }
 }
