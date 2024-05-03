@@ -34,6 +34,8 @@ export class ViewTemplateComponent implements OnInit {
   temp_id: any;
   receivedDataInfo: any
 
+  templateName: any
+
 
   constructor(
     public commonService: CommonServicesService,
@@ -58,18 +60,12 @@ export class ViewTemplateComponent implements OnInit {
         `<img src="${this.templateInfo.Img}" alt="Dynamic Image" fill>`
       );
     } else if (this.commonService.currentUrl === '/dashboard/builder') {
-
-      // console.log(data?.resumeData);
-
       this.receivedDataInfo = data?.receivedTemplateData;
-      // console.log("received data", this.receivedDataInfo,)
 
       this.templateContent = data?.receivedTemplateData.Content
       this.temp_id = data?.receivedTemplateData.Id
 
       const formData = data?.resumeData;
-      // console.log("formData", formData);
-
 
       Object.keys(templateData).forEach((key) => {
         if (formData.formBuilder.hasOwnProperty(key)) {
@@ -90,6 +86,7 @@ export class ViewTemplateComponent implements OnInit {
       console.log(templateData);
     }
 
+    this.templateName = this.templateInfo.Name
 
     Object.keys(templateData).forEach((key: any) => {
       const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
@@ -261,8 +258,11 @@ export class ViewTemplateComponent implements OnInit {
         // console.log('this.templateContent', this.templateContent);
       }
       // this.templateContent = this.templateContent.replaceAll(regex, html);
-      this.templateContent = this.templateContent.replaceAllAll(/text-4xl/g, 'text-xl');
-
+      this.templateContent = this.templateContent
+        .replaceAll(/text-4xl/g, 'text-2xl')
+        .replaceAll(/text-2xl/g, 'text-xl')
+        .replaceAll(/text-xl/g, 'text-base')
+        .replaceAll(/text-base/g, 'text-sm');
     })
 
   }

@@ -9,6 +9,12 @@
   margin-right: 0.75rem; */
 }
 
+mat-dialog-content .container {
+  transform: scale(0.6);
+  transform-origin: top center;
+  white-space: normal;
+  width: 770px;
+}
 
 @media (max-width: 768px) {
   .mat-mdc-dialog-content {
