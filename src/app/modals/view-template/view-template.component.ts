@@ -266,23 +266,7 @@ export class ViewTemplateComponent implements OnInit {
   }
 
   ngOnInit() {
-    const templateFrame: HTMLIFrameElement | null = document.getElementById("template_content") as HTMLIFrameElement;
-    // console.log("templateFrame", templateFrame);
-
-    if (templateFrame) {
-      templateFrame.onload = () => {
-        const templateFrameHead = templateFrame.contentDocument?.head;
-        if (templateFrameHead) {
-          const templateScript = document.createElement("script");
-          templateScript.src = 'https://cdn.tailwindcss.com';
-          templateScript.async = true;
-          templateScript.type = 'text/javascript';
-          templateFrameHead.appendChild(templateScript);
-        }
-      };
-    } else {
-      console.error("Template frame not found.");
-    }
+    let viewModal = document.getElementById()
 
   }
 
