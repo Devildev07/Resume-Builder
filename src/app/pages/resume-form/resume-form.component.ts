@@ -251,7 +251,7 @@ export class ResumeFormComponent {
         formBuilder: this.resumeFormGroup.value,
         title: this.resumeTitle,
       };
-
+      this.commonService.setLocalStorage('setLocalResumeFormData', this.allResumeData);
       console.log('firstFormGroup data here', this.allResumeData);
     } else {
       console.log('firstFormGroup not have valid enteries');
@@ -259,10 +259,11 @@ export class ResumeFormComponent {
   }
 
   viewResume() {
-
+    let getLocalResumeData = this.commonService.getLocalStorage('setLocalResumeFormData');
     let Storage = this.commonService.getLocalStorage('selectedTempData')
     console.log("Storage === ", Storage);
     console.log("this.allResumeData === ", this.allResumeData);
+    if (getLocalResumeData) this.allResumeData = getLocalResumeData;
     if (typeof Storage !== 'undefined' && typeof this.allResumeData == 'object' && Object.keys(this.allResumeData).length > 0) {
       this.dialog.open(ViewTemplateComponent, {
         backdropClass: 'backdrop-blur',

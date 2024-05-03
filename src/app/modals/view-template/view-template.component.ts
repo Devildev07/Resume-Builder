@@ -64,6 +64,8 @@ export class ViewTemplateComponent implements OnInit {
       this.safeImg = this.sanitizer.bypassSecurityTrustHtml(
         `<img src="${this.templateInfo.Img}" alt="Dynamic Image" fill>`
       );
+      this.updatingResumeData(templateData)
+
     } else if (this.commonService.currentUrl === '/dashboard/builder') {
       this.receivedDataInfo = data?.receivedTemplateData;
 
@@ -91,14 +93,18 @@ export class ViewTemplateComponent implements OnInit {
         }
       });
       console.log(templateData);
+      this.updatingResumeData(templateData)
     }
 
 
-    Object.keys(templateData).forEach((key: any) => {
+  }
+
+  updatingResumeData(updatedTemplateData: any) {
+    Object.keys(updatedTemplateData).forEach((key: any) => {
       const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-      if (key === 'personalDetails' && templateData[key]) {
+      if (key === 'personalDetails' && updatedTemplateData[key]) {
         let html = '';
-        const personalDetails = templateData[key];
+        const personalDetails = updatedTemplateData[key];
         html += this.templateContent
           .replaceAll('{{ firstName }}', personalDetails.firstName)
           .replaceAll('{{ lastName }}', personalDetails.lastName)
@@ -114,14 +120,14 @@ export class ViewTemplateComponent implements OnInit {
           .replaceAll('{{ country }}', personalDetails.country)
           .replaceAll('{{ description }}', personalDetails.description);
         this.templateContent = html;
-      } else if (Array.isArray(templateData[key])) {
-        // console.log("templateArraySection[this.temp_id][key] === ", key, templateData[key]);
+      } else if (Array.isArray(updatedTemplateData[key])) {
+        // console.log("templateArraySection[this.temp_id][key] === ", key, updatedTemplateData[key]);
         let html = '';
         switch (key) {
           case 'skillDetails':
             if (templateArraySection[this.temp_id].hasOwnProperty('skillDetails')) {
-              // console.log("templateData[key] === ", templateData[key]);
-              templateData[key].forEach((keyItem: any) => {
+              // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
+              updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll('{{skillName}}', keyItem.skillName)
                 temp = temp.replaceAll('{{skillValue}}', keyItem.skillValue)
@@ -135,8 +141,8 @@ export class ViewTemplateComponent implements OnInit {
             break;
           case 'experienceDetails':
             if (templateArraySection[this.temp_id].hasOwnProperty('experienceDetails')) {
-              // console.log("templateData[key] === ", templateData[key]);
-              templateData[key].forEach((keyItem: any) => {
+              // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
+              updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll('{{jobTitle}}', keyItem.jobTitle)
                 temp = temp.replaceAll('{{companyName}}', keyItem.companyName)
@@ -168,8 +174,8 @@ export class ViewTemplateComponent implements OnInit {
             break;
           case 'educationalDetails':
             if (templateArraySection[this.temp_id].hasOwnProperty('educationalDetails')) {
-              // console.log("templateData[key] === ", templateData[key]);
-              templateData[key].forEach((keyItem: any) => {
+              // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
+              updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll('{{institutionName}}', keyItem.institutionName)
                 temp = temp.replaceAll('{{studyField}}', keyItem.studyField)
@@ -189,8 +195,8 @@ export class ViewTemplateComponent implements OnInit {
             break;
           case 'languageDetails':
             if (templateArraySection[this.temp_id].hasOwnProperty('languageDetails')) {
-              // console.log("templateData[key] === ", templateData[key]);
-              templateData[key].forEach((keyItem: any) => {
+              // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
+              updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll('{{languageName}}', keyItem.languageName)
                 temp = temp.replaceAll('{{languageValue}}', keyItem.languageValue)
@@ -205,7 +211,7 @@ export class ViewTemplateComponent implements OnInit {
             break;
           case 'projectDetails':
             if (templateArraySection[this.temp_id].hasOwnProperty('projectDetails')) {
-              templateData[key].forEach((keyItem: any) => {
+              updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll('{{projectTitle}}', keyItem.projectTitle)
                 temp = temp.replaceAll('{{projectLink}}', keyItem.projectLink)
@@ -240,8 +246,9 @@ export class ViewTemplateComponent implements OnInit {
               let html = '';
 
               // Iterate through each hobby in the hobbyDetails array
-              templateData[key].forEach((hobby: string, index: number) => {
-                if (index > 0 || hobby.trim() !== '') {
+              updatedTemplateData[key].forEach((hobby: string, index: number) => {
+                // if (index > 0 || hobby.trim() !== '') {
+                if (index > 0) {
                   html += `<li class="px-2 mt-1">${hobby}</li>`;
                 }
               });
@@ -260,7 +267,7 @@ export class ViewTemplateComponent implements OnInit {
         this.templateContent = this.templateContent.replaceAll(regex, html);
       } else {
         // console.log("else === ");
-        this.templateContent = this.templateContent.replaceAll(regex, templateData[key]);
+        this.templateContent = this.templateContent.replaceAll(regex, updatedTemplateData[key]);
         // console.log('this.templateContent', this.templateContent);
       }
       // this.templateContent = this.templateContent.replaceAll(regex, html);
@@ -298,7 +305,7 @@ export class ViewTemplateComponent implements OnInit {
   }
 
   private zoomText(factor: number) {
-    const elements = this.elementRef.nativeElement.querySelectorAll('.zoomable-text [class*=text-]');
+    const elements = this.elementRef.nativeElement.querySelectorAll('.zoomAble-text [class*=text-]');
     elements.forEach((element: HTMLElement) => {
       const currentFontSize = parseFloat(getComputedStyle(element).fontSize || '16');
       const newFontSize = currentFontSize + (currentFontSize * factor);
