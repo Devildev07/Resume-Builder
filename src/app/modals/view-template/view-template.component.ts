@@ -266,7 +266,7 @@ export class ViewTemplateComponent implements OnInit {
   }
 
   ngOnInit() {
-    let viewModal = document.getElementById()
+    // let viewModal = document.getElementById()
 
   }
 

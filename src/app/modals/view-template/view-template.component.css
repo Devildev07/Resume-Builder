@@ -9,14 +9,6 @@
   margin-right: 0.75rem; */
 }
 
-/*mat-dialog-content,*/
-/*iframe {*/
-/*  transform: scale(0.5);*/
-/*  width: 1400px;*/
-/*  position: absolute;*/
-/*  top: -100px;*/
-/*  left: -320px;*/
-/*}*/
 
 @media (max-width: 768px) {
   .mat-mdc-dialog-content {
