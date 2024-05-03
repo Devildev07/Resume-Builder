@@ -97,19 +97,19 @@ export class ViewTemplateComponent implements OnInit {
         let html = '';
         const personalDetails = templateData[key];
         html += this.templateContent
-          .replace('{{ firstName }}', personalDetails.firstName)
-          .replace('{{ lastName }}', personalDetails.lastName)
-          .replace('{{ jobTitle }}', personalDetails.jobTitle)
-          .replace('{{ email }}', personalDetails.email)
-          .replace('{{ phone }}', personalDetails.phone)
-          .replace('{{ birthDate }}', personalDetails.birthDate)
-          .replace('{{ website }}', personalDetails.website)
-          .replace('{{ address }}', personalDetails.address)
-          .replace('{{ postalCode }}', personalDetails.postalCode)
-          .replace('{{ city }}', personalDetails.city)
-          .replace('{{ state }}', personalDetails.state)
-          .replace('{{ country }}', personalDetails.country)
-          .replace('{{ description }}', personalDetails.description);
+          .replaceAll('{{ firstName }}', personalDetails.firstName)
+          .replaceAll('{{ lastName }}', personalDetails.lastName)
+          .replaceAll('{{ jobTitle }}', personalDetails.jobTitle)
+          .replaceAll('{{ email }}', personalDetails.email)
+          .replaceAll('{{ phone }}', personalDetails.phone)
+          .replaceAll('{{ birthDate }}', personalDetails.birthDate)
+          .replaceAll('{{ website }}', personalDetails.website)
+          .replaceAll('{{ address }}', personalDetails.address)
+          .replaceAll('{{ postalCode }}', personalDetails.postalCode)
+          .replaceAll('{{ city }}', personalDetails.city)
+          .replaceAll('{{ state }}', personalDetails.state)
+          .replaceAll('{{ country }}', personalDetails.country)
+          .replaceAll('{{ description }}', personalDetails.description);
         this.templateContent = html;
       } else if (Array.isArray(templateData[key])) {
         // console.log("templateArraySection[this.temp_id][key] === ", key, templateData[key]);
@@ -120,14 +120,14 @@ export class ViewTemplateComponent implements OnInit {
               // console.log("templateData[key] === ", templateData[key]);
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{skillName}}', keyItem.skillName)
-                temp = temp.replace('{{skillValue}}', keyItem.skillValue)
+                temp += templateArraySection[this.temp_id][key].replaceAll('{{skillName}}', keyItem.skillName)
+                temp = temp.replaceAll('{{skillValue}}', keyItem.skillValue)
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               })
               // console.log("html === ", key, html);
               const skillRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-              this.templateContent = this.templateContent.replace(skillRegex, html);
+              this.templateContent = this.templateContent.replaceAll(skillRegex, html);
             }
             break;
           case 'experienceDetails':
@@ -135,13 +135,13 @@ export class ViewTemplateComponent implements OnInit {
               // console.log("templateData[key] === ", templateData[key]);
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{jobTitle}}', keyItem.jobTitle)
-                temp = temp.replace('{{companyName}}', keyItem.companyName)
-                temp = temp.replace('{{city}}', keyItem.city)
-                temp = temp.replace('{{startDate}}', keyItem.startDate)
-                temp = temp.replace('{{endDate}}', keyItem.endDate)
-                temp = temp.replace('{{experienceYear}}', keyItem.experienceYear)
-                temp = temp.replace('{{description}}', keyItem.description)
+                temp += templateArraySection[this.temp_id][key].replaceAll('{{jobTitle}}', keyItem.jobTitle)
+                temp = temp.replaceAll('{{companyName}}', keyItem.companyName)
+                temp = temp.replaceAll('{{city}}', keyItem.city)
+                temp = temp.replaceAll('{{startDate}}', keyItem.startDate)
+                temp = temp.replaceAll('{{endDate}}', keyItem.endDate)
+                temp = temp.replaceAll('{{experienceYear}}', keyItem.experienceYear)
+                temp = temp.replaceAll('{{description}}', keyItem.description)
                 // if (Array.isArray(keyItem.responsibilities)) {
                 //   let responsibilitiesHTML = '';
                 //   // console.log("keyItem.responsibilities",keyItem.responsibilities);
@@ -151,16 +151,16 @@ export class ViewTemplateComponent implements OnInit {
                 //       responsibilitiesHTML += `<li>${responsibility}</li>`;
                 //     }
                 //   });
-                //   temp = temp.replace('{{responsibilities}}', responsibilitiesHTML);
+                //   temp = temp.replaceAll('{{responsibilities}}', responsibilitiesHTML);
                 // } else {
-                //   temp = temp.replace('{{responsibilities}}', keyItem.responsibilities);
+                //   temp = temp.replaceAll('{{responsibilities}}', keyItem.responsibilities);
                 // }
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               })
               // console.log("html === ", key, typeof html, typeof this.templateContent);
               const expRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-              this.templateContent = this.templateContent.replace(expRegex, html);
+              this.templateContent = this.templateContent.replaceAll(expRegex, html);
             }
             break;
           case 'educationalDetails':
@@ -168,20 +168,20 @@ export class ViewTemplateComponent implements OnInit {
               // console.log("templateData[key] === ", templateData[key]);
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{institutionName}}', keyItem.institutionName)
-                temp = temp.replace('{{studyField}}', keyItem.studyField)
-                temp = temp.replace('{{degree}}', keyItem.degree)
-                temp = temp.replace('{{grades}}', keyItem.grades)
-                temp = temp.replace('{{startDate}}', keyItem.startDate)
-                temp = temp.replace('{{endDate}}', keyItem.endDate)
-                temp = temp.replace('{{description}}', keyItem.description)
-                temp = temp.replace('{{city}}', keyItem.city)
+                temp += templateArraySection[this.temp_id][key].replaceAll('{{institutionName}}', keyItem.institutionName)
+                temp = temp.replaceAll('{{studyField}}', keyItem.studyField)
+                temp = temp.replaceAll('{{degree}}', keyItem.degree)
+                temp = temp.replaceAll('{{grades}}', keyItem.grades)
+                temp = temp.replaceAll('{{startDate}}', keyItem.startDate)
+                temp = temp.replaceAll('{{endDate}}', keyItem.endDate)
+                temp = temp.replaceAll('{{description}}', keyItem.description)
+                temp = temp.replaceAll('{{city}}', keyItem.city)
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               })
               // console.log("html === ", key, typeof html, typeof this.templateContent);
               const eduRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-              this.templateContent = this.templateContent.replace(eduRegex, html);
+              this.templateContent = this.templateContent.replaceAll(eduRegex, html);
             }
             break;
           case 'languageDetails':
@@ -189,27 +189,27 @@ export class ViewTemplateComponent implements OnInit {
               // console.log("templateData[key] === ", templateData[key]);
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{languageName}}', keyItem.languageName)
-                temp = temp.replace('{{languageValue}}', keyItem.languageValue)
+                temp += templateArraySection[this.temp_id][key].replaceAll('{{languageName}}', keyItem.languageName)
+                temp = temp.replaceAll('{{languageValue}}', keyItem.languageValue)
 
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               })
               // console.log("html === ", key, typeof html, typeof this.templateContent);
               const langRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-              this.templateContent = this.templateContent.replace(langRegex, html);
+              this.templateContent = this.templateContent.replaceAll(langRegex, html);
             }
             break;
           case 'projectDetails':
             if (templateArraySection[this.temp_id].hasOwnProperty('projectDetails')) {
               templateData[key].forEach((keyItem: any) => {
                 let temp = '';
-                temp += templateArraySection[this.temp_id][key].replace('{{projectTitle}}', keyItem.projectTitle)
-                temp = temp.replace('{{projectLink}}', keyItem.projectLink)
-                temp = temp.replace('{{projectCodeLink}}', keyItem.projectCodeLink)
-                temp = temp.replace('{{projectYear}}', keyItem.projectYear)
-                // temp = temp.replace('{{projectTechUsed}}', keyItem.projectTechUsed)
-                temp = temp.replace('{{projectDescription}}', keyItem.projectDescription)
+                temp += templateArraySection[this.temp_id][key].replaceAll('{{projectTitle}}', keyItem.projectTitle)
+                temp = temp.replaceAll('{{projectLink}}', keyItem.projectLink)
+                temp = temp.replaceAll('{{projectCodeLink}}', keyItem.projectCodeLink)
+                temp = temp.replaceAll('{{projectYear}}', keyItem.projectYear)
+                // temp = temp.replaceAll('{{projectTechUsed}}', keyItem.projectTechUsed)
+                temp = temp.replaceAll('{{projectDescription}}', keyItem.projectDescription)
                 if (Array.isArray(keyItem.projectTechUsed)) {
                   let projectSkillHTML = '';
                   // console.log("keyItem.projectSkill",keyItem.projectSkill);
@@ -219,9 +219,9 @@ export class ViewTemplateComponent implements OnInit {
                       projectSkillHTML += `<li class="bg-gray-600 text-white px-2 py-1 ml-1 text-xs rounded mb-1">${skillUsed}</li>`;
                     }
                   });
-                  temp = temp.replace('{{projectTechUsed}}', projectSkillHTML);
+                  temp = temp.replaceAll('{{projectTechUsed}}', projectSkillHTML);
                 } else {
-                  temp = temp.replace('{{projectSkill}}', keyItem.projectTechUsed);
+                  temp = temp.replaceAll('{{projectSkill}}', keyItem.projectTechUsed);
                 }
 
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
@@ -229,7 +229,7 @@ export class ViewTemplateComponent implements OnInit {
               })
               console.log("html === ", key, typeof html, typeof this.templateContent);
               const projectRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-              this.templateContent = this.templateContent.replace(projectRegex, html);
+              this.templateContent = this.templateContent.replaceAll(projectRegex, html);
             }
             break;
           case 'hobbyDetails':
@@ -243,9 +243,9 @@ export class ViewTemplateComponent implements OnInit {
                 }
               });
 
-              // Replace '{{hobbyDetails}}' placeholder in template with the generated HTML
+              // replaceAll '{{hobbyDetails}}' placeholder in template with the generated HTML
               const hobbyRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-              this.templateContent = this.templateContent.replace(hobbyRegex, html);
+              this.templateContent = this.templateContent.replaceAll(hobbyRegex, html);
             }
             break;
           default:
@@ -254,13 +254,15 @@ export class ViewTemplateComponent implements OnInit {
         }
         // console.log("html === ", key, html);
         const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-        this.templateContent = this.templateContent.replace(regex, html);
+        this.templateContent = this.templateContent.replaceAll(regex, html);
       } else {
         // console.log("else === ");
-        this.templateContent = this.templateContent.replace(regex, templateData[key]);
+        this.templateContent = this.templateContent.replaceAll(regex, templateData[key]);
         // console.log('this.templateContent', this.templateContent);
       }
-      // this.templateContent = this.templateContent.replace(regex, html);
+      // this.templateContent = this.templateContent.replaceAll(regex, html);
+      this.templateContent = this.templateContent.replaceAllAll(/text-4xl/g, 'text-xl');
+
     })
 
   }
