@@ -3,8 +3,8 @@
 }
 
 .mat-mdc-dialog-content {
-  max-height: 500px;
-  height: 350px;
+  /*max-height: 500px;*/
+  /*height: 350px;*/
   /* margin-left: 0.75rem;
   margin-right: 0.75rem; */
 }
@@ -30,7 +30,11 @@ mat-dialog-content .template {
 
 @media (max-width: 768px) {
   .mat-mdc-dialog-content {
-    max-height: 350px !important;
+    /*max-height: 320px !important;*/
+  }
+
+  .mdc-dialog__actions {
+    min-height: fit-content !important;
   }
 
   mat-dialog-content .template {

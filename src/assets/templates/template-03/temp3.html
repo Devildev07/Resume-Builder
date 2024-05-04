@@ -11,209 +11,142 @@
 </head>
 
 <body class="font-jost">
+<main class="template">
+  <div class="container max-h-full mx-auto px-6 py-8 mb-3">
+    <!-- Page -->
+    <div class=" max-w-fit p-3 mx-auto my-auto bg-gray-100 border-4 border-gray-700 rounded-2xl ">
+      <!-- Name -->
+      <header class="inline-flex items-baseline justify-between w-full mb-3 align-top border-b-8">
+        <div class="block">
+          <h1 class="mb-0 text-5xl font-bold text-gray-750">{{ firstName }} {{ lastName }}</h1>
+          <!--Job Title -->
+          <h2 class="m-0 ml-2 text-2xl font-semibold text-gray-700 leading-snugish">
+            {{ jobTitle }}
+          </h2>
+          <!--Location -->
+          <h3 class="m-0 mt-2 ml-2 mb-2 font-semibold text-md text-gray-550 leading-snugish">
+            {{ city }}
+          </h3>
+        </div>
+        <!-- Initials Block -->
+        <div
+          class="justify-between px-3 mt-0 mb-5 text-3xl font-bold leading-none text-gray-200 bg-gray-800 print:bg-black py-5">
+          <div class="text-center">Y</div>
+          <div class="text-center">N</div>
+        </div>
+      </header>
 
-<div class="container max-h-full mx-auto px-6 py-8 mb-3">
-  <!-- Page -->
-  <div class=" max-w-fit p-3 mx-auto my-auto bg-gray-100 border-4 border-gray-700 rounded-2xl ">
-    <!-- Name -->
-    <header class="inline-flex items-baseline justify-between w-full mb-3 align-top border-b-8">
-      <div class="block">
-        <h1 class="mb-0 text-5xl font-bold text-gray-750">{{ firstName }} {{ lastName }}</h1>
-        <!--Job Title -->
-        <h2 class="m-0 ml-2 text-2xl font-semibold text-gray-700 leading-snugish">
-          {{ jobTitle }}
-        </h2>
-        <!--Location -->
-
-        <h3 class="m-0 mt-2 ml-2 mb-2 font-semibold text-md text-gray-550 leading-snugish">
-          {{ city }}
-        </h3>
-      </div>
-      <!-- Initials Block -->
-      <div
-        class="justify-between px-3 mt-0 mb-5 text-3xl font-bold leading-none text-gray-200 bg-gray-800 print:bg-black py-5">
-        <div class="text-center">Y</div>
-        <div class="text-center">N</div>
-      </div>
-    </header>
-
-    <!-- Column -->
-    <div class="flex flex-wrap sm:flex-nowrap gap-4">
-      <div class="sm:basis-1/2 basis-full flex flex-col gap-2">
-        <!-- Contact Information -->
-        <section class="pb-4 mt-4 first:mt-0">
-          <div class="break-inside-avoid">
-            <section class="pb-2 mb-2  break-inside-avoid">
-              <ul class="list-inside pr-7">
-                <li
-                  class="mt-1 leading-normal transition duration-100 ease-in text-gray-550 text-md hover:text-gray-700">
-                  <a class="group" href="mailto:{{ email }}">
+      <!-- Column -->
+      <div class="flex flex-wrap sm:flex-nowrap gap-4">
+        <div class="sm:basis-1/2 basis-full flex flex-col gap-2">
+          <!-- Contact Information -->
+          <section class="pb-4 mt-4 first:mt-0">
+            <div class="break-inside-avoid">
+              <section class="pb-2 mb-2  break-inside-avoid">
+                <ul class="list-inside pr-7">
+                  <li
+                    class="mt-1 leading-normal transition duration-100 ease-in text-gray-550 text-md hover:text-gray-700">
+                    <a class="group" href="mailto:{{ email }}">
                       <span class="mr-8 text-xl font-semibold text-gray-700 leading-snugish">
                         Email:
                       </span>
-                    {{ email }}
-                    <span
-                      class="inline-block font-normal transition duration-100 ease-in text-gray-550 print:text-black group-hover:text-gray-700">
+                      {{ email }}
+                      <span
+                        class="inline-block font-normal transition duration-100 ease-in text-gray-550 print:text-black group-hover:text-gray-700">
                         ↗
                       </span>
-                  </a>
-                </li>
-                <li
-                  class="mt-1 leading-normal transition duration-100 ease-in text-gray-550 text-md hover:text-gray-700">
-                  <a href="tel:+91{{ phone }}">
+                    </a>
+                  </li>
+                  <li
+                    class="mt-1 leading-normal transition duration-100 ease-in text-gray-550 text-md hover:text-gray-700">
+                    <a href="tel:+91{{ phone }}">
                       <span class="mr-5 text-xl font-semibold text-gray-700 leading-snugish">
                         Phone:
                       </span>
-                    +91{{ phone }}
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div>
-        </section>
-        <!--Summary -->
-        <section class="pb-4 mt-4 first:mt-0">
-          <!-- To keep in the same column -->
-          <div class="break-inside-avoid">
-            <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
-              SUMMARY
-            </h2>
-
-            <section class="mb-2 break-inside-avoid">
-              <p class="mt-2 leading-normal text-gray-700 text-md">
-                {{ description }}
-              </p>
-            </section>
-          </div>
-        </section>
-        <!--Experience -->
-        <section class="pb-4 mt-4 first:mt-0">
-          <!-- To keep in the same column -->
-          <div class="break-inside-avoid">
-            <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
-              EXPERIENCE
-            </h2>
-            {{ experienceDetails }}
-            <!--Job 1-->
-            <!--
-          <section class="mb-2 break-inside-avoid">
-            <header>
-              <h3 class="text-xl font-semibold text-gray-650 leading-snugish">
-                {{ jobTitle }} ( {{ experienceYear }} )
-              </h3>
-              <p class="leading-normal text-md text-gray-550">
-                {{ startDate }} to {{ endDate }} | {{ companyName }}
-              </p>
-            </header>
-            <p class="mt-2 leading-normal text-gray-700 text-md">
-              {{ description }}
-            </p>
-            <ul class="mt-2.1 text-md text-gray-700 leading-normal">
-            <li>
-              <span class="transform -translate-y-px select-none text-gray-550">
-                ›
-              </span>
-              Create Responsive Site With W3C Standards.
-            </li>
-          </ul>
-          </section>
-          -->
-            <!-- Additional Jobs Would Go Here-->
-          </div>
-        </section>
-      </div>
-      <div class="sm:basis-1/2 basis-full flex flex-col gap-2">
-        <!--Education -->
-        <section class="pb-4 mt-4 first:mt-0">
-          <!-- To keep in the same column -->
-          <div class="break-inside-avoid">
-            <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
-              EDUCATION
-            </h2>
-            {{ educationalDetails }}
-            <!-- school
-            <section class="pb-4 mt-4 mb-4 break-inside-avoid">
-              <header>
-                <h3 class="flex-grow text-xl font-semibold text-gray-700 leading-snugish">
-                  {{ institutionName }}
-                </h3>
-                <p class="leading-normal text-md text-gray-550">
-                  {{ startDate }} to {{ endDate }} | {{ degree }}
-                </p>
-              </header>
-              <p class="mt-1 leading-normal text-md text-gray-650">
-                  <span class="font-semibold text-gray-700 text-md leading-snugish">
-                    Major:
-                  </span>
-                {{ studyField }}
-              </p>
-              <p class="leading-normal text-gray-700 text-md">
-                  <span class="font-semibold text-gray-700 text-md leading-snugish">
-                    CGPA:
-                  </span>
-                {{ grades }}
-              </p>
-            </section>
-            -->
-          </div>
-        </section>
-        <!--Projects -->
-        <section class="pb-4 mt-4 first:mt-0">
-          <div class="break-inside-avoid">
-            <!-- To keep in the same column -->
-            <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
-              PROJECTS
-            </h2>
-            {{ projectDetails }}
-            <!--Project 1 -->
-            <!--
-            <section class="pb-4 mb-4  break-inside-avoid">
-              <header>
-                <h3 class="text-xl font-semibold text-gray-700 leading-snugish">
-                  <a class="group" href="{{projectLink}}"> {{ projectTitle }} </a>
-                </h3>
-                <p class="leading-normal text-md text-gray-550">
-                  {{ projectYear }} | {{ projectTechUsed }}
-                </p>
-              </header>
-              <p class="mt-2.1 text-md text-gray-700 leading-normal">
-                {{ projectDescription }}
-              </p>
-            </section>
-            -->
-
-          </div>
-        </section>
-        <!--Begin Skills -->
-        <section class="pb-4 mt-4 first:mt-0">
-          <!-- To keep in the same column -->
-          <div class="break-inside-avoid">
-            <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
-              SKILLS
-            </h2>
-            <!--Front-End Developer --->
-            <section class="mb-2 break-inside-avoid">
-              <header>
-                <h3 class="text-xl font-semibold text-gray-700 leading-snugish">
-                  {{ jobTitle }}
-                </h3>
-              </header>
-
-              <div class="my-1 last:pb-1">
-                <ul class="flex flex-wrap text-sm2 leading-relaxed -mr-1.6 -mb-1 mt-2.1 gap-2">
-                  {{ skillDetails }}
-                  <!-- <li class="rounded-md text-md px-2.5 py-0.5 mr-1.6 mb-1 text-gray-200 leading-relaxed print:bg-white print:border-inset bg-gray-600"> {{ skillName }} </li>-->
+                      +91{{ phone }}
+                    </a>
+                  </li>
                 </ul>
-              </div>
-            </section>
-          </div>
-        </section>
+              </section>
+            </div>
+          </section>
+          <!--Summary -->
+          <section class="pb-4 mt-4 first:mt-0">
+            <!-- To keep in the same column -->
+            <div class="break-inside-avoid">
+              <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
+                SUMMARY
+              </h2>
+
+              <section class="mb-2 break-inside-avoid">
+                <p class="mt-2 leading-normal text-gray-700 text-md">
+                  {{ description }}
+                </p>
+              </section>
+            </div>
+          </section>
+          <!--Experience -->
+          <section class="pb-4 mt-4 first:mt-0">
+            <!-- To keep in the same column -->
+            <div class="break-inside-avoid">
+              <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
+                EXPERIENCE
+              </h2>
+              {{ experienceDetails }}
+            </div>
+          </section>
+        </div>
+        <div class="sm:basis-1/2 basis-full flex flex-col gap-2">
+          <!--Education -->
+          <section class="pb-4 mt-4 first:mt-0">
+            <!-- To keep in the same column -->
+            <div class="break-inside-avoid">
+              <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
+                EDUCATION
+              </h2>
+              {{ educationalDetails }}
+            </div>
+          </section>
+          <!--Projects -->
+          <section class="pb-4 mt-4 first:mt-0">
+            <div class="break-inside-avoid">
+              <!-- To keep in the same column -->
+              <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
+                PROJECTS
+              </h2>
+              {{ projectDetails }}
+            </div>
+          </section>
+          <!--Begin Skills -->
+          <section class="pb-4 mt-4 first:mt-0">
+            <!-- To keep in the same column -->
+            <div class="break-inside-avoid">
+              <h2 class="mb-2 text-xl font-bold tracking-widest text-gray-700 print:font-normal">
+                SKILLS
+              </h2>
+              <!--Front-End Developer --->
+              <section class="mb-2 break-inside-avoid">
+                <header>
+                  <h3 class="text-xl font-semibold text-gray-700 leading-snugish">
+                    {{ jobTitle }}
+                  </h3>
+                </header>
+
+                <div class="my-1 last:pb-1">
+                  <ul class="flex flex-wrap text-sm2 leading-relaxed -mr-1.6 -mb-1 mt-2.1 gap-2">
+                    {{ skillDetails }}
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
       </div>
+      <!-- end Column -->
     </div>
-    <!-- end Column -->
+    <!-- end Page -->
   </div>
-  <!-- end Page -->
-</div>
+</main>
 </body>
 
 </html>

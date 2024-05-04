@@ -11,6 +11,7 @@ import {
 import {MatButtonModule} from '@angular/material/button';
 import {Router} from '@angular/router';
 import {templateArraySection, templateData} from 'src/assets/templates/templates';
+import {AutoAdjustHeightDirective} from "../../directives/auto-adjust-height.directive";
 
 
 @Component({
@@ -21,6 +22,7 @@ import {templateArraySection, templateData} from 'src/assets/templates/templates
     MatDialogClose,
     MatDialogContent,
     MatButtonModule,
+    AutoAdjustHeightDirective,
   ],
   templateUrl: './view-template.component.html',
   styleUrl: './view-template.component.css',

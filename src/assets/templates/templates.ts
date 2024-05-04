@@ -83,7 +83,7 @@ export const templateArraySection: any = {
     // experienceDetails: "<div class=\"exp_detail poppins-medium \"> <div class=\"job_title poppins-bold text-base\">{{jobTitle}}</div> <div class= \"company_name text-sm\" > {{companyName}}</div> <div class=\"time_period text-gray-600 text-xs poppins-light-italic\" > {{startDate}} to {{endDate}}</div> <div class=\"company_name text-sm\" > {{experienceYear}}</div> <ul class=\"list-disc ms-4 text-sm text-gray-800\" > {{responsibilities}}  </ul>  </div>",
     experienceDetails: "<div class=\"exp_detail poppins-medium \"> <div class=\"job_title poppins-bold text-base\">{{jobTitle}}</div> <div class= \"company_name text-sm\" > {{companyName}}</div> <div class=\"time_period text-gray-600 text-xs poppins-light-italic\" > {{startDate}} to {{endDate}}</div> <div class=\"company_name text-sm\" > {{experienceYear}}</div> </div>",
     educationalDetails: "<div class=\"edu_detail poppins-medium \"> <div class=\"course_title text-base poppins-bold\">{{studyField}}</div> <div class=\"university_name text-sm\">{{institutionName}}</div> <div class=\"time_period text-gray-600 text-xs poppins-light-italic\"> {{startDate}} to {{endDate}} </div> </div>",
-    skillDetails: "<span class=\"rounded-md p-2 bg-blue-500 text-white\">{{skillName}}</span>",
+    skillDetails: "<span class=\"rounded-md p-2 bg-violet-500 text-white\">{{skillName}}</span>",
     languageDetails: "<div class=\"lang_box\"> <div class=\"lang_title poppins-bold text-base\">{{languageName}}</div> <div class=\"lang_level poppins-light-italic text-gray-600 text-xs\">{{languageValue}}</div> </div>",
   },
   template_03: {
