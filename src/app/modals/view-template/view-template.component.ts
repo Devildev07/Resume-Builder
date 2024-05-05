@@ -12,6 +12,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {Router} from '@angular/router';
 import {templateArraySection, templateData} from 'src/assets/templates/templates';
 import {AutoAdjustHeightDirective} from "../../directives/auto-adjust-height.directive";
+import * as jspdf from "jspdf";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 
 @Component({
@@ -97,8 +100,9 @@ export class ViewTemplateComponent implements OnInit {
       console.log(templateData);
       this.updatingResumeData(templateData)
     }
+  }
 
-
+  ngOnInit() {
   }
 
   updatingResumeData(updatedTemplateData: any) {
@@ -277,8 +281,27 @@ export class ViewTemplateComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
+  // fontMin/Max
+  zoomIn() {
+    this.zoomText(this.zoomFactor);
   }
+
+  zoomOut() {
+    this.zoomText(-this.zoomFactor);
+  }
+
+  zoomText(factor: number) {
+    const elements = this.elementRef.nativeElement.querySelectorAll('.zoomAble-text [class*=text-]');
+    elements.forEach((element: HTMLElement) => {
+      const currentFontSize = parseFloat(getComputedStyle(element).fontSize || '16');
+      const newFontSize = currentFontSize + (currentFontSize * factor);
+      const currentLineHeight = parseFloat(getComputedStyle(element).lineHeight || `${newFontSize * 1.2}`);
+      const newLineHeight = currentLineHeight + (currentLineHeight * factor);
+      this.renderer.setStyle(element, 'fontSize', `${newFontSize}px`);
+      this.renderer.setStyle(element, 'lineHeight', `${newLineHeight}px`);
+    });
+  }
+
 
   selectTemplate() {
     const selectedTempData = {
@@ -294,28 +317,39 @@ export class ViewTemplateComponent implements OnInit {
     // console.log("this.templateContent.id === ", this.temp_id);
   }
 
-  downloadTemplate() {
-    console.log("download in progress")
-  }
+  // downloadTemplate(templateName: any) {
+  //   const elementToPrint: any = document.getElementsByClassName('template')
+  //   // const elementToPrint = document.getElementById('template')
+  //   console.log('elementToPrint', elementToPrint);
+  //
+  //   html2canvas(elementToPrint, {scale: 2}).then((canvas) => {
+  //     const pdf: any = new jsPDF()
+  //     pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+  //     pdf.setProperty({
+  //       title: templateName
+  //     })
+  //     pdf.save(`${templateName}.pdf`)
+  //   })
+  // }
 
-  zoomIn() {
-    this.zoomText(this.zoomFactor);
-  }
+  downloadTemplate(templateName: any) {
+    const elementToPrint: any = document.querySelector('.template');
 
-  zoomOut() {
-    this.zoomText(-this.zoomFactor);
-  }
+    console.log('elementToPrint', elementToPrint);
 
-  private zoomText(factor: number) {
-    const elements = this.elementRef.nativeElement.querySelectorAll('.zoomAble-text [class*=text-]');
-    elements.forEach((element: HTMLElement) => {
-      const currentFontSize = parseFloat(getComputedStyle(element).fontSize || '16');
-      const newFontSize = currentFontSize + (currentFontSize * factor);
-      const currentLineHeight = parseFloat(getComputedStyle(element).lineHeight || `${newFontSize * 1.2}`);
-      const newLineHeight = currentLineHeight + (currentLineHeight * factor);
-      this.renderer.setStyle(element, 'fontSize', `${newFontSize}px`);
-      this.renderer.setStyle(element, 'lineHeight', `${newLineHeight}px`);
-    });
+    if (elementToPrint) {
+      html2canvas(elementToPrint, {scale: 1.2}).then((canvas) => {
+        const pdf: any = new jsPDF();
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
+        pdf.setProperties({
+          title: templateName
+        });
+        pdf.save(`${templateName}.pdf`);
+        pdf.setFontSize(12)
+      });
+    } else {
+      console.error('Element with class "template" not found.');
+    }
   }
 
 

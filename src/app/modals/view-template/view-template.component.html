@@ -3,39 +3,43 @@
     <h3 class="text-2xl font-semibold leading-6 text-gray-900 py-3 px-4">{{ templateName }}</h3>
   </div>
   <div appAutoAdjustHeight class="bg-gray-100 rounded-md mx-3 overflow-hidden relative">
-    <!--    <mat-dialog-content [innerHTML]="safeImg"> </mat-dialog-content>-->
-    <mat-dialog-content class="">
-      <div [innerHTML]="templateContent" class="zoomAble-text"></div>
-    </mat-dialog-content>
-    <div class="flex gap-1 absolute bottom-2  right-2">
-      <button (click)="zoomIn()" class="primary-btn">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
-             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
-            stroke-linecap="round"
-            stroke-linejoin="round"/>
-        </svg>
+    @if (commonService.currentUrl === '/templates') {
+      <mat-dialog-content [innerHTML]="safeImg"></mat-dialog-content>
+    }
+    @if (commonService.currentUrl === '/dashboard/builder') {
+      <mat-dialog-content class="">
+        <div [innerHTML]="templateContent" class="zoomAble-text"></div>
+      </mat-dialog-content>
+      <div class="flex gap-1 absolute bottom-2  right-2">
+        <button (click)="zoomIn()" class="primary-btn">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+          </svg>
 
-      </button>
-      <button (click)="zoomOut()" class="primary-btn">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
-             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25"
-            stroke-linecap="round"
-            stroke-linejoin="round"/>
-        </svg>
+        </button>
+        <button (click)="zoomOut()" class="primary-btn">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+          </svg>
 
-      </button>
-    </div>
+        </button>
+      </div>
+    }
 
 
   </div>
   <div class="flex items-center flex-wrap gap-2 bg-gray-50 mt-2 px-4 py-2 sm:flex sm:flex-row-reverse">
     <mat-dialog-actions>
       @if (commonService.currentUrl === '/dashboard/builder') {
-        <button (click)="downloadTemplate()" class="primary-btn">
+        <button (click)="downloadTemplate(templateName)" class="primary-btn">
           Download template
         </button>
       }

@@ -25,6 +25,8 @@
     "@angular/router": "^17.2.1",
     "@capacitor/android": "^5.7.4",
     "@capacitor/core": "^5.7.4",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.4"
