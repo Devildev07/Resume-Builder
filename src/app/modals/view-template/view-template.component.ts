@@ -317,26 +317,9 @@ export class ViewTemplateComponent implements OnInit {
     // console.log("this.templateContent.id === ", this.temp_id);
   }
 
-  // downloadTemplate(templateName: any) {
-  //   const elementToPrint: any = document.getElementsByClassName('template')
-  //   // const elementToPrint = document.getElementById('template')
-  //   console.log('elementToPrint', elementToPrint);
-  //
-  //   html2canvas(elementToPrint, {scale: 2}).then((canvas) => {
-  //     const pdf: any = new jsPDF()
-  //     pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
-  //     pdf.setProperty({
-  //       title: templateName
-  //     })
-  //     pdf.save(`${templateName}.pdf`)
-  //   })
-  // }
-
   downloadTemplate(templateName: any) {
     const elementToPrint: any = document.querySelector('.template');
-
-    console.log('elementToPrint', elementToPrint);
-
+    // console.log('elementToPrint', elementToPrint);
     if (elementToPrint) {
       html2canvas(elementToPrint, {scale: 1.2}).then((canvas) => {
         const pdf: any = new jsPDF();
