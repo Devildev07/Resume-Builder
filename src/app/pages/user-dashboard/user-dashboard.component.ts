@@ -3,13 +3,14 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonServicesService } from 'src/app/services/common-services.service';
 import { RouterModule } from '@angular/router';
+import { TemplateListComponent } from 'src/app/components/template-list/template-list.component';
 
 
 
 @Component({
   selector: 'app-user-dashboard',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, RouterModule],
+  imports: [RouterLink, RouterLinkActive, RouterModule, TemplateListComponent],
   templateUrl: './user-dashboard.component.html',
   styleUrl: './user-dashboard.component.css',
 })
@@ -38,7 +39,7 @@ export class UserDashboardComponent {
     private sanitizer: DomSanitizer,
     public commonService: CommonServicesService,
     public route: Router
-  ) {}
+  ) { }
 
   toggleTheme() {
     const html = document.documentElement;
@@ -70,7 +71,7 @@ export class UserDashboardComponent {
     // }
   }
 
-  createResume(){
+  createResume() {
     this.route.navigate(['/templates'])
   }
 }
