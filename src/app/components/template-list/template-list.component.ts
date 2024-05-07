@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   Router,
   RouterLink,
@@ -19,10 +18,11 @@ import { template } from 'src/assets/templates/templates';
   templateUrl: './template-list.component.html',
   styleUrl: './template-list.component.css',
 })
-export class TemplateListComponent {
+export class TemplateListComponent implements OnInit {
   templates: any[] = [];
   temp_id: any;
   templateContent: any;
+  fatchTemplate: any[] = [];
 
   constructor(
     public dialog: MatDialog,
@@ -36,7 +36,11 @@ export class TemplateListComponent {
   }
 
   viewTemplate(template: any) {
-    // console.log("template === ",template);
+    if (!template) {
+      console.error('Template is undefined or null');
+      return;
+    }
+    // console.log('template === ', template);
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
       (tempContent) => {
         this.dialog.open(ViewTemplateComponent, {
@@ -54,15 +58,24 @@ export class TemplateListComponent {
   }
 
   fetchTemplates() {
-    const temp = template;
+    if (this.commonService.currentUrl === '/templates') {
+      this.fatchTemplate = template;
+      // console.log('this.fatchTemplate === ', this.fatchTemplate);
+    } else if (this.commonService.currentUrl === '/dashboard') {
+      this.fatchTemplate.push(
+        this.commonService.getLocalStorage('selectedTemplate')
+      );
+      // console.log('this.fatchTemplate === ', this.fatchTemplate);
+    }
     this.templates = [];
-    temp.forEach((temp: any, index: any) => {
+    this.fatchTemplate.forEach((temp: any, index: any) => {
       this.templates.push(temp);
     });
     console.log('templates === ', this.templates);
   }
 
   selectTemplate(template: any) {
+    // console.log('template === ', template);
     this.temp_id = template.Id;
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
       (tempContent) => {
@@ -72,13 +85,17 @@ export class TemplateListComponent {
           Content: this.templateContent,
           Name: template.Name,
         };
-        console.log(
-          'this.commonService.setData(selectedTempData)',
-          selectedTempData
-        );
+        // console.log('selectedTempData', selectedTempData);
         this.commonService.setLocalStorage(
           'selectedTempData',
           selectedTempData
+        );
+
+        const selectedTemplate = template;
+        // console.log('selectedTemplate', selectedTemplate);
+        this.commonService.setLocalStorage(
+          'selectedTemplate',
+          selectedTemplate
         );
         this.route.navigate(['/dashboard/builder']);
       },

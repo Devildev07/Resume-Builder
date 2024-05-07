@@ -137,11 +137,11 @@ export class ViewTemplateComponent implements OnInit {
   }
 
   updatingResumeData(updatedTemplateData: any) {
-    console.log(
-      'this.templateContent === ',
-      typeof this.templateContent,
-      this.templateContent
-    );
+    // console.log(
+    //   'this.templateContent === ',
+    //   typeof this.templateContent,
+    //   this.templateContent
+    // );
     Object.keys(updatedTemplateData).forEach((key: any) => {
       const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
       if (key === 'personalDetails' && updatedTemplateData[key]) {
@@ -433,10 +433,7 @@ export class ViewTemplateComponent implements OnInit {
       Name: this.templateName,
     };
     this.commonService.setLocalStorage('selectedTempData', selectedTempData);
-    console.log(
-      'this.commonService.setData(selectedTempData)',
-      selectedTempData
-    );
+    // console.log('selectedTempData', selectedTempData);
     this.route.navigate(['/dashboard/builder']);
     this.dialogRef.close();
     // console.log("this.templateContent.id === ", this.temp_id);
