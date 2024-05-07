@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDatepickerInput, MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { Observable } from 'rxjs';
 import { MatSliderModule } from '@angular/material/slider';
@@ -190,7 +190,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
           description: [''],
         }),
         educationalDetails: this.formBuilder.array([
-          this.createdEduDetailsFormGroup(null),
+          this.createdEduDetailsFormGroup({}),
         ]),
         experienceDetails: this.formBuilder.array([
           this.createdExpDetailsFormGroup(),
@@ -303,7 +303,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   ): void {
     const details = this.resumeFormGroup.get(type) as FormArray;
     if (type === 'educationalDetails') {
-      details.push(this.createdEduDetailsFormGroup(''));
+      details.push(this.createdEduDetailsFormGroup({}));
     } else if (type === 'experienceDetails') {
       details.push(this.createdExpDetailsFormGroup());
     } else if (type === 'skillDetails') {
