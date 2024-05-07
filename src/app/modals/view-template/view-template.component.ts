@@ -68,9 +68,10 @@ export class ViewTemplateComponent implements OnInit {
       resumeData: any;
     }
   ) {
+    // console.log('data === ', data);
+    this.templateInfo = data?.templateInfo;
     if (this.commonService.currentUrl === '/templates') {
       this.templateContent = data?.templateContent;
-      this.templateInfo = data?.templateInfo;
       // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
       // console.log('templateData', templateData)
       this.temp_id = this.templateInfo.Id;
@@ -85,55 +86,35 @@ export class ViewTemplateComponent implements OnInit {
       this.commonService.currentUrl === '/dashboard'
     ) {
       if (data?.receivedTemplateData) {
+        // console.log('receivedTemplateData === ', data?.receivedTemplateData);
         this.dataReplacement(data?.receivedTemplateData, data?.resumeData);
-        // this.receivedDataInfo = data?.receivedTemplateData;
-
-        // this.templateContent = data?.receivedTemplateData.Content;
-        // this.temp_id = data?.receivedTemplateData.Id;
-        // this.templateName = data?.receivedTemplateData.Name;
-
-        // const formData = data?.resumeData;
-        // console.log('data?.resumeData === ', data?.resumeData);
-
-        // Object.keys(templateData).forEach((key) => {
-        //   if (formData.formBuilder.hasOwnProperty(key)) {
-        //     // console.log("key", key);
-        //     templateData[key] = formData.formBuilder[key];
-        //   } else if (Array.isArray(templateData[key])) {
-        //     templateData[key].forEach((item: any, index: number) => {
-        //       if (
-        //         formData.formBuilder[key] &&
-        //         formData.formBuilder[key][index]
-        //       ) {
-        //         Object.keys(item).forEach((subKey) => {
-        //           if (formData.formBuilder[key][index].hasOwnProperty(subKey)) {
-        //             item[subKey] = formData.formBuilder[key][index][subKey];
-        //           }
-        //         });
-        //       }
-        //     });
-        //   }
-        // });
-        // console.log(templateData);
-        // this.updatingResumeData(templateData);
+      } else {
+        // console.log(' this.templateInfo === ', this.templateInfo);
+        this.templateContent = data?.templateContent;
+        this.dataReplacement(
+          {
+            Content: this.templateContent,
+            Id: this.templateInfo.Id,
+            Name: this.templateInfo.Name,
+          },
+          this.commonService.getLocalStorage('setLocalResumeFormData')
+        );
       }
-      this.dataReplacement(
-        data?.templateInfo,
-        this.commonService.getLocalStorage('setLocalResumeFormData')
-      );
     }
   }
 
   ngOnInit() {}
+
   dataReplacement(receivedData: any, resumeFormData: any) {
     this.receivedDataInfo = receivedData;
+    // console.log('receivedData === ', receivedData);
 
     this.templateContent = receivedData.Content;
     this.temp_id = receivedData.Id;
     this.templateName = receivedData.Name;
 
     const formData = resumeFormData;
-    console.log('resumeFormData === ', resumeFormData);
+    // console.log('resumeFormData === ', resumeFormData);
 
     Object.keys(templateData).forEach((key) => {
       if (formData.formBuilder.hasOwnProperty(key)) {
@@ -151,11 +132,16 @@ export class ViewTemplateComponent implements OnInit {
         });
       }
     });
-    console.log(templateData);
+    // console.log(templateData);
     this.updatingResumeData(templateData);
   }
 
   updatingResumeData(updatedTemplateData: any) {
+    console.log(
+      'this.templateContent === ',
+      typeof this.templateContent,
+      this.templateContent
+    );
     Object.keys(updatedTemplateData).forEach((key: any) => {
       const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
       if (key === 'personalDetails' && updatedTemplateData[key]) {
