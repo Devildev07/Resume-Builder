@@ -10,6 +10,7 @@ export class CommonServicesService {
   currentUrl?: string;
   routerSubscription: any;
   private sharedData: any;
+  selectedTemplateArray: any[] = [];
 
   constructor(public router: Router,) {
     this.getCurrentUrl();

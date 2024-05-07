@@ -40,7 +40,7 @@ export class TemplateListComponent implements OnInit {
       console.error('Template is undefined or null');
       return;
     }
-    // console.log('template === ', template);
+    console.log('template === ', template);
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
       (tempContent) => {
         this.dialog.open(ViewTemplateComponent, {
@@ -60,12 +60,12 @@ export class TemplateListComponent implements OnInit {
   fetchTemplates() {
     if (this.commonService.currentUrl === '/templates') {
       this.fatchTemplate = template;
-      // console.log('this.fatchTemplate === ', this.fatchTemplate);
+      console.log('this.fatchTemplate === ', this.fatchTemplate);
     } else if (this.commonService.currentUrl === '/dashboard') {
-      this.fatchTemplate.push(
-        this.commonService.getLocalStorage('selectedTemplate')
+      this.fatchTemplate = this.commonService.getLocalStorage(
+        'selectedTemplateArray'
       );
-      // console.log('this.fatchTemplate === ', this.fatchTemplate);
+      console.log('this.fatchTemplate === ', this.fatchTemplate);
     }
     this.templates = [];
     this.fatchTemplate.forEach((temp: any, index: any) => {
@@ -90,18 +90,40 @@ export class TemplateListComponent implements OnInit {
           'selectedTempData',
           selectedTempData
         );
-
-        const selectedTemplate = template;
-        // console.log('selectedTemplate', selectedTemplate);
-        this.commonService.setLocalStorage(
-          'selectedTemplate',
-          selectedTemplate
+        let storageData = this.commonService.getLocalStorage(
+          'selectedTemplateArray'
         );
-        this.route.navigate(['/dashboard/builder']);
+        console.log('storageData', storageData);
+        if (storageData && storageData.length > 0) {
+          const exists = storageData.some(
+            (item: any) => item.Id === this.temp_id
+          );
+          if (!exists) {
+            this.addToLocalStorage(template);
+          } else {
+            console.warn('Template already exists in storage');
+          }
+        } else {
+          this.addToLocalStorage(template);
+        }
       },
       (error) => {
         console.error('Error fetching template:', error);
       }
     );
+  }
+
+  addToLocalStorage(template: any) {
+    this.commonService.selectedTemplateArray.push(template);
+    console.log('added');
+    console.log(
+      'selectedTemplateArray',
+      this.commonService.selectedTemplateArray
+    );
+    this.commonService.setLocalStorage(
+      'selectedTemplateArray',
+      this.commonService.selectedTemplateArray
+    );
+    this.route.navigate(['/dashboard/builder']);
   }
 }
