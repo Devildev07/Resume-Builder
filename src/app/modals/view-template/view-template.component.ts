@@ -443,7 +443,7 @@ export class ViewTemplateComponent implements OnInit {
     const elementToPrint: any = document.querySelector('.template');
     // console.log('elementToPrint', elementToPrint);
     if (elementToPrint) {
-      html2canvas(elementToPrint, { scale: 1.2 }).then((canvas) => {
+      html2canvas(elementToPrint, { scale: 1 }).then((canvas) => {
         const pdf: any = new jsPDF();
         pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
         pdf.setProperties({

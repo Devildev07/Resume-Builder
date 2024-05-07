@@ -3,38 +3,37 @@
   <div
     class="templateBox h-fit xl:basis-[18.5rem] lg:basis-[19rem] sm:basis-[21rem] basis-full flex flex-col justify-between gap-2"
   >
+    <div
+      class="addTemplate border-2 rounded-lg h-80 flex items-center justify-center hover:ring-blue-500 hover:ring-2 hover:border-none cursor-pointer group flex-col relative"
+    >
       <div
-        class="addTemplate border-2 rounded-lg h-80 flex items-center justify-center hover:ring-blue-500 hover:ring-2 hover:border-none cursor-pointer group flex-col relative"
+        class="template-img p-5 group-hover:scale-125 group-hover:transition-all"
+        routerLink="/templates"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
-        <div
-          class="template-img p-5 group-hover:scale-125 group-hover:transition-all"
-          routerLink="/templates"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          [routerLinkActiveOptions]="{ exact: true }"
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-8 h-8 rounded-full bg-blue-500 p-2 text-gray-50"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-8 h-8 rounded-full bg-blue-500 p-2 text-gray-50"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 4.5v15m7.5-7.5h-15"
-            />
-          </svg>
-        </div>
-        <span
-          class="tooltip shadow-md font-medium text-xs whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
-        >
-          Add a template
-        </span>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 4.5v15m7.5-7.5h-15"
+          />
+        </svg>
       </div>
-
+      <span
+        class="tooltip shadow-md font-medium text-xs whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
+      >
+        Add a template
+      </span>
+    </div>
   </div>
   } @for (template of templates; track $index) {
   <div
@@ -117,7 +116,7 @@
                   Edit
                 </span>
               </button>
-              <button class="down relative">
+              <!-- <button class="down relative">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -137,8 +136,11 @@
                 >
                   Download
                 </span>
-              </button>
-              <button class="delete relative">
+              </button> -->
+              <button
+                class="delete relative"
+                (click)="deleteTemplate(template)"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

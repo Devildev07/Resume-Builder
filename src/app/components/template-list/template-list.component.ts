@@ -94,6 +94,7 @@ export class TemplateListComponent implements OnInit {
           'selectedTemplateArray'
         );
         console.log('storageData', storageData);
+        // console.log('storageData', storageData);
         if (storageData && storageData.length > 0) {
           const exists = storageData.some(
             (item: any) => item.Id === this.temp_id
@@ -125,5 +126,25 @@ export class TemplateListComponent implements OnInit {
       this.commonService.selectedTemplateArray
     );
     this.route.navigate(['/dashboard/builder']);
+  }
+
+  deleteTemplate(template: any) {
+    // console.log('template === ', template);
+    const selectedTemplateArray = this.commonService.getLocalStorage(
+      'selectedTemplateArray'
+    );
+    const indexToDelete = selectedTemplateArray.findIndex(
+      (item: any) => item.Id === template.Id
+    );
+    if (indexToDelete !== -1) {
+      selectedTemplateArray.splice(indexToDelete, 1);
+      this.commonService.setLocalStorage(
+        'selectedTemplateArray',
+        selectedTemplateArray
+      );
+      this.fetchTemplates();
+    } else {
+      console.log('Template not found in selectedTemplateArray');
+    }
   }
 }
