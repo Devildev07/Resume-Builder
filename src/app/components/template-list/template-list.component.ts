@@ -147,4 +147,8 @@ export class TemplateListComponent implements OnInit {
       console.log('Template not found in selectedTemplateArray');
     }
   }
+
+  editTemplate(template:any){
+    
+  }
 }

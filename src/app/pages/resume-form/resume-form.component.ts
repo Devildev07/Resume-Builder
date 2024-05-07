@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormArray,
@@ -46,7 +46,7 @@ import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.compone
   templateUrl: './resume-form.component.html',
   styleUrl: './resume-form.component.css',
 })
-export class ResumeFormComponent {
+export class ResumeFormComponent implements OnInit, AfterViewInit {
   resumeTitle: any;
   allResumeData: any = {};
   resumeFormGroup: FormGroup | any;
@@ -54,6 +54,7 @@ export class ResumeFormComponent {
   FormArray: any;
 
   // receivedTemplateData: any;
+  getLocalResumeData: any;
 
   constructor(
     public commonService: CommonServicesService,
@@ -93,48 +94,134 @@ export class ResumeFormComponent {
   }
 
   ngOnInit() {
-    this.resumeFormGroup = this.formBuilder.group({
-      personalDetails: this.formBuilder.group({
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        jobTitle: ['', Validators.required],
-        email: ['', Validators.required, [this.asyncEmailValidator]],
-        phone: ['', Validators.required],
-        birthDate: ['', Validators.required],
-        address: ['', Validators.required],
-        city: ['', Validators.required],
-        state: ['', Validators.required],
-        postalCode: ['', Validators.required],
-        country: ['', Validators.required],
-        website: [''],
-        description: [''],
-      }),
-      educationalDetails: this.formBuilder.array([
-        this.createdEduDetailsFormGroup(),
-      ]),
-      experienceDetails: this.formBuilder.array([
-        this.createdExpDetailsFormGroup(),
-      ]),
-      skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
-      languageDetails: this.formBuilder.array([
-        this.createdLanguageFormGroup(),
-      ]),
-      projectDetails: this.formBuilder.array([this.createdProjectFormGroup()]),
-      hobbyDetails: this.formBuilder.array([this.createdHobbyFormGroup()]),
-    });
+    this.getLocalResumeData = this.commonService.getLocalStorage(
+      'setLocalResumeFormData'
+    );
+    console.log('this.getLocalResumeData === ', this.getLocalResumeData);
+    if (this.getLocalResumeData != null) {
+      this.resumeFormGroup = this.formBuilder.group({
+        personalDetails: this.formBuilder.group({
+          firstName: [
+            this.getLocalResumeData.formBuilder.personalDetails.firstName,
+            Validators.required,
+          ],
+          lastName: [
+            this.getLocalResumeData.formBuilder.personalDetails.lastName,
+            Validators.required,
+          ],
+          jobTitle: [
+            this.getLocalResumeData.formBuilder.personalDetails.jobTitle,
+            Validators.required,
+          ],
+          email: [
+            this.getLocalResumeData.formBuilder.personalDetails.email,
+            Validators.required,
+            [this.asyncEmailValidator],
+          ],
+          phone: [
+            this.getLocalResumeData.formBuilder.personalDetails.phone,
+            Validators.required,
+          ],
+          birthDate: [
+            this.getLocalResumeData.formBuilder.personalDetails.birthDate,
+            Validators.required,
+          ],
+          address: [
+            this.getLocalResumeData.formBuilder.personalDetails.address,
+            Validators.required,
+          ],
+          city: [
+            this.getLocalResumeData.formBuilder.personalDetails.city,
+            Validators.required,
+          ],
+          state: [
+            this.getLocalResumeData.formBuilder.personalDetails.state,
+            Validators.required,
+          ],
+          postalCode: [
+            this.getLocalResumeData.formBuilder.personalDetails.postalCode,
+            Validators.required,
+          ],
+          country: [
+            this.getLocalResumeData.formBuilder.personalDetails.country,
+            Validators.required,
+          ],
+          website: [
+            this.getLocalResumeData.formBuilder.personalDetails.website,
+          ],
+          description: [
+            this.getLocalResumeData.formBuilder.personalDetails.description,
+          ],
+        }),
+        educationalDetails: this.formBuilder.array(
+          this.getLocalResumeData.formBuilder.educationalDetails.map(
+            (eduItem: any) => {
+              return this.createdEduDetailsFormGroup(eduItem);
+            }
+          )
+        ),
+        experienceDetails: this.formBuilder.array([
+          this.createdExpDetailsFormGroup(),
+        ]),
+        skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
+        languageDetails: this.formBuilder.array([
+          this.createdLanguageFormGroup(),
+        ]),
+        projectDetails: this.formBuilder.array([
+          this.createdProjectFormGroup(),
+        ]),
+        hobbyDetails: this.formBuilder.array([this.createdHobbyFormGroup()]),
+      });
+    } else {
+      this.resumeFormGroup = this.formBuilder.group({
+        personalDetails: this.formBuilder.group({
+          firstName: ['Abc', Validators.required],
+          lastName: ['', Validators.required],
+          jobTitle: ['', Validators.required],
+          email: ['', Validators.required, [this.asyncEmailValidator]],
+          phone: ['', Validators.required],
+          birthDate: ['', Validators.required],
+          address: ['', Validators.required],
+          city: ['', Validators.required],
+          state: ['', Validators.required],
+          postalCode: ['', Validators.required],
+          country: ['', Validators.required],
+          website: [''],
+          description: [''],
+        }),
+        educationalDetails: this.formBuilder.array([
+          this.createdEduDetailsFormGroup(null),
+        ]),
+        experienceDetails: this.formBuilder.array([
+          this.createdExpDetailsFormGroup(),
+        ]),
+        skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
+        languageDetails: this.formBuilder.array([
+          this.createdLanguageFormGroup(),
+        ]),
+        projectDetails: this.formBuilder.array([
+          this.createdProjectFormGroup(),
+        ]),
+        hobbyDetails: this.formBuilder.array([this.createdHobbyFormGroup()]),
+      });
+    }
+  }
+
+  ngAfterViewInit() {
+    // console.log('this.getLocalResumeData === ', this.getLocalResumeData);
   }
 
   // education-section
-  createdEduDetailsFormGroup(): FormGroup {
+  createdEduDetailsFormGroup(eduData: any): FormGroup {
     return this.formBuilder.group({
-      institutionName: ['', Validators.required],
-      studyField: ['', Validators.required],
-      degree: ['', Validators.required],
-      startDate: ['', Validators.required],
-      endDate: ['', Validators.required],
-      city: [''],
-      grade: ['', Validators.required],
-      description: ['', Validators.required],
+      institutionName: [eduData.institutionName || '', Validators.required],
+      studyField: [eduData.studyField || '', Validators.required],
+      degree: [eduData.degree || '', Validators.required],
+      startDate: [eduData.startDate || '', Validators.required],
+      endDate: [eduData.endDate || '', Validators.required],
+      city: [eduData.city || ''],
+      grade: [eduData.grade || '', Validators.required],
+      description: [eduData.description || '', Validators.required],
     });
   }
 
@@ -216,7 +303,7 @@ export class ResumeFormComponent {
   ): void {
     const details = this.resumeFormGroup.get(type) as FormArray;
     if (type === 'educationalDetails') {
-      details.push(this.createdEduDetailsFormGroup());
+      details.push(this.createdEduDetailsFormGroup(''));
     } else if (type === 'experienceDetails') {
       details.push(this.createdExpDetailsFormGroup());
     } else if (type === 'skillDetails') {
@@ -262,13 +349,10 @@ export class ResumeFormComponent {
   }
 
   viewResume() {
-    let getLocalResumeData = this.commonService.getLocalStorage(
-      'setLocalResumeFormData'
-    );
     let Storage = this.commonService.getLocalStorage('selectedTempData');
     console.log('Storage === ', Storage);
     console.log('this.allResumeData === ', this.allResumeData);
-    if (getLocalResumeData) this.allResumeData = getLocalResumeData;
+    if (this.getLocalResumeData) this.allResumeData = this.getLocalResumeData;
     if (
       typeof Storage !== 'undefined' &&
       typeof this.allResumeData == 'object' &&
