@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import {
   MatDatepickerInput,
+  MatDatepickerInputEvent,
   MatDatepickerModule,
 } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -45,6 +46,7 @@ import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.compone
     MatButtonModule,
     MatDatepickerModule,
     MatSliderModule,
+    MatDatepickerInput,
   ],
   templateUrl: './resume-form.component.html',
   styleUrl: './resume-form.component.css',
@@ -404,6 +406,22 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
         height: 'auto',
         panelClass: 'rounded-lg',
       });
+    }
+  }
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
+  }
+
+  // Event handler for date changes
+  onDateChange(event: MatDatepickerInputEvent<Date, unknown>): void {
+    const selectedDate = event.value;
+    if (selectedDate) {
+      const formattedDate = this.formatDate(selectedDate);
+      console.log('Formatted Date:', formattedDate);
     }
   }
 }
