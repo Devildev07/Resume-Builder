@@ -14,7 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatDatepickerInput, MatDatepickerModule } from '@angular/material/datepicker';
+import {
+  MatDatepickerInput,
+  MatDatepickerModule,
+} from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { Observable } from 'rxjs';
 import { MatSliderModule } from '@angular/material/slider';
@@ -160,17 +163,41 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
             }
           )
         ),
-        experienceDetails: this.formBuilder.array([
-          this.createdExpDetailsFormGroup(),
-        ]),
-        skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
-        languageDetails: this.formBuilder.array([
-          this.createdLanguageFormGroup(),
-        ]),
-        projectDetails: this.formBuilder.array([
-          this.createdProjectFormGroup(),
-        ]),
-        hobbyDetails: this.formBuilder.array([this.createdHobbyFormGroup()]),
+        experienceDetails: this.formBuilder.array(
+          this.getLocalResumeData.formBuilder.experienceDetails.map(
+            (expItem: any) => {
+              return this.createdExpDetailsFormGroup(expItem);
+            }
+          )
+        ),
+        skillDetails: this.formBuilder.array(
+          this.getLocalResumeData.formBuilder.skillDetails.map(
+            (skillItem: any) => {
+              return this.createdSkillFormGroup(skillItem);
+            }
+          )
+        ),
+        languageDetails: this.formBuilder.array(
+          this.getLocalResumeData.formBuilder.languageDetails.map(
+            (langItem: any) => {
+              return this.createdLanguageFormGroup(langItem);
+            }
+          )
+        ),
+        projectDetails: this.formBuilder.array(
+          this.getLocalResumeData.formBuilder.projectDetails.map(
+            (projectItem: any) => {
+              return this.createdProjectFormGroup(projectItem);
+            }
+          )
+        ),
+        hobbyDetails: this.formBuilder.array(
+          this.getLocalResumeData.formBuilder.hobbyDetails.map(
+            (hobbyItem: any) => {
+              return this.createdHobbyFormGroup(hobbyItem);
+            }
+          )
+        ),
       });
     } else {
       this.resumeFormGroup = this.formBuilder.group({
@@ -193,16 +220,16 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
           this.createdEduDetailsFormGroup({}),
         ]),
         experienceDetails: this.formBuilder.array([
-          this.createdExpDetailsFormGroup(),
+          this.createdExpDetailsFormGroup({}),
         ]),
-        skillDetails: this.formBuilder.array([this.createdSkillFormGroup()]),
+        skillDetails: this.formBuilder.array([this.createdSkillFormGroup({})]),
         languageDetails: this.formBuilder.array([
-          this.createdLanguageFormGroup(),
+          this.createdLanguageFormGroup({}),
         ]),
         projectDetails: this.formBuilder.array([
-          this.createdProjectFormGroup(),
+          this.createdProjectFormGroup({}),
         ]),
-        hobbyDetails: this.formBuilder.array([this.createdHobbyFormGroup()]),
+        hobbyDetails: this.formBuilder.array([this.createdHobbyFormGroup({})]),
       });
     }
   }
@@ -226,50 +253,50 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   }
 
   // experience-section
-  createdExpDetailsFormGroup(): FormGroup {
+  createdExpDetailsFormGroup(expData: any): FormGroup {
     return this.formBuilder.group({
-      jobTitle: ['', Validators.required],
-      companyName: ['', Validators.required],
-      city: ['', Validators.required],
-      startDate: ['', Validators.required],
-      endDate: ['', Validators.required],
-      experienceYear: [''],
-      description: [''],
+      jobTitle: [expData.jobTitle || '', Validators.required],
+      companyName: [expData.companyName || '', Validators.required],
+      city: [expData.city || '', Validators.required],
+      startDate: [expData.startDate || '', Validators.required],
+      endDate: [expData.endDate || '', Validators.required],
+      experienceYear: [expData.experienceYear || ''],
+      description: [expData.description || ''],
     });
   }
 
   //skill-section
-  createdSkillFormGroup(): FormGroup {
+  createdSkillFormGroup(skillData: any): FormGroup {
     return this.formBuilder.group({
-      skillName: ['', Validators.required],
-      skillValue: [''],
+      skillName: [skillData.skillName || '', Validators.required],
+      skillValue: [skillData.skillValue || ''],
     });
   }
 
   //Language-section
-  createdLanguageFormGroup(): FormGroup {
+  createdLanguageFormGroup(langData: any): FormGroup {
     return this.formBuilder.group({
-      languageName: [''],
-      languageValue: [''],
+      languageName: [langData.languageName || ''],
+      languageValue: [langData.languageValue || ''],
     });
   }
 
   //Hobby-section
-  createdHobbyFormGroup(): FormGroup {
+  createdHobbyFormGroup(hobbyData: any): FormGroup {
     return this.formBuilder.group({
-      hobby: [''],
+      hobby: [hobbyData.hobby || ''],
     });
   }
 
   //project-section
-  createdProjectFormGroup(): FormGroup {
+  createdProjectFormGroup(projectData: any): FormGroup {
     return this.formBuilder.group({
-      projectTitle: ['', Validators.required],
-      projectLink: ['', Validators.required],
-      projectCodeLink: [''],
-      projectTechUsed: [''],
-      projectYear: [''],
-      projectDescription: [''],
+      projectTitle: [projectData.projectTitle || '', Validators.required],
+      projectLink: [projectData.projectLink || '', Validators.required],
+      projectCodeLink: [projectData.projectCodeLink || ''],
+      projectTechUsed: [projectData.projectTechUsed || ''],
+      projectYear: [projectData.projectYear || ''],
+      projectDescription: [projectData.projectDescription || ''],
     });
   }
 
@@ -305,15 +332,15 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     if (type === 'educationalDetails') {
       details.push(this.createdEduDetailsFormGroup({}));
     } else if (type === 'experienceDetails') {
-      details.push(this.createdExpDetailsFormGroup());
+      details.push(this.createdExpDetailsFormGroup({}));
     } else if (type === 'skillDetails') {
-      details.push(this.createdSkillFormGroup());
+      details.push(this.createdSkillFormGroup({}));
     } else if (type === 'projectDetails') {
-      details.push(this.createdProjectFormGroup());
+      details.push(this.createdProjectFormGroup({}));
     } else if (type === 'languageDetails') {
-      details.push(this.createdLanguageFormGroup());
+      details.push(this.createdLanguageFormGroup({}));
     } else if (type === 'hobbyDetails') {
-      details.push(this.createdHobbyFormGroup());
+      details.push(this.createdHobbyFormGroup({}));
     }
   }
 
