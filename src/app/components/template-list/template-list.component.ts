@@ -100,7 +100,6 @@ export class TemplateListComponent implements OnInit {
     this.addToLocalStorage(template);
   }
 
-  
   addToLocalStorage(template: any) {
     let storageData = this.commonService.getLocalStorage(
       'selectedTemplateArray'
@@ -109,12 +108,12 @@ export class TemplateListComponent implements OnInit {
     // console.log('storageData', storageData);
     if (storageData && storageData != null) {
       const exists = storageData.some((item: any) => {
-        console.log('item.Id === ', item.Id);
-        console.log('this.temp_id === ', this.temp_id);
+        // console.log('item.Id === ', item.Id);
+        // console.log('this.temp_id === ', this.temp_id);
         return item.Id === this.temp_id;
       });
       if (exists) {
-        console.log('exists === ', exists);
+        // console.log('exists === ', exists);
         this.dialog.open(DialogBoxComponent, {
           width: '400px',
           height: 'auto',
@@ -126,7 +125,11 @@ export class TemplateListComponent implements OnInit {
             buttonCss: 'warning-dialog-btn',
           },
         });
-        console.warn('Template already exists in storage');
+        setTimeout(() => {
+          this.dialog.closeAll();
+          this.route.navigate(['/dashboard/builder']);
+        }, 2000);
+        // console.warn('Template already exists in storage');
       } else {
         this.commonService.selectedTemplateArray = storageData;
         this.commonService.selectedTemplateArray.push(template);
@@ -135,22 +138,16 @@ export class TemplateListComponent implements OnInit {
           this.commonService.selectedTemplateArray
         );
         console.log('if called');
+        this.route.navigate(['/dashboard/builder']);
       }
     } else {
-      console.log('else called');
+      // console.log('else called');
       this.commonService.selectedTemplateArray.push(template);
       this.commonService.setLocalStorage(
         'selectedTemplateArray',
         this.commonService.selectedTemplateArray
       );
     }
-
-    console.log(
-      'selectedTemplateArray top',
-      this.commonService.selectedTemplateArray
-    );
-
-    // this.route.navigate(['/dashboard/builder']);
   }
 
   deleteTemplate(template: any) {
