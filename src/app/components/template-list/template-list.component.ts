@@ -7,6 +7,7 @@ import {
   RouterLinkActive,
   RouterModule,
 } from '@angular/router';
+import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.component';
 import { ViewTemplateComponent } from 'src/app/modals/view-template/view-template.component';
 import { CommonServicesService } from 'src/app/services/common-services.service';
 import { template } from 'src/assets/templates/templates';
@@ -103,6 +104,17 @@ export class TemplateListComponent implements OnInit {
             this.addToLocalStorage(template);
           } else {
             console.warn('Template already exists in storage');
+            this.dialog.open(DialogBoxComponent, {
+              width: '400px',
+              height: 'auto',
+              panelClass: 'rounded-lg',
+              data: {
+                dialogCss:'danger-dialog',
+                message: 'Template already added',
+                buttonText: 'OK',
+                buttonCss: 'danger-dialog-btn'
+              },
+            });
           }
         } else {
           this.addToLocalStorage(template);

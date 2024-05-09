@@ -394,6 +394,12 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
         width: '400px',
         height: 'auto',
         panelClass: 'rounded-lg',
+        data: {
+          dialogCss: 'danger-dialog',
+          message: 'Please fill the form to view the resume.',
+          buttonText: 'OK',
+          buttonCss: 'danger-dialog-btn',
+        },
       });
     }
   }
