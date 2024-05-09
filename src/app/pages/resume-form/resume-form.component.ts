@@ -407,4 +407,11 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   extractDate(dateTimeString: string): string {
     return dateTimeString ? dateTimeString.split('T')[0] : '';
   }
+
+  getSkillValue(index: number): number {
+    return this.skillDetails.at(index).get('skillValue')?.value;
+  }
+  getLanguageValue(index: number): number {
+    return this.languageDetails.at(index).get('languageValue')?.value;
+  }
 }
