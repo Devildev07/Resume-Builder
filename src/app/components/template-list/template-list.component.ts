@@ -91,53 +91,66 @@ export class TemplateListComponent implements OnInit {
           'selectedTempData',
           selectedTempData
         );
-        let storageData = this.commonService.getLocalStorage(
-          'selectedTemplateArray'
-        );
-        console.log('storageData', storageData);
-        // console.log('storageData', storageData);
-        if (storageData && storageData.length > 0) {
-          const exists = storageData.some(
-            (item: any) => item.Id === this.temp_id
-          );
-          if (!exists) {
-            this.addToLocalStorage(template);
-          } else {
-            console.warn('Template already exists in storage');
-            this.dialog.open(DialogBoxComponent, {
-              width: '400px',
-              height: 'auto',
-              panelClass: 'rounded-lg',
-              data: {
-                dialogCss: 'warning-dialog',
-                message: 'Template already added',
-                buttonText: 'OK',
-                buttonCss: 'warning-dialog-btn',
-              },
-            });
-          }
-        } else {
-          this.addToLocalStorage(template);
-        }
       },
       (error) => {
         console.error('Error fetching template:', error);
       }
     );
+
+    this.addToLocalStorage(template);
   }
 
+  
   addToLocalStorage(template: any) {
-    this.commonService.selectedTemplateArray.push(template);
-    console.log('added');
+    let storageData = this.commonService.getLocalStorage(
+      'selectedTemplateArray'
+    );
+    console.log('storageData', storageData);
+    // console.log('storageData', storageData);
+    if (storageData && storageData != null) {
+      const exists = storageData.some((item: any) => {
+        console.log('item.Id === ', item.Id);
+        console.log('this.temp_id === ', this.temp_id);
+        return item.Id === this.temp_id;
+      });
+      if (exists) {
+        console.log('exists === ', exists);
+        this.dialog.open(DialogBoxComponent, {
+          width: '400px',
+          height: 'auto',
+          panelClass: 'rounded-lg',
+          data: {
+            dialogCss: 'warning-dialog',
+            message: 'Template already added',
+            buttonText: 'OK',
+            buttonCss: 'warning-dialog-btn',
+          },
+        });
+        console.warn('Template already exists in storage');
+      } else {
+        this.commonService.selectedTemplateArray = storageData;
+        this.commonService.selectedTemplateArray.push(template);
+        this.commonService.setLocalStorage(
+          'selectedTemplateArray',
+          this.commonService.selectedTemplateArray
+        );
+        console.log('if called');
+      }
+    } else {
+      console.log('else called');
+      this.commonService.selectedTemplateArray.push(template);
+      this.commonService.setLocalStorage(
+        'selectedTemplateArray',
+        this.commonService.selectedTemplateArray
+      );
+    }
+
     console.log(
-      'selectedTemplateArray',
+      'selectedTemplateArray top',
       this.commonService.selectedTemplateArray
     );
-    this.commonService.setLocalStorage(
-      'selectedTemplateArray',
-      this.commonService.selectedTemplateArray
-    );
-    this.route.navigate(['/dashboard/builder']);
+
+    // this.route.navigate(['/dashboard/builder']);
   }
 
   deleteTemplate(template: any) {
