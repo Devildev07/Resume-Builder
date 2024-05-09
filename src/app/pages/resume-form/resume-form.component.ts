@@ -16,7 +16,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import {
   MatDatepickerInput,
-  MatDatepickerInputEvent,
   MatDatepickerModule,
 } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -46,7 +45,6 @@ import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.compone
     MatButtonModule,
     MatDatepickerModule,
     MatSliderModule,
-    MatDatepickerInput,
   ],
   templateUrl: './resume-form.component.html',
   styleUrl: './resume-form.component.css',
@@ -128,7 +126,9 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
             Validators.required,
           ],
           birthDate: [
-            this.getLocalResumeData.formBuilder.personalDetails.birthDate,
+            this.extractDate(
+              this.getLocalResumeData.formBuilder.personalDetails.birthDate
+            ),
             Validators.required,
           ],
           address: [
@@ -246,8 +246,11 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       institutionName: [eduData.institutionName || '', Validators.required],
       studyField: [eduData.studyField || '', Validators.required],
       degree: [eduData.degree || '', Validators.required],
-      startDate: [eduData.startDate || '', Validators.required],
-      endDate: [eduData.endDate || '', Validators.required],
+      startDate: [
+        this.extractDate(eduData.startDate) || '',
+        Validators.required,
+      ],
+      endDate: [this.extractDate(eduData.endDate) || '', Validators.required],
       city: [eduData.city || ''],
       grade: [eduData.grade || '', Validators.required],
       description: [eduData.description || '', Validators.required],
@@ -260,8 +263,11 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       jobTitle: [expData.jobTitle || '', Validators.required],
       companyName: [expData.companyName || '', Validators.required],
       city: [expData.city || '', Validators.required],
-      startDate: [expData.startDate || '', Validators.required],
-      endDate: [expData.endDate || '', Validators.required],
+      startDate: [
+        this.extractDate(expData.startDate) || '',
+        Validators.required,
+      ],
+      endDate: [this.extractDate(expData.endDate) || '', Validators.required],
       experienceYear: [expData.experienceYear || ''],
       description: [expData.description || ''],
     });
@@ -409,19 +415,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     }
   }
 
-  formatDate(date: Date): string {
-    const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2);
-    const day = ('0' + date.getDate()).slice(-2);
-    return `${year}-${month}-${day}`;
-  }
-
-  // Event handler for date changes
-  onDateChange(event: MatDatepickerInputEvent<Date, unknown>): void {
-    const selectedDate = event.value;
-    if (selectedDate) {
-      const formattedDate = this.formatDate(selectedDate);
-      console.log('Formatted Date:', formattedDate);
-    }
+  extractDate(dateTimeString: string): string {
+    return dateTimeString ? dateTimeString.split('T')[0] : '';
   }
 }
