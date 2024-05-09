@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8"/>
-  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Template 5</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!-- <title>Template 5</title> -->
 
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<body>
-<main class="template flex font-jost justify-center content-center">
-  <div
-    class="border border-gray-300 rounded-sm shadow-lg py-10 px-10 sm:w-11/12 sm:my-10 m-4 sm:mx-auto"
-  >
-    <!-- header (profile) -->
-    <header>
-      <!-- social icons-->
-      <!--      <ul class="flex flex-wrap justify-end gap-2">
+  <body>
+    <main class="template flex font-jost justify-center content-center">
+      <div
+        class="border border-gray-300 rounded-sm shadow-lg py-10 px-10 sm:w-11/12 sm:my-10 m-4 sm:mx-auto"
+      >
+        <!-- header (profile) -->
+        <header>
+          <!-- social icons-->
+          <!--      <ul class="flex flex-wrap justify-end gap-2">
               &lt;!&ndash; linkedin &ndash;&gt;
               <li>
                 <a
@@ -67,99 +67,99 @@
                 </a>
               </li>
             </ul>-->
-      <div class="flex flex-col sm:flex-row justify-between items-center">
-        <div>
-          <div>
-            <img
-              alt="Dummy Img"
-              class="rounded-full h-52 w-52"
-              src="https://dummyimage.com/600x400/000/fff.png&text=dummy+img"
-              srcset=""
-            />
+          <div class="flex flex-col sm:flex-row justify-between items-center">
+            <div>
+              <div>
+                <img
+                  alt="Dummy Img"
+                  class="rounded-full h-52 w-52"
+                  src="https://dummyimage.com/600x400/000/fff.png&text=dummy+img"
+                  srcset=""
+                />
+              </div>
+            </div>
+            <div class="grid justify-items-end">
+              <h1 class="text-7xl font-extrabold">{{ firstName }}</h1>
+              <p class="text-xl mt-5">{{ jobTitle }}</p>
+            </div>
           </div>
-        </div>
-        <div class="grid justify-items-end">
-          <h1 class="text-7xl font-extrabold">{{ firstName }}</h1>
-          <p class="text-xl mt-5">{{ jobTitle }}</p>
-        </div>
-      </div>
-    </header>
-    <!-- detailed info -->
-    <main class="flex flex-col sm:flex-row gap-x-10 mt-10 gap-4">
-      <div class="sm:w-2/6 w-full">
-        <!-- contact details -->
-        <strong class="text-xl font-medium">Contact Details</strong>
-        <ul class="mt-2 mb-10">
-          <li class="px-2 mt-1">
-            <strong class="mr-1">Phone </strong>
-            <a class="block" href="tel:{{phone}}">{{ phone }}</a>
-          </li>
-          <li class="px-2 mt-1">
-            <strong class="mr-1">E-mail </strong>
-            <a class="block" href="mailto:{{email}}">{{ email }}</a>
-          </li>
-          <li class="px-2 mt-1">
-            <strong class="mr-1">Location</strong
-            ><span class="block">{{ city }}</span>
-          </li>
-        </ul>
+        </header>
+        <!-- detailed info -->
+        <main class="flex flex-col sm:flex-row gap-x-10 mt-10 gap-4">
+          <div class="sm:w-2/6 w-full">
+            <!-- contact details -->
+            <strong class="text-xl font-medium">Contact Details</strong>
+            <ul class="mt-2 mb-10">
+              <li class="px-2 mt-1">
+                <strong class="mr-1">Phone </strong>
+                <a class="block" href="tel:{{phone}}">{{ phone }}</a>
+              </li>
+              <li class="px-2 mt-1">
+                <strong class="mr-1">E-mail </strong>
+                <a class="block" href="mailto:{{email}}">{{ email }}</a>
+              </li>
+              <li class="px-2 mt-1">
+                <strong class="mr-1">Location</strong
+                ><span class="block">{{ city }}</span>
+              </li>
+            </ul>
 
-        <!-- skills -->
-        <strong class="text-xl font-medium">Skills</strong>
-        <ul class="mt-2 mb-10 flex-wrap flex gap-3">
-          {{ skillDetails }}
-        </ul>
-        <strong class="text-xl font-medium">Interests & Hobbies</strong>
-        <ul class="mt-2">
-          {{ hobbyDetails }}
-        </ul>
-      </div>
-      <!-- info -->
-      <div class="sm:w-4/6 w-full">
-        <section>
-          <!-- about me -->
-          <h2 class="text-2xl pb-1 border-b font-semibold">About</h2>
-          <p class="mt-4 text-base">
-            {{ description }}
+            <!-- skills -->
+            <strong class="text-xl font-medium">Skills</strong>
+            <ul class="mt-2 mb-10 flex-wrap flex gap-3">
+              {{ skillDetails }}
+            </ul>
+            <strong class="text-xl font-medium">Interests & Hobbies</strong>
+            <ul class="mt-2">
+              {{ hobbyDetails }}
+            </ul>
+          </div>
+          <!-- info -->
+          <div class="sm:w-4/6 w-full">
+            <section>
+              <!-- about me -->
+              <h2 class="text-2xl pb-1 border-b font-semibold">About</h2>
+              <p class="mt-4 text-base">{{ description }}</p>
+            </section>
+            <section>
+              <!-- education -->
+              <h2 class="text-2xl mt-6 pb-1 border-b font-semibold">
+                Education
+              </h2>
+              <ul class="mt-2">
+                {{ educationalDetails }}
+              </ul>
+            </section>
+            <section>
+              <!-- projects -->
+              <h2 class="text-2xl mt-6 pb-1 border-b font-semibold">
+                Projects
+              </h2>
+              {{ projectDetails }}
+            </section>
+            <section>
+              <!-- work experiences -->
+              <h2 class="text-2xl mt-6 pb-1 border-b font-semibold">
+                Work Experiences
+              </h2>
+              <ul class="mt-2">
+                {{ experienceDetails }}
+              </ul>
+            </section>
+          </div>
+        </main>
+        <!-- short lines to introduce myself -->
+        <footer class="mt-6">
+          <p class="bg-gray-600 text-white text-center text-sm pt-2">
+            The best way to predict the future is to create it.
+            <small>- AbrahamLincoln</small>
           </p>
-        </section>
-        <section>
-          <!-- education -->
-          <h2 class="text-2xl mt-6 pb-1 border-b font-semibold">Education</h2>
-          <ul class="mt-2">
-            {{ educationalDetails }}
-          </ul>
-        </section>
-        <section>
-          <!-- projects -->
-          <h2 class="text-2xl mt-6 pb-1 border-b font-semibold">Projects</h2>
-          {{ projectDetails }}
-
-        </section>
-        <section>
-          <!-- work experiences -->
-          <h2 class="text-2xl mt-6 pb-1 border-b font-semibold">
-            Work Experiences
-          </h2>
-          <ul class="mt-2">
-            {{ experienceDetails }}
-          </ul>
-        </section>
-
+          <p class="bg-gray-600 text-white text-center text-sm pb-2">
+            I am creating my future by learning new things and making small
+            progresses everyday.
+          </p>
+        </footer>
       </div>
     </main>
-    <!-- short lines to introduce myself -->
-    <footer class="mt-6">
-      <p class="bg-gray-600 text-white text-center text-sm pt-2">
-        The best way to predict the future is to create it.
-        <small>- AbrahamLincoln</small>
-      </p>
-      <p class="bg-gray-600 text-white text-center text-sm pb-2">
-        I am creating my future by learning new things and making small
-        progresses everyday.
-      </p>
-    </footer>
-  </div>
-</main>
-</body>
+  </body>
 </html>

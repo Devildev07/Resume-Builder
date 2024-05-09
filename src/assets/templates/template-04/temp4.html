@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet"/>
+    <!-- <title>Template 4</title> -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-  <title>Template 4</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <body class="bg-gray-100 font-jost">
+    <!-- Page -->
+    <main class="template">
+      <div class="container mx-auto my-8 p-6">
+        <!-- Name -->
+        <div
+          class="flex justify-between items-center border-b-4 border-gray-700 pb-4 mb-4"
+        >
+          <div class="w-full md:w-auto mb-2 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-750">
+              {{ firstName }} {{ lastName }}
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-700">
+              {{ jobTitle }}
+            </h2>
+            <h3 class="text-md font-semibold text-gray-550">{{ city }}</h3>
+          </div>
+          <div
+            class="text-3xl font-bold leading-none text-gray-200 bg-gray-700 print:bg-black p-4 rounded-full"
+          >
+            <div class="text-center initial">Y</div>
+            <div class="text-center initial">N</div>
+          </div>
+        </div>
 
-<body class="bg-gray-100 font-jost">
+        <!-- Grid layout for content -->
+        <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 grid-flow-row-dense">
+          <!-- Contact Information -->
+          <div
+            class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-5"
+          >
+            <h2 class="text-xl font-bold text-gray-700 mb-2">
+              Contact Information
+            </h2>
+            <ul class="list-disc pl-4">
+              <li class="text-gray-700 mb-2">
+                <span class="font-semibold">Email:</span> {{ email }}
+              </li>
+              <li class="text-gray-700 mb-2">
+                <span class="font-semibold">Phone:</span> {{ phone }}
+              </li>
+            </ul>
+          </div>
 
-<!-- Page -->
-<main class="template">
-  <div class="container mx-auto my-8 p-6">
-    <!-- Name -->
-    <div class="flex justify-between items-center border-b-4 border-gray-700 pb-4 mb-4">
-      <div class="w-full md:w-auto mb-2 md:mb-0">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-750">
-          {{ firstName }} {{ lastName }}
-        </h1>
-        <h2 class="text-2xl md:text-3xl font-semibold text-gray-700">
-          {{ jobTitle }}
-        </h2>
-        <h3 class="text-md font-semibold text-gray-550">{{ city }}</h3>
-      </div>
-      <div class="text-3xl font-bold leading-none text-gray-200 bg-gray-700 print:bg-black p-4 rounded-full">
-        <div class="text-center initial">Y</div>
-        <div class="text-center initial">N</div>
-      </div>
-    </div>
+          <!-- Summary -->
+          <div
+            class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-2"
+          >
+            <h2 class="text-xl font-bold text-gray-700 mb-2">Summary</h2>
+            <p class="text-gray-700">{{ description }}</p>
+          </div>
 
-    <!-- Grid layout for content -->
-    <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 grid-flow-row-dense">
-      <!-- Contact Information -->
-      <div class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-5">
-        <h2 class="text-xl font-bold text-gray-700 mb-2">
-          Contact Information
-        </h2>
-        <ul class="list-disc pl-4">
-          <li class="text-gray-700 mb-2">
-            <span class="font-semibold">Email:</span> {{ email }}
-          </li>
-          <li class="text-gray-700 mb-2">
-            <span class="font-semibold">Phone:</span> {{ phone }}
-          </li>
-        </ul>
-      </div>
+          <!-- Experience -->
+          <div
+            class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-3"
+          >
+            <h2 class="text-xl font-bold text-gray-700 mb-2">Experience</h2>
+            {{ experienceDetails }}
+          </div>
 
-      <!-- Summary -->
-      <div class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-2">
-        <h2 class="text-xl font-bold text-gray-700 mb-2">Summary</h2>
-        <p class="text-gray-700">
-          {{ description }}
-        </p>
-      </div>
+          <!-- Education -->
+          <div
+            class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-2"
+          >
+            <h2 class="text-xl font-bold text-gray-700 mb-2">Education</h2>
+            {{ educationalDetails }}
+          </div>
 
-      <!-- Experience -->
-      <div class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-3">
-        <h2 class="text-xl font-bold text-gray-700 mb-2">Experience</h2>
-        {{ experienceDetails }}
-      </div>
+          <!-- Projects -->
+          <div
+            class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-3"
+          >
+            <h2 class="text-xl font-bold text-gray-700 mb-2">Projects</h2>
+            {{ projectDetails }}
+          </div>
 
-      <!-- Education -->
-      <div class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-2">
-        <h2 class="text-xl font-bold text-gray-700 mb-2">Education</h2>
-        {{ educationalDetails }}
-      </div>
-
-      <!-- Projects -->
-      <div class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-3">
-        <h2 class="text-xl font-bold text-gray-700 mb-2">Projects</h2>
-        {{ projectDetails }}
-      </div>
-
-      <!-- Skills -->
-      <div class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-5">
-        <h2 class="text-xl font-bold text-gray-700 mb-2">Skills</h2>
-        <div>
-          <h3 class="text-lg font-semibold text-gray-700">{{ jobTitle }}</h3>
-          <ul class="list-disc pl-4 text-gray-700">
-            {{ skillDetails }}
-          </ul>
+          <!-- Skills -->
+          <div
+            class="rounded-md bg-gray-200 py-2 px-3 col-span-1 sm:col-span-5"
+          >
+            <h2 class="text-xl font-bold text-gray-700 mb-2">Skills</h2>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-700">
+                {{ jobTitle }}
+              </h3>
+              <ul class="list-disc pl-4 text-gray-700">
+                {{ skillDetails }}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-
-  </div>
-</main>
-</body>
-
+    </main>
+  </body>
 </html>

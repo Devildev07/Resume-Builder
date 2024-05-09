@@ -1,68 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <!-- <title >Template 1</title> -->
+    <link href="../../../styles.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Template 1</title>
-  <link href="../../../styles.css" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body>
-<main class="template">
-  <div class="container mx-auto px-6 py-8 text-base poppins-medium  dark:text-gray-900">
-    <div class=" title pb-3">
-      <h1 class="poppins-bold text-4xl text-blue-500 pb-1">{{ firstName }}
-        {{ lastName }}</h1>
-      <p class="poppins-light text-gray-500 text-xl">{{ jobTitle }}</p>
-      <span class="poppins-medium text-base">{{ description }}</span>
-    </div>
-    <!--  -->
-    <div class="my-2 py-2 border-t-2 border-b-2 border-gray-900">
-      <!--    <div class="flex justify-between gap-2 flex-wrap flex-col sm:flex-row">-->
-      <div class="flex justify-between gap-2 flex-row">
-        <p class="sm:basis-32">{{ email }}</p>
-        <p class="sm:basis-32">{{ phone }}</p>
-        <p class="sm:basis-56"> {{ city }}, {{ state }}, {{ country }}</p>
-        <p class="text-ellipsis sm:basis-32"><a href="{{website}}">{{ website }}</a></p>
-      </div>
-    </div>
-    <!--  -->
-    <div class="skill_area mt-6 ">
-      <h3 class=" text-blue-500 text-xl poppins-bold">SKILLS</h3>
-
-      <div class="pt-3 flex gap-2 items-center">
-        {{ skillDetails }}
-
-      </div>
-    </div>
-    <!--  -->
-    <div class="exp_area mt-6">
-      <h3 class=" text-blue-500 text-xl poppins-bold">WORK EXPERIENCE</h3>
-      <div class="flex flex-col gap-4 pb-2">
-        {{ experienceDetails }}
+  <body>
+    <main class="template">
+      <div
+        class="container mx-auto px-6 py-8 text-base poppins-medium dark:text-gray-900"
+      >
+        <div class="title pb-3">
+          <h1 class="poppins-bold text-4xl text-blue-500 pb-1">
+            {{ firstName }} {{ lastName }}
+          </h1>
+          <p class="poppins-light text-gray-500 text-xl">{{ jobTitle }}</p>
+          <span class="poppins-medium text-base">{{ description }}</span>
+        </div>
         <!--  -->
-      </div>
+        <div class="my-2 py-2 border-t-2 border-b-2 border-gray-900">
+          <!--    <div class="flex justify-between gap-2 flex-wrap flex-col sm:flex-row">-->
+          <div class="flex justify-between gap-2 flex-row">
+            <p class="sm:basis-32">{{ email }}</p>
+            <p class="sm:basis-32">{{ phone }}</p>
+            <p class="sm:basis-56">{{ city }}, {{ state }}, {{ country }}</p>
+            <p class="text-ellipsis sm:basis-32">
+              <a href="{{website}}">{{ website }}</a>
+            </p>
+          </div>
+        </div>
+        <!--  -->
+        <div class="skill_area mt-6">
+          <h3 class="text-blue-500 text-xl poppins-bold">SKILLS</h3>
 
-    </div>
-    <!--  -->
-    <div class="edu_area mt-6">
-      <h3 class=" text-blue-500 text-xl poppins-bold">EDUCATION</h3>
-      <div class="flex flex-col gap-4 pb-2">
-        {{ educationalDetails }}
+          <div class="pt-3 flex gap-2 items-center">{{ skillDetails }}</div>
+        </div>
+        <!--  -->
+        <div class="exp_area mt-6">
+          <h3 class="text-blue-500 text-xl poppins-bold">WORK EXPERIENCE</h3>
+          <div class="flex flex-col gap-4 pb-2">
+            {{ experienceDetails }}
+            <!--  -->
+          </div>
+        </div>
+        <!--  -->
+        <div class="edu_area mt-6">
+          <h3 class="text-blue-500 text-xl poppins-bold">EDUCATION</h3>
+          <div class="flex flex-col gap-4 pb-2">{{ educationalDetails }}</div>
+        </div>
+        <!--  -->
+        <div class="lang_area mt-6">
+          <h3 class="text-blue-500 text-xl poppins-bold">LANGUAGES</h3>
+          <div class="lang flex items-center gap-2 flex-wrap">
+            {{ languageDetails }}
+          </div>
+        </div>
       </div>
-    </div>
-    <!--  -->
-    <div class="lang_area mt-6">
-      <h3 class=" text-blue-500 text-xl poppins-bold">LANGUAGES</h3>
-      <div class="lang flex items-center gap-2 flex-wrap">
-        {{ languageDetails }}
-      </div>
-
-    </div>
-  </div>
-</main>
-</body>
-
+    </main>
+  </body>
 </html>

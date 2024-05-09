@@ -148,7 +148,27 @@ export class TemplateListComponent implements OnInit {
     }
   }
 
-  editTemplate(template:any){
-    
+  editTemplate(template: any) {
+    console.log('template === ', template);
+    this.temp_id = template.Id;
+    this.http.get(template.Path, { responseType: 'text' }).subscribe(
+      (tempContent) => {
+        this.templateContent = tempContent;
+        const selectedTempData = {
+          Id: this.temp_id,
+          Content: this.templateContent,
+          Name: template.Name,
+        };
+        // console.log('selectedTempData', selectedTempData);
+        this.commonService.setLocalStorage(
+          'selectedTempData',
+          selectedTempData
+        );
+        this.route.navigate(['/dashboard/builder']);
+      },
+      (error) => {
+        console.error('Error fetching template:', error);
+      }
+    );
   }
 }

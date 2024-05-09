@@ -3,15 +3,11 @@ import { CommonServicesService } from 'src/app/services/common-services.service'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import {
-  AbstractControl,
   FormBuilder,
-  FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +18,7 @@ import { Observable } from 'rxjs';
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent implements OnInit {
-  tabs = ['Profile', 'Account Settings'];
+  tabs = ['Profile', 'Account Details'];
   activeTab = 0;
 
   profileForm: any = {};
@@ -161,7 +157,11 @@ export class ProfileComponent implements OnInit {
           firstName: ['', Validators.required],
           lastName: ['', Validators.required],
           jobTitle: ['', Validators.required],
-          email: ['', Validators.required, [this.commonService.asyncEmailValidator]],
+          email: [
+            '',
+            Validators.required,
+            [this.commonService.asyncEmailValidator],
+          ],
           phone: ['', Validators.required],
           birthDate: ['', Validators.required],
           address: ['', Validators.required],
@@ -178,25 +178,6 @@ export class ProfileComponent implements OnInit {
   extractDate(dateTimeString: string): string {
     return dateTimeString ? dateTimeString.split('T')[0] : '';
   }
-
-  // asyncEmailValidator(
-  //   control: AbstractControl
-  // ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-  //   return new Observable((observer) => {
-  //     // Simulate asynchronous validation
-  //     setTimeout(() => {
-  //       if (
-  //         control.value &&
-  //         !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
-  //       ) {
-  //         observer.next({ invalidEmail: true });
-  //       } else {
-  //         observer.next(null);
-  //       }
-  //       observer.complete();
-  //     }, 1000);
-  //   });
-  // }
 
   submitProfileForm() {
     if (this.profileForm.valid) {
