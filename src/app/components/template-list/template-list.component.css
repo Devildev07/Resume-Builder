@@ -28,21 +28,6 @@
 
 
 /* templates area  */
-.template {
-    overflow: hidden;
-}
-
-.template .templateOptions {
-    position: absolute;
-    bottom: -100%;
-    width: 90%;
-    margin: auto;
-}
-
-.template:hover .templateOptions {
-    bottom: 2%;
-    transition: all 0.4s ease-in-out;
-}
 
 .addTemplate .tooltip {
     position: absolute;
