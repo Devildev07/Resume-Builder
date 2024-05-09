@@ -845,21 +845,27 @@
             <div class="" formGroupName="{{ $index }}">
               <div class="skill-item flex gap-2 my-2 mb-5">
                 <div class="basis-4/5">
-                  <input
-                    type="text"
-                    formControlName="skillName"
-                    placeholder="Skill Name"
-                    class="cust-input-box"
-                  />
-                  <div>{{ getSkillValue($index) }}</div>
-                  <div class="relative">
+                  <div class="relative dark:text-gray-800">
+                    <input
+                      type="text"
+                      formControlName="skillName"
+                      placeholder="Skill Name"
+                      class="cust-input-box"
+                    />
+                    <div
+                      class="absolute right-2 top-1.5 p-2 rounded-md bg-blue-50"
+                    >
+                      {{ getSkillValue($index) }}
+                    </div>
+                  </div>
+
+                  <div class="relative pt-1">
                     <input
                       id="skillValue"
                       type="range"
                       min="0"
                       max="100"
                       formControlName="skillValue"
-                      step="0.5"
                       class="cust-range"
                     />
                     <span
@@ -928,26 +934,26 @@
             <div class="" formGroupName="{{ $index }}">
               <div class="lang-item flex gap-2 my-2 mb-5">
                 <div class="basis-4/5">
-                  <input
-                    type="text"
-                    formControlName="languageName"
-                    placeholder="Language Name"
-                    class="cust-input-box"
-                  />
-
-                  <!-- <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
-                      <input matSliderThumb>
-                    </mat-slider> -->
-                  <div>{{ getLanguageValue($index) }}</div>
-
-                  <div class="relative">
+                  <div class="relative dark:text-gray-800">
+                    <input
+                      type="text"
+                      formControlName="languageName"
+                      placeholder="Language Name"
+                      class="cust-input-box"
+                    />
+                    <div
+                      class="absolute right-2 top-1.5 p-2 rounded-md bg-blue-50"
+                    >
+                      {{ getLanguageValue($index) }}
+                    </div>
+                  </div>
+                  <div class="relative pt-1">
                     <input
                       id="languageValue"
                       type="range"
                       min="0"
                       max="100"
                       formControlName="languageValue"
-                      step="0.5"
                       class="cust-range"
                     />
                     <span
@@ -1069,7 +1075,9 @@
         <!--  -->
 
         <mat-step>
-          <ng-template matStepLabel>Final Step</ng-template>
+          <ng-template matStepLabel>
+            <span class="text-gray-900 dark:text-white"> Final Step </span>
+          </ng-template>
           <p>All steps are complete , now submit the form</p>
           <div class="py-3 mt-3 space-x-2">
             <button class="primary-btn" matStepperPrevious>Back</button>

@@ -279,7 +279,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   createdSkillFormGroup(skillData: any): FormGroup {
     return this.formBuilder.group({
       skillName: [skillData.skillName || '', Validators.required],
-      skillValue: [skillData.skillValue || ''],
+      skillValue: [skillData.skillValue || '0'],
     });
   }
 
@@ -287,7 +287,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   createdLanguageFormGroup(langData: any): FormGroup {
     return this.formBuilder.group({
       languageName: [langData.languageName || ''],
-      languageValue: [langData.languageValue || ''],
+      languageValue: [langData.languageValue || '0'],
     });
   }
 
