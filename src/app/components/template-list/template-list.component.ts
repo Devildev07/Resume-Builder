@@ -109,10 +109,10 @@ export class TemplateListComponent implements OnInit {
               height: 'auto',
               panelClass: 'rounded-lg',
               data: {
-                dialogCss:'danger-dialog',
+                dialogCss: 'warning-dialog',
                 message: 'Template already added',
                 buttonText: 'OK',
-                buttonCss: 'danger-dialog-btn'
+                buttonCss: 'warning-dialog-btn',
               },
             });
           }
