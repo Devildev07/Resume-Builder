@@ -102,6 +102,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     );
     console.log('this.getLocalResumeData === ', this.getLocalResumeData);
     if (this.getLocalResumeData != null) {
+      this.resumeTitle = this.getLocalResumeData.title;
       this.resumeFormGroup = this.formBuilder.group({
         personalDetails: this.formBuilder.group({
           firstName: [
