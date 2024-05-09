@@ -4,12 +4,14 @@
 
 .template .templateOptions {
     position: absolute;
-    bottom: -100%;
+    bottom: 0rem;
+    opacity: 0;
     width: 90%;
     margin: auto;
 }
 
 .template:hover .templateOptions {
+    opacity: 1;
     bottom: 2%;
     transition: all 0.4s ease-in-out;
 }
