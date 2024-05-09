@@ -1,5 +1,7 @@
-import {Injectable} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { NavigationEnd, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +14,7 @@ export class CommonServicesService {
   private sharedData: any;
   selectedTemplateArray: any[] = [];
 
-  constructor(public router: Router,) {
+  constructor(public router: Router) {
     this.getCurrentUrl();
   }
 
@@ -40,6 +42,25 @@ export class CommonServicesService {
         this.currentUrl = event.url;
         // console.log('Current URL:', this.currentUrl);
       }
+    });
+  }
+
+  asyncEmailValidator(
+    control: AbstractControl
+  ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
+    return new Observable((observer) => {
+      // Simulate asynchronous validation
+      setTimeout(() => {
+        if (
+          control.value &&
+          !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
+        ) {
+          observer.next({ invalidEmail: true });
+        } else {
+          observer.next(null);
+        }
+        observer.complete();
+      }, 1000);
     });
   }
 }

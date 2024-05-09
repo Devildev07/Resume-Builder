@@ -423,10 +423,7 @@
                           matIconSuffix
                           [for]="picker1"
                         ></mat-datepicker-toggle>
-                        <mat-datepicker
-                          #picker1
-                          
-                        ></mat-datepicker>
+                        <mat-datepicker #picker1></mat-datepicker>
                       </div>
                     </div>
                   </div>
@@ -450,10 +447,7 @@
                           matIconSuffix
                           [for]="picker2"
                         ></mat-datepicker-toggle>
-                        <mat-datepicker
-                          #picker2
-                          
-                        ></mat-datepicker>
+                        <mat-datepicker #picker2></mat-datepicker>
                       </div>
                     </div>
                   </div>
@@ -585,10 +579,7 @@
                           matIconSuffix
                           [for]="picker3"
                         ></mat-datepicker-toggle>
-                        <mat-datepicker
-                          #picker3
-                          
-                        ></mat-datepicker>
+                        <mat-datepicker #picker3></mat-datepicker>
                       </div>
                     </div>
                   </div>
@@ -612,10 +603,7 @@
                           matIconSuffix
                           [for]="picker4"
                         ></mat-datepicker-toggle>
-                        <mat-datepicker
-                          #picker4
-                          
-                        ></mat-datepicker>
+                        <mat-datepicker #picker4></mat-datepicker>
                       </div>
                     </div>
                   </div>
@@ -1079,12 +1067,12 @@
         <!--  -->
 
         <mat-step>
-          <ng-template matStepLabel>Done</ng-template>
-          <p>You are now done.</p>
+          <ng-template matStepLabel>Final Step</ng-template>
+          <p>All steps are complete , now submit the form</p>
           <div class="py-3 mt-3 space-x-2">
             <button class="primary-btn" matStepperPrevious>Back</button>
             <button (click)="stepper.reset()" class="primary-btn">Reset</button>
-            <button class="primary-btn" type="submit">Done</button>
+            <button class="success-btn" type="submit">Done</button>
           </div>
         </mat-step>
       </mat-stepper>

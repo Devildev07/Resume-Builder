@@ -14,10 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
-import {
-  MatDatepickerInput,
-  MatDatepickerModule,
-} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { Observable } from 'rxjs';
 import { MatSliderModule } from '@angular/material/slider';
@@ -120,7 +117,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
           email: [
             this.getLocalResumeData.formBuilder.personalDetails.email,
             Validators.required,
-            [this.asyncEmailValidator],
+            [this.commonService.asyncEmailValidator],
           ],
           phone: [
             this.getLocalResumeData.formBuilder.personalDetails.phone,
@@ -205,10 +202,14 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     } else {
       this.resumeFormGroup = this.formBuilder.group({
         personalDetails: this.formBuilder.group({
-          firstName: ['Abc', Validators.required],
+          firstName: ['', Validators.required],
           lastName: ['', Validators.required],
           jobTitle: ['', Validators.required],
-          email: ['', Validators.required, [this.asyncEmailValidator]],
+          email: [
+            '',
+            Validators.required,
+            [this.commonService.asyncEmailValidator],
+          ],
           phone: ['', Validators.required],
           birthDate: ['', Validators.required],
           address: ['', Validators.required],
@@ -306,25 +307,6 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       projectTechUsed: [projectData.projectTechUsed || ''],
       projectYear: [projectData.projectYear || ''],
       projectDescription: [projectData.projectDescription || ''],
-    });
-  }
-
-  asyncEmailValidator(
-    control: AbstractControl
-  ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    return new Observable((observer) => {
-      // Simulating asynchronous validation with a timeout
-      setTimeout(() => {
-        if (
-          control.value &&
-          !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
-        ) {
-          observer.next({ invalidEmail: true }); // Return validation error
-        } else {
-          observer.next(null); // No error
-        }
-        observer.complete();
-      }, 1000); // Adjust timeout as needed
     });
   }
 
