@@ -20,6 +20,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {ViewTemplateComponent} from 'src/app/modals/view-template/view-template.component';
 import {DialogBoxComponent} from 'src/app/modals/dialog-box/dialog-box.component';
 import * as moment from 'moment';
+import {HttpClient, HttpEventType} from "@angular/common/http";
 
 @Component({
   selector: 'app-resume-form',
@@ -49,15 +50,17 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   allResumeData: any = {};
   resumeFormGroup: FormGroup | any;
 
-  FormArray: any;
-
-  // receivedTemplateData: any;
   getLocalResumeData: any;
+
+  selectedFile: File | null = null;
+  filePreview: string | ArrayBuffer | null = null;
+  uploadProgress: number = 0;
 
   constructor(
     public commonService: CommonServicesService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
+    private http: HttpClient
   ) {
   }
 
@@ -83,6 +86,22 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
 
   get hobbyDetails(): FormArray {
     return this.resumeFormGroup.get('hobbyDetails') as FormArray;
+  }
+  
+  onFileChange(event: any) {
+    const file = event.target.files?.[0];
+    if (file) {
+      this.selectedFile = file;
+      this.previewFile();
+    }
+  }
+
+  previewFile() {
+    const reader = new FileReader();
+    reader.readAsDataURL(this.selectedFile as File);
+    reader.onload = () => {
+      this.filePreview = reader.result;
+    };
   }
 
   ngOnInit() {
