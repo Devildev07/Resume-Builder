@@ -6,8 +6,8 @@ import {
   Renderer2,
   ViewEncapsulation,
 } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { CommonServicesService } from 'src/app/services/common-services.service';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {CommonServicesService} from 'src/app/services/common-services.service';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -16,13 +16,13 @@ import {
   MatDialogContent,
   MatDialog,
 } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {Router} from '@angular/router';
 import {
   templateArraySection,
   templateData,
 } from 'src/assets/templates/templates';
-import { AutoAdjustHeightDirective } from '../../directives/auto-adjust-height.directive';
+import {AutoAdjustHeightDirective} from '../../directives/auto-adjust-height.directive';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
@@ -103,7 +103,8 @@ export class ViewTemplateComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   dataReplacement(receivedData: any, resumeFormData: any) {
     this.receivedDataInfo = receivedData;
@@ -117,20 +118,25 @@ export class ViewTemplateComponent implements OnInit {
     // console.log('resumeFormData === ', resumeFormData);
 
     Object.keys(templateData).forEach((key) => {
-      if (formData.formBuilder.hasOwnProperty(key)) {
-        // console.log("key", key);
-        templateData[key] = formData.formBuilder[key];
-      } else if (Array.isArray(templateData[key])) {
-        templateData[key].forEach((item: any, index: number) => {
-          if (formData.formBuilder[key] && formData.formBuilder[key][index]) {
-            Object.keys(item).forEach((subKey) => {
-              if (formData.formBuilder[key][index].hasOwnProperty(subKey)) {
-                item[subKey] = formData.formBuilder[key][index][subKey];
-              }
-            });
-          }
-        });
+      if (formData != null) {
+        if (formData.formBuilder.hasOwnProperty(key)) {
+          // console.log("key", key);
+          templateData[key] = formData.formBuilder[key];
+        } else if (Array.isArray(templateData[key])) {
+          templateData[key].forEach((item: any, index: number) => {
+            if (formData.formBuilder[key] && formData.formBuilder[key][index]) {
+              Object.keys(item).forEach((subKey) => {
+                if (formData.formBuilder[key][index].hasOwnProperty(subKey)) {
+                  item[subKey] = formData.formBuilder[key][index][subKey];
+                }
+              });
+            }
+          });
+        }
+      } else {
+        // this.route.navigate(['/dashboard/builder']);
       }
+
     });
     // console.log(templateData);
     this.updatingResumeData(templateData);
@@ -443,7 +449,7 @@ export class ViewTemplateComponent implements OnInit {
     const elementToPrint: any = document.querySelector('.template');
     // console.log('elementToPrint', elementToPrint);
     if (elementToPrint) {
-      html2canvas(elementToPrint, { scale: 1 }).then((canvas) => {
+      html2canvas(elementToPrint, {scale: 1}).then((canvas) => {
         const pdf: any = new jsPDF();
         pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0);
         pdf.setProperties({

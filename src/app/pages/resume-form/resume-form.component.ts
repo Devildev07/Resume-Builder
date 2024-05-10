@@ -1,27 +1,25 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {
-  AbstractControl,
   FormArray,
   FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { Observable } from 'rxjs';
-import { MatSliderModule } from '@angular/material/slider';
-import { CommonServicesService } from 'src/app/services/common-services.service';
-import { MatDialog } from '@angular/material/dialog';
-import { ViewTemplateComponent } from 'src/app/modals/view-template/view-template.component';
-import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.component';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {MatSliderModule} from '@angular/material/slider';
+import {CommonServicesService} from 'src/app/services/common-services.service';
+import {MatDialog} from '@angular/material/dialog';
+import {ViewTemplateComponent} from 'src/app/modals/view-template/view-template.component';
+import {DialogBoxComponent} from 'src/app/modals/dialog-box/dialog-box.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-resume-form',
@@ -29,7 +27,7 @@ import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.compone
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { showError: true },
+      useValue: {showError: true},
     },
     provideNativeDateAdapter(),
   ],
@@ -59,14 +57,8 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   constructor(
     public commonService: CommonServicesService,
     private formBuilder: FormBuilder,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {
-    // formatLabel(value: number): any {
-    //   if (value >= 100) {
-    //     return Math.round(value / 1000);
-    //   }
-    //   return `${value}`;
-    // }
   }
 
   get educationalDetails(): FormArray {
@@ -254,7 +246,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       ],
       endDate: [this.extractDate(eduData.endDate) || '', Validators.required],
       city: [eduData.city || ''],
-      grades: [eduData.grade || '', Validators.required],
+      grades: [eduData.grades || '', Validators.required],
       description: [eduData.description || '', Validators.required],
     });
   }
@@ -404,13 +396,20 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     }
   }
 
+  // extractDate(dateTimeString: string): string {
+  //   // const newExtractDate = moment(dateTimeString).format('MM-DD-YYYY');
+  //   // console.log("newExtractDate", newExtractDate);
+  //   moment(dateTimeString).format('MM-DD-YYYY');
+  //   return dateTimeString ? dateTimeString.split('T')[0] : '';
+  // }
   extractDate(dateTimeString: string): string {
-    return dateTimeString ? dateTimeString.split('T')[0] : '';
+    return dateTimeString ? moment(dateTimeString).format('YYYY-MM-DD') : '';
   }
 
   getSkillValue(index: number): number {
     return this.skillDetails.at(index).get('skillValue')?.value;
   }
+
   getLanguageValue(index: number): number {
     return this.languageDetails.at(index).get('languageValue')?.value;
   }
