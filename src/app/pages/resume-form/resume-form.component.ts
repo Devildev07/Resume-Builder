@@ -254,7 +254,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       ],
       endDate: [this.extractDate(eduData.endDate) || '', Validators.required],
       city: [eduData.city || ''],
-      grade: [eduData.grade || '', Validators.required],
+      grades: [eduData.grade || '', Validators.required],
       description: [eduData.description || '', Validators.required],
     });
   }
