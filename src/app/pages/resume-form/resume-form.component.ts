@@ -88,74 +88,6 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     return this.resumeFormGroup.get('hobbyDetails') as FormArray;
   }
 
-  // onFileSelected(event: any) {
-  //   this.selectedFile = event.target.files[0];
-  //   if (this.selectedFile) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       this.imageUrl = reader.result as string;
-  //     };
-  //     reader.readAsDataURL(this.selectedFile);
-  //   } else {
-  //     this.imageUrl = null;
-  //   }
-  // }
-
-  // async uploadFile(): Promise<void> {
-  //   return new Promise<void>((resolve, reject) => {
-  //     if (!this.selectedFile) {
-  //       console.error('No file selected!');
-  //       reject('No file selected!');
-  //       return;
-  //     }
-  //
-  //     const formData = new FormData();
-  //     formData.append('file', this.selectedFile);
-  //
-  //     let progress = 0;
-  //     const interval = setInterval(() => {
-  //       progress += 10;
-  //       this.uploadProgress = progress;
-  //       if (progress === 100) {
-  //         clearInterval(interval);
-  //
-  //         const reader = new FileReader();
-  //         reader.onload = () => {
-  //
-  //           const base64String = reader.result as string;
-  //           const imageObject = {
-  //             base64Image: base64String,
-  //             fileName: this.selectedFile.name,
-  //             fileSize: this.selectedFile.size,
-  //             fileType: this.selectedFile.type,
-  //             uploadDate: new Date().toISOString(),
-  //           };
-  //           if (imageObject != null) {
-  //             localStorage.setItem('uploadedImageBase64', JSON.stringify(imageObject));
-  //           }
-  //           resolve();
-  //         };
-  //         reader.readAsDataURL(this.selectedFile);
-  //
-  //         this.dialog.open(DialogBoxComponent, {
-  //           backdropClass: 'backdrop-blur',
-  //           width: '400px',
-  //           height: 'auto',
-  //           panelClass: 'rounded-lg',
-  //           data: {
-  //             dialogCss: 'success-dialog',
-  //             message: 'File uploaded successfully!',
-  //             buttonText: 'OK',
-  //             buttonCss: 'success-dialog-btn',
-  //           },
-  //         });
-  //
-  //         console.log('File uploaded successfully!');
-  //       }
-  //     }, 200);
-  //   });
-  // }
-
 
   ngOnInit() {
     this.getLocalResumeData = this.commonService.getLocalStorage(
@@ -469,6 +401,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
         height: 'auto',
         panelClass: 'rounded-lg',
         data: {
+          title: 'Form details required',
           dialogCss: 'danger-dialog',
           message: 'Please fill the form to view the resume.',
           buttonText: 'OK',

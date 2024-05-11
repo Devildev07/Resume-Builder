@@ -15,8 +15,11 @@ export class CommonServicesService implements OnInit {
   currentUrl?: string;
   selectedTemplateArray: any[] = [];
 
-  userProfileImage: any;
   userResumeProfileImage: any;
+  userResumeProfileImgName: any;
+  userResumeProfileImgSize: any;
+
+  userProfileImage: any;
   userProfileImgName: any;
   userProfileImgSize: any;
 
@@ -83,6 +86,8 @@ export class CommonServicesService implements OnInit {
   profilePicUpdate() {
     if (this.getLocalStorage('resumeFormImage')) {
       this.userResumeProfileImage = this.getLocalStorage('resumeFormImage').base64Image
+      this.userResumeProfileImgName = this.getLocalStorage('resumeFormImage').fileName
+      this.userResumeProfileImgSize = Math.round(this.getLocalStorage('resumeFormImage').fileSize / 1024)
       // console.log("userResumeProfileImage", this.userResumeProfileImage)
     }
     if (this.getLocalStorage('profileImage')) {
@@ -151,6 +156,7 @@ export class CommonServicesService implements OnInit {
             height: 'auto',
             panelClass: 'rounded-lg',
             data: {
+              title: 'File Upload',
               dialogCss: 'success-dialog',
               message: 'File uploaded successfully!',
               buttonText: 'OK',

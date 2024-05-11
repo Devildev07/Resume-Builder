@@ -1,16 +1,16 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 import {
   Router,
   RouterLink,
   RouterLinkActive,
   RouterModule,
 } from '@angular/router';
-import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.component';
-import { ViewTemplateComponent } from 'src/app/modals/view-template/view-template.component';
-import { CommonServicesService } from 'src/app/services/common-services.service';
-import { template } from 'src/assets/templates/templates';
+import {DialogBoxComponent} from 'src/app/modals/dialog-box/dialog-box.component';
+import {ViewTemplateComponent} from 'src/app/modals/view-template/view-template.component';
+import {CommonServicesService} from 'src/app/services/common-services.service';
+import {template} from 'src/assets/templates/templates';
 
 @Component({
   selector: 'app-template-list',
@@ -30,7 +30,8 @@ export class TemplateListComponent implements OnInit {
     public commonService: CommonServicesService,
     private http: HttpClient,
     public route: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.fetchTemplates();
@@ -42,14 +43,14 @@ export class TemplateListComponent implements OnInit {
       return;
     }
     console.log('template === ', template);
-    this.http.get(template.Path, { responseType: 'text' }).subscribe(
+    this.http.get(template.Path, {responseType: 'text'}).subscribe(
       (tempContent) => {
         this.dialog.open(ViewTemplateComponent, {
           backdropClass: 'backdrop-blur',
           width: '1024px',
           height: '80vh',
           panelClass: 'rounded-md',
-          data: { templateContent: tempContent, templateInfo: template },
+          data: {templateContent: tempContent, templateInfo: template},
         });
       },
       (error) => {
@@ -78,7 +79,7 @@ export class TemplateListComponent implements OnInit {
   selectTemplate(template: any) {
     // console.log('template === ', template);
     this.temp_id = template.Id;
-    this.http.get(template.Path, { responseType: 'text' }).subscribe(
+    this.http.get(template.Path, {responseType: 'text'}).subscribe(
       (tempContent) => {
         this.templateContent = tempContent;
         const selectedTempData = {
@@ -119,8 +120,9 @@ export class TemplateListComponent implements OnInit {
           height: 'auto',
           panelClass: 'rounded-lg',
           data: {
+            title: 'Template already added',
             dialogCss: 'warning-dialog',
-            message: 'Template already added',
+            message: 'Please check your dashboard to edit your selected templated',
             buttonText: 'OK',
             buttonCss: 'warning-dialog-btn',
           },
@@ -173,7 +175,7 @@ export class TemplateListComponent implements OnInit {
   editTemplate(template: any) {
     console.log('template === ', template);
     this.temp_id = template.Id;
-    this.http.get(template.Path, { responseType: 'text' }).subscribe(
+    this.http.get(template.Path, {responseType: 'text'}).subscribe(
       (tempContent) => {
         this.templateContent = tempContent;
         const selectedTempData = {
