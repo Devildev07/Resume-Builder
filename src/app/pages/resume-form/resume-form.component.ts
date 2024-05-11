@@ -418,7 +418,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       this.allResumeData = {};
       try {
         await this.commonService.uploadFile()
-        const base64Image = this.commonService.getLocalStorage('uploadedImageBase64')
+        const base64Image = this.commonService.getLocalStorage('resumeFormImage')
 
         this.allResumeData = {
           formBuilder: this.resumeFormGroup.value,

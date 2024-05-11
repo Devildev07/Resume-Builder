@@ -42,7 +42,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+    // console.log("this.commonService.userProfileImage", this.commonService.userProfileImage)
   }
 
   toggleTheme() {

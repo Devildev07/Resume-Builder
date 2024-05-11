@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonServicesService } from 'src/app/services/common-services.service';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import {Component, OnInit} from '@angular/core';
+import {CommonServicesService} from 'src/app/services/common-services.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
 import {
   FormBuilder,
   FormsModule,
@@ -29,7 +29,9 @@ export class ProfileComponent implements OnInit {
   constructor(
     public commonService: CommonServicesService,
     private formBuilder: FormBuilder
-  ) {}
+  ) {
+  }
+
   ngOnInit(): void {
     this.getLocalResumeData = this.commonService.getLocalStorage(
       'setLocalResumeFormData'
@@ -179,17 +181,24 @@ export class ProfileComponent implements OnInit {
     return dateTimeString ? dateTimeString.split('T')[0] : '';
   }
 
-  submitProfileForm() {
+  async submitProfileForm() {
     if (this.profileForm.valid) {
       this.allProfileData = {};
-      this.allProfileData = {
-        formBuilder: this.profileForm.value,
-      };
-      this.commonService.setLocalStorage(
-        'setLocalProfileData',
-        this.allProfileData
-      );
-      console.log('firstFormGroup data here', this.allProfileData);
+      try {
+        await this.commonService.uploadFile()
+        const base64Image = this.commonService.getLocalStorage('profileImage')
+        this.allProfileData = {
+          formBuilder: this.profileForm.value,
+          profileImage: base64Image ? base64Image : ''
+        };
+        this.commonService.setLocalStorage(
+          'setLocalProfileData',
+          this.allProfileData
+        );
+        console.log('firstFormGroup data here', this.allProfileData);
+      } catch (error) {
+      }
+
     } else {
       console.log('firstFormGroup not have valid enteries');
     }

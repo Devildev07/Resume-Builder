@@ -15,6 +15,7 @@ export class CommonServicesService implements OnInit {
   currentUrl?: string;
   selectedTemplateArray: any[] = [];
   userProfileImage: any;
+  userResumeProfileImage: any;
 
   selectedFile: File | null | any = null;
   imageUrl: string | ArrayBuffer | null = null;
@@ -77,8 +78,12 @@ export class CommonServicesService implements OnInit {
   }
 
   profilePicUpdate() {
-    if (this.getLocalStorage('uploadedImageBase64')) {
-      this.userProfileImage = this.getLocalStorage('uploadedImageBase64').base64Image
+    if (this.getLocalStorage('resumeFormImage')) {
+      this.userResumeProfileImage = this.getLocalStorage('resumeFormImage').base64Image
+      // console.log("userResumeProfileImage", this.userResumeProfileImage)
+    }
+    if (this.getLocalStorage('profileImage')) {
+      this.userProfileImage = this.getLocalStorage('profileImage').base64Image
       // console.log("userProfileImage", this.userProfileImage)
     }
   }
@@ -126,8 +131,10 @@ export class CommonServicesService implements OnInit {
               fileType: this.selectedFile.type,
               uploadDate: new Date().toISOString(),
             };
-            if (imageObject != null) {
-              localStorage.setItem('uploadedImageBase64', JSON.stringify(imageObject));
+            if (this.currentUrl === '/dashboard/builder') {
+              localStorage.setItem('resumeFormImage', JSON.stringify(imageObject));
+            } else if (this.currentUrl === '/dashboard/profile') {
+              localStorage.setItem('profileImage', JSON.stringify(imageObject));
             }
             resolve();
           };
