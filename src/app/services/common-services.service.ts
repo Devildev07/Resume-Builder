@@ -14,8 +14,11 @@ export class CommonServicesService implements OnInit {
   superAdmin = 'Dewanshu';
   currentUrl?: string;
   selectedTemplateArray: any[] = [];
+
   userProfileImage: any;
   userResumeProfileImage: any;
+  userProfileImgName: any;
+  userProfileImgSize: any;
 
   selectedFile: File | null | any = null;
   imageUrl: string | ArrayBuffer | null = null;
@@ -84,6 +87,8 @@ export class CommonServicesService implements OnInit {
     }
     if (this.getLocalStorage('profileImage')) {
       this.userProfileImage = this.getLocalStorage('profileImage').base64Image
+      this.userProfileImgName = this.getLocalStorage('profileImage').fileName
+      this.userProfileImgSize = Math.round(this.getLocalStorage('profileImage').fileSize / 1024)
       // console.log("userProfileImage", this.userProfileImage)
     }
   }

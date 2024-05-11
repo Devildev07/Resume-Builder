@@ -25,166 +25,194 @@
           [formGroup]="profileForm.get('personalDetails')"
           class="flex gap-4 flex-wrap"
         >
-          <div class="basis-80 grow">
-            <span class="block text-base font-medium pb-1"> Upload Your Profile Picture </span>
+          <div class="flex flex-row-reverse flex-wrap basis-full gap-4">
+            <div class="basis-52 grow">
+              <div class="">
+                <span class="block text-base font-medium pb-1"> Upload Your Profile Picture </span>
 
-            <div class="profilePic flex mb-2">
-              <div class=" basis-full flex flex-col  gap-2.5">
-                <div
-                  class="h-52 w-full border-blue-100 border-2 rounded-lg overflow-hidden flex items-center flex-col p-2">
-                  @if (this.commonService.selectedFile) {
-                    <img [src]=" this.commonService.imageUrl" alt="Uploaded Image"
-                         class="object-contain object-center h-[-webkit-fill-available] rounded-md">
-                  } @else {
-                    <img alt="Uploaded Image"
-                         class="object-contain object-center p-6 h-[-webkit-fill-available] bg-gray-100 dark:bg-gray-50 rounded-md"
-                         src="../../../assets/Svg/user.svg">
-                  }
-                </div>
-                @if (this.commonService.selectedFile) {
-                  <div>
-                    <div class="flex justify-between mb-1">
-        <span
-          class="text-base font-medium text-blue-700 dark:text-white w-5/6">{{ this.commonService.selectedFile.name }}</span>
-                      <span
-                        class="text-sm font-medium text-blue-700 dark:text-white">{{ this.commonService.uploadProgress }}
-                        %</span>
+                <div class="profilePic flex mb-2">
+                  <div class=" basis-full flex flex-col  gap-2.5">
+                    <div
+                      class="h-52 w-full border-blue-100 border-2 rounded-lg overflow-hidden flex items-center flex-col p-2">
+                      @if (commonService.selectedFile) {
+                        <img [src]=" commonService.imageUrl" alt="Uploaded Image"
+                             class="object-contain object-center h-[-webkit-fill-available] rounded-md">
+                      } @else if (commonService.userProfileImage) {
+                        <img [src]=" commonService.userProfileImage" alt="Uploaded Image"
+                             class="object-contain object-center h-[-webkit-fill-available] rounded-md">
+                      } @else {
+                        <img alt="Uploaded Image"
+                             class="object-contain object-center p-6 h-[-webkit-fill-available] bg-gray-100 dark:bg-gray-50 rounded-md"
+                             src="../../../assets/Svg/user.svg">
+                      }
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                      <div class="bg-blue-600 h-2.5 rounded-full" [style.width.%]="commonService.uploadProgress"></div>
+                    @if (commonService.selectedFile) {
+                      <div>
+                        <div class="flex justify-between mb-1">
+                          <span class="text-base font-medium text-blue-700 dark:text-white w-5/6 uppercase">
+                            {{ this.commonService.selectedFile.name }}
+                          </span>
+                          <span class="text-sm font-medium text-blue-700 dark:text-white">
+                            {{ this.commonService.uploadProgress }}
+                            %</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                          <div class="bg-blue-600 h-2.5 rounded-full"
+                               [style.width.%]="commonService.uploadProgress"></div>
+                        </div>
+                      </div>
+                    } @else if (commonService.userProfileImage) {
+                      <div>
+                        <div class="flex justify-between mb-1">
+                          <span class="text-base font-medium text-blue-700 dark:text-white w-5/6 uppercase">
+                            {{ this.commonService.userProfileImgName }}
+                          </span>
+                          <span class="text-sm font-medium text-blue-700 dark:text-white">
+                            {{ this.commonService.userProfileImgSize }}
+                            KB</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                          <div class="bg-blue-600 h-2.5 rounded-full"
+                               [style.width.%]="commonService.uploadProgress"></div>
+                        </div>
+                      </div>
+                    }
+                    <div class="flex flex-col  w-full">
+                      <label
+                        class="cust-file-input w-full"
+                        for="dropzone-file">
+                        <div class="flex gap-2.5 items-center justify-center p-2">
+                          <svg aria-hidden="true" class="w-8 h-8  text-gray-500 dark:text-gray-400" fill="none"
+                               viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2"/>
+                          </svg>
+                          <p class=" text-sm text-gray-500 dark:text-gray-400"><span
+                            class="font-semibold">Click to upload</span>
+                          </p>
+                        </div>
+                        <input (change)=" this.commonService.onFileSelected($event)" accept="image/*" class="hidden"
+                               id="dropzone-file"
+                               type="file"/>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 pb-2">PNG, JPG (MAX. 800x400px)</p>
+                      </label>
+
                     </div>
                   </div>
-                }
-                <div class="flex flex-col  w-full">
-                  <label
-                    class="cust-file-input w-full"
-                    for="dropzone-file">
-                    <div class="flex gap-2.5 items-center justify-center p-2">
-                      <svg aria-hidden="true" class="w-8 h-8  text-gray-500 dark:text-gray-400" fill="none"
-                           viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                          stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2"/>
-                      </svg>
-                      <p class=" text-sm text-gray-500 dark:text-gray-400"><span
-                        class="font-semibold">Click to upload</span>
-                      </p>
-                    </div>
-                    <input (change)=" this.commonService.onFileSelected($event)" accept="image/*" class="hidden"
-                           id="dropzone-file"
-                           type="file"/>
-                    <p class="text-xs text-gray-500 dark:text-gray-400 pb-2">PNG, JPG (MAX. 800x400px)</p>
-                  </label>
 
                 </div>
               </div>
-
             </div>
-          </div>
-          <div class="basis-80 grow">
-            <label for="firstName" class="block text-sm font-medium">
-              First name
-            </label>
-            <div class="mt-1 dark:text-slate-800">
-              <input
-                id="firstName"
-                type="text"
-                autocomplete="name"
-                formControlName="firstName"
-                required
-                placeholder="First name"
-                class="cust-input-box"
-              />
-            </div>
-          </div>
-          <div class="basis-80 grow">
-            <label for="lastName" class="block text-sm font-medium">
-              Last name
-            </label>
-            <div class="mt-1 dark:text-slate-800">
-              <input
-                id="lastName"
-                type="text"
-                autocomplete="family-name"
-                formControlName="lastName"
-                required
-                placeholder="Last name"
-                class="cust-input-box"
-              />
-            </div>
-          </div>
-          <div class="basis-80 grow">
-            <label for="email" class="block text-sm font-medium">
-              Email address
-            </label>
-            <div class="mt-1 dark:text-slate-800">
-              <input
-                id="email"
-                type="email"
-                autocomplete="email"
-                formControlName="email"
-                required
-                placeholder="Email"
-                class="cust-input-box"
-              />
-            </div>
-          </div>
-          <div class="basis-80 grow">
-            <label for="phone" class="block text-sm font-medium"> Phone </label>
-            <div class="mt-1 dark:text-slate-800">
-              <input
-                id="phone"
-                type="tel"
-                autocomplete="tel"
-                formControlName="phone"
-                required
-                placeholder="Phone"
-                class="cust-input-box"
-              />
-            </div>
-          </div>
-          <!-- datePicker -->
-          <div class="basis-80 grow">
-            <label class="block text-sm font-medium" for="birthDate">
-              Birth Date
-            </label>
-            <div class="mt-1 dark:text-slate-800 relative">
-              <input
-                [matDatepicker]="picker"
-                autocomplete="bday"
-                class="cust-input-box"
-                formControlName="birthDate"
-                id="birthDate"
-                placeholder="Birth Date"
-                required
-              />
-              <div class="absolute top-0 right-1 w-12">
-                <mat-datepicker-toggle
-                  [for]="picker"
-                  matIconSuffix
-                ></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+            <div class="flex flex-wrap gap-4 basis-96 grow">
+              <div class="basis-80 grow">
+                <label for="firstName" class="block text-sm font-medium">
+                  First name
+                </label>
+                <div class="mt-1 dark:text-slate-800">
+                  <input
+                    id="firstName"
+                    type="text"
+                    autocomplete="name"
+                    formControlName="firstName"
+                    required
+                    placeholder="First name"
+                    class="cust-input-box"
+                  />
+                </div>
+              </div>
+              <div class="basis-80 grow">
+                <label for="lastName" class="block text-sm font-medium">
+                  Last name
+                </label>
+                <div class="mt-1 dark:text-slate-800">
+                  <input
+                    id="lastName"
+                    type="text"
+                    autocomplete="family-name"
+                    formControlName="lastName"
+                    required
+                    placeholder="Last name"
+                    class="cust-input-box"
+                  />
+                </div>
+              </div>
+              <div class="basis-80 grow">
+                <label for="email" class="block text-sm font-medium">
+                  Email address
+                </label>
+                <div class="mt-1 dark:text-slate-800">
+                  <input
+                    id="email"
+                    type="email"
+                    autocomplete="email"
+                    formControlName="email"
+                    required
+                    placeholder="Email"
+                    class="cust-input-box"
+                  />
+                </div>
+              </div>
+              <div class="basis-80 grow">
+                <label for="phone" class="block text-sm font-medium"> Phone </label>
+                <div class="mt-1 dark:text-slate-800">
+                  <input
+                    id="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    formControlName="phone"
+                    required
+                    placeholder="Phone"
+                    class="cust-input-box"
+                  />
+                </div>
+              </div>
+              <!-- datePicker -->
+              <div class="basis-80 grow">
+                <label class="block text-sm font-medium" for="birthDate">
+                  Birth Date
+                </label>
+                <div class="mt-1 dark:text-slate-800 relative">
+                  <input
+                    [matDatepicker]="picker"
+                    autocomplete="bday"
+                    class="cust-input-box"
+                    formControlName="birthDate"
+                    id="birthDate"
+                    placeholder="Birth Date"
+                    required
+                  />
+                  <div class="absolute top-0 right-1 w-12">
+                    <mat-datepicker-toggle
+                      [for]="picker"
+                      matIconSuffix
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </div>
+                </div>
+              </div>
+              <!-- datePicker -->
+              <div class="basis-80 grow">
+                <label for="nationality" class="block text-sm font-medium">
+                  Nationality
+                </label>
+                <div class="mt-1 dark:text-slate-800">
+                  <input
+                    id="nationality"
+                    type="text"
+                    autocomplete="on"
+                    formControlName="nationality"
+                    required
+                    placeholder="Nationality"
+                    class="cust-input-box"
+                  />
+                </div>
               </div>
             </div>
           </div>
-          <!-- datePicker -->
-          <div class="basis-80 grow">
-            <label for="nationality" class="block text-sm font-medium">
-              Nationality
-            </label>
-            <div class="mt-1 dark:text-slate-800">
-              <input
-                id="nationality"
-                type="text"
-                autocomplete="on"
-                formControlName="nationality"
-                required
-                placeholder="Nationality"
-                class="cust-input-box"
-              />
-            </div>
-          </div>
+
+
           <div class="basis-80 grow">
             <label for="address" class="block text-sm font-medium">
               Address
