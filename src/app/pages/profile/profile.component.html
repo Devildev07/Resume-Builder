@@ -1,253 +1,264 @@
 <h1 class="text-3xl font-bold pt-6 mt-10 sm:mt-0 sm:pt-0">Account & Profile</h1>
 <div class="flex py-4">
   @for (tab of tabs; track $index) {
-  <button
-    [class.border-blue-500]="activeTab === $index"
-    [class.text-blue-500]="activeTab === $index"
-    class="p-2 border-b-2 poppins-semibold"
-    (click)="activeTab = $index"
-  >
-    {{ tab }}
-  </button>
+    <button
+      [class.border-blue-500]="activeTab === $index"
+      [class.text-blue-500]="activeTab === $index"
+      class="p-2 border-b-2 poppins-semibold"
+      (click)="activeTab = $index"
+    >
+      {{ tab }}
+    </button>
   }
 </div>
 <div class="pb-4">
   @if (activeTab === 0) {
-  <div class="p-4 bg-gray-100 dark:bg-slate-800 rounded-md">
-    <h3>Profile Info</h3>
-    <form
-      (ngSubmit)="submitProfileForm()"
-      [formGroup]="profileForm"
-      autocomplete="on"
-      class="space-y-6 mt-4"
-    >
-      <div
-        [formGroup]="profileForm.get('personalDetails')"
-        class="flex gap-4 flex-wrap"
+    <div class="p-4 bg-gray-100 dark:bg-slate-800 rounded-md">
+      <h3>Profile Info</h3>
+      <form
+        (ngSubmit)="submitProfileForm()"
+        [formGroup]="profileForm"
+        autocomplete="on"
+        class="space-y-6 mt-4"
       >
-        <div class="basis-80 grow">
-          <label for="firstName" class="block text-sm font-medium">
-            First name
-          </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="firstName"
-              type="text"
-              autocomplete="name"
-              formControlName="firstName"
-              required
-              placeholder="First name"
-              class="cust-input-box"
-            />
+        <div
+          [formGroup]="profileForm.get('personalDetails')"
+          class="flex gap-4 flex-wrap"
+        >
+          <div class="basis-80 grow">
+            <label for="firstName" class="block text-sm font-medium">
+              First name
+            </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="firstName"
+                type="text"
+                autocomplete="name"
+                formControlName="firstName"
+                required
+                placeholder="First name"
+                class="cust-input-box"
+              />
+            </div>
           </div>
-        </div>
-        <div class="basis-80 grow">
-          <label for="lastName" class="block text-sm font-medium">
-            Last name
-          </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="lastName"
-              type="text"
-              autocomplete="family-name"
-              formControlName="lastName"
-              required
-              placeholder="Last name"
-              class="cust-input-box"
-            />
+          <div class="basis-80 grow">
+            <label for="lastName" class="block text-sm font-medium">
+              Last name
+            </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="lastName"
+                type="text"
+                autocomplete="family-name"
+                formControlName="lastName"
+                required
+                placeholder="Last name"
+                class="cust-input-box"
+              />
+            </div>
           </div>
-        </div>
-        <div class="basis-80 grow">
-          <label for="email" class="block text-sm font-medium">
-            Email address
-          </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="email"
-              type="email"
-              autocomplete="email"
-              formControlName="email"
-              required
-              placeholder="Email"
-              class="cust-input-box"
-            />
+          <div class="basis-80 grow">
+            <label for="email" class="block text-sm font-medium">
+              Email address
+            </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="email"
+                type="email"
+                autocomplete="email"
+                formControlName="email"
+                required
+                placeholder="Email"
+                class="cust-input-box"
+              />
+            </div>
           </div>
-        </div>
-        <div class="basis-80 grow">
-          <label for="phone" class="block text-sm font-medium"> Phone </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="phone"
-              type="tel"
-              autocomplete="tel"
-              formControlName="phone"
-              required
-              placeholder="Phone"
-              class="cust-input-box"
-            />
+          <div class="basis-80 grow">
+            <label for="phone" class="block text-sm font-medium"> Phone </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="phone"
+                type="tel"
+                autocomplete="tel"
+                formControlName="phone"
+                required
+                placeholder="Phone"
+                class="cust-input-box"
+              />
+            </div>
           </div>
-        </div>
-        <!-- datePicker -->
-        <div class="basis-80 grow">
-          <label class="block text-sm font-medium" for="birthDate">
-            Birth Date
-          </label>
-          <div class="mt-1 dark:text-slate-800 relative">
-            <input
-              [matDatepicker]="picker"
-              autocomplete="bday"
-              class="cust-input-box"
-              formControlName="birthDate"
-              id="birthDate"
-              placeholder="Birth Date"
-              required
-            />
-            <div class="absolute top-0 right-1 w-12">
-              <mat-datepicker-toggle
-                [for]="picker"
-                matIconSuffix
-              ></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+          <!-- datePicker -->
+          <div class="basis-80 grow">
+            <label class="block text-sm font-medium" for="birthDate">
+              Birth Date
+            </label>
+            <div class="mt-1 dark:text-slate-800 relative">
+              <input
+                [matDatepicker]="picker"
+                autocomplete="bday"
+                class="cust-input-box"
+                formControlName="birthDate"
+                id="birthDate"
+                placeholder="Birth Date"
+                required
+              />
+              <div class="absolute top-0 right-1 w-12">
+                <mat-datepicker-toggle
+                  [for]="picker"
+                  matIconSuffix
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </div>
+            </div>
+          </div>
+          <!-- datePicker -->
+          <div class="basis-80 grow">
+            <label for="nationality" class="block text-sm font-medium">
+              Nationality
+            </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="nationality"
+                type="text"
+                autocomplete="on"
+                formControlName="nationality"
+                required
+                placeholder="Nationality"
+                class="cust-input-box"
+              />
+            </div>
+          </div>
+          <div class="basis-80 grow">
+            <label for="address" class="block text-sm font-medium">
+              Address
+            </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="address"
+                type="text"
+                autocomplete="address-level1"
+                formControlName="address"
+                required
+                placeholder="Address"
+                class="cust-input-box"
+              />
+            </div>
+          </div>
+          <div class="basis-80 grow">
+            <label for="city" class="block text-sm font-medium"> City </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="city"
+                type="text"
+                autocomplete="on"
+                formControlName="city"
+                required
+                placeholder="City"
+                class="cust-input-box"
+              />
+            </div>
+          </div>
+          <div class="basis-80 grow">
+            <label for="postalCode" class="block text-sm font-medium">
+              Postal Code
+            </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="postalCode"
+                type="text"
+                autocomplete="postal-code"
+                formControlName="postalCode"
+                required
+                placeholder="Postal Code"
+                class="cust-input-box"
+              />
+            </div>
+          </div>
+          <div class="basis-80 grow">
+            <label for="country" class="block text-sm font-medium">
+              Country
+            </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="country"
+                type="text"
+                autocomplete="country"
+                formControlName="country"
+                required
+                placeholder="Country"
+                class="cust-input-box"
+              />
+            </div>
+          </div>
+          <div class="basis-80 grow">
+            <label for="website" class="block text-sm font-medium">
+              Website
+            </label>
+            <div class="mt-1 dark:text-slate-800">
+              <input
+                id="website"
+                type="url"
+                autocomplete="url"
+                formControlName="website"
+                required
+                placeholder="Website Url"
+                class="cust-input-box"
+              />
             </div>
           </div>
         </div>
-        <!-- datePicker -->
-        <div class="basis-80 grow">
-          <label for="nationality" class="block text-sm font-medium">
-            Nationality
-          </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="nationality"
-              type="text"
-              autocomplete="on"
-              formControlName="nationality"
-              required
-              placeholder="Nationality"
-              class="cust-input-box"
-            />
-          </div>
-        </div>
-        <div class="basis-80 grow">
-          <label for="address" class="block text-sm font-medium">
-            Address
-          </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="address"
-              type="text"
-              autocomplete="address-level1"
-              formControlName="address"
-              required
-              placeholder="Address"
-              class="cust-input-box"
-            />
-          </div>
-        </div>
-        <div class="basis-80 grow">
-          <label for="city" class="block text-sm font-medium"> City </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="city"
-              type="text"
-              autocomplete="on"
-              formControlName="city"
-              required
-              placeholder="City"
-              class="cust-input-box"
-            />
-          </div>
-        </div>
-        <div class="basis-80 grow">
-          <label for="postalCode" class="block text-sm font-medium">
-            Postal Code
-          </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="postalCode"
-              type="text"
-              autocomplete="postal-code"
-              formControlName="postalCode"
-              required
-              placeholder="Postal Code"
-              class="cust-input-box"
-            />
-          </div>
-        </div>
-        <div class="basis-80 grow">
-          <label for="country" class="block text-sm font-medium">
-            Country
-          </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="country"
-              type="text"
-              autocomplete="country"
-              formControlName="country"
-              required
-              placeholder="Country"
-              class="cust-input-box"
-            />
-          </div>
-        </div>
-        <div class="basis-80 grow">
-          <label for="website" class="block text-sm font-medium">
-            Website
-          </label>
-          <div class="mt-1 dark:text-slate-800">
-            <input
-              id="website"
-              type="url"
-              autocomplete="url"
-              formControlName="website"
-              required
-              placeholder="Website Url"
-              class="cust-input-box"
-            />
-          </div>
-        </div>
-      </div>
-      <!--  -->
+        <!--  -->
 
-      <div>
-        <button type="submit" class="success-btn">Save</button>
-      </div>
-    </form>
-  </div>
-  } @if (activeTab === 1) {
-  <div class="p-4 bg-gray-100 dark:bg-slate-800 rounded-md">
-    <h3>Account Info</h3>
-    <div class="flex flex-col pt-3 gap-3 sm:items-center sm:gap-6 sm:flex-row">
-      <div class="sm:basis-24">
-        <img
-          src="../../../assets/Svg/user.svg"
-          alt=""
-          class="p-4 rounded-full bg-white w-24 h-24 sm:w-auto sm:h-auto"
-        />
-      </div>
-      <div class="sm:basis-96">
-        <div class="flex gap-2 pb-1">
-          <strong class="basis-48">Account Id:</strong>
-          <span class="basis-72">9876543210</span>
+        <div>
+          <button type="submit" class="success-btn">Save</button>
         </div>
-        <!--  -->
-        <div class="flex gap-2 pb-1">
-          <strong class="basis-48">Account Email:</strong>
-          <span class="basis-72">abc&#64;gmail.com</span>
-        </div>
-        <!--  -->
-        <div class="flex gap-2 pb-1">
-          <strong class="basis-48">Account Type:</strong>
-          <span class="basis-72">Basic</span>
-        </div>
-        <!--  -->
-      </div>
+      </form>
     </div>
-    <button
-      class="rounded-md bg-red-500 py-2 px-4 mt-4 text-white hover:bg-red-700"
-    >
-      Request Account Deletion
-    </button>
-  </div>
+  }
+  @if (activeTab === 1) {
+    <div class="p-4 bg-gray-100 dark:bg-slate-800 rounded-md">
+      <h3>Account Info</h3>
+      <div class="flex flex-col pt-3 gap-3 sm:items-center sm:gap-6 sm:flex-row">
+        <div class="sm:basis-24 h-24 sm:w-14 w-24">
+
+          @if (commonService.userProfileImage) {
+            <img
+              [src]="commonService.userProfileImage"
+              alt=""
+              class=" h-full w-full bg-gray-50 rounded-full object-cover object-top"
+            />
+          } @else {
+            <img
+              src="../../../assets/Svg/user.svg"
+              alt=""
+              class="max-w-full bg-gray-50 p-4 rounded-full  w-24 h-24 sm:w-auto sm:h-auto"
+            />
+          }
+
+        </div>
+        <div class="sm:basis-96">
+          <div class="flex gap-2 pb-1">
+            <strong class="basis-48">Account Id:</strong>
+            <span class="basis-72">9876543210</span>
+          </div>
+          <!--  -->
+          <div class="flex gap-2 pb-1">
+            <strong class="basis-48">Account Email:</strong>
+            <span class="basis-72">abc&#64;gmail.com</span>
+          </div>
+          <!--  -->
+          <div class="flex gap-2 pb-1">
+            <strong class="basis-48">Account Type:</strong>
+            <span class="basis-72">Basic</span>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+      <button
+        class="rounded-md bg-red-500 py-2 px-4 mt-4 text-white hover:bg-red-700"
+      >
+        Request Account Deletion
+      </button>
+    </div>
   }
 </div>

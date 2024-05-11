@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { CommonServicesService } from 'src/app/services/common-services.service';
-import { RouterModule } from '@angular/router';
-import { TemplateListComponent } from 'src/app/components/template-list/template-list.component';
-
+import {Component, OnInit} from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+import {Router, RouterLink, RouterLinkActive} from '@angular/router';
+import {CommonServicesService} from 'src/app/services/common-services.service';
+import {RouterModule} from '@angular/router';
+import {TemplateListComponent} from 'src/app/components/template-list/template-list.component';
 
 
 @Component({
@@ -14,7 +13,7 @@ import { TemplateListComponent } from 'src/app/components/template-list/template
   templateUrl: './user-dashboard.component.html',
   styleUrl: './user-dashboard.component.css',
 })
-export class UserDashboardComponent {
+export class UserDashboardComponent implements OnInit {
   savedTheme: any = 'light';
 
   dashMenu = [
@@ -39,7 +38,12 @@ export class UserDashboardComponent {
     private sanitizer: DomSanitizer,
     public commonService: CommonServicesService,
     public route: Router
-  ) { }
+  ) {
+  }
+
+  ngOnInit() {
+   
+  }
 
   toggleTheme() {
     const html = document.documentElement;

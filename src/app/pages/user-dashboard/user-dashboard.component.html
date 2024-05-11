@@ -7,17 +7,17 @@
         class="toggleSideMenu text-blue-500 bg-slate-50 dark:bg-slate-800 shadow-xl"
       >
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
           class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
             stroke-linecap="round"
             stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
           />
         </svg>
       </div>
@@ -33,27 +33,27 @@
               >
                 <!-- <div class="toggleSideMenu bg-slate-50"> -->
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
                   class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
                   />
                 </svg>
                 <!-- </div> -->
               </div>
               <div
+                [routerLinkActiveOptions]="{ exact: true }"
+                ariaCurrentWhenActive="page"
+                class="iconText flex gap-2 justify-between items-center basis-48 relative"
                 routerLink="/home"
                 routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                [routerLinkActiveOptions]="{ exact: true }"
-                class="iconText flex gap-2 justify-between items-center basis-48 relative"
               >
                 <h3 class="font-bold text-xl">Resumify</h3>
               </div>
@@ -66,59 +66,68 @@
           </div>
           <!--  -->
           @for (dMenu of dashMenu; track $index) {
-          <div class="relative dashMenu cursor-pointer">
-            <div
-              routerLink="{{ dMenu.pageUrl }}"
-              routerLinkActive="active"
-              ariaCurrentWhenActive="page"
-              [routerLinkActiveOptions]="{ exact: true }"
-              class="flex gap-3 items-center m-2 px-2 hover:bg-slate-100 rounded-md dark:hover:text-blue-500 transition-all"
-            >
+            <div class="relative dashMenu cursor-pointer">
               <div
-                class="icon basis-14 flex items-center justify-center p-2 text-blue-500"
+                routerLink="{{ dMenu.pageUrl }}"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                [routerLinkActiveOptions]="{ exact: true }"
+                class="flex gap-3 items-center m-2 px-2 hover:bg-slate-100 rounded-md dark:hover:text-blue-500 transition-all"
               >
-                <div [innerHTML]="sanitizeSVG(dMenu.icon)"></div>
+                <div
+                  class="icon basis-14 flex items-center justify-center p-2 text-blue-500"
+                >
+                  <div [innerHTML]="sanitizeSVG(dMenu.icon)"></div>
+                </div>
+                <div
+                  class="iconText flex gap-2 justify-between items-center basis-48"
+                >
+                  <h3 class="font-medium capitalize text-base">
+                    {{ dMenu.menu }}
+                  </h3>
+                </div>
               </div>
-              <div
-                class="iconText flex gap-2 justify-between items-center basis-48"
+              <span
+                class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
               >
-                <h3 class="font-medium capitalize text-base">
-                  {{ dMenu.menu }}
-                </h3>
-              </div>
-            </div>
-            <span
-              class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
-            >
               {{ dMenu.menu }}
             </span>
-          </div>
+            </div>
           }
         </div>
         <div class="bottomBox">
           <div
-            class="flex gap-3 items-center m-2 bg-gray-100 dark:bg-gray-700 rounded-md px-2 relative cursor-pointer"
+            class="flex gap-3 items-center m-2 bg-gray-100 dark:bg-gray-700 rounded-md overflow-hidden px-2 relative cursor-pointer"
           >
             <div
+              [routerLinkActiveOptions]="{ exact: true }"
+              ariaCurrentWhenActive="page"
               class="userImg basis-16 px-1 py-3"
               routerLink="/dashboard/profile"
               routerLinkActive="active"
-              ariaCurrentWhenActive="page"
-              [routerLinkActiveOptions]="{ exact: true }"
             >
-              <img
-                src="../../../assets/Svg/user.svg"
-                alt=""
-                class="max-w-full bg-gray-50 p-2 rounded-full"
-              />
+              @if (commonService.userProfileImage) {
+                <img
+                  [src]="commonService.userProfileImage"
+                  alt=""
+                  class=" h-11 w-14 bg-gray-50 rounded-full object-cover object-top"
+                />
+              } @else {
+                <img
+                  src="../../../assets/Svg/user.svg"
+                  alt=""
+                  class="max-w-full bg-gray-50 p-2 rounded-full"
+                />
+              }
+
             </div>
             <div class="user flex gap-2 justify-between items-center basis-48">
               <div
+                [routerLinkActiveOptions]="{ exact: true }"
+                ariaCurrentWhenActive="page"
                 class=""
                 routerLink="/dashboard/profile"
                 routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                [routerLinkActiveOptions]="{ exact: true }"
               >
                 <h3 class="font-bold text-xl">
                   {{ commonService.superAdmin }}
@@ -126,51 +135,51 @@
               </div>
               <div class="toggleTheme py-1.5 pr-2">
                 <button
-                  class="theme rounded-full p-1 border hover:rotate-360 duration-300"
                   (click)="toggleTheme()"
+                  class="theme rounded-full p-1 border hover:rotate-360 duration-300"
                 >
                   @if (savedTheme === 'light') {
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-                    />
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-5 h-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+                      />
+                    </svg>
                   } @else if (savedTheme === 'dark') {
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                    />
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-5 h-5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                      />
+                    </svg>
                   }
                 </button>
                 @if (savedTheme === 'light') {
-                <span
-                  class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
-                >
+                  <span
+                    class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
+                  >
                   Dark
                 </span>
                 } @else if (savedTheme === 'dark') {
-                <span
-                  class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
-                >
+                  <span
+                    class="tooltip shadow-md font-medium text-xs capitalize whitespace-nowrap bg-gray-600 text-gray-50 px-2 py-1 rounded-md"
+                  >
                   light
                 </span>
                 }
@@ -187,47 +196,47 @@
       <div class="mainArea">
         <div class="p-6">
           @if (commonService.currentUrl === '/dashboard') {
-          <div class="dashboardArea">
-            <h1 class="text-4xl font-bold pt-6 mt-10 sm:mt-0 sm:pt-0">
-              Hi {{ commonService.superAdmin }} 👋🏻...
-            </h1>
-            <p class="py-3">Start creating your fantastic resume here !</p>
-            <!--  -->
-            <div class="flex gap-3 flex-wrap sm:w-4/5 m-auto my-6">
-              <div
-                class="border-2 rounded-lg basis-56 grow h-32 flex items-center justify-center hover:ring-blue-500 hover:ring-2 hover:border-none cursor-pointer"
-                (click)="createResume()"
-              >
-                <h3 class="p-5 poppins-semibold">Create Resume</h3>
+            <div class="dashboardArea">
+              <h1 class="text-4xl font-bold pt-6 mt-10 sm:mt-0 sm:pt-0">
+                Hi {{ commonService.superAdmin }} 👋🏻...
+              </h1>
+              <p class="py-3">Start creating your fantastic resume here !</p>
+              <!--  -->
+              <div class="flex gap-3 flex-wrap sm:w-4/5 m-auto my-6">
+                <div
+                  class="border-2 rounded-lg basis-56 grow h-32 flex items-center justify-center hover:ring-blue-500 hover:ring-2 hover:border-none cursor-pointer"
+                  (click)="createResume()"
+                >
+                  <h3 class="p-5 poppins-semibold">Create Resume</h3>
+                </div>
+                <div
+                  class="border-2 disabled:opacity-75 rounded-lg basis-56 grow h-32 flex items-center justify-center hover:ring-blue-500 hover:ring-2 hover:border-none cursor-pointer group"
+                >
+                  <h3 class="p-5 poppins-semibold flex gap-2">
+                    Upload Resume
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-6 h-6 group-hover:text-blue-500"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"
+                      />
+                    </svg>
+                  </h3>
+                </div>
               </div>
-              <div
-                class="border-2 disabled:opacity-75 rounded-lg basis-56 grow h-32 flex items-center justify-center hover:ring-blue-500 hover:ring-2 hover:border-none cursor-pointer group"
-              >
-                <h3 class="p-5 poppins-semibold flex gap-2">
-                  Upload Resume
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-6 h-6 group-hover:text-blue-500"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"
-                    />
-                  </svg>
-                </h3>
-              </div>
-            </div>
-            <!--  -->
-            <p class="py-3 poppins-semibold text-2xl">Your Templates</p>
-            <!-- templates area-->
+              <!--  -->
+              <p class="py-3 poppins-semibold text-2xl">Your Templates</p>
+              <!-- templates area-->
 
-            <app-template-list></app-template-list>
-          </div>
+              <app-template-list></app-template-list>
+            </div>
           }
           <router-outlet></router-outlet>
         </div>

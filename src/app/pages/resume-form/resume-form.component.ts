@@ -52,9 +52,9 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
 
   getLocalResumeData: any;
 
-  selectedFile: File | null = null;
-  filePreview: string | ArrayBuffer | null = null;
-  uploadProgress: number = 0;
+  // selectedFile: File | null | any = null;
+  // imageUrl: string | ArrayBuffer | null = null;
+  // uploadProgress: number = 0;
 
   constructor(
     public commonService: CommonServicesService,
@@ -87,22 +87,75 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   get hobbyDetails(): FormArray {
     return this.resumeFormGroup.get('hobbyDetails') as FormArray;
   }
-  
-  onFileChange(event: any) {
-    const file = event.target.files?.[0];
-    if (file) {
-      this.selectedFile = file;
-      this.previewFile();
-    }
-  }
 
-  previewFile() {
-    const reader = new FileReader();
-    reader.readAsDataURL(this.selectedFile as File);
-    reader.onload = () => {
-      this.filePreview = reader.result;
-    };
-  }
+  // onFileSelected(event: any) {
+  //   this.selectedFile = event.target.files[0];
+  //   if (this.selectedFile) {
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       this.imageUrl = reader.result as string;
+  //     };
+  //     reader.readAsDataURL(this.selectedFile);
+  //   } else {
+  //     this.imageUrl = null;
+  //   }
+  // }
+
+  // async uploadFile(): Promise<void> {
+  //   return new Promise<void>((resolve, reject) => {
+  //     if (!this.selectedFile) {
+  //       console.error('No file selected!');
+  //       reject('No file selected!');
+  //       return;
+  //     }
+  //
+  //     const formData = new FormData();
+  //     formData.append('file', this.selectedFile);
+  //
+  //     let progress = 0;
+  //     const interval = setInterval(() => {
+  //       progress += 10;
+  //       this.uploadProgress = progress;
+  //       if (progress === 100) {
+  //         clearInterval(interval);
+  //
+  //         const reader = new FileReader();
+  //         reader.onload = () => {
+  //
+  //           const base64String = reader.result as string;
+  //           const imageObject = {
+  //             base64Image: base64String,
+  //             fileName: this.selectedFile.name,
+  //             fileSize: this.selectedFile.size,
+  //             fileType: this.selectedFile.type,
+  //             uploadDate: new Date().toISOString(),
+  //           };
+  //           if (imageObject != null) {
+  //             localStorage.setItem('uploadedImageBase64', JSON.stringify(imageObject));
+  //           }
+  //           resolve();
+  //         };
+  //         reader.readAsDataURL(this.selectedFile);
+  //
+  //         this.dialog.open(DialogBoxComponent, {
+  //           backdropClass: 'backdrop-blur',
+  //           width: '400px',
+  //           height: 'auto',
+  //           panelClass: 'rounded-lg',
+  //           data: {
+  //             dialogCss: 'success-dialog',
+  //             message: 'File uploaded successfully!',
+  //             buttonText: 'OK',
+  //             buttonCss: 'success-dialog-btn',
+  //           },
+  //         });
+  //
+  //         console.log('File uploaded successfully!');
+  //       }
+  //     }, 200);
+  //   });
+  // }
+
 
   ngOnInit() {
     this.getLocalResumeData = this.commonService.getLocalStorage(
@@ -360,18 +413,28 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     details.removeAt(i);
   }
 
-  submitResumeForm() {
+  async submitResumeForm() {
     if (this.resumeFormGroup.valid) {
       this.allResumeData = {};
-      this.allResumeData = {
-        formBuilder: this.resumeFormGroup.value,
-        title: this.resumeTitle,
-      };
-      this.commonService.setLocalStorage(
-        'setLocalResumeFormData',
-        this.allResumeData
-      );
-      console.log('firstFormGroup data here', this.allResumeData);
+      try {
+        await this.commonService.uploadFile()
+        const base64Image = this.commonService.getLocalStorage('uploadedImageBase64')
+
+        this.allResumeData = {
+          formBuilder: this.resumeFormGroup.value,
+          title: this.resumeTitle,
+          profileImage: base64Image ? base64Image : ''
+        };
+        this.commonService.setLocalStorage(
+          'setLocalResumeFormData',
+          this.allResumeData
+        );
+        console.log('firstFormGroup data here', this.allResumeData);
+      } catch (error) {
+        console.error('Error during file upload:', error);
+
+      }
+
     } else {
       console.log('firstFormGroup not have valid enteries');
     }
@@ -415,12 +478,6 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // extractDate(dateTimeString: string): string {
-  //   // const newExtractDate = moment(dateTimeString).format('MM-DD-YYYY');
-  //   // console.log("newExtractDate", newExtractDate);
-  //   moment(dateTimeString).format('MM-DD-YYYY');
-  //   return dateTimeString ? dateTimeString.split('T')[0] : '';
-  // }
   extractDate(dateTimeString: string): string {
     return dateTimeString ? moment(dateTimeString).format('YYYY-MM-DD') : '';
   }

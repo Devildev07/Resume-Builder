@@ -1,21 +1,36 @@
-import { Injectable } from '@angular/core';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Injectable, OnInit} from '@angular/core';
+import {AbstractControl, ValidationErrors} from '@angular/forms';
+import {NavigationEnd, Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {DialogBoxComponent} from "../modals/dialog-box/dialog-box.component";
+import {MatDialog} from "@angular/material/dialog";
+
 
 @Injectable({
   providedIn: 'root',
 })
-export class CommonServicesService {
+export class CommonServicesService implements OnInit {
   // canShowModal: boolean = false;
   superAdmin = 'Dewanshu';
   currentUrl?: string;
-  routerSubscription: any;
-  private sharedData: any;
   selectedTemplateArray: any[] = [];
+  userProfileImage: any;
 
-  constructor(public router: Router) {
+  selectedFile: File | null | any = null;
+  imageUrl: string | ArrayBuffer | null = null;
+  uploadProgress: number = 0;
+
+  constructor(
+    public router: Router,
+    public dialog: MatDialog,
+  ) {
     this.getCurrentUrl();
+    this.profilePicUpdate()
+  }
+
+  ngOnInit() {
+    this.profilePicUpdate()
+
   }
 
   // localStorage
@@ -32,9 +47,6 @@ export class CommonServicesService {
     localStorage.removeItem(key);
   }
 
-  ngOnDestroy() {
-    this.routerSubscription.unsubscribe();
-  }
 
   getCurrentUrl() {
     this.router.events.subscribe((event) => {
@@ -55,7 +67,7 @@ export class CommonServicesService {
           control.value &&
           !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
         ) {
-          observer.next({ invalidEmail: true });
+          observer.next({invalidEmail: true});
         } else {
           observer.next(null);
         }
@@ -63,4 +75,85 @@ export class CommonServicesService {
       }, 1000);
     });
   }
+
+  profilePicUpdate() {
+    if (this.getLocalStorage('uploadedImageBase64')) {
+      this.userProfileImage = this.getLocalStorage('uploadedImageBase64').base64Image
+      // console.log("userProfileImage", this.userProfileImage)
+    }
+  }
+
+  // file upload
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageUrl = reader.result as string;
+      };
+      reader.readAsDataURL(this.selectedFile);
+    } else {
+      this.imageUrl = null;
+    }
+  }
+
+  async uploadFile(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      if (!this.selectedFile) {
+        console.error('No file selected!');
+        reject('No file selected!');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', this.selectedFile);
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 10;
+        this.uploadProgress = progress;
+        if (progress === 100) {
+          clearInterval(interval);
+
+          const reader = new FileReader();
+          reader.onload = () => {
+
+            const base64String = reader.result as string;
+            const imageObject = {
+              base64Image: base64String,
+              fileName: this.selectedFile.name,
+              fileSize: this.selectedFile.size,
+              fileType: this.selectedFile.type,
+              uploadDate: new Date().toISOString(),
+            };
+            if (imageObject != null) {
+              localStorage.setItem('uploadedImageBase64', JSON.stringify(imageObject));
+            }
+            resolve();
+          };
+          reader.readAsDataURL(this.selectedFile);
+
+          this.dialog.open(DialogBoxComponent, {
+            backdropClass: 'backdrop-blur',
+            width: '400px',
+            height: 'auto',
+            panelClass: 'rounded-lg',
+            data: {
+              dialogCss: 'success-dialog',
+              message: 'File uploaded successfully!',
+              buttonText: 'OK',
+              buttonCss: 'success-dialog-btn',
+            },
+          });
+
+          this.profilePicUpdate()
+
+          console.log('File uploaded successfully!');
+        }
+      }, 200);
+    });
+  }
+
+
 }
+
