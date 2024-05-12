@@ -29,7 +29,6 @@
             <div class="basis-52 grow">
               <div class="">
                 <span class="block text-base font-medium pb-1"> Upload Your Profile Picture </span>
-
                 <div class="profilePic flex mb-2">
                   <div class=" basis-full flex flex-col  gap-2.5">
                     <div
@@ -134,6 +133,22 @@
                     formControlName="lastName"
                     required
                     placeholder="Last name"
+                    class="cust-input-box"
+                  />
+                </div>
+              </div>
+              <div class="basis-80 grow">
+                <label for="jobTitle" class="block text-sm font-medium">
+                  Designation
+                </label>
+                <div class="mt-1 dark:text-slate-800">
+                  <input
+                    id="jobTitle"
+                    type="text"
+                    autocomplete="on"
+                    formControlName="jobTitle"
+                    required
+                    placeholder="Your Designation"
                     class="cust-input-box"
                   />
                 </div>

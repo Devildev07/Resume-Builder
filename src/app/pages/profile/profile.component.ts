@@ -93,6 +93,9 @@ export class ProfileComponent implements OnInit {
             this.getLocalProfileData.formBuilder.personalDetails.nationality,
             Validators.required,
           ],
+          // userImg: [
+          //   this.getLocalProfileData.formBuilder.personalDetails.userImg,
+          // ],
         }),
       });
     } else if (
@@ -151,6 +154,9 @@ export class ProfileComponent implements OnInit {
             this.getLocalResumeData.formBuilder.personalDetails.nationality,
             Validators.required,
           ],
+          // userImg: [
+          //   this.getLocalResumeData.formBuilder.personalDetails.userImg,
+          // ],
         }),
       });
     } else {
@@ -158,7 +164,7 @@ export class ProfileComponent implements OnInit {
         personalDetails: this.formBuilder.group({
           firstName: ['', Validators.required],
           lastName: ['', Validators.required],
-          jobTitle: ['', Validators.required],
+          jobTitle: ['',],
           email: [
             '',
             Validators.required,
@@ -172,6 +178,7 @@ export class ProfileComponent implements OnInit {
           country: ['', Validators.required],
           website: [''],
           nationality: ['', Validators.required],
+          // userImg: [''],
         }),
       });
     }
@@ -182,6 +189,7 @@ export class ProfileComponent implements OnInit {
   }
 
   async submitProfileForm() {
+    console.log("this.profileForm.value", this.profileForm.value)
     if (this.profileForm.valid) {
       this.allProfileData = {};
       try {
