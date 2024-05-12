@@ -11,9 +11,8 @@ export class AppComponent {
   title = 'resume-builder';
 
   constructor(
-    public commonService: CommonServicesService
-  ) // public router: Router
-  {}
+    public commonService: CommonServicesService // public router: Router
+  ) {}
 
   ngOnInit() {}
 }

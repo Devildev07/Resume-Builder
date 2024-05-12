@@ -92,17 +92,21 @@ export class AuthModalComponent implements OnInit {
         const password = this.authForm?.get('password')?.value;
         const email = this.authForm?.get('email')?.value;
         console.log('password', password, 'email', email);
-
         const encryptPass = await this.authService.encryptPass(password);
 
-        // const user = await this.authService.registerUser(email, encryptPass);
+        let userData = {
+          email: email,
+          password: encryptPass,
+        };
 
-        // if (user) {
-        //   // this.router.navigate(['/']);
-        //   this.formMode = 'login';
-        // } else {
-        //   console.log('Registration failed. Provide correct values.');
-        // }
+        const user = await this.authService.registerUser(userData);
+
+        if (user) {
+          // this.router.navigate(['/']);
+          this.formMode = 'login';
+        } else {
+          console.log('Registration failed. Provide correct values.');
+        }
       }
     } catch (error) {
       console.log(error);

@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+// import { Firestore,collection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -8,27 +10,37 @@ export class AuthServiceService {
   userEmail: any = '';
   userId: any = '';
 
-  constructor() {}
+  // private firestore: Firestore = inject(Firestore);
+
+  constructor(private firestore: AngularFirestore) {}
 
   // auth-functionality starts here
   // registerUser
-  // async registerUser(email: string, password: string) {
-  //   return await
-  // }
+  async registerUser(userData: any): Promise<boolean> {
+    const randomId = '_Id' + Math.random().toString(36).substring(2);
+    console.log('randomId', randomId);
+
+    try {
+      await this.firestore.collection('users').doc(randomId).set(userData);
+      console.log('User registered successfully!');
+      return true;
+    } catch (error) {
+      console.error('Error registering user:', error);
+      return false;
+    }
+  }
 
   // signinUser
   // async loginUser(email: string, password: string) {
-  //   return await
+
   // }
 
   // signout
   // async signOutUser() {
-  //   return await
   // }
 
   // get current user
   // async getCurrentUser() {
-  //   return
   // }
 
   //encrypt password
