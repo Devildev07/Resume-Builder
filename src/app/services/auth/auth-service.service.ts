@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-
 
 @Injectable({
   providedIn: 'root',
@@ -10,51 +8,28 @@ export class AuthServiceService {
   userEmail: any = '';
   userId: any = '';
 
-  constructor(private ngFireAuth: AngularFireAuth) {
-    const item = localStorage.getItem('userData');
-    // console.log('item', item);
-    if (item != undefined && item != null) {
-      // let data = JSON.parse(JSON.parse(item));
-      let data = JSON.parse(item);
-      // console.log('data', typeof data, data);
-
-      if (data.isUserLogin) {
-        console.log('data', data);
-
-        this.isUserLogin = true;
-        console.log('isUserLogin', this.isUserLogin);
-
-        this.userEmail = data.user.user.email;
-        this.userId = data.user.user.uid;
-        console.log('userEmail', this.userId);
-        // console.log('isUserLogin', this.isUserLogin);
-      }
-    }
-  }
+  constructor() {}
 
   // auth-functionality starts here
   // registerUser
-  async registerUser(email: string, password: string) {
-    return await this.ngFireAuth.createUserWithEmailAndPassword(
-      email,
-      password
-    );
-  }
+  // async registerUser(email: string, password: string) {
+  //   return await
+  // }
 
   // signinUser
-  async loginUser(email: string, password: string) {
-    return await this.ngFireAuth.signInWithEmailAndPassword(email, password);
-  }
+  // async loginUser(email: string, password: string) {
+  //   return await
+  // }
 
   // signout
-  async signOutUser() {
-    return await this.ngFireAuth.signOut();
-  }
+  // async signOutUser() {
+  //   return await
+  // }
 
   // get current user
-  async getCurrentUser() {
-    return this.ngFireAuth.authState;
-  }
+  // async getCurrentUser() {
+  //   return
+  // }
 
   //encrypt password
   encryptPass(getPass: string) {
