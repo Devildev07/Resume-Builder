@@ -105,19 +105,104 @@ export class CommonServicesService implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         this.imageUrl = reader.result as string;
+        // console.log("this.imageUrl", this.imageUrl)
       };
       reader.readAsDataURL(this.selectedFile);
+      // console.log("reader.readAsDataURL(this.selectedFile)", this.selectedFile)
     } else {
       this.imageUrl = null;
     }
   }
 
+  // async uploadFile(): Promise<void> {
+  //   return new Promise<void>((resolve, reject) => {
+  //     if (!this.selectedFile) {
+  //       if (this.currentUrl === '/dashboard/builder') {
+  //         let userImage = this.getLocalStorage('resumeFormImage')
+  //         console.log("userImage", userImage)
+  //         this.selectedFile = userImage
+  //       } else if (this.currentUrl === '/dashboard/profile') {
+  //         let userImage = this.getLocalStorage('profileImage')
+  //         console.log("userImage", userImage)
+  //         this.selectedFile = userImage
+  //       } else {
+  //         console.error('No file selected!');
+  //         reject('No file selected!');
+  //         return;
+  //       }
+  //     } else {
+  //       const formData = new FormData();
+  //       formData.append('file', this.selectedFile);
+  //
+  //       let progress = 0;
+  //       const interval = setInterval(() => {
+  //         progress += 10;
+  //         this.uploadProgress = progress;
+  //         if (progress === 100) {
+  //           clearInterval(interval);
+  //
+  //           const reader = new FileReader();
+  //           reader.onload = () => {
+  //
+  //             const base64String = reader.result as string;
+  //             const imageObject = {
+  //               base64Image: base64String,
+  //               fileName: this.selectedFile.name,
+  //               fileSize: this.selectedFile.size,
+  //               fileType: this.selectedFile.type,
+  //               uploadDate: new Date().toISOString(),
+  //             };
+  //             if (this.currentUrl === '/dashboard/builder') {
+  //               localStorage.setItem('resumeFormImage', JSON.stringify(imageObject));
+  //             } else if (this.currentUrl === '/dashboard/profile') {
+  //               localStorage.setItem('profileImage', JSON.stringify(imageObject));
+  //             }
+  //             resolve();
+  //           };
+  //           reader.readAsDataURL(this.selectedFile);
+  //
+  //           this.dialog.open(DialogBoxComponent, {
+  //             backdropClass: 'backdrop-blur',
+  //             width: '400px',
+  //             height: 'auto',
+  //             panelClass: 'rounded-lg',
+  //             data: {
+  //               title: 'File Upload',
+  //               dialogCss: 'success-dialog',
+  //               message: 'File uploaded successfully!',
+  //               buttonText: 'OK',
+  //               buttonCss: 'success-dialog-btn',
+  //             },
+  //           });
+  //
+  //           this.profilePicUpdate()
+  //
+  //           console.log('File uploaded successfully!');
+  //         }
+  //       }, 200);
+  //     }
+  //
+  //   });
+  // }
+
+
   async uploadFile(): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       if (!this.selectedFile) {
-        console.error('No file selected!');
-        reject('No file selected!');
-        return;
+        let userImage: any;
+        if (this.currentUrl === '/dashboard/builder') {
+          userImage = JSON.parse(localStorage.getItem('resumeFormImage') || '{}');
+        } else if (this.currentUrl === '/dashboard/profile') {
+          userImage = JSON.parse(localStorage.getItem('profileImage') || '{}');
+        }
+        if (userImage && userImage.base64Image) {
+          // console.log('User image found in local storage:', userImage);
+          this.selectedFile = this.dataURItoBlob(userImage.base64Image);
+        } else {
+          console.error('No file selected!');
+          reject('No file selected!');
+          return;
+        }
       }
 
       const formData = new FormData();
@@ -132,7 +217,6 @@ export class CommonServicesService implements OnInit {
 
           const reader = new FileReader();
           reader.onload = () => {
-
             const base64String = reader.result as string;
             const imageObject = {
               base64Image: base64String,
@@ -164,12 +248,24 @@ export class CommonServicesService implements OnInit {
             },
           });
 
-          this.profilePicUpdate()
+          this.profilePicUpdate();
 
           console.log('File uploaded successfully!');
         }
       }, 200);
     });
+  }
+
+// Utility function to convert data URI to Blob
+  dataURItoBlob(dataURI: string): Blob {
+    const byteString = atob(dataURI.split(',')[1]);
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], {type: mimeString});
   }
 
 
