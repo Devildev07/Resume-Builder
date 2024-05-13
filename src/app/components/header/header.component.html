@@ -85,6 +85,7 @@
             </svg>
             }
           </button>
+          @if (this.authService.isUsersignin === false) {
           <a
             (click)="openAuthModal('signin')"
             class="dark:hover:text-gray-50 dark:text-blue-50 w-full px-5 py-2 text-sm tracking-wider uppercase transition-colors duration-300 transform rounded-lg lg:w-auto hover:border hover:border-blue-500 focus:outline-none focus:bg-blue-500 font-medium border border-transparent text-nowrap cursor-pointer"
@@ -95,6 +96,13 @@
             class="hover:shadow-2xl hover:-translate-y-0.5 hover:transition hover:duration-300 w-full px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium text-nowrap"
             >Sign Up
           </a>
+          }@if(this.authService.isUsersignin === true) {
+          <a
+            (click)="authService.signOutUser()"
+            class="hover:shadow-2xl hover:-translate-y-0.5 hover:transition hover:duration-300 w-full px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium text-nowrap"
+            >Sign Out
+          </a>
+          }
         </div>
         <div class="md:hidden flex items-center gap-3">
           <button

@@ -148,11 +148,12 @@ export class AuthModalComponent implements OnInit {
         };
 
         const user = await this.authService.signinUser(userData);
-        console.log('user', user);
+        // console.log('user', user);
 
         if (user) {
           this.dialog.closeAll();
           this.router.navigate(['/dashboard']);
+          this.authService.autoLogout();
         }
       }
     } catch (error) {

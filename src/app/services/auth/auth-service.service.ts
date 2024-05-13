@@ -74,8 +74,11 @@ export class AuthServiceService {
   }
 
   // signout
-  // async signOutUser() {
-  // }
+  async signOutUser() {
+    this.isUsersignin = false;
+    this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
+    // console.log('isUsersignin', this.isUsersignin);
+  }
 
   // get current user
   async getCurrentUser(userData: any) {
@@ -88,7 +91,7 @@ export class AuthServiceService {
       return null;
     } else {
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, ' => ', doc.data());
+        // console.log(doc.id, ' => ', doc.data());
         this.userEmail = doc.data()['email'];
         this.userPass = doc.data()['password'];
       });
@@ -103,5 +106,18 @@ export class AuthServiceService {
     var generatedPass = passA + '@$98#%' + passB;
     // console.log('generatedPass', generatedPass);
     return generatedPass;
+  }
+
+  checkAuthStatus() {
+    this.isUsersignin = this.commonService.getLocalStorage('isUsersignin');
+    // console.log('isUsersignin', this.isUsersignin);
+  }
+
+  // auth-functionality ends here
+
+  autoLogout() {
+    setTimeout(() => {
+      this.signOutUser();
+    }, 60000);
   }
 }

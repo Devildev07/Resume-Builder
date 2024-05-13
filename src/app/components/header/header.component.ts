@@ -4,6 +4,7 @@ import { CommonServicesService } from 'src/app/services/common-services.service'
 import { AuthModalComponent } from 'src/app/modals/auth-modal/auth-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,8 @@ export class HeaderComponent {
   savedTheme: any = 'light';
   constructor(
     public commonService: CommonServicesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public authService: AuthServiceService
   ) {}
 
   toggleMobMenu() {

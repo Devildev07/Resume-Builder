@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonServicesService } from './services/common-services.service';
-// import { NavigationEnd, Router } from '@angular/router';
+import { AuthServiceService } from './services/auth/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,11 @@ export class AppComponent {
   title = 'resume-builder';
 
   constructor(
-    public commonService: CommonServicesService // public router: Router
-  ) {}
+    public commonService: CommonServicesService,
+    public authService: AuthServiceService
+  ) {
+    authService.checkAuthStatus();
+  }
 
   ngOnInit() {}
 }
