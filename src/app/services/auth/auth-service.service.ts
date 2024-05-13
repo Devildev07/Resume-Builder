@@ -1,47 +1,100 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import {
+  Firestore,
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+} from '@angular/fire/firestore';
+import { CommonServicesService } from '../common-services.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthServiceService {
-  isUserLogin: boolean = false;
+  isUsersignin: boolean = false;
   userEmail: any = '';
-  userId: any = '';
+  userPass: any = '';
+  userExists: boolean = false;
 
   private firestore: Firestore = inject(Firestore);
 
-  constructor() {}
+  constructor(public commonService: CommonServicesService) {}
 
   // auth-functionality starts here
   // registerUser
   async registerUser(userData: any): Promise<boolean> {
-    const randomId = '_Id' + Math.random().toString(36).substring(2);
-    console.log('randomId', randomId);
+    await this.getCurrentUser(userData);
 
-    const collectionInstance = collection(this.firestore, 'users');
-    const docRef = await addDoc(collectionInstance, {
-      ...userData,
-      Id: randomId,
-    });
+    if (this.userEmail === userData.email) {
+      this.userExists = true;
+      console.log('User already exists');
 
-    console.log('User registered successfully!', docRef.id);
+      return false;
+    } else {
+      const randomId = '_Id' + Math.random().toString(36).substring(2);
+      console.log('randomId', randomId);
 
-    return true; // Return true to indicate success
+      const collectionInstance = collection(this.firestore, 'users');
+      const docRef = await addDoc(collectionInstance, {
+        ...userData,
+        Id: randomId,
+      });
+
+      console.log('User registered successfully!', docRef.id);
+
+      return true;
+    }
   }
 
   // signinUser
-  // async loginUser(email: string, password: string) {
+  async signinUser(userData: any) {
+    try {
+      await this.getCurrentUser(userData);
 
-  // }
+      if (
+        this.userEmail === userData.email &&
+        this.userPass === userData.password
+      ) {
+        this.isUsersignin = true;
+        this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
+        console.log('isUsersignin', this.isUsersignin);
+      } else {
+        this.isUsersignin = false;
+        this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
+        console.log('isUsersignin', this.isUsersignin);
+      }
+
+      return true;
+    } catch (error) {
+      console.log('catch error', error);
+      return null;
+    }
+  }
 
   // signout
   // async signOutUser() {
   // }
 
   // get current user
-  // async getCurrentUser() {
-  // }
+  async getCurrentUser(userData: any) {
+    const collectionRef = collection(this.firestore, 'users');
+    const q = query(collectionRef, where('email', '==', userData.email));
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.empty) {
+      console.log('No matching documents.');
+      return null;
+    } else {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, ' => ', doc.data());
+        this.userEmail = doc.data()['email'];
+        this.userPass = doc.data()['password'];
+      });
+      return querySnapshot.docs;
+    }
+  }
 
   //encrypt password
   encryptPass(getPass: string) {

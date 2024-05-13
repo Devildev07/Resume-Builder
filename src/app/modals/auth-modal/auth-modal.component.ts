@@ -7,6 +7,8 @@ import { CommonModuleModule } from 'src/app/modules/common-module/common-module.
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-auth-modal',
@@ -24,13 +26,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 })
 export class AuthModalComponent implements OnInit {
   authForm: FormGroup | any;
-  formMode: 'login' | 'signup' | any;
+  formMode: 'signin' | 'signup' | any;
   constructor(
     public commonService: CommonServicesService,
     private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: { formMode: 'login' | 'signup' },
-    private authService: AuthServiceService,
-    private router: Router
+    @Inject(MAT_DIALOG_DATA) public data: { formMode: 'signin' | 'signup' },
+    public authService: AuthServiceService,
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.formMode = data.formMode;
   }
@@ -56,13 +59,13 @@ export class AuthModalComponent implements OnInit {
       ],
       confirm_password: [
         '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.pattern(
-            '^(?!.*(.)\\1{1})(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}$'
-          ),
-        ],
+        // [
+        //   Validators.required,
+        //   Validators.minLength(6),
+        //   Validators.pattern(
+        //     '^(?!.*(.)\\1{1})(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}$'
+        //   ),
+        // ],
       ],
     });
   }
@@ -73,8 +76,9 @@ export class AuthModalComponent implements OnInit {
 
   submitForm() {
     if (this.authForm.valid) {
-      if (this.formMode === 'login') {
-        // console.log('Logging in with:', this.authForm.value);
+      if (this.formMode === 'signin') {
+        this.signIn();
+        console.log('Logging in with:', this.authForm.value);
       } else {
         // console.log('Signing up with:', this.authForm.value);
         this.signUp();
@@ -82,7 +86,7 @@ export class AuthModalComponent implements OnInit {
     }
   }
   toggleFormMode() {
-    this.formMode = this.formMode === 'login' ? 'signup' : 'login';
+    this.formMode = this.formMode === 'signin' ? 'signup' : 'signin';
     this.authForm.reset();
   }
 
@@ -91,7 +95,51 @@ export class AuthModalComponent implements OnInit {
       if (this.authForm?.valid) {
         const password = this.authForm?.get('password')?.value;
         const email = this.authForm?.get('email')?.value;
-        console.log('password', password, 'email', email);
+        const confirm_password = this.authForm?.get('confirm_password')?.value;
+        if (confirm_password !== password) {
+          this.dialog.open(DialogBoxComponent, {
+            backdropClass: 'backdrop-blur',
+            width: '400px',
+            height: 'auto',
+            panelClass: 'rounded-lg',
+            data: {
+              message:
+                'Password and confirm password does not match. Please verify your password then proceed.',
+              title: 'Alert',
+              dialogCss: 'danger-dialog',
+              buttonText: 'OK',
+              buttonCss: 'danger-dialog-btn',
+            },
+          });
+        } else {
+          // console.log('password', password, 'email', email);
+          const encryptPass = await this.authService.encryptPass(password);
+
+          let userData = {
+            email: email,
+            password: encryptPass,
+          };
+
+          const user = await this.authService.registerUser(userData);
+
+          if (user) {
+            // this.router.navigate(['/']);
+            this.formMode = 'signin';
+          } else {
+            console.log('Registration failed. Provide correct values.');
+          }
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async signIn() {
+    try {
+      if (this.authForm?.valid) {
+        const email = this.authForm?.get('email')?.value;
+        const password = this.authForm?.get('password')?.value;
         const encryptPass = await this.authService.encryptPass(password);
 
         let userData = {
@@ -99,13 +147,12 @@ export class AuthModalComponent implements OnInit {
           password: encryptPass,
         };
 
-        const user = await this.authService.registerUser(userData);
+        const user = await this.authService.signinUser(userData);
+        console.log('user', user);
 
         if (user) {
-          // this.router.navigate(['/']);
-          this.formMode = 'login';
-        } else {
-          console.log('Registration failed. Provide correct values.');
+          this.dialog.closeAll();
+          this.router.navigate(['/dashboard']);
         }
       }
     } catch (error) {

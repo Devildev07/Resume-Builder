@@ -18,19 +18,19 @@ const routes: Routes = [
     path: 'dashboard',
     title: 'Resumify | Dashboard',
     component: UserDashboardComponent,
-    // canActivate: [authGaurdGuard],
+    canActivate: [authGaurdGuard],
     children: [
       {
         path: 'profile',
         title: 'Resumify | Profile',
         component: ProfileComponent,
-        // canActivate: [authGaurdGuard],
+        canActivate: [authGaurdGuard],
       },
       {
         path: 'builder',
         title: 'Resumify | Resume Builder',
         component: ResumeFormComponent,
-        // canActivate: [authGaurdGuard],
+        canActivate: [authGaurdGuard],
       },
     ],
   },
@@ -38,7 +38,7 @@ const routes: Routes = [
     path: 'templates',
     title: 'Resumify | Resume Templates',
     component: ResumeTemplatesComponent,
-    // canActivate: [authGaurdGuard],
+    canActivate: [authGaurdGuard],
   },
 
   {

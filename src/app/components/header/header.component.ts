@@ -37,13 +37,12 @@ export class HeaderComponent {
     }
   }
 
-  openAuthModal(formModeClicked: 'login' | 'signup' = 'login') {
+  openAuthModal(formModeClicked: 'signin' | 'signup' = 'signin') {
     this.dialog.open(AuthModalComponent, {
       backdropClass: 'backdrop-blur',
       width: '500px',
       panelClass: 'rounded-md',
       data: { formMode: formModeClicked },
-      
     });
     // console.log(formModeClicked);
   }
