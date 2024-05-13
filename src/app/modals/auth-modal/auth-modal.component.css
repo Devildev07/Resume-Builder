@@ -1,0 +1,11 @@
+.google-btn {
+    @apply w-full items-center block px-5 py-2 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform shadow-md rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:bg-slate-50 hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300
+}
+
+.close-btn {
+    @apply w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:w-auto sm:text-sm -ml-2
+}
+
+.submit-btn {
+    @apply hover:shadow-2xl hover:-translate-y-px hover:transition hover:duration-300 px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:bg-blue-500 font-medium w-full
+}
