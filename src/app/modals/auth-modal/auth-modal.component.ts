@@ -120,11 +120,16 @@ export class AuthModalComponent implements OnInit {
             password: encryptPass,
           };
 
+          const keyToSave = 'email';
+          const newData = { [keyToSave]: userData[keyToSave] };
+
+          this.commonService.setLocalStorage('userData', newData);
           const user = await this.authService.registerUser(userData);
 
           if (user) {
-            // this.router.navigate(['/']);
-            this.formMode = 'signin';
+            // this.router.navigate(['/dashboard']);
+            this.authService.autoLogout();
+            // this.formMode = 'signin';
           } else {
             console.log('Registration failed. Provide correct values.');
           }
@@ -147,12 +152,18 @@ export class AuthModalComponent implements OnInit {
           password: encryptPass,
         };
 
+        const keyToSave = 'email';
+        const newData = { [keyToSave]: userData[keyToSave] };
+
+        this.commonService.setLocalStorage('userData', newData);
         const user = await this.authService.signinUser(userData);
         // console.log('user', user);
 
+        // await this.authService.uploadDatatoFirebase(userData, 'users');
+
         if (user) {
           this.dialog.closeAll();
-          this.router.navigate(['/dashboard']);
+          // this.router.navigate(['/dashboard']);
           this.authService.autoLogout();
         }
       }

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -7,20 +7,21 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {provideNativeDateAdapter} from '@angular/material/core';
-import {MatSliderModule} from '@angular/material/slider';
-import {CommonServicesService} from 'src/app/services/common-services.service';
-import {MatDialog} from '@angular/material/dialog';
-import {ViewTemplateComponent} from 'src/app/modals/view-template/view-template.component';
-import {DialogBoxComponent} from 'src/app/modals/dialog-box/dialog-box.component';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatSliderModule } from '@angular/material/slider';
+import { CommonServicesService } from 'src/app/services/common-services.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewTemplateComponent } from 'src/app/modals/view-template/view-template.component';
+import { DialogBoxComponent } from 'src/app/modals/dialog-box/dialog-box.component';
 import * as moment from 'moment';
-import {HttpClient, HttpEventType} from "@angular/common/http";
+import { HttpClient, HttpEventType } from '@angular/common/http';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-resume-form',
@@ -28,7 +29,7 @@ import {HttpClient, HttpEventType} from "@angular/common/http";
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {showError: true},
+      useValue: { showError: true },
     },
     provideNativeDateAdapter(),
   ],
@@ -58,11 +59,11 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
 
   constructor(
     public commonService: CommonServicesService,
+    public authService: AuthServiceService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     private http: HttpClient
-  ) {
-  }
+  ) {}
 
   get educationalDetails(): FormArray {
     return this.resumeFormGroup.get('educationalDetails') as FormArray;
@@ -88,11 +89,11 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     return this.resumeFormGroup.get('hobbyDetails') as FormArray;
   }
 
-
   ngOnInit() {
     this.getLocalResumeData = this.commonService.getLocalStorage(
       'setLocalResumeFormData'
     );
+    // this.getLocalResumeData = this.authService.userDataFromFirebase
     console.log('this.getLocalResumeData === ', this.getLocalResumeData);
     if (this.getLocalResumeData != null) {
       this.resumeTitle = this.getLocalResumeData.title;
@@ -349,13 +350,14 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     if (this.resumeFormGroup.valid) {
       this.allResumeData = {};
       try {
-        await this.commonService.uploadFile()
-        const base64Image = this.commonService.getLocalStorage('resumeFormImage')
+        await this.commonService.uploadFile();
+        const base64Image =
+          this.commonService.getLocalStorage('resumeFormImage');
 
         this.allResumeData = {
           formBuilder: this.resumeFormGroup.value,
           title: this.resumeTitle,
-          profileImage: base64Image ? base64Image : ''
+          profileImage: base64Image ? base64Image : '',
         };
         this.commonService.setLocalStorage(
           'setLocalResumeFormData',
@@ -364,9 +366,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
         console.log('firstFormGroup data here', this.allResumeData);
       } catch (error) {
         console.error('Error during file upload:', error);
-
       }
-
     } else {
       console.log('firstFormGroup not have valid enteries');
     }

@@ -1,13 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonServicesService} from 'src/app/services/common-services.service';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {provideNativeDateAdapter} from '@angular/material/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonServicesService } from 'src/app/services/common-services.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
 import {
   FormBuilder,
   FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -28,8 +29,12 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     public commonService: CommonServicesService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthServiceService
   ) {
+    // this.authService.uploadDatatoFirebase(
+    //   commonService.getLocalStorage('userData')
+    // );
   }
 
   ngOnInit(): void {
@@ -164,7 +169,7 @@ export class ProfileComponent implements OnInit {
         personalDetails: this.formBuilder.group({
           firstName: ['', Validators.required],
           lastName: ['', Validators.required],
-          jobTitle: ['',],
+          jobTitle: [''],
           email: [
             '',
             Validators.required,
@@ -189,24 +194,22 @@ export class ProfileComponent implements OnInit {
   }
 
   async submitProfileForm() {
-    console.log("this.profileForm.value", this.profileForm.value)
+    console.log('this.profileForm.value', this.profileForm.value);
     if (this.profileForm.valid) {
       this.allProfileData = {};
       try {
-        await this.commonService.uploadFile()
-        const base64Image = this.commonService.getLocalStorage('profileImage')
+        await this.commonService.uploadFile();
+        const base64Image = this.commonService.getLocalStorage('profileImage');
         this.allProfileData = {
           formBuilder: this.profileForm.value,
-          profileImage: base64Image ? base64Image : ''
+          profileImage: base64Image ? base64Image : '',
         };
         this.commonService.setLocalStorage(
           'setLocalProfileData',
           this.allProfileData
         );
         console.log('firstFormGroup data here', this.allProfileData);
-      } catch (error) {
-      }
-
+      } catch (error) {}
     } else {
       console.log('firstFormGroup not have valid enteries');
     }
