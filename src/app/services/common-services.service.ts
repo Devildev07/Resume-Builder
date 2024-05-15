@@ -13,6 +13,7 @@ export class CommonServicesService implements OnInit {
   // canShowModal: boolean = false;
   superAdmin = 'Dewanshu';
   currentUrl?: string;
+  userData: any = {};
   selectedTemplateArray: any[] = [];
 
   userResumeProfileImage: any;
@@ -113,77 +114,6 @@ export class CommonServicesService implements OnInit {
       this.imageUrl = null;
     }
   }
-
-  // async uploadFile(): Promise<void> {
-  //   return new Promise<void>((resolve, reject) => {
-  //     if (!this.selectedFile) {
-  //       if (this.currentUrl === '/dashboard/builder') {
-  //         let userImage = this.getLocalStorage('resumeFormImage')
-  //         console.log("userImage", userImage)
-  //         this.selectedFile = userImage
-  //       } else if (this.currentUrl === '/dashboard/profile') {
-  //         let userImage = this.getLocalStorage('profileImage')
-  //         console.log("userImage", userImage)
-  //         this.selectedFile = userImage
-  //       } else {
-  //         console.error('No file selected!');
-  //         reject('No file selected!');
-  //         return;
-  //       }
-  //     } else {
-  //       const formData = new FormData();
-  //       formData.append('file', this.selectedFile);
-  //
-  //       let progress = 0;
-  //       const interval = setInterval(() => {
-  //         progress += 10;
-  //         this.uploadProgress = progress;
-  //         if (progress === 100) {
-  //           clearInterval(interval);
-  //
-  //           const reader = new FileReader();
-  //           reader.onload = () => {
-  //
-  //             const base64String = reader.result as string;
-  //             const imageObject = {
-  //               base64Image: base64String,
-  //               fileName: this.selectedFile.name,
-  //               fileSize: this.selectedFile.size,
-  //               fileType: this.selectedFile.type,
-  //               uploadDate: new Date().toISOString(),
-  //             };
-  //             if (this.currentUrl === '/dashboard/builder') {
-  //               localStorage.setItem('resumeFormImage', JSON.stringify(imageObject));
-  //             } else if (this.currentUrl === '/dashboard/profile') {
-  //               localStorage.setItem('profileImage', JSON.stringify(imageObject));
-  //             }
-  //             resolve();
-  //           };
-  //           reader.readAsDataURL(this.selectedFile);
-  //
-  //           this.dialog.open(DialogBoxComponent, {
-  //             backdropClass: 'backdrop-blur',
-  //             width: '400px',
-  //             height: 'auto',
-  //             panelClass: 'rounded-lg',
-  //             data: {
-  //               title: 'File Upload',
-  //               dialogCss: 'success-dialog',
-  //               message: 'File uploaded successfully!',
-  //               buttonText: 'OK',
-  //               buttonCss: 'success-dialog-btn',
-  //             },
-  //           });
-  //
-  //           this.profilePicUpdate()
-  //
-  //           console.log('File uploaded successfully!');
-  //         }
-  //       }, 200);
-  //     }
-  //
-  //   });
-  // }
 
 
   async uploadFile(): Promise<void> {

@@ -38,7 +38,8 @@ export class TemplateListComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      this.userDocs = await this.authService.getUser();
+      // this.userDocs = await this.authService.getUser();
+      this.userDocs = this.commonService.userData;
       console.log('User Docs:', this.userDocs);
       this.fetchTemplates();
     } catch (error) {
@@ -46,6 +47,7 @@ export class TemplateListComponent implements OnInit {
     }
   }
 
+  //view template modal
   viewTemplate(template: any) {
     if (!template) {
       console.error('Template is undefined or null');
@@ -68,6 +70,7 @@ export class TemplateListComponent implements OnInit {
     );
   }
 
+  //fetch templates
   async fetchTemplates() {
     if (this.commonService.currentUrl === '/templates') {
       this.fatchTemplate = template;
@@ -85,6 +88,7 @@ export class TemplateListComponent implements OnInit {
     console.log('templates === ', this.templates);
   }
 
+  //select template
   selectTemplate(template: any) {
     // console.log('template === ', template);
     this.temp_id = template.Id;
@@ -191,13 +195,10 @@ export class TemplateListComponent implements OnInit {
       );
 
       if (indexToDelete !== -1) {
-        // Remove the template from the array
         selectedTemplateArray.splice(indexToDelete, 1);
 
-        // Update the commonService's array
         this.commonService.selectedTemplateArray = selectedTemplateArray;
 
-        // Update Firebase with the modified array
         await this.authService.updateDocumentField(
           this.userDocs.docId,
           'selectedTemplateArray',

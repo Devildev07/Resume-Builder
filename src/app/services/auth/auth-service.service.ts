@@ -5,9 +5,7 @@ import {
   collection,
   doc,
   getDocs,
-  onSnapshot,
   query,
-  setDoc,
   updateDoc,
   where,
 } from '@angular/fire/firestore';
@@ -51,10 +49,10 @@ export class AuthServiceService {
         Id: randomId,
         profileImage: {},
         resumeFormImage: {},
-        selectedTempData: {},
         selectedTemplateArray: {},
-        setLocalProfileData: {},
-        setLocalResumeFormData: {},
+        setProfileData: {},
+        setResumeFormData: {},
+        // selectedTempData: {},
       });
       this.isUsersignin = true;
       this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
@@ -101,11 +99,7 @@ export class AuthServiceService {
     this.isUsersignin = false;
     this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
     // this.commonService.removeLocalStorage('selectedTempData');
-    // this.commonService.removeLocalStorage('selectedTemplateArray');
-    // this.commonService.removeLocalStorage('setLocalResumeFormData');
-    // this.commonService.removeLocalStorage('resumeFormImage');
-    // this.commonService.removeLocalStorage('setLocalProfileData');
-    // this.commonService.removeLocalStorage('profileImage');
+
     this.commonService.setLocalStorage('userEmail', '');
     // console.log('isUsersignin', this.isUsersignin);
   }
@@ -135,11 +129,11 @@ export class AuthServiceService {
     // console.log('userDataFromFirebase', this.userDataFromFirebase);
   }
 
-  async getUser() {
+  async getUser(): Promise<any> {
     const userData = this.commonService.getLocalStorage('userEmail');
     if (userData) {
       await this.getCurrentUser(userData);
-      console.log('userDataFromFirebase', this.userDataFromFirebase);
+      // console.log('userDataFromFirebase', this.userDataFromFirebase);
       return this.userDataFromFirebase;
     }
   }
@@ -155,7 +149,9 @@ export class AuthServiceService {
         [keyToUpdate]: newValue,
       });
       console.log(
-        `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${newValue}"`
+        `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${Object.keys(
+          newValue
+        )}"`
       );
     } catch (error) {
       console.error('Error updating document field: ', error);

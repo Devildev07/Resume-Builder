@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,12 +12,20 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
-// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-// import { AngularFireModule } from '@angular/fire/compat';
+import { UserInitService } from './services/userInitService/user-init.service';
 
 @NgModule({
   declarations: [AppComponent],
-  providers: [provideAnimationsAsync()],
+  providers: [
+    provideAnimationsAsync(),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (userService: UserInitService) => () =>
+        userService.initializeUserData(),
+      deps: [UserInitService],
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
@@ -25,8 +33,7 @@ import { environment } from 'src/environments/environment';
     HeaderComponent,
     FooterComponent,
     AuthModalComponent,
-    // AngularFireModule,
-    // AngularFirestoreModule,
+
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
