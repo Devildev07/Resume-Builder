@@ -103,7 +103,10 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     // );
     // this.getResumeData = this.authService.userDataFromFirebase
     console.log('this.getResumeData === ', this.getResumeData);
-    if (this.getResumeData != null) {
+    if (
+      this.getResumeData != null &&
+      Object.keys(this.getResumeData).length > 0
+    ) {
       this.resumeTitle = this.getResumeData.title;
       this.resumeFormGroup = this.formBuilder.group({
         personalDetails: this.formBuilder.group({

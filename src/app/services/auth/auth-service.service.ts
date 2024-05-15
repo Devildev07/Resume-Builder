@@ -101,6 +101,7 @@ export class AuthServiceService {
     // this.commonService.removeLocalStorage('selectedTempData');
 
     this.commonService.setLocalStorage('userEmail', '');
+    this.commonService.setLocalStorage('userDocId', '');
     // console.log('isUsersignin', this.isUsersignin);
   }
 

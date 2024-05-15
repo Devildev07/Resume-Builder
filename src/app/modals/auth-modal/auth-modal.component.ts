@@ -152,10 +152,13 @@ export class AuthModalComponent implements OnInit {
           password: encryptPass,
         };
 
+        const userDocId = this.commonService.userData.docId;
+
         const keyToSave = 'email';
         const newData = { [keyToSave]: userData[keyToSave] };
 
         this.commonService.setLocalStorage('userEmail', newData);
+        this.commonService.setLocalStorage('userDocId', userDocId);
         const user = await this.authService.signinUser(userData);
         // console.log('user', user);
 

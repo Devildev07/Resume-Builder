@@ -1,10 +1,10 @@
-import {Injectable, OnInit} from '@angular/core';
-import {AbstractControl, ValidationErrors} from '@angular/forms';
-import {NavigationEnd, Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {DialogBoxComponent} from "../modals/dialog-box/dialog-box.component";
-import {MatDialog} from "@angular/material/dialog";
-
+import { Injectable, OnInit, inject } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { NavigationEnd, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { DialogBoxComponent } from '../modals/dialog-box/dialog-box.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -28,17 +28,15 @@ export class CommonServicesService implements OnInit {
   imageUrl: string | ArrayBuffer | null = null;
   uploadProgress: number = 0;
 
-  constructor(
-    public router: Router,
-    public dialog: MatDialog,
-  ) {
+  private firestore: Firestore = inject(Firestore);
+
+  constructor(public router: Router, public dialog: MatDialog) {
     this.getCurrentUrl();
-    this.profilePicUpdate()
+    this.profilePicUpdate();
   }
 
-  ngOnInit() {
-    this.profilePicUpdate()
-
+  async ngOnInit() {
+    this.profilePicUpdate();
   }
 
   // localStorage
@@ -54,7 +52,6 @@ export class CommonServicesService implements OnInit {
   removeLocalStorage(key: string): void {
     localStorage.removeItem(key);
   }
-
 
   getCurrentUrl() {
     this.router.events.subscribe((event) => {
@@ -75,7 +72,7 @@ export class CommonServicesService implements OnInit {
           control.value &&
           !/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(control.value)
         ) {
-          observer.next({invalidEmail: true});
+          observer.next({ invalidEmail: true });
         } else {
           observer.next(null);
         }
@@ -86,15 +83,21 @@ export class CommonServicesService implements OnInit {
 
   profilePicUpdate() {
     if (this.getLocalStorage('resumeFormImage')) {
-      this.userResumeProfileImage = this.getLocalStorage('resumeFormImage').base64Image
-      this.userResumeProfileImgName = this.getLocalStorage('resumeFormImage').fileName
-      this.userResumeProfileImgSize = Math.round(this.getLocalStorage('resumeFormImage').fileSize / 1024)
+      this.userResumeProfileImage =
+        this.getLocalStorage('resumeFormImage').base64Image;
+      this.userResumeProfileImgName =
+        this.getLocalStorage('resumeFormImage').fileName;
+      this.userResumeProfileImgSize = Math.round(
+        this.getLocalStorage('resumeFormImage').fileSize / 1024
+      );
       // console.log("userResumeProfileImage", this.userResumeProfileImage)
     }
     if (this.getLocalStorage('profileImage')) {
-      this.userProfileImage = this.getLocalStorage('profileImage').base64Image
-      this.userProfileImgName = this.getLocalStorage('profileImage').fileName
-      this.userProfileImgSize = Math.round(this.getLocalStorage('profileImage').fileSize / 1024)
+      this.userProfileImage = this.getLocalStorage('profileImage').base64Image;
+      this.userProfileImgName = this.getLocalStorage('profileImage').fileName;
+      this.userProfileImgSize = Math.round(
+        this.getLocalStorage('profileImage').fileSize / 1024
+      );
       // console.log("userProfileImage", this.userProfileImage)
     }
   }
@@ -115,13 +118,14 @@ export class CommonServicesService implements OnInit {
     }
   }
 
-
   async uploadFile(): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       if (!this.selectedFile) {
         let userImage: any;
         if (this.currentUrl === '/dashboard/builder') {
-          userImage = JSON.parse(localStorage.getItem('resumeFormImage') || '{}');
+          userImage = JSON.parse(
+            localStorage.getItem('resumeFormImage') || '{}'
+          );
         } else if (this.currentUrl === '/dashboard/profile') {
           userImage = JSON.parse(localStorage.getItem('profileImage') || '{}');
         }
@@ -155,9 +159,26 @@ export class CommonServicesService implements OnInit {
               fileType: this.selectedFile.type,
               uploadDate: new Date().toISOString(),
             };
+
+            const userDocId = this.getLocalStorage('userDocId');
+            console.log('userDocId', userDocId);
+
             if (this.currentUrl === '/dashboard/builder') {
-              localStorage.setItem('resumeFormImage', JSON.stringify(imageObject));
+              this.updateDocumentField(
+                userDocId,
+                'resumeFormImage',
+                JSON.stringify(imageObject)
+              );
+              localStorage.setItem(
+                'resumeFormImage',
+                JSON.stringify(imageObject)
+              );
             } else if (this.currentUrl === '/dashboard/profile') {
+              this.updateDocumentField(
+                userDocId,
+                'profileImage',
+                JSON.stringify(imageObject)
+              );
               localStorage.setItem('profileImage', JSON.stringify(imageObject));
             }
             resolve();
@@ -186,7 +207,7 @@ export class CommonServicesService implements OnInit {
     });
   }
 
-// Utility function to convert data URI to Blob
+  // Utility function to convert data URI to Blob
   dataURItoBlob(dataURI: string): Blob {
     const byteString = atob(dataURI.split(',')[1]);
     const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
@@ -195,9 +216,26 @@ export class CommonServicesService implements OnInit {
     for (let i = 0; i < byteString.length; i++) {
       ia[i] = byteString.charCodeAt(i);
     }
-    return new Blob([ab], {type: mimeString});
+    return new Blob([ab], { type: mimeString });
   }
 
-
+  async updateDocumentField(
+    documentId: string,
+    keyToUpdate: string,
+    newValue: any
+  ) {
+    try {
+      const docRef = doc(this.firestore, 'users', documentId);
+      await updateDoc(docRef, {
+        [keyToUpdate]: newValue,
+      });
+      console.log(
+        `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${Object.keys(
+          newValue
+        )}"`
+      );
+    } catch (error) {
+      console.error('Error updating document field: ', error);
+    }
+  }
 }
-
