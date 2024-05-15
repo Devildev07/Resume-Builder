@@ -37,8 +37,13 @@ export class TemplateListComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.userDocs = await this.authService.getUser();
-    this.fetchTemplates();
+    try {
+      this.userDocs = await this.authService.getUser();
+      console.log('User Docs:', this.userDocs);
+      this.fetchTemplates();
+    } catch (error) {
+      console.error('Error fetching user docs:', error);
+    }
   }
 
   viewTemplate(template: any) {
@@ -103,86 +108,109 @@ export class TemplateListComponent implements OnInit {
       }
     );
 
-    this.addToLocalStorage(template);
+    this.addToFireStore(template);
   }
 
-  async addToLocalStorage(template: any) {
-    // let storageData = this.commonService.getLocalStorage(
-    //   'selectedTemplateArray'
-    // );
-    let storageData = await this.userDocs.userData.selectedTemplateArray;
-    console.log('storageData', storageData);
-    // console.log('storageData', storageData);
-    if (storageData && storageData != null) {
-      const exists = storageData.some((item: any) => {
-        // console.log('item.Id === ', item.Id);
-        // console.log('this.temp_id === ', this.temp_id);
-        return item.Id === this.temp_id;
-      });
-      if (exists) {
-        // console.log('exists === ', exists);
-        this.dialog.open(DialogBoxComponent, {
-          width: '400px',
-          height: 'auto',
-          panelClass: 'rounded-lg',
-          data: {
-            title: 'Template already added',
-            dialogCss: 'warning-dialog',
-            message:
-              'Please check your dashboard to edit your selected templated',
-            buttonText: 'OK',
-            buttonCss: 'warning-dialog-btn',
-          },
+  // add to firebase storage
+  async addToFireStore(template: any) {
+    try {
+      // Ensure userDocs is initialized
+      if (!this.userDocs) {
+        console.error('User docs are not initialized');
+        return;
+      }
+
+      let storageData = this.userDocs.userData.selectedTemplateArray;
+      // console.log('storageData:', storageData);
+
+      if (storageData && Array.isArray(storageData) && storageData.length > 0) {
+        const exists = storageData.some((item: any) => {
+          // console.log('item.Id:', item.Id, 'this.temp_id:', this.temp_id);
+          return item.Id === this.temp_id;
         });
-        setTimeout(() => {
-          this.dialog.closeAll();
+
+        if (exists) {
+          this.dialog.open(DialogBoxComponent, {
+            width: '400px',
+            height: 'auto',
+            panelClass: 'rounded-lg',
+            data: {
+              title: 'Template already added',
+              dialogCss: 'warning-dialog',
+              message:
+                'Please check your dashboard to edit your selected template',
+              buttonText: 'OK',
+              buttonCss: 'warning-dialog-btn',
+            },
+          });
+
+          setTimeout(() => {
+            this.dialog.closeAll();
+            this.route.navigate(['/dashboard/builder']);
+          }, 2000);
+        } else {
+          this.commonService.selectedTemplateArray = storageData;
+          this.commonService.selectedTemplateArray.push(template);
+
+          await this.authService.updateDocumentField(
+            this.userDocs.docId,
+            'selectedTemplateArray',
+            this.commonService.selectedTemplateArray
+          );
+          // console.log('Template added to existing array');
           this.route.navigate(['/dashboard/builder']);
-        }, 2000);
-        // console.warn('Template already exists in storage');
+        }
       } else {
-        this.commonService.selectedTemplateArray = storageData;
+        // console.log('No existing templates, adding new one');
         this.commonService.selectedTemplateArray.push(template);
-        this.commonService.setLocalStorage(
+
+        await this.authService.updateDocumentField(
+          this.userDocs.docId,
           'selectedTemplateArray',
           this.commonService.selectedTemplateArray
         );
-        console.log('if called');
-        this.route.navigate(['/dashboard/builder']);
-      }
-    } else {
-      // console.log('else called');
-      this.commonService.selectedTemplateArray.push(template);
-      // this.commonService.setLocalStorage(
-      //   'selectedTemplateArray',
-      //   this.commonService.selectedTemplateArray
-      // );
 
-      await this.authService.updateDocumentField(
-        this.userDocs.docId,
-        'selectedTemplateArray',
-        this.commonService.selectedTemplateArray
-      );
-      this.authService.getUser();
+        await this.authService.getUser();
+      }
+    } catch (error) {
+      console.error('Error in addToFireStore:', error);
     }
   }
 
-  deleteTemplate(template: any) {
-    // console.log('template === ', template);
-    const selectedTemplateArray = this.commonService.getLocalStorage(
-      'selectedTemplateArray'
-    );
-    const indexToDelete = selectedTemplateArray.findIndex(
-      (item: any) => item.Id === template.Id
-    );
-    if (indexToDelete !== -1) {
-      selectedTemplateArray.splice(indexToDelete, 1);
-      this.commonService.setLocalStorage(
-        'selectedTemplateArray',
-        selectedTemplateArray
+  //delete generated template
+  async deleteTemplate(template: any) {
+    try {
+      // Ensure userDocs is up-to-date
+      this.userDocs = await this.authService.getUser();
+
+      const selectedTemplateArray =
+        this.userDocs.userData.selectedTemplateArray;
+
+      const indexToDelete = selectedTemplateArray.findIndex(
+        (item: any) => item.Id === template.Id
       );
-      this.fetchTemplates();
-    } else {
-      console.log('Template not found in selectedTemplateArray');
+
+      if (indexToDelete !== -1) {
+        // Remove the template from the array
+        selectedTemplateArray.splice(indexToDelete, 1);
+
+        // Update the commonService's array
+        this.commonService.selectedTemplateArray = selectedTemplateArray;
+
+        // Update Firebase with the modified array
+        await this.authService.updateDocumentField(
+          this.userDocs.docId,
+          'selectedTemplateArray',
+          selectedTemplateArray
+        );
+
+        // Optionally refetch the templates if needed
+        this.fetchTemplates();
+      } else {
+        console.log('Template not found in selectedTemplateArray');
+      }
+    } catch (error) {
+      console.error('Error deleting template:', error);
     }
   }
 

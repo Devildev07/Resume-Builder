@@ -155,7 +155,7 @@ export class AuthModalComponent implements OnInit {
         const keyToSave = 'email';
         const newData = { [keyToSave]: userData[keyToSave] };
 
-        this.commonService.setLocalStorage('userData', newData);
+        this.commonService.setLocalStorage('userEmail', newData);
         const user = await this.authService.signinUser(userData);
         // console.log('user', user);
 

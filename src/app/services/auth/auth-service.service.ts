@@ -68,9 +68,13 @@ export class AuthServiceService {
   // signinUser
   async signinUser(userData: any) {
     try {
-      console.log('userData', userData);
-
       await this.getCurrentUser(userData);
+      console.log(
+        'userData  this.userEmail, this.userPass',
+        userData,
+        this.userEmail,
+        this.userPass
+      );
 
       if (
         this.userEmail === userData.email &&
@@ -102,54 +106,28 @@ export class AuthServiceService {
     // this.commonService.removeLocalStorage('resumeFormImage');
     // this.commonService.removeLocalStorage('setLocalProfileData');
     // this.commonService.removeLocalStorage('profileImage');
-    this.commonService.setLocalStorage('userData', '');
+    this.commonService.setLocalStorage('userEmail', '');
     // console.log('isUsersignin', this.isUsersignin);
   }
 
   // get current user
-  // async getCurrentUser(userData: any) {
-  //   const collectionRef = collection(this.firestore, 'users');
-  //   const q = query(collectionRef, where('email', '==', userData.email));
-  //   const querySnapshot = await getDocs(q);
-
-  //   if (querySnapshot.empty) {
-  //     console.log('No matching documents.');
-  //     return null;
-  //   } else {
-  //     querySnapshot.forEach((doc) => {
-  //       // console.log(doc.id, ' => ', doc.data());
-  //       this.userEmail = doc.data()['email'];
-  //       this.userPass = doc.data()['password'];
-  //       this.setUser(doc.data());
-  //     });
-  //     return querySnapshot.docs;
-  //   }
-  // }
-
   async getCurrentUser(userData: any) {
-    console.log('userData', userData);
-
     const collectionRef = collection(this.firestore, 'users');
     const q = query(collectionRef, where('email', '==', userData.email));
+    const querySnapshot = await getDocs(q);
 
-    const unsubscribe: any = onSnapshot(q, (querySnapshot: any) => {
-      if (querySnapshot.empty) {
-        console.log('No matching documents.');
-        // You might want to handle this case differently, depending on your application logic
-        return null;
-      } else {
-        querySnapshot.forEach((doc: any) => {
-          // console.log(doc.id, ' => ', doc.data());
-          this.userEmail = doc.data()['email'];
-          this.userPass = doc.data()['password'];
-          this.setUser(doc.data(), doc.id);
-        });
-
-        return querySnapshot.docs;
-      }
-    });
-
-    return unsubscribe;
+    if (querySnapshot.empty) {
+      console.log('No matching documents.');
+      return null;
+    } else {
+      querySnapshot.forEach((doc) => {
+        // console.log(doc.id, ' => ', doc.data());
+        this.userEmail = doc.data()['email'];
+        this.userPass = doc.data()['password'];
+        this.setUser(doc.data(), doc.id);
+      });
+      return querySnapshot.docs;
+    }
   }
 
   async setUser(userData: any, docId: any) {
@@ -158,7 +136,7 @@ export class AuthServiceService {
   }
 
   async getUser() {
-    const userData = this.commonService.getLocalStorage('userData');
+    const userData = this.commonService.getLocalStorage('userEmail');
     if (userData) {
       await this.getCurrentUser(userData);
       console.log('userDataFromFirebase', this.userDataFromFirebase);
