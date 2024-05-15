@@ -159,11 +159,9 @@ export class AuthModalComponent implements OnInit {
         const user = await this.authService.signinUser(userData);
         // console.log('user', user);
 
-        // await this.authService.uploadDatatoFirebase(userData, 'users');
-
         if (user) {
           this.dialog.closeAll();
-          // this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard']);
           this.authService.autoLogout();
         }
       }
