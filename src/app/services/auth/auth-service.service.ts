@@ -120,6 +120,7 @@ export class AuthServiceService {
         this.userEmail = doc.data()['email'];
         this.userPass = doc.data()['password'];
         this.setUser(doc.data(), doc.id);
+        this.commonService.setLocalStorage('userDocId', doc.id);
       });
       return querySnapshot.docs;
     }
@@ -180,34 +181,4 @@ export class AuthServiceService {
   }
 
   // auth-functionality ends here
-
-  // dataMerge
-  // async uploadDatatoFirebase(userData: any) {
-  //   const userDocs = await this.getCurrentUser(userData);
-  //   if (userDocs && userDocs.length > 0) {
-  //     const userId = userDocs[0].id; // Assuming there's only one document per user
-
-  //     const dataToUpload = {
-  //       selectedTempData:
-  //         this.commonService.getLocalStorage('selectedTempData'),
-  //       selectedTemplateArray: this.commonService.getLocalStorage(
-  //         'selectedTemplateArray'
-  //       ),
-  //       setLocalResumeFormData: this.commonService.getLocalStorage(
-  //         'setLocalResumeFormData'
-  //       ),
-  //       resumeFormImage: this.commonService.getLocalStorage('resumeFormImage'),
-  //       setLocalProfileData: this.commonService.getLocalStorage(
-  //         'setLocalProfileData'
-  //       ),
-  //       profileImage: this.commonService.getLocalStorage('profileImage'),
-  //     };
-
-  //     await setDoc(doc(this.firestore, 'users', userId), dataToUpload, {
-  //       merge: true,
-  //     });
-  //   } else {
-  //     console.log('User not found');
-  //   }
-  // }
 }
