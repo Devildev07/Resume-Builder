@@ -63,7 +63,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     private http: HttpClient
   ) {
     try {
-      this.userDocs = this.commonService.userData;
+      this.userDocs = this.authService.userData;
       console.log('User Docs:', this.userDocs);
 
       this.getResumeData = this.userDocs.userData.setResumeFormData;

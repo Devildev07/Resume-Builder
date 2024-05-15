@@ -12,7 +12,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
-import { UserInitService } from './services/userInitService/user-init.service';
+import { AuthServiceService } from './services/auth/auth-service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,9 +20,9 @@ import { UserInitService } from './services/userInitService/user-init.service';
     provideAnimationsAsync(),
     {
       provide: APP_INITIALIZER,
-      useFactory: (userService: UserInitService) => () =>
-        userService.initializeUserData(),
-      deps: [UserInitService],
+      useFactory: (authService: AuthServiceService) => () =>
+        authService.initializeUserData(),
+      deps: [AuthServiceService],
       multi: true,
     },
   ],

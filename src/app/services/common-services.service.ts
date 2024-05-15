@@ -13,7 +13,6 @@ export class CommonServicesService implements OnInit {
   // canShowModal: boolean = false;
   superAdmin = 'Dewanshu';
   currentUrl?: string;
-  userData: any = {};
   selectedTemplateArray: any[] = [];
 
   userResumeProfileImage: any;
@@ -30,7 +29,11 @@ export class CommonServicesService implements OnInit {
 
   private firestore: Firestore = inject(Firestore);
 
-  constructor(public router: Router, public dialog: MatDialog) {
+  constructor(
+    public router: Router,
+    public dialog: MatDialog
+  ) // public userInit: UserInitService
+  {
     this.getCurrentUrl();
     this.profilePicUpdate();
   }
