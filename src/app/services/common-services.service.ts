@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { DialogBoxComponent } from '../modals/dialog-box/dialog-box.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
+import { AuthServiceService } from './auth/auth-service.service';
 
 @Injectable({
   providedIn: 'root',
@@ -31,9 +32,9 @@ export class CommonServicesService implements OnInit {
 
   constructor(
     public router: Router,
-    public dialog: MatDialog
-  ) // public userInit: UserInitService
-  {
+    public dialog: MatDialog,
+    public authService: AuthServiceService //
+  ) {
     this.getCurrentUrl();
     this.profilePicUpdate();
   }

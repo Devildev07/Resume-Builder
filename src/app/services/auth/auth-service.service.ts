@@ -9,7 +9,6 @@ import {
   updateDoc,
   where,
 } from '@angular/fire/firestore';
-// import { CommonServicesService } from '../common-services.service';
 
 @Injectable({
   providedIn: 'root',
@@ -25,8 +24,7 @@ export class AuthServiceService {
 
   private firestore: Firestore = inject(Firestore);
 
-  constructor() // public commonService: CommonServicesService,
-  {}
+  constructor() {}
 
   // auth-functionality starts here
   // registerUser
@@ -54,7 +52,6 @@ export class AuthServiceService {
         // selectedTempData: {},
       });
       this.isUsersignin = true;
-      // this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
       localStorage.setItem('isUsersignin', JSON.stringify(this.isUsersignin));
 
       console.log('User registered successfully!', docRef.id);
@@ -79,14 +76,12 @@ export class AuthServiceService {
         this.userPass === userData.password
       ) {
         this.isUsersignin = true;
-        // this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
         localStorage.setItem('isUsersignin', JSON.stringify(this.isUsersignin));
 
         console.log('isUsersignin', this.isUsersignin);
         await this.initializeUserData();
       } else {
         this.isUsersignin = false;
-        // this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
         localStorage.setItem('isUsersignin', JSON.stringify(this.isUsersignin));
 
         console.log('isUsersignin', this.isUsersignin);
@@ -102,15 +97,10 @@ export class AuthServiceService {
   // signout
   async signOutUser() {
     this.isUsersignin = false;
-    // this.commonService.setLocalStorage('isUsersignin', this.isUsersignin);
     localStorage.setItem('isUsersignin', this.isUsersignin.toString());
 
-    // this.commonService.removeLocalStorage('selectedTempData');
-
-    // this.commonService.setLocalStorage('userEmail', '');
     localStorage.setItem('userEmail', '');
 
-    // this.commonService.setLocalStorage('userDocId', '');
     localStorage.setItem('userDocId', '');
 
     // console.log('isUsersignin', this.isUsersignin);
@@ -131,7 +121,6 @@ export class AuthServiceService {
         this.userEmail = doc.data()['email'];
         this.userPass = doc.data()['password'];
         this.setUser(doc.data(), doc.id);
-        // this.commonService.setLocalStorage('userDocId', doc.id);
         localStorage.setItem('userDocId', JSON.stringify(doc.id));
       });
       return querySnapshot.docs;
@@ -144,7 +133,6 @@ export class AuthServiceService {
   }
 
   async getUser(): Promise<any> {
-    // const userData = this.commonService.getLocalStorage('userEmail');
     const localStorageValue: any = localStorage.getItem('userEmail');
     if (!localStorageValue) {
       console.log('No user data found in local storage.');
@@ -191,7 +179,6 @@ export class AuthServiceService {
   }
 
   checkAuthStatus() {
-    // this.isUsersignin = this.commonService.getLocalStorage('isUsersignin');
     this.isUsersignin =
       localStorage.getItem('isUsersignin') == 'true' ? true : false;
     console.log('isUsersignin', this.isUsersignin);
