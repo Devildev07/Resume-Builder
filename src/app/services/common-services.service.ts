@@ -88,20 +88,34 @@ export class CommonServicesService implements OnInit {
   profilePicUpdate() {
     if (this.getLocalStorage('resumeFormImage')) {
       this.userResumeProfileImage =
-        this.getLocalStorage('resumeFormImage').base64Image;
+        // this.getLocalStorage('resumeFormImage').base64Image;
+        this.userResumeProfileImage =
+          this.authService.userData.userData.resumeFormImage.base64Image;
+      // this.userResumeProfileImgName =
+      //   this.getLocalStorage('resumeFormImage').fileName;
       this.userResumeProfileImgName =
-        this.getLocalStorage('resumeFormImage').fileName;
+        this.authService.userData.userData.resumeFormImage.fileName;
+      // this.userResumeProfileImgSize = Math.round(
+      //   this.getLocalStorage('resumeFormImage').fileSize / 1024
+      // );
       this.userResumeProfileImgSize = Math.round(
-        this.getLocalStorage('resumeFormImage').fileSize / 1024
+        this.authService.userData.userData.resumeFormImage.fileSize / 1024
       );
       // console.log("userResumeProfileImage", this.userResumeProfileImage)
     }
     if (this.getLocalStorage('profileImage')) {
-      this.userProfileImage = this.getLocalStorage('profileImage').base64Image;
-      this.userProfileImgName = this.getLocalStorage('profileImage').fileName;
+      this.userProfileImage =
+        this.authService.userData.userData.profileImage.base64Image;
+      // this.userProfileImage = this.getLocalStorage('profileImage').base64Image;
+      this.userProfileImgName =
+        this.authService.userData.userData.profileImage.fileName;
+      // this.userProfileImgName = this.getLocalStorage('profileImage').fileName;
       this.userProfileImgSize = Math.round(
-        this.getLocalStorage('profileImage').fileSize / 1024
+        this.authService.userData.userData.profileImage.fileSize / 1024
       );
+      // this.userProfileImgSize = Math.round(
+      //   this.getLocalStorage('profileImage').fileSize / 1024
+      // );
       // console.log("userProfileImage", this.userProfileImage)
     }
   }
@@ -127,11 +141,17 @@ export class CommonServicesService implements OnInit {
       if (!this.selectedFile) {
         let userImage: any;
         if (this.currentUrl === '/dashboard/builder') {
+          // userImage = JSON.parse(
+          //   localStorage.getItem('resumeFormImage') || '{}'
+          // );
           userImage = JSON.parse(
-            localStorage.getItem('resumeFormImage') || '{}'
+            this.authService.userData.userData.resumeFormImage || '{}'
           );
         } else if (this.currentUrl === '/dashboard/profile') {
-          userImage = JSON.parse(localStorage.getItem('profileImage') || '{}');
+          // userImage = JSON.parse(localStorage.getItem('profileImage') || '{}');
+          userImage = JSON.parse(
+            this.authService.userData.userData.profileImage || '{}'
+          );
         }
         if (userImage && userImage.base64Image) {
           // console.log('User image found in local storage:', userImage);
@@ -173,17 +193,21 @@ export class CommonServicesService implements OnInit {
                 'resumeFormImage',
                 JSON.stringify(imageObject)
               );
-              localStorage.setItem(
-                'resumeFormImage',
-                JSON.stringify(imageObject)
-              );
+
+              this.authService.initializeUserData();
+              // localStorage.setItem(
+              //   'resumeFormImage',
+              //   JSON.stringify(imageObject)
+              // );
             } else if (this.currentUrl === '/dashboard/profile') {
               this.updateDocumentField(
                 userDocId,
                 'profileImage',
                 JSON.stringify(imageObject)
               );
-              localStorage.setItem('profileImage', JSON.stringify(imageObject));
+              this.authService.initializeUserData();
+
+              // localStorage.setItem('profileImage', JSON.stringify(imageObject));
             }
             resolve();
           };

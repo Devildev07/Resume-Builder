@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import {Router, RouterLink, RouterLinkActive} from '@angular/router';
-import {CommonServicesService} from 'src/app/services/common-services.service';
-import {RouterModule} from '@angular/router';
-import {TemplateListComponent} from 'src/app/components/template-list/template-list.component';
-
+import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonServicesService } from 'src/app/services/common-services.service';
+import { RouterModule } from '@angular/router';
+import { TemplateListComponent } from 'src/app/components/template-list/template-list.component';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -37,12 +37,12 @@ export class UserDashboardComponent implements OnInit {
   constructor(
     private sanitizer: DomSanitizer,
     public commonService: CommonServicesService,
+    public authService: AuthServiceService,
     public route: Router
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
-    // console.log("this.commonService.userProfileImage", this.commonService.userProfileImage)
+    this.authService.initializeUserData();
   }
 
   toggleTheme() {
@@ -76,6 +76,6 @@ export class UserDashboardComponent implements OnInit {
   }
 
   createResume() {
-    this.route.navigate(['/templates'])
+    this.route.navigate(['/templates']);
   }
 }

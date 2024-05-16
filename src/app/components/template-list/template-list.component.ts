@@ -117,6 +117,7 @@ export class TemplateListComponent implements OnInit {
 
   // add to firebase storage
   async addToFireStore(template: any) {
+    await this.authService.initializeUserData();
     try {
       // Ensure userDocs is initialized
       if (!this.userDocs) {
@@ -124,8 +125,9 @@ export class TemplateListComponent implements OnInit {
         return;
       }
 
-      let storageData = this.userDocs.userData.selectedTemplateArray;
-      // console.log('storageData:', storageData);
+      let storageData =
+        this.authService.userData.userData.selectedTemplateArray;
+      console.log('storageData:', storageData);
 
       if (storageData && Array.isArray(storageData) && storageData.length > 0) {
         const exists = storageData.some((item: any) => {
@@ -161,6 +163,7 @@ export class TemplateListComponent implements OnInit {
             'selectedTemplateArray',
             this.commonService.selectedTemplateArray
           );
+          this.authService.initializeUserData();
           // console.log('Template added to existing array');
           this.route.navigate(['/dashboard/builder']);
         }
@@ -174,7 +177,7 @@ export class TemplateListComponent implements OnInit {
           this.commonService.selectedTemplateArray
         );
 
-        await this.authService.getUser();
+        await this.authService.initializeUserData();
       }
     } catch (error) {
       console.error('Error in addToFireStore:', error);
@@ -184,8 +187,7 @@ export class TemplateListComponent implements OnInit {
   //delete generated template
   async deleteTemplate(template: any) {
     try {
-      // Ensure userDocs is up-to-date
-      this.userDocs = await this.authService.getUser();
+      this.userDocs = await this.authService.userData;
 
       const selectedTemplateArray =
         this.userDocs.userData.selectedTemplateArray;

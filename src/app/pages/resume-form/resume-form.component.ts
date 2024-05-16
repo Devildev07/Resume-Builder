@@ -356,18 +356,27 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       this.allResumeData = {};
       try {
         await this.commonService.uploadFile();
-        const base64Image =
-          this.commonService.getLocalStorage('resumeFormImage');
+        const base64Image = this.authService.userData.userData.resumeFormImage;
+        // const base64Image =
+        //   this.commonService.getLocalStorage('resumeFormImage');
 
         this.allResumeData = {
           formBuilder: this.resumeFormGroup.value,
           title: this.resumeTitle,
           profileImage: base64Image ? base64Image : '',
         };
-        this.commonService.setLocalStorage(
-          'setLocalResumeFormData',
+        let userDocId = this.commonService.getLocalStorage('userDocId');
+        console.log('userDocId', userDocId);
+        this.commonService.updateDocumentField(
+          userDocId,
+          'setResumeFormData',
           this.allResumeData
         );
+
+        // this.commonService.setLocalStorage(
+        //   'setLocalResumeFormData',
+        //   this.allResumeData
+        // );
         console.log('firstFormGroup data here', this.allResumeData);
       } catch (error) {
         console.error('Error during file upload:', error);
