@@ -354,19 +354,26 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   async submitResumeForm() {
     if (this.resumeFormGroup.valid) {
       this.allResumeData = {};
+      await this.authService.initializeUserData();
       try {
         await this.commonService.uploadFile();
         const base64Image = this.authService.userData.userData.resumeFormImage;
+        console.log('base64Image', base64Image);
+
         // const base64Image =
         //   this.commonService.getLocalStorage('resumeFormImage');
 
         this.allResumeData = {
           formBuilder: this.resumeFormGroup.value,
-          title: this.resumeTitle,
+          title: this.resumeTitle ? this.resumeTitle : 'My Resume',
           profileImage: base64Image ? base64Image : '',
         };
+
+        console.log('this.allResumeData', this.allResumeData);
+
         let userDocId = this.commonService.getLocalStorage('userDocId');
         console.log('userDocId', userDocId);
+
         this.commonService.updateDocumentField(
           userDocId,
           'setResumeFormData',

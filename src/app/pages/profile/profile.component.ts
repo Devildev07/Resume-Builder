@@ -9,6 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-profile',
@@ -24,143 +25,159 @@ export class ProfileComponent implements OnInit {
 
   profileForm: any = {};
   allProfileData: any;
-  getLocalResumeData: any;
-  getLocalProfileData: any;
+  getResumeData: any;
+  getProfileData: any;
+
+  userDocs: any = {};
 
   constructor(
     public commonService: CommonServicesService,
     private formBuilder: FormBuilder,
     private authService: AuthServiceService
   ) {
-    // this.authService.uploadDatatoFirebase(
-    //   commonService.getLocalStorage('userData')
-    // );
+    try {
+      this.userDocs = this.authService.userData;
+      console.log('User Docs:', this.userDocs);
+
+      this.getResumeData = this.userDocs.userData.setResumeFormData;
+      this.getProfileData = this.userDocs.userData.setProfileData;
+      // console.log('this.getResumeData === ', this.getResumeData);
+    } catch (error) {
+      console.error('Error fetching user docs:', error);
+    }
   }
 
   ngOnInit(): void {
-    this.getLocalResumeData = this.commonService.getLocalStorage(
-      'setLocalResumeFormData'
-    );
-    this.getLocalProfileData = this.commonService.getLocalStorage(
-      'setLocalProfileData'
-    );
+    // this.getResumeData = this.commonService.getLocalStorage(
+    //   'setLocalResumeFormData'
+    // );
+    // this.getProfileData = this.commonService.getLocalStorage(
+    //   'setLocalProfileData'
+    // );
 
-    if (this.getLocalProfileData != null) {
-      this.profileForm = this.formBuilder.group({
-        personalDetails: this.formBuilder.group({
-          firstName: [
-            this.getLocalProfileData.formBuilder.personalDetails.firstName,
-            Validators.required,
-          ],
-          lastName: [
-            this.getLocalProfileData.formBuilder.personalDetails.lastName,
-            Validators.required,
-          ],
-          jobTitle: [
-            this.getLocalProfileData.formBuilder.personalDetails.jobTitle,
-            Validators.required,
-          ],
-          email: [
-            this.getLocalProfileData.formBuilder.personalDetails.email,
-            Validators.required,
-            [this.commonService.asyncEmailValidator],
-          ],
-          phone: [
-            this.getLocalProfileData.formBuilder.personalDetails.phone,
-            Validators.required,
-          ],
-          birthDate: [
-            this.extractDate(
-              this.getLocalProfileData.formBuilder.personalDetails.birthDate
-            ),
-            Validators.required,
-          ],
-          address: [
-            this.getLocalProfileData.formBuilder.personalDetails.address,
-            Validators.required,
-          ],
-          city: [
-            this.getLocalProfileData.formBuilder.personalDetails.city,
-            Validators.required,
-          ],
-          postalCode: [
-            this.getLocalProfileData.formBuilder.personalDetails.postalCode,
-            Validators.required,
-          ],
-          country: [
-            this.getLocalProfileData.formBuilder.personalDetails.country,
-            Validators.required,
-          ],
-          website: [
-            this.getLocalProfileData.formBuilder.personalDetails.website,
-          ],
-          nationality: [
-            this.getLocalProfileData.formBuilder.personalDetails.nationality,
-            Validators.required,
-          ],
-          // userImg: [
-          //   this.getLocalProfileData.formBuilder.personalDetails.userImg,
-          // ],
-        }),
-      });
-    } else if (
-      this.getLocalProfileData == null &&
-      this.getLocalResumeData != null
+    console.log('this.getResumeData === ', this.getResumeData);
+    console.log(
+      ' this.getProfileData',
+      this.getProfileData,
+      typeof this.getProfileData
+    );
+    if (
+      this.getProfileData != null &&
+      Object.keys(this.getProfileData).length > 0
     ) {
       this.profileForm = this.formBuilder.group({
         personalDetails: this.formBuilder.group({
           firstName: [
-            this.getLocalResumeData.formBuilder.personalDetails.firstName,
+            this.getProfileData.formBuilder.personalDetails.firstName,
             Validators.required,
           ],
           lastName: [
-            this.getLocalResumeData.formBuilder.personalDetails.lastName,
+            this.getProfileData.formBuilder.personalDetails.lastName,
             Validators.required,
           ],
           jobTitle: [
-            this.getLocalResumeData.formBuilder.personalDetails.jobTitle,
+            this.getProfileData.formBuilder.personalDetails.jobTitle,
             Validators.required,
           ],
           email: [
-            this.getLocalResumeData.formBuilder.personalDetails.email,
+            this.getProfileData.formBuilder.personalDetails.email,
             Validators.required,
             [this.commonService.asyncEmailValidator],
           ],
           phone: [
-            this.getLocalResumeData.formBuilder.personalDetails.phone,
+            this.getProfileData.formBuilder.personalDetails.phone,
             Validators.required,
           ],
           birthDate: [
             this.extractDate(
-              this.getLocalResumeData.formBuilder.personalDetails.birthDate
+              this.getProfileData.formBuilder.personalDetails.birthDate
             ),
             Validators.required,
           ],
           address: [
-            this.getLocalResumeData.formBuilder.personalDetails.address,
+            this.getProfileData.formBuilder.personalDetails.address,
             Validators.required,
           ],
           city: [
-            this.getLocalResumeData.formBuilder.personalDetails.city,
+            this.getProfileData.formBuilder.personalDetails.city,
             Validators.required,
           ],
           postalCode: [
-            this.getLocalResumeData.formBuilder.personalDetails.postalCode,
+            this.getProfileData.formBuilder.personalDetails.postalCode,
             Validators.required,
           ],
           country: [
-            this.getLocalResumeData.formBuilder.personalDetails.country,
+            this.getProfileData.formBuilder.personalDetails.country,
             Validators.required,
           ],
-          website: [
-            this.getLocalResumeData.formBuilder.personalDetails.website,
-          ],
+          website: [this.getProfileData.formBuilder.personalDetails.website],
           nationality: [
-            this.getLocalResumeData.formBuilder.personalDetails.nationality,
+            this.getProfileData.formBuilder.personalDetails.nationality,
             Validators.required,
           ],
           // userImg: [
-          //   this.getLocalResumeData.formBuilder.personalDetails.userImg,
+          //   this.getProfileData.formBuilder.personalDetails.userImg,
+          // ],
+        }),
+      });
+    } else if (
+      typeof this.getProfileData == 'object' &&
+      this.getResumeData != null &&
+      Object.keys(this.getResumeData).length > 0 &&
+      Object.keys(this.getProfileData).length == 0
+    ) {
+      this.profileForm = this.formBuilder.group({
+        personalDetails: this.formBuilder.group({
+          firstName: [
+            this.getResumeData.formBuilder.personalDetails.firstName,
+            Validators.required,
+          ],
+          lastName: [
+            this.getResumeData.formBuilder.personalDetails.lastName,
+            Validators.required,
+          ],
+          jobTitle: [
+            this.getResumeData.formBuilder.personalDetails.jobTitle,
+            Validators.required,
+          ],
+          email: [
+            this.getResumeData.formBuilder.personalDetails.email,
+            Validators.required,
+            [this.commonService.asyncEmailValidator],
+          ],
+          phone: [
+            this.getResumeData.formBuilder.personalDetails.phone,
+            Validators.required,
+          ],
+          birthDate: [
+            this.extractDate(
+              this.getResumeData.formBuilder.personalDetails.birthDate
+            ),
+            Validators.required,
+          ],
+          address: [
+            this.getResumeData.formBuilder.personalDetails.address,
+            Validators.required,
+          ],
+          city: [
+            this.getResumeData.formBuilder.personalDetails.city,
+            Validators.required,
+          ],
+          postalCode: [
+            this.getResumeData.formBuilder.personalDetails.postalCode,
+            Validators.required,
+          ],
+          country: [
+            this.getResumeData.formBuilder.personalDetails.country,
+            Validators.required,
+          ],
+          website: [this.getResumeData.formBuilder.personalDetails.website],
+          nationality: [
+            this.getResumeData.formBuilder.personalDetails.nationality,
+            Validators.required,
+          ],
+          // userImg: [
+          //   this.getResumeData.formBuilder.personalDetails.userImg,
           // ],
         }),
       });
@@ -189,26 +206,50 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  // extractDate(dateTimeString: string): string {
+  //   return dateTimeString ? dateTimeString.split('T')[0] : '';
+  // }
+
   extractDate(dateTimeString: string): string {
-    return dateTimeString ? dateTimeString.split('T')[0] : '';
+    return dateTimeString ? moment(dateTimeString).format('YYYY-MM-DD') : '';
   }
 
   async submitProfileForm() {
     console.log('this.profileForm.value', this.profileForm.value);
     if (this.profileForm.valid) {
       this.allProfileData = {};
+      await this.authService.initializeUserData();
+
       try {
         await this.commonService.uploadFile();
-        const base64Image = this.commonService.getLocalStorage('profileImage');
+        // const base64Image = this.commonService.getLocalStorage('profileImage');
+
+        const base64Image = this.authService.userData.userData.profileImage;
+        console.log('base64Image', base64Image);
+
         this.allProfileData = {
           formBuilder: this.profileForm.value,
           profileImage: base64Image ? base64Image : '',
         };
-        this.commonService.setLocalStorage(
-          'setLocalProfileData',
+
+        let userDocId = this.commonService.getLocalStorage('userDocId');
+        console.log('userDocId', userDocId);
+
+        this.commonService.updateDocumentField(
+          userDocId,
+          'setProfileData',
           this.allProfileData
         );
+
+        // this.commonService.setLocalStorage(
+        //   'setLocalProfileData',
+        //   this.allProfileData
+        // );
         console.log('firstFormGroup data here', this.allProfileData);
+        await this.authService.initializeUserData();
+
+        this.commonService.userProfileImage =
+          this.authService.userData.userData.profileImage.base64Image;
       } catch (error) {}
     } else {
       console.log('firstFormGroup not have valid enteries');

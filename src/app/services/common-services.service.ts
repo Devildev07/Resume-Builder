@@ -86,33 +86,27 @@ export class CommonServicesService implements OnInit {
   }
 
   profilePicUpdate() {
-    if (this.getLocalStorage('resumeFormImage')) {
-      this.userResumeProfileImage =
-        // this.getLocalStorage('resumeFormImage').base64Image;
-        this.userResumeProfileImage =
-          this.authService.userData.userData.resumeFormImage.base64Image;
+    let resumePicData = this.authService.userData.userData.resumeFormImage;
+    let profilePicData = this.authService.userData.userData.profileImage;
+    if (resumePicData) {
+      this.userResumeProfileImage = resumePicData.base64Image;
+      this.userResumeProfileImgName = resumePicData.fileName;
+      this.userResumeProfileImgSize = Math.round(resumePicData.fileSize / 1024);
+      // this.userResumeProfileImage =
+      // this.getLocalStorage('resumeFormImage').base64Image;
       // this.userResumeProfileImgName =
       //   this.getLocalStorage('resumeFormImage').fileName;
-      this.userResumeProfileImgName =
-        this.authService.userData.userData.resumeFormImage.fileName;
       // this.userResumeProfileImgSize = Math.round(
       //   this.getLocalStorage('resumeFormImage').fileSize / 1024
       // );
-      this.userResumeProfileImgSize = Math.round(
-        this.authService.userData.userData.resumeFormImage.fileSize / 1024
-      );
       // console.log("userResumeProfileImage", this.userResumeProfileImage)
     }
-    if (this.getLocalStorage('profileImage')) {
-      this.userProfileImage =
-        this.authService.userData.userData.profileImage.base64Image;
+    if (profilePicData) {
+      this.userProfileImage = profilePicData.base64Image;
+      this.userProfileImgName = profilePicData.fileName;
+      this.userProfileImgSize = Math.round(profilePicData.fileSize / 1024);
       // this.userProfileImage = this.getLocalStorage('profileImage').base64Image;
-      this.userProfileImgName =
-        this.authService.userData.userData.profileImage.fileName;
       // this.userProfileImgName = this.getLocalStorage('profileImage').fileName;
-      this.userProfileImgSize = Math.round(
-        this.authService.userData.userData.profileImage.fileSize / 1024
-      );
       // this.userProfileImgSize = Math.round(
       //   this.getLocalStorage('profileImage').fileSize / 1024
       // );
@@ -144,14 +138,11 @@ export class CommonServicesService implements OnInit {
           // userImage = JSON.parse(
           //   localStorage.getItem('resumeFormImage') || '{}'
           // );
-          userImage = JSON.parse(
-            this.authService.userData.userData.resumeFormImage || '{}'
-          );
+          userImage =
+            this.authService.userData.userData.resumeFormImage || '{}';
         } else if (this.currentUrl === '/dashboard/profile') {
           // userImage = JSON.parse(localStorage.getItem('profileImage') || '{}');
-          userImage = JSON.parse(
-            this.authService.userData.userData.profileImage || '{}'
-          );
+          userImage = this.authService.userData.userData.profileImage || '{}';
         }
         if (userImage && userImage.base64Image) {
           // console.log('User image found in local storage:', userImage);
@@ -191,7 +182,7 @@ export class CommonServicesService implements OnInit {
               this.updateDocumentField(
                 userDocId,
                 'resumeFormImage',
-                JSON.stringify(imageObject)
+                imageObject
               );
 
               this.authService.initializeUserData();
@@ -200,11 +191,7 @@ export class CommonServicesService implements OnInit {
               //   JSON.stringify(imageObject)
               // );
             } else if (this.currentUrl === '/dashboard/profile') {
-              this.updateDocumentField(
-                userDocId,
-                'profileImage',
-                JSON.stringify(imageObject)
-              );
+              this.updateDocumentField(userDocId, 'profileImage', imageObject);
               this.authService.initializeUserData();
 
               // localStorage.setItem('profileImage', JSON.stringify(imageObject));
