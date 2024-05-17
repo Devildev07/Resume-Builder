@@ -86,8 +86,10 @@ export class CommonServicesService implements OnInit {
   }
 
   profilePicUpdate() {
-    let resumePicData = this.authService.userData.userData.resumeFormImage;
-    let profilePicData = this.authService.userData.userData.profileImage;
+    let resumePicData =
+      this.authService.userData.userData.setResumeFormData.profileImage;
+    let profilePicData =
+      this.authService.userData.userData.setProfileData.profileImage;
     if (resumePicData) {
       this.userResumeProfileImage = resumePicData.base64Image;
       this.userResumeProfileImgName = resumePicData.fileName;
