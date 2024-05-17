@@ -99,24 +99,14 @@ export class CommonServicesService implements OnInit {
         this.userResumeProfileImgSize = Math.round(
           resumePicData.fileSize / 1024
         );
-        // this.userResumeProfileImage =
-        // this.getLocalStorage('resumeFormImage').base64Image;
-        // this.userResumeProfileImgName =
-        //   this.getLocalStorage('resumeFormImage').fileName;
-        // this.userResumeProfileImgSize = Math.round(
-        //   this.getLocalStorage('resumeFormImage').fileSize / 1024
-        // );
+
         // console.log("userResumeProfileImage", this.userResumeProfileImage)
       }
       if (profilePicData) {
         this.userProfileImage = profilePicData.base64Image;
         this.userProfileImgName = profilePicData.fileName;
         this.userProfileImgSize = Math.round(profilePicData.fileSize / 1024);
-        // this.userProfileImage = this.getLocalStorage('profileImage').base64Image;
-        // this.userProfileImgName = this.getLocalStorage('profileImage').fileName;
-        // this.userProfileImgSize = Math.round(
-        //   this.getLocalStorage('profileImage').fileSize / 1024
-        // );
+
         // console.log("userProfileImage", this.userProfileImage)
       }
     }
@@ -149,15 +139,13 @@ export class CommonServicesService implements OnInit {
           userImage =
             this.authService.userData.userData.resumeFormImage || '{}';
         } else if (this.currentUrl === '/dashboard/profile') {
-          // userImage = JSON.parse(localStorage.getItem('profileImage') || '{}');
           userImage = this.authService.userData.userData.profileImage || '{}';
         }
         if (userImage && userImage.base64Image) {
-          // console.log('User image found in local storage:', userImage);
           this.selectedFile = this.dataURItoBlob(userImage.base64Image);
         } else {
           this.openSnackBar('Please select a file to upload.', 'OK');
-          // console.error('No file selected!');
+
           reject('No file selected!');
           return;
         }
@@ -201,10 +189,6 @@ export class CommonServicesService implements OnInit {
               );
 
               this.authService.initializeUserData();
-              // localStorage.setItem(
-              //   'resumeFormImage',
-              //   JSON.stringify(imageObject)
-              // );
             } else if (this.currentUrl === '/dashboard/profile') {
               console.log('userDocId', userDocId, imageObject);
 
@@ -218,8 +202,6 @@ export class CommonServicesService implements OnInit {
                 imageObject
               );
               this.authService.initializeUserData();
-
-              // localStorage.setItem('profileImage', JSON.stringify(imageObject));
             }
             resolve();
           };
@@ -269,11 +251,11 @@ export class CommonServicesService implements OnInit {
       await updateDoc(docRef, {
         [keyToUpdate]: newValue,
       });
-      console.log(
-        `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${Object.keys(
-          newValue
-        )}"`
-      );
+      // console.log(
+      //   `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${Object.keys(
+      //     newValue
+      //   )}"`
+      // );
     } catch (error) {
       console.error('Error updating document field: ', error);
     }

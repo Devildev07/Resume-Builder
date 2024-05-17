@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -46,7 +46,7 @@ import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
   templateUrl: './resume-form.component.html',
   styleUrl: './resume-form.component.css',
 })
-export class ResumeFormComponent implements OnInit, AfterViewInit {
+export class ResumeFormComponent implements OnInit {
   resumeTitle: any;
   allResumeData: any = {};
   resumeFormGroup: FormGroup | any;
@@ -98,11 +98,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.getResumeData = this.commonService.getLocalStorage(
-    //   'setLocalResumeFormData'
-    // );
-    // this.getResumeData = this.authService.userDataFromFirebase
-    console.log('this.getResumeData === ', this.getResumeData);
+    // console.log('this.getResumeData === ', this.getResumeData);
     if (
       this.getResumeData != null &&
       Object.keys(this.getResumeData).length > 0
@@ -244,10 +240,6 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit() {
-    // console.log('this.getResumeData === ', this.getResumeData);
-  }
-
   // education-section
   createdEduDetailsFormGroup(eduData: any): FormGroup {
     return this.formBuilder.group({
@@ -378,10 +370,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
           this.allResumeData
         );
 
-        // this.commonService.setLocalStorage(
-        //   'setLocalResumeFormData',
-        //   this.allResumeData
-        // );
+        
         console.log('firstFormGroup data here', this.allResumeData);
       } catch (error) {
         // console.error('Error during file upload:', error);
