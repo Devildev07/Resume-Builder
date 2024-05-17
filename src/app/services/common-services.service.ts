@@ -156,7 +156,8 @@ export class CommonServicesService implements OnInit {
           // console.log('User image found in local storage:', userImage);
           this.selectedFile = this.dataURItoBlob(userImage.base64Image);
         } else {
-          console.error('No file selected!');
+          this.openSnackBar('Please select a file to upload.', 'OK');
+          // console.error('No file selected!');
           reject('No file selected!');
           return;
         }
@@ -280,6 +281,10 @@ export class CommonServicesService implements OnInit {
 
   //toast
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      verticalPosition: 'top',
+      horizontalPosition: 'end',
+    });
   }
 }

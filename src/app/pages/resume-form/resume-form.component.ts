@@ -384,7 +384,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
         // );
         console.log('firstFormGroup data here', this.allResumeData);
       } catch (error) {
-        console.error('Error during file upload:', error);
+        // console.error('Error during file upload:', error);
       }
     } else {
       console.log('firstFormGroup not have valid enteries');
