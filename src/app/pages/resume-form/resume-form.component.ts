@@ -108,6 +108,8 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       Object.keys(this.getResumeData).length > 0
     ) {
       this.resumeTitle = this.getResumeData.title;
+      this.commonService.userResumeProfileImage =
+        this.getResumeData.profileImage.base64Image;
       this.resumeFormGroup = this.formBuilder.group({
         personalDetails: this.formBuilder.group({
           firstName: [
@@ -357,17 +359,11 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       await this.authService.initializeUserData();
       try {
         await this.commonService.uploadFile();
-        const base64Image = this.authService.userData.userData.resumeFormImage;
-        console.log('base64Image', base64Image);
-
-        // const base64Image =
-        //   this.commonService.getLocalStorage('resumeFormImage');
 
         this.allResumeData = {
           formBuilder: this.resumeFormGroup.value,
           title: this.resumeTitle ? this.resumeTitle : 'My Resume',
-          profileImage: base64Image ? base64Image : '',
-        };
+          };
 
         console.log('this.allResumeData', this.allResumeData);
 

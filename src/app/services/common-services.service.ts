@@ -85,34 +85,38 @@ export class CommonServicesService implements OnInit {
     });
   }
 
-  profilePicUpdate() {
-    let resumePicData =
-      this.authService.userData.userData.setResumeFormData.profileImage;
-    let profilePicData =
-      this.authService.userData.userData.setProfileData.profileImage;
-    if (resumePicData) {
-      this.userResumeProfileImage = resumePicData.base64Image;
-      this.userResumeProfileImgName = resumePicData.fileName;
-      this.userResumeProfileImgSize = Math.round(resumePicData.fileSize / 1024);
-      // this.userResumeProfileImage =
-      // this.getLocalStorage('resumeFormImage').base64Image;
-      // this.userResumeProfileImgName =
-      //   this.getLocalStorage('resumeFormImage').fileName;
-      // this.userResumeProfileImgSize = Math.round(
-      //   this.getLocalStorage('resumeFormImage').fileSize / 1024
-      // );
-      // console.log("userResumeProfileImage", this.userResumeProfileImage)
-    }
-    if (profilePicData) {
-      this.userProfileImage = profilePicData.base64Image;
-      this.userProfileImgName = profilePicData.fileName;
-      this.userProfileImgSize = Math.round(profilePicData.fileSize / 1024);
-      // this.userProfileImage = this.getLocalStorage('profileImage').base64Image;
-      // this.userProfileImgName = this.getLocalStorage('profileImage').fileName;
-      // this.userProfileImgSize = Math.round(
-      //   this.getLocalStorage('profileImage').fileSize / 1024
-      // );
-      // console.log("userProfileImage", this.userProfileImage)
+  async profilePicUpdate() {
+    if (this.authService.userData) {
+      let resumePicData = await this.authService.userData.userData
+        .resumeProfileImage;
+      let profilePicData = await this.authService.userData.userData
+        .profileImage;
+      if (resumePicData) {
+        this.userResumeProfileImage = resumePicData.base64Image;
+        this.userResumeProfileImgName = resumePicData.fileName;
+        this.userResumeProfileImgSize = Math.round(
+          resumePicData.fileSize / 1024
+        );
+        // this.userResumeProfileImage =
+        // this.getLocalStorage('resumeFormImage').base64Image;
+        // this.userResumeProfileImgName =
+        //   this.getLocalStorage('resumeFormImage').fileName;
+        // this.userResumeProfileImgSize = Math.round(
+        //   this.getLocalStorage('resumeFormImage').fileSize / 1024
+        // );
+        // console.log("userResumeProfileImage", this.userResumeProfileImage)
+      }
+      if (profilePicData) {
+        this.userProfileImage = profilePicData.base64Image;
+        this.userProfileImgName = profilePicData.fileName;
+        this.userProfileImgSize = Math.round(profilePicData.fileSize / 1024);
+        // this.userProfileImage = this.getLocalStorage('profileImage').base64Image;
+        // this.userProfileImgName = this.getLocalStorage('profileImage').fileName;
+        // this.userProfileImgSize = Math.round(
+        //   this.getLocalStorage('profileImage').fileSize / 1024
+        // );
+        // console.log("userProfileImage", this.userProfileImage)
+      }
     }
   }
 
@@ -160,14 +164,14 @@ export class CommonServicesService implements OnInit {
       formData.append('file', this.selectedFile);
 
       let progress = 0;
-      const interval = setInterval(() => {
+      const interval = setInterval(async () => {
         progress += 10;
         this.uploadProgress = progress;
         if (progress === 100) {
           clearInterval(interval);
 
           const reader = new FileReader();
-          reader.onload = () => {
+          reader.onload = async () => {
             const base64String = reader.result as string;
             const imageObject = {
               base64Image: base64String,
@@ -181,9 +185,15 @@ export class CommonServicesService implements OnInit {
             console.log('userDocId', userDocId);
 
             if (this.currentUrl === '/dashboard/builder') {
+              this.userResumeProfileImage = imageObject.base64Image;
+              this.userResumeProfileImgName = imageObject.fileName;
+              this.userResumeProfileImgSize = Math.round(
+                imageObject.fileSize / 1024
+              );
+
               this.updateDocumentField(
                 userDocId,
-                'resumeFormImage',
+                'resumeProfileImage',
                 imageObject
               );
 
@@ -193,7 +203,17 @@ export class CommonServicesService implements OnInit {
               //   JSON.stringify(imageObject)
               // );
             } else if (this.currentUrl === '/dashboard/profile') {
-              this.updateDocumentField(userDocId, 'profileImage', imageObject);
+              console.log('userDocId', userDocId, imageObject);
+
+              this.userProfileImage = imageObject.base64Image;
+              this.userProfileImgName = imageObject.fileName;
+              this.userProfileImgSize = Math.round(imageObject.fileSize / 1024);
+
+              await this.updateDocumentField(
+                userDocId,
+                'profileImage',
+                imageObject
+              );
               this.authService.initializeUserData();
 
               // localStorage.setItem('profileImage', JSON.stringify(imageObject));
@@ -216,7 +236,7 @@ export class CommonServicesService implements OnInit {
             },
           });
 
-          this.profilePicUpdate();
+          await this.profilePicUpdate();
 
           console.log('File uploaded successfully!');
         }

@@ -45,7 +45,7 @@ export class AuthServiceService {
         ...userData,
         Id: randomId,
         profileImage: {},
-        resumeFormImage: {},
+        resumeProfileImage: {},
         selectedTemplateArray: {},
         setProfileData: {},
         setResumeFormData: {},
@@ -135,7 +135,7 @@ export class AuthServiceService {
   async getUser(): Promise<any> {
     const localStorageValue: any = localStorage.getItem('userEmail');
     if (!localStorageValue) {
-      console.log('No user data found in local storage.');
+      // console.log('No user data found in local storage.');
       return null;
     } else {
       const userData = JSON.parse(localStorageValue);

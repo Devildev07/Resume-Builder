@@ -215,21 +215,15 @@ export class ProfileComponent implements OnInit {
   }
 
   async submitProfileForm() {
-    console.log('this.profileForm.value', this.profileForm.value);
     if (this.profileForm.valid) {
       this.allProfileData = {};
       await this.authService.initializeUserData();
 
       try {
         await this.commonService.uploadFile();
-        // const base64Image = this.commonService.getLocalStorage('profileImage');
-
-        const base64Image = this.authService.userData.userData.profileImage;
-        console.log('base64Image', base64Image);
 
         this.allProfileData = {
           formBuilder: this.profileForm.value,
-          profileImage: base64Image ? base64Image : '',
         };
 
         let userDocId = this.commonService.getLocalStorage('userDocId');
@@ -241,10 +235,6 @@ export class ProfileComponent implements OnInit {
           this.allProfileData
         );
 
-        // this.commonService.setLocalStorage(
-        //   'setLocalProfileData',
-        //   this.allProfileData
-        // );
         console.log('firstFormGroup data here', this.allProfileData);
         await this.authService.initializeUserData();
 
