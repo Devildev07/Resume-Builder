@@ -29,7 +29,7 @@ export class AuthServiceService {
   // auth-functionality starts here
   // registerUser
   async registerUser(userData: any): Promise<boolean> {
-    await this.getCurrentUser(userData);
+    // await this.getCurrentUser(userData);
 
     if (this.userEmail === userData.email) {
       this.userExists = true;
@@ -53,6 +53,9 @@ export class AuthServiceService {
       });
       this.isUsersignin = true;
       localStorage.setItem('isUsersignin', JSON.stringify(this.isUsersignin));
+      localStorage.setItem('userDocId', docRef.id);
+      await this.getCurrentUser(userData);
+      // this.initializeUserData();
 
       console.log('User registered successfully!', docRef.id);
 
@@ -97,11 +100,14 @@ export class AuthServiceService {
   // signout
   async signOutUser() {
     this.isUsersignin = false;
-    localStorage.setItem('isUsersignin', this.isUsersignin.toString());
+    // localStorage.setItem('isUsersignin', this.isUsersignin.toString());
 
-    localStorage.setItem('userEmail', '');
+    // localStorage.setItem('userEmail', '');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('isUsersignin');
+    localStorage.removeItem('userDocId');
 
-    localStorage.setItem('userDocId', '');
+    // localStorage.setItem('userDocId', '');
 
     // console.log('isUsersignin', this.isUsersignin);
   }
@@ -111,6 +117,7 @@ export class AuthServiceService {
     const collectionRef = collection(this.firestore, 'users');
     const q = query(collectionRef, where('email', '==', userData.email));
     const querySnapshot = await getDocs(q);
+    console.log('this.getCurrentUser', userData.email);
 
     if (querySnapshot.empty) {
       console.log('No matching documents.');
@@ -195,7 +202,7 @@ export class AuthServiceService {
       const userData = await this.getUser();
       this.userData = userData;
 
-      console.log('User Data:', this.userData);
+      console.log('User Data:111', this.userData);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }

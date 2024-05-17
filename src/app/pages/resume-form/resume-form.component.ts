@@ -108,8 +108,10 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
       Object.keys(this.getResumeData).length > 0
     ) {
       this.resumeTitle = this.getResumeData.title;
-      this.commonService.userResumeProfileImage =
-        this.getResumeData.profileImage.base64Image;
+      this.commonService.userResumeProfileImage = this.userDocs.userData
+        .resumeProfileImage.base64Image
+        ? this.userDocs.userData.resumeProfileImage.base64Image
+        : 'https://icons8.com/icon/23264/user';
       this.resumeFormGroup = this.formBuilder.group({
         personalDetails: this.formBuilder.group({
           firstName: [
@@ -363,7 +365,7 @@ export class ResumeFormComponent implements OnInit, AfterViewInit {
         this.allResumeData = {
           formBuilder: this.resumeFormGroup.value,
           title: this.resumeTitle ? this.resumeTitle : 'My Resume',
-          };
+        };
 
         console.log('this.allResumeData', this.allResumeData);
 

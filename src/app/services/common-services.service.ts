@@ -6,6 +6,7 @@ import { DialogBoxComponent } from '../modals/dialog-box/dialog-box.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
 import { AuthServiceService } from './auth/auth-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +34,8 @@ export class CommonServicesService implements OnInit {
   constructor(
     public router: Router,
     public dialog: MatDialog,
-    public authService: AuthServiceService //
+    public authService: AuthServiceService,
+    private _snackBar: MatSnackBar
   ) {
     this.getCurrentUrl();
     this.profilePicUpdate();
@@ -274,5 +276,10 @@ export class CommonServicesService implements OnInit {
     } catch (error) {
       console.error('Error updating document field: ', error);
     }
+  }
+
+  //toast
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 }

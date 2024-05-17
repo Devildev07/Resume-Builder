@@ -76,8 +76,15 @@ export class TemplateListComponent implements OnInit {
       this.fatchTemplate = template;
       // console.log('this.fatchTemplate === ', this.fatchTemplate);
     } else if (this.commonService.currentUrl === '/dashboard') {
-      this.fatchTemplate = await this.userDocs.userData.selectedTemplateArray;
-      console.log('this.fatchTemplate === ', this.fatchTemplate);
+      if (
+        Array.isArray(this.userDocs.userData.selectedTemplateArray) &&
+        this.userDocs.userData.selectedTemplateArray.length > 0
+      ) {
+        this.fatchTemplate = await this.userDocs.userData.selectedTemplateArray;
+        // console.log('this.fatchTemplate === ', this.fatchTemplate);
+      } else {
+        this.commonService.openSnackBar('No Template Added', 'OK');
+      }
     }
     this.templates = [];
     if (this.fatchTemplate !== null) {
