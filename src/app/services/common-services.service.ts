@@ -5,6 +5,12 @@ import { Observable } from 'rxjs';
 import { DialogBoxComponent } from '../modals/dialog-box/dialog-box.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Firestore, doc, updateDoc } from '@angular/fire/firestore';
+import {
+  Storage,
+  ref,
+  getDownloadURL,
+  uploadBytes,
+} from '@angular/fire/storage';
 import { AuthServiceService } from './auth/auth-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -30,6 +36,7 @@ export class CommonServicesService implements OnInit {
   uploadProgress: number = 0;
 
   private firestore: Firestore = inject(Firestore);
+  private storage = inject(Storage);
 
   constructor(
     public router: Router,
@@ -99,14 +106,12 @@ export class CommonServicesService implements OnInit {
         this.userResumeProfileImgSize = Math.round(
           resumePicData.fileSize / 1024
         );
-
         // console.log("userResumeProfileImage", this.userResumeProfileImage)
       }
       if (profilePicData) {
         this.userProfileImage = profilePicData.base64Image;
         this.userProfileImgName = profilePicData.fileName;
         this.userProfileImgSize = Math.round(profilePicData.fileSize / 1024);
-
         // console.log("userProfileImage", this.userProfileImage)
       }
     }
@@ -175,6 +180,21 @@ export class CommonServicesService implements OnInit {
             const userDocId = this.getLocalStorage('userDocId');
             console.log('userDocId', userDocId);
 
+            const storageRef = ref(
+              this.storage,
+              `users/${userDocId}/${this.selectedFile.name}`
+            );
+
+            await uploadBytes(storageRef, this.selectedFile)
+              .then((snapshot) => {
+                console.log('File uploaded successfully!');
+              })
+              .catch((error) => {
+                console.error('Error uploading file:', error);
+              });
+              const imgUrl = await getDownloadURL(storageRef);
+              console.log('imgUrl', imgUrl);
+
             if (this.currentUrl === '/dashboard/builder') {
               this.userResumeProfileImage = imageObject.base64Image;
               this.userResumeProfileImgName = imageObject.fileName;
@@ -195,6 +215,8 @@ export class CommonServicesService implements OnInit {
               this.userProfileImage = imageObject.base64Image;
               this.userProfileImgName = imageObject.fileName;
               this.userProfileImgSize = Math.round(imageObject.fileSize / 1024);
+
+              console.log('userDocId', userDocId, imageObject);
 
               await this.updateDocumentField(
                 userDocId,
