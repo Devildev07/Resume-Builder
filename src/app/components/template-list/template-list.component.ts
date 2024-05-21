@@ -40,7 +40,7 @@ export class TemplateListComponent implements OnInit {
     try {
       // this.userDocs = await this.authService.getUser();
       this.userDocs = this.authService.userData;
-      console.log('User Docs:', this.userDocs);
+      // console.log('User Docs:', this.userDocs);
       this.fetchTemplates();
     } catch (error) {
       console.error('Error fetching user docs:', error);
@@ -53,7 +53,7 @@ export class TemplateListComponent implements OnInit {
       console.error('Template is undefined or null');
       return;
     }
-    console.log('template === ', template);
+    // console.log('template === ', template);
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
       (tempContent) => {
         this.dialog.open(ViewTemplateComponent, {
@@ -74,14 +74,14 @@ export class TemplateListComponent implements OnInit {
   async fetchTemplates() {
     if (this.commonService.currentUrl === '/templates') {
       this.fatchTemplate = template;
-      // console.log('this.fatchTemplate === ', this.fatchTemplate);
+      // // console.log('this.fatchTemplate === ', this.fatchTemplate);
     } else if (this.commonService.currentUrl === '/dashboard') {
       if (
         Array.isArray(this.userDocs.userData.selectedTemplateArray) &&
         this.userDocs.userData.selectedTemplateArray.length > 0
       ) {
         this.fatchTemplate = await this.userDocs.userData.selectedTemplateArray;
-        // console.log('this.fatchTemplate === ', this.fatchTemplate);
+        // // console.log('this.fatchTemplate === ', this.fatchTemplate);
       } else {
         this.commonService.openSnackBar('No Template Added', 'OK');
       }
@@ -92,12 +92,12 @@ export class TemplateListComponent implements OnInit {
         this.templates.push(temp);
       });
     }
-    console.log('templates === ', this.templates);
+    // console.log('templates === ', this.templates);
   }
 
   //select template
   selectTemplate(template: any) {
-    // console.log('template === ', template);
+    // // console.log('template === ', template);
     this.temp_id = template.Id;
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
       (tempContent) => {
@@ -107,7 +107,7 @@ export class TemplateListComponent implements OnInit {
           Content: this.templateContent,
           Name: template.Name,
         };
-        // console.log('selectedTempData', selectedTempData);
+        // // console.log('selectedTempData', selectedTempData);
 
         this.commonService.setLocalStorage(
           'selectedTempData',
@@ -134,11 +134,11 @@ export class TemplateListComponent implements OnInit {
 
       let storageData =
         this.authService.userData.userData.selectedTemplateArray;
-      console.log('storageData:', storageData);
+      // console.log('storageData:', storageData);
 
       if (storageData && Array.isArray(storageData) && storageData.length > 0) {
         const exists = storageData.some((item: any) => {
-          // console.log('item.Id:', item.Id, 'this.temp_id:', this.temp_id);
+          // // console.log('item.Id:', item.Id, 'this.temp_id:', this.temp_id);
           return item.Id === this.temp_id;
         });
 
@@ -171,11 +171,11 @@ export class TemplateListComponent implements OnInit {
             this.commonService.selectedTemplateArray
           );
           this.authService.initializeUserData();
-          // console.log('Template added to existing array');
+          // // console.log('Template added to existing array');
           this.route.navigate(['/dashboard/builder']);
         }
       } else {
-        // console.log('No existing templates, adding new one');
+        // // console.log('No existing templates, adding new one');
         this.commonService.selectedTemplateArray.push(template);
 
         await this.authService.updateDocumentField(
@@ -217,7 +217,7 @@ export class TemplateListComponent implements OnInit {
         // Optionally refetch the templates if needed
         this.fetchTemplates();
       } else {
-        console.log('Template not found in selectedTemplateArray');
+        // console.log('Template not found in selectedTemplateArray');
       }
     } catch (error) {
       console.error('Error deleting template:', error);
@@ -225,7 +225,7 @@ export class TemplateListComponent implements OnInit {
   }
 
   editTemplate(template: any) {
-    console.log('template === ', template);
+    // console.log('template === ', template);
     this.temp_id = template.Id;
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
       (tempContent) => {
@@ -235,7 +235,7 @@ export class TemplateListComponent implements OnInit {
           Content: this.templateContent,
           Name: template.Name,
         };
-        // console.log('selectedTempData', selectedTempData);
+        // // console.log('selectedTempData', selectedTempData);
         this.commonService.setLocalStorage(
           'selectedTempData',
           selectedTempData

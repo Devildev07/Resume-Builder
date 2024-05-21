@@ -68,12 +68,12 @@ export class ViewTemplateComponent implements OnInit {
       resumeData: any;
     }
   ) {
-    // console.log('data === ', data);
+    // // console.log('data === ', data);
     this.templateInfo = data?.templateInfo;
     if (this.commonService.currentUrl === '/templates') {
       this.templateContent = data?.templateContent;
-      // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
-      // console.log('templateData', templateData)
+      // // console.log("this.templateContent === ", this.templateContent, this.templateInfo);
+      // // console.log('templateData', templateData)
       this.temp_id = this.templateInfo.Id;
       this.templateName = this.templateInfo.Name;
 
@@ -86,10 +86,10 @@ export class ViewTemplateComponent implements OnInit {
       this.commonService.currentUrl === '/dashboard'
     ) {
       if (data?.receivedTemplateData) {
-        // console.log('receivedTemplateData === ', data?.receivedTemplateData);
+        // // console.log('receivedTemplateData === ', data?.receivedTemplateData);
         this.dataReplacement(data?.receivedTemplateData, data?.resumeData);
       } else {
-        // console.log(' this.templateInfo === ', this.templateInfo);
+        // // console.log(' this.templateInfo === ', this.templateInfo);
         this.templateContent = data?.templateContent;
         this.dataReplacement(
           {
@@ -108,19 +108,19 @@ export class ViewTemplateComponent implements OnInit {
 
   dataReplacement(receivedData: any, resumeFormData: any) {
     this.receivedDataInfo = receivedData;
-    // console.log('receivedData === ', receivedData);
+    // // console.log('receivedData === ', receivedData);
 
     this.templateContent = receivedData.Content;
     this.temp_id = receivedData.Id;
     this.templateName = receivedData.Name;
 
     const formData = resumeFormData;
-    // console.log('resumeFormData === ', resumeFormData);
+    // // console.log('resumeFormData === ', resumeFormData);
 
     Object.keys(templateData).forEach((key) => {
       if (formData != null) {
         if (formData.formBuilder.hasOwnProperty(key)) {
-          // console.log("key", key);
+          // // console.log("key", key);
           templateData[key] = formData.formBuilder[key];
         } else if (Array.isArray(templateData[key])) {
           templateData[key].forEach((item: any, index: number) => {
@@ -138,12 +138,12 @@ export class ViewTemplateComponent implements OnInit {
       }
 
     });
-    // console.log(templateData);
+    // // console.log(templateData);
     this.updatingResumeData(templateData);
   }
 
   updatingResumeData(updatedTemplateData: any) {
-    // console.log(
+    // // console.log(
     //   'this.templateContent === ',
     //   typeof this.templateContent,
     //   this.templateContent
@@ -169,14 +169,14 @@ export class ViewTemplateComponent implements OnInit {
           .replaceAll('{{ description }}', personalDetails.description);
         this.templateContent = html;
       } else if (Array.isArray(updatedTemplateData[key])) {
-        // console.log("templateArraySection[this.temp_id][key] === ", key, updatedTemplateData[key]);
+        // // console.log("templateArraySection[this.temp_id][key] === ", key, updatedTemplateData[key]);
         let html = '';
         switch (key) {
           case 'skillDetails':
             if (
               templateArraySection[this.temp_id].hasOwnProperty('skillDetails')
             ) {
-              // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
+              // // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
               updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll(
@@ -187,7 +187,7 @@ export class ViewTemplateComponent implements OnInit {
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               });
-              // console.log("html === ", key, html);
+              // // console.log("html === ", key, html);
               const skillRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replaceAll(
                 skillRegex,
@@ -201,7 +201,7 @@ export class ViewTemplateComponent implements OnInit {
                 'experienceDetails'
               )
             ) {
-              // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
+              // // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
               updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll(
@@ -219,7 +219,7 @@ export class ViewTemplateComponent implements OnInit {
                 temp = temp.replaceAll('{{description}}', keyItem.description);
                 // if (Array.isArray(keyItem.responsibilities)) {
                 //   let responsibilitiesHTML = '';
-                //   // console.log("keyItem.responsibilities",keyItem.responsibilities);
+                //   // // console.log("keyItem.responsibilities",keyItem.responsibilities);
                 //
                 //   keyItem.responsibilities.forEach((responsibility: string, index: number) => {
                 //     if (index > 0 || responsibility.trim() !== '') {
@@ -233,7 +233,7 @@ export class ViewTemplateComponent implements OnInit {
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               });
-              // console.log("html === ", key, typeof html, typeof this.templateContent);
+              // // console.log("html === ", key, typeof html, typeof this.templateContent);
               const expRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replaceAll(
                 expRegex,
@@ -247,7 +247,7 @@ export class ViewTemplateComponent implements OnInit {
                 'educationalDetails'
               )
             ) {
-              // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
+              // // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
               updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll(
@@ -264,7 +264,7 @@ export class ViewTemplateComponent implements OnInit {
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               });
-              // console.log("html === ", key, typeof html, typeof this.templateContent);
+              // // console.log("html === ", key, typeof html, typeof this.templateContent);
               const eduRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replaceAll(
                 eduRegex,
@@ -278,7 +278,7 @@ export class ViewTemplateComponent implements OnInit {
                 'languageDetails'
               )
             ) {
-              // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
+              // // console.log("updatedTemplateData[key] === ", updatedTemplateData[key]);
               updatedTemplateData[key].forEach((keyItem: any) => {
                 let temp = '';
                 temp += templateArraySection[this.temp_id][key].replaceAll(
@@ -293,7 +293,7 @@ export class ViewTemplateComponent implements OnInit {
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               });
-              // console.log("html === ", key, typeof html, typeof this.templateContent);
+              // // console.log("html === ", key, typeof html, typeof this.templateContent);
               const langRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replaceAll(
                 langRegex,
@@ -326,7 +326,7 @@ export class ViewTemplateComponent implements OnInit {
                 );
                 if (Array.isArray(keyItem.projectTechUsed)) {
                   let projectSkillHTML = '';
-                  // console.log("keyItem.projectSkill",keyItem.projectSkill);
+                  // // console.log("keyItem.projectSkill",keyItem.projectSkill);
 
                   keyItem.projectTechUsed.forEach(
                     (skillUsed: string, index: number) => {
@@ -349,7 +349,7 @@ export class ViewTemplateComponent implements OnInit {
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               });
-              console.log(
+              // console.log(
                 'html === ',
                 key,
                 typeof html,
@@ -387,19 +387,19 @@ export class ViewTemplateComponent implements OnInit {
             }
             break;
           default:
-            console.log(`No match found for key: ${key}`);
+            // console.log(`No match found for key: ${key}`);
             break;
         }
-        // console.log("html === ", key, html);
+        // // console.log("html === ", key, html);
         const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
         this.templateContent = this.templateContent.replaceAll(regex, html);
       } else {
-        // console.log("else === ");
+        // // console.log("else === ");
         this.templateContent = this.templateContent.replaceAll(
           regex,
           updatedTemplateData[key]
         );
-        // console.log('this.templateContent', this.templateContent);
+        // // console.log('this.templateContent', this.templateContent);
       }
       // this.templateContent = this.templateContent.replaceAll(regex, html);
     });
@@ -439,15 +439,15 @@ export class ViewTemplateComponent implements OnInit {
       Name: this.templateName,
     };
     this.commonService.setLocalStorage('selectedTempData', selectedTempData);
-    // console.log('selectedTempData', selectedTempData);
+    // // console.log('selectedTempData', selectedTempData);
     this.route.navigate(['/dashboard/builder']);
     this.dialogRef.close();
-    // console.log("this.templateContent.id === ", this.temp_id);
+    // // console.log("this.templateContent.id === ", this.temp_id);
   }
 
   downloadTemplate(templateName: any) {
     const elementToPrint: any = document.querySelector('.template');
-    // console.log('elementToPrint', elementToPrint);
+    // // console.log('elementToPrint', elementToPrint);
     if (elementToPrint) {
       html2canvas(elementToPrint, {scale: 1}).then((canvas) => {
         const pdf: any = new jsPDF();

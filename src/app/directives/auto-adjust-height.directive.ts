@@ -1,23 +1,23 @@
-import {AfterViewInit, Directive, ElementRef, Renderer2} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appAutoAdjustHeight]',
-  standalone: true
+  standalone: true,
 })
 export class AutoAdjustHeightDirective implements AfterViewInit {
-
-  constructor(public elementRef: ElementRef, public renderer: Renderer2) {
-  }
+  constructor(public elementRef: ElementRef, public renderer: Renderer2) {}
 
   ngAfterViewInit() {
     // setTimeout(() => {
-    this.adjustHeight()
+    this.adjustHeight();
     // }, 500)
   }
 
   adjustHeight() {
     try {
-      const modal = this.elementRef.nativeElement.closest('.mat-mdc-dialog-container');
+      const modal = this.elementRef.nativeElement.closest(
+        '.mat-mdc-dialog-container'
+      );
       if (modal) {
         const modalHeight = modal.clientHeight;
         const childDivs = this.elementRef.nativeElement.parentElement.children;
@@ -25,7 +25,7 @@ export class AutoAdjustHeightDirective implements AfterViewInit {
         const bottomDivHeight = childDivs[2].clientHeight;
         const topBottomHeightSum = topDivHeight + bottomDivHeight;
         const remainingHeight = modalHeight - topBottomHeightSum;
-        console.log('remainingHeight', remainingHeight)
+        // console.log('remainingHeight', remainingHeight)
         const middleDiv = childDivs[1].querySelector('.mat-mdc-dialog-content');
 
         if (middleDiv) {
@@ -40,5 +40,4 @@ export class AutoAdjustHeightDirective implements AfterViewInit {
       console.error('Error adjusting height:', error);
     }
   }
-
 }

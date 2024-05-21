@@ -37,11 +37,11 @@ export class ProfileComponent implements OnInit {
   ) {
     try {
       this.userDocs = this.authService.userData;
-      // console.log('User Docs:', this.userDocs);
+      // // console.log('User Docs:', this.userDocs);
 
       this.getResumeData = this.userDocs.userData.setResumeFormData;
       this.getProfileData = this.userDocs.userData.setProfileData;
-      // console.log('this.getResumeData === ', this.getResumeData);
+      // // console.log('this.getResumeData === ', this.getResumeData);
     } catch (error) {
       console.error('Error fetching user docs:', error);
     }
@@ -214,7 +214,7 @@ export class ProfileComponent implements OnInit {
         };
 
         let userDocId = this.commonService.getLocalStorage('userDocId');
-        console.log('userDocId', userDocId);
+        // console.log('userDocId', userDocId);
 
         this.commonService.updateDocumentField(
           userDocId,
@@ -222,14 +222,14 @@ export class ProfileComponent implements OnInit {
           this.allProfileData
         );
 
-        console.log('firstFormGroup data here', this.allProfileData);
+        // console.log('firstFormGroup data here', this.allProfileData);
         await this.authService.initializeUserData();
 
         this.commonService.userProfileImage =
           this.authService.userData.userData.profileImage.base64Image;
       } catch (error) {}
     } else {
-      console.log('firstFormGroup not have valid enteries');
+      // console.log('firstFormGroup not have valid enteries');
     }
   }
 }

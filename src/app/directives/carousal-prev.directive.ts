@@ -13,6 +13,6 @@ export class CarousalPrevDirective {
         .children[0];
     const slide = el.getElementsByClassName('slide');
     el.prepend(slide[slide.length - 1]);
-    // console.log(slide);
+    // // console.log(slide);
   }
 }

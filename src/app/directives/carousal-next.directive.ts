@@ -14,6 +14,6 @@ export class CarousalNextDirective {
         .children[0];
     const slide = el.getElementsByClassName('slide');
     el.append(slide[0]);
-    // console.log(slide);
+    // // console.log(slide);
   }
 }

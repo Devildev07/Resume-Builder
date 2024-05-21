@@ -84,12 +84,12 @@ export class FeaturesComponent {
   }
 
   getFeatures() {
-    // console.log(this.features);
+    // // console.log(this.features);
     return this.features;
   }
 
   getSteps() {
-    // console.log(this.steps)
+    // // console.log(this.steps)
     return this.steps;
   }
 }

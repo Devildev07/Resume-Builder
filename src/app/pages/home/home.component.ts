@@ -102,6 +102,6 @@ export class HomeComponent implements OnInit {
       panelClass: 'rounded-lg',
       data: { formMode: formModeClicked },
     });
-    // console.log(formModeClicked);
+    // // console.log(formModeClicked);
   }
 }

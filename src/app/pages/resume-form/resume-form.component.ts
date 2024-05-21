@@ -64,10 +64,10 @@ export class ResumeFormComponent implements OnInit {
   ) {
     try {
       this.userDocs = this.authService.userData;
-      console.log('User Docs:', this.userDocs);
+      // console.log('User Docs:', this.userDocs);
 
       this.getResumeData = this.userDocs.userData.setResumeFormData;
-      console.log('this.getResumeData === ', this.getResumeData);
+      // console.log('this.getResumeData === ', this.getResumeData);
     } catch (error) {
       console.error('Error fetching user docs:', error);
     }
@@ -98,7 +98,7 @@ export class ResumeFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log('this.getResumeData === ', this.getResumeData);
+    // // console.log('this.getResumeData === ', this.getResumeData);
     if (
       this.getResumeData != null &&
       Object.keys(this.getResumeData).length > 0
@@ -359,10 +359,10 @@ export class ResumeFormComponent implements OnInit {
           title: this.resumeTitle ? this.resumeTitle : 'My Resume',
         };
 
-        console.log('this.allResumeData', this.allResumeData);
+        // console.log('this.allResumeData', this.allResumeData);
 
         let userDocId = this.commonService.getLocalStorage('userDocId');
-        console.log('userDocId', userDocId);
+        // console.log('userDocId', userDocId);
 
         this.commonService.updateDocumentField(
           userDocId,
@@ -370,19 +370,19 @@ export class ResumeFormComponent implements OnInit {
           this.allResumeData
         );
 
-        console.log('firstFormGroup data here', this.allResumeData);
+        // console.log('firstFormGroup data here', this.allResumeData);
       } catch (error) {
         // console.error('Error during file upload:', error);
       }
     } else {
-      console.log('firstFormGroup not have valid enteries');
+      // console.log('firstFormGroup not have valid enteries');
     }
   }
 
   viewResume() {
     let Storage = this.commonService.getLocalStorage('selectedTempData');
-    console.log('Storage === ', Storage);
-    console.log('this.allResumeData === ', this.allResumeData);
+    // console.log('Storage === ', Storage);
+    // console.log('this.allResumeData === ', this.allResumeData);
     if (this.getResumeData) this.allResumeData = this.getResumeData;
     if (
       typeof Storage !== 'undefined' &&
@@ -401,7 +401,7 @@ export class ResumeFormComponent implements OnInit {
         },
       });
     } else {
-      console.log('Local storage is not available.');
+      // console.log('Local storage is not available.');
       this.dialog.open(DialogBoxComponent, {
         backdropClass: 'backdrop-blur',
         width: '400px',
