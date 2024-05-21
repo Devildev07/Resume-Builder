@@ -49,8 +49,8 @@ export class CommonServicesService implements OnInit {
     this.getCurrentUrl();
     this.profilePicUpdate();
     this.authService.initializeUserData();
-    this.superAdmin = this.authService.userData.userData.setProfileData
-      .formBuilder.personalDetails.firstName
+    this.superAdmin = this.authService.userData?.userData?.setProfileData
+      ?.formBuilder?.personalDetails?.firstName
       ? this.authService.userData.userData.setProfileData.formBuilder
           .personalDetails.firstName
       : 'Your Name';
