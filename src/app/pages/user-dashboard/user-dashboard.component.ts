@@ -44,7 +44,7 @@ export class UserDashboardComponent implements OnInit {
     public commonService: CommonServicesService,
     public authService: AuthServiceService,
     public route: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.authService.initializeUserData();
@@ -57,7 +57,7 @@ export class UserDashboardComponent implements OnInit {
     localStorage.setItem('theme', currentTheme);
 
     this.savedTheme = localStorage.getItem('theme');
-    // // console.log(this.savedTheme);
+    // console.log(this.savedTheme);
     if (this.savedTheme) {
       document.documentElement.classList.add(this.savedTheme);
     }
@@ -72,7 +72,7 @@ export class UserDashboardComponent implements OnInit {
     sideBar?.classList.toggle('open');
 
     // const body = document.body;
-    // // // console.log(body);
+    // // console.log(body);
     // if (sideBar?.classList.contains('open')) {
     //   body.classList.add('overflow-hidden');
     // } else {

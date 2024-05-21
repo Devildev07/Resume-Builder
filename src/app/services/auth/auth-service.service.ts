@@ -24,7 +24,7 @@ export class AuthServiceService {
 
   private firestore: Firestore = inject(Firestore);
 
-  constructor() {}
+  constructor() { }
 
   // auth-functionality starts here
   // registerUser
@@ -33,12 +33,12 @@ export class AuthServiceService {
 
     if (this.userEmail === userData.email) {
       this.userExists = true;
-      // console.log('User already exists');
+      console.log('User already exists');
 
       return false;
     } else {
       const randomId = '_Id' + Math.random().toString(36).substring(2);
-      // // console.log('randomId', randomId);
+      // console.log('randomId', randomId);
 
       const collectionInstance = collection(this.firestore, 'users');
       const docRef = await addDoc(collectionInstance, {
@@ -57,7 +57,7 @@ export class AuthServiceService {
       await this.getCurrentUser(userData);
       // this.initializeUserData();
 
-      // console.log('User registered successfully!', docRef.id);
+      console.log('User registered successfully!', docRef.id);
 
       return true;
     }
@@ -67,7 +67,7 @@ export class AuthServiceService {
   async signinUser(userData: any) {
     try {
       await this.getCurrentUser(userData);
-      // console.log(
+      console.log(
         'userData  this.userEmail, this.userPass',
         userData,
         this.userEmail,
@@ -81,18 +81,18 @@ export class AuthServiceService {
         this.isUsersignin = true;
         localStorage.setItem('isUsersignin', JSON.stringify(this.isUsersignin));
 
-        // console.log('isUsersignin', this.isUsersignin);
+        console.log('isUsersignin', this.isUsersignin);
         await this.initializeUserData();
       } else {
         this.isUsersignin = false;
         localStorage.setItem('isUsersignin', JSON.stringify(this.isUsersignin));
 
-        // console.log('isUsersignin', this.isUsersignin);
+        console.log('isUsersignin', this.isUsersignin);
       }
 
       return true;
     } catch (error) {
-      // console.log('catch error', error);
+      console.log('catch error', error);
       return null;
     }
   }
@@ -109,7 +109,7 @@ export class AuthServiceService {
 
     // localStorage.setItem('userDocId', '');
 
-    // // console.log('isUsersignin', this.isUsersignin);
+    // console.log('isUsersignin', this.isUsersignin);
   }
 
   // get current user
@@ -117,14 +117,14 @@ export class AuthServiceService {
     const collectionRef = collection(this.firestore, 'users');
     const q = query(collectionRef, where('email', '==', userData.email));
     const querySnapshot = await getDocs(q);
-    // // console.log('this.getCurrentUser', userData.email);
+    // console.log('this.getCurrentUser', userData.email);
 
     if (querySnapshot.empty) {
-      // console.log('No matching documents.');
+      console.log('No matching documents.');
       return null;
     } else {
       querySnapshot.forEach((doc) => {
-        // // console.log(doc.id, ' => ', doc.data());
+        // console.log(doc.id, ' => ', doc.data());
         this.userEmail = doc.data()['email'];
         this.userPass = doc.data()['password'];
         this.setUser(doc.data(), doc.id);
@@ -136,21 +136,21 @@ export class AuthServiceService {
 
   async setUser(userData: any, docId: any) {
     this.userDataFromFirebase = await { userData, docId };
-    // // console.log('userDataFromFirebase', this.userDataFromFirebase);
+    // console.log('userDataFromFirebase', this.userDataFromFirebase);
   }
 
   async getUser(): Promise<any> {
     const localStorageValue: any = localStorage.getItem('userEmail');
     if (!localStorageValue) {
-      // // console.log('No user data found in local storage.');
+      // console.log('No user data found in local storage.');
       return null;
     } else {
       const userData = JSON.parse(localStorageValue);
-      // // console.log('userData1', userData1, userData);
+      // console.log('userData1', userData1, userData);
 
       if (userData) {
         await this.getCurrentUser(userData);
-        // // console.log('userDataFromFirebase', this.userDataFromFirebase);
+        // console.log('userDataFromFirebase', this.userDataFromFirebase);
         return this.userDataFromFirebase;
       }
     }
@@ -166,7 +166,7 @@ export class AuthServiceService {
       await updateDoc(docRef, {
         [keyToUpdate]: newValue,
       });
-      // console.log(
+      console.log(
         `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${Object.keys(
           newValue
         )}"`
@@ -181,14 +181,14 @@ export class AuthServiceService {
     var passA = btoa(getPass);
     var passB = btoa('devil');
     var generatedPass = passA + '@$98#%' + passB;
-    // // console.log('generatedPass', generatedPass);
+    // console.log('generatedPass', generatedPass);
     return generatedPass;
   }
 
   checkAuthStatus() {
     this.isUsersignin =
       localStorage.getItem('isUsersignin') == 'true' ? true : false;
-    // console.log('isUsersignin', this.isUsersignin);
+    console.log('isUsersignin', this.isUsersignin);
   }
 
   autoLogout() {
@@ -202,7 +202,7 @@ export class AuthServiceService {
       const userData = await this.getUser();
       this.userData = userData;
 
-      // console.log('User Data:111', this.userData);
+      console.log('User Data:111', this.userData);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }

@@ -72,7 +72,7 @@ export class FeaturesComponent {
     },
   ];
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) { }
 
   sanitizeSVG(svg: string): any {
     return this.sanitizer.bypassSecurityTrustHtml(svg);
@@ -84,12 +84,12 @@ export class FeaturesComponent {
   }
 
   getFeatures() {
-    // // console.log(this.features);
+    // console.log(this.features);
     return this.features;
   }
 
   getSteps() {
-    // // console.log(this.steps)
+    // console.log(this.steps)
     return this.steps;
   }
 }

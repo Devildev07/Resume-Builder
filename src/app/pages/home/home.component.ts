@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit {
     public dialog: MatDialog,
     public elementRef: ElementRef,
     public renderer: Renderer2
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getChoose();
@@ -102,6 +102,6 @@ export class HomeComponent implements OnInit {
       panelClass: 'rounded-lg',
       data: { formMode: formModeClicked },
     });
-    // // console.log(formModeClicked);
+    // console.log(formModeClicked);
   }
 }

@@ -20,7 +20,7 @@ export class HeaderComponent {
     public commonService: CommonServicesService,
     public dialog: MatDialog,
     public authService: AuthServiceService
-  ) {}
+  ) { }
 
   toggleMobMenu() {
     const mobMenu = document.getElementById('mob-menu');
@@ -33,7 +33,7 @@ export class HeaderComponent {
     localStorage.setItem('theme', currentTheme);
 
     this.savedTheme = localStorage.getItem('theme');
-    // console.log(this.savedTheme);
+    console.log(this.savedTheme);
     if (this.savedTheme) {
       document.documentElement.classList.add(this.savedTheme);
     }
@@ -46,6 +46,6 @@ export class HeaderComponent {
       panelClass: 'rounded-md',
       data: { formMode: formModeClicked },
     });
-    // // console.log(formModeClicked);
+    // console.log(formModeClicked);
   }
 }

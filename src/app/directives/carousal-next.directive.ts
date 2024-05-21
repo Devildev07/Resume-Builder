@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   standalone: true,
 })
 export class CarousalNextDirective {
-  constructor(public elementRef: ElementRef) {}
+  constructor(public elementRef: ElementRef) { }
 
   @HostListener('click')
   nextFunc() {
@@ -14,6 +14,6 @@ export class CarousalNextDirective {
         .children[0];
     const slide = el.getElementsByClassName('slide');
     el.append(slide[0]);
-    // // console.log(slide);
+    // console.log(slide);
   }
 }

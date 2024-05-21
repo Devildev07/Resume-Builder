@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   standalone: true,
 })
 export class CarousalPrevDirective {
-  constructor(public elementRef: ElementRef) {}
+  constructor(public elementRef: ElementRef) { }
   @HostListener('click')
   prevFunc() {
     const el =
@@ -13,6 +13,6 @@ export class CarousalPrevDirective {
         .children[0];
     const slide = el.getElementsByClassName('slide');
     el.prepend(slide[slide.length - 1]);
-    // // console.log(slide);
+    // console.log(slide);
   }
 }

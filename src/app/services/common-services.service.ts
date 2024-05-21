@@ -52,9 +52,9 @@ export class CommonServicesService implements OnInit {
     this.superAdmin = this.authService.userData?.userData?.setProfileData
       ?.formBuilder?.personalDetails?.firstName
       ? this.authService.userData.userData.setProfileData.formBuilder
-          .personalDetails.firstName
+        .personalDetails.firstName
       : 'Your Name';
-    // // console.log(this.superAdmin);
+    // console.log(this.superAdmin);
   }
 
   async ngOnInit() {
@@ -79,7 +79,7 @@ export class CommonServicesService implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
-        // // console.log('Current URL:', this.currentUrl);
+        // console.log('Current URL:', this.currentUrl);
       }
     });
   }
@@ -115,7 +115,7 @@ export class CommonServicesService implements OnInit {
         this.userResumeProfileImgSize = Math.round(
           resumePicData.fileSize / 1024
         );
-        // // console.log("userResumeProfileImage", this.userResumeProfileImage)
+        // console.log("userResumeProfileImage", this.userResumeProfileImage)
       }
       if (profilePicData) {
         if (this.cloudImageUrl != '') {
@@ -125,7 +125,7 @@ export class CommonServicesService implements OnInit {
         }
         this.userProfileImgName = profilePicData.fileName;
         this.userProfileImgSize = Math.round(profilePicData.fileSize / 1024);
-        // // console.log("userProfileImage", this.userProfileImage)
+        // console.log("userProfileImage", this.userProfileImage)
       }
     }
   }
@@ -137,10 +137,10 @@ export class CommonServicesService implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         this.imageUrl = reader.result as string;
-        // // console.log("this.imageUrl", this.imageUrl)
+        // console.log("this.imageUrl", this.imageUrl)
       };
       reader.readAsDataURL(this.selectedFile);
-      // // console.log("reader.readAsDataURL(this.selectedFile)", this.selectedFile)
+      // console.log("reader.readAsDataURL(this.selectedFile)", this.selectedFile)
     } else {
       this.imageUrl = null;
     }
@@ -191,7 +191,7 @@ export class CommonServicesService implements OnInit {
             };
 
             const userDocId = this.getLocalStorage('userDocId');
-            // // console.log('userDocId', userDocId);
+            // console.log('userDocId', userDocId);
 
             if (this.currentUrl === '/dashboard/builder') {
               this.userResumeProfileImage = imageObject.base64Image;
@@ -203,11 +203,11 @@ export class CommonServicesService implements OnInit {
               const imgfolderRef = ref(
                 this.storage,
                 'users/' +
-                  userDocId +
-                  '/' +
-                  'ResumeImage' +
-                  '/' +
-                  this.selectedFile.name
+                userDocId +
+                '/' +
+                'ResumeImage' +
+                '/' +
+                this.selectedFile.name
               );
 
               await uploadBytes(imgfolderRef, this.selectedFile)
@@ -220,7 +220,7 @@ export class CommonServicesService implements OnInit {
                       'resumeProfileImage',
                       imageObject
                     );
-                    // // console.log('Complete URL:', url);
+                    // console.log('Complete URL:', url);
                     this.cloudImageUrl = url;
                     this.authService.initializeUserData();
                     this.profilePicUpdate();
@@ -238,11 +238,11 @@ export class CommonServicesService implements OnInit {
               const imgfolderRef = ref(
                 this.storage,
                 'users/' +
-                  userDocId +
-                  '/' +
-                  'ProfileImage' +
-                  '/' +
-                  this.selectedFile.name
+                userDocId +
+                '/' +
+                'ProfileImage' +
+                '/' +
+                this.selectedFile.name
               );
 
               await uploadBytes(imgfolderRef, this.selectedFile)
@@ -254,7 +254,7 @@ export class CommonServicesService implements OnInit {
                       'profileImage',
                       imageObject
                     );
-                    // // console.log('Complete URL:', url);
+                    // console.log('Complete URL:', url);
                     this.cloudImageUrl = url;
                     this.authService.initializeUserData();
                     this.profilePicUpdate();
@@ -283,7 +283,7 @@ export class CommonServicesService implements OnInit {
             },
           });
 
-          // // console.log('File uploaded successfully!');
+          // console.log('File uploaded successfully!');
         }
       }, 200);
     });
@@ -311,7 +311,7 @@ export class CommonServicesService implements OnInit {
       await updateDoc(docRef, {
         [keyToUpdate]: newValue,
       });
-      // // console.log(
+      // console.log(
       //   `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${Object.keys(
       //     newValue
       //   )}"`

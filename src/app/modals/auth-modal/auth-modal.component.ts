@@ -78,9 +78,9 @@ export class AuthModalComponent implements OnInit {
     if (this.authForm.valid) {
       if (this.formMode === 'signin') {
         this.signIn();
-        // console.log('Logging in with:', this.authForm.value);
+        console.log('Logging in with:', this.authForm.value);
       } else {
-        // // console.log('Signing up with:', this.authForm.value);
+        // console.log('Signing up with:', this.authForm.value);
         this.signUp();
       }
     }
@@ -112,7 +112,7 @@ export class AuthModalComponent implements OnInit {
             },
           });
         } else {
-          // // console.log('password', password, 'email', email);
+          // console.log('password', password, 'email', email);
           const encryptPass = await this.authService.encryptPass(password);
 
           let userData = {
@@ -132,12 +132,12 @@ export class AuthModalComponent implements OnInit {
             this.authService.autoLogout();
             // this.formMode = 'signin';
           } else {
-            // console.log('Registration failed. Provide correct values.');
+            console.log('Registration failed. Provide correct values.');
           }
         }
       }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   }
 
@@ -158,7 +158,7 @@ export class AuthModalComponent implements OnInit {
 
         this.commonService.setLocalStorage('userEmail', newData);
         const user = await this.authService.signinUser(userData);
-        // // console.log('user', user);
+        // console.log('user', user);
 
         if (user) {
           this.dialog.closeAll();
@@ -167,7 +167,7 @@ export class AuthModalComponent implements OnInit {
         }
       }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   }
 }
