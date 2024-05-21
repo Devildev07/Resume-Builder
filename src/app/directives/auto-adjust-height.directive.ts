@@ -25,7 +25,7 @@ export class AutoAdjustHeightDirective implements AfterViewInit {
         const bottomDivHeight = childDivs[2].clientHeight;
         const topBottomHeightSum = topDivHeight + bottomDivHeight;
         const remainingHeight = modalHeight - topBottomHeightSum;
-        console.log('remainingHeight', remainingHeight)
+        // console.log('remainingHeight', remainingHeight)
         const middleDiv = childDivs[1].querySelector('.mat-mdc-dialog-content');
 
         if (middleDiv) {

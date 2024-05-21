@@ -222,14 +222,14 @@ export class ProfileComponent implements OnInit {
           this.allProfileData
         );
 
-        console.log('firstFormGroup data here', this.allProfileData);
+        // console.log('firstFormGroup data here', this.allProfileData);
         await this.authService.initializeUserData();
 
         this.commonService.userProfileImage =
           this.authService.userData.userData.profileImage.base64Image;
       } catch (error) { }
     } else {
-      console.log('firstFormGroup not have valid enteries');
+      // console.log('firstFormGroup not have valid enteries');
     }
   }
 }

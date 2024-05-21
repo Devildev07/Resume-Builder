@@ -40,7 +40,7 @@ export class TemplateListComponent implements OnInit {
     try {
       // this.userDocs = await this.authService.getUser();
       this.userDocs = this.authService.userData;
-      console.log('User Docs:', this.userDocs);
+      // console.log('User Docs:', this.userDocs);
       this.fetchTemplates();
     } catch (error) {
       console.error('Error fetching user docs:', error);
@@ -53,7 +53,7 @@ export class TemplateListComponent implements OnInit {
       console.error('Template is undefined or null');
       return;
     }
-    console.log('template === ', template);
+    // console.log('template === ', template);
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
       (tempContent) => {
         this.dialog.open(ViewTemplateComponent, {
@@ -92,7 +92,7 @@ export class TemplateListComponent implements OnInit {
         this.templates.push(temp);
       });
     }
-    console.log('templates === ', this.templates);
+    // console.log('templates === ', this.templates);
   }
 
   //select template
@@ -134,7 +134,7 @@ export class TemplateListComponent implements OnInit {
 
       let storageData =
         this.authService.userData.userData.selectedTemplateArray;
-      console.log('storageData:', storageData);
+      // console.log('storageData:', storageData);
 
       if (storageData && Array.isArray(storageData) && storageData.length > 0) {
         const exists = storageData.some((item: any) => {
@@ -217,7 +217,7 @@ export class TemplateListComponent implements OnInit {
         // Optionally refetch the templates if needed
         this.fetchTemplates();
       } else {
-        console.log('Template not found in selectedTemplateArray');
+        // console.log('Template not found in selectedTemplateArray');
       }
     } catch (error) {
       console.error('Error deleting template:', error);
@@ -225,7 +225,7 @@ export class TemplateListComponent implements OnInit {
   }
 
   editTemplate(template: any) {
-    console.log('template === ', template);
+    // console.log('template === ', template);
     this.temp_id = template.Id;
     this.http.get(template.Path, { responseType: 'text' }).subscribe(
       (tempContent) => {

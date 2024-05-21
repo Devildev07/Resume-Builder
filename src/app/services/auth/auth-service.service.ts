@@ -67,12 +67,12 @@ export class AuthServiceService {
   async signinUser(userData: any) {
     try {
       await this.getCurrentUser(userData);
-      console.log(
-        'userData  this.userEmail, this.userPass',
-        userData,
-        this.userEmail,
-        this.userPass
-      );
+      // console.log(
+      //   'userData  this.userEmail, this.userPass',
+      //   userData,
+      //   this.userEmail,
+      //   this.userPass
+      // );
 
       if (
         this.userEmail === userData.email &&
@@ -81,13 +81,13 @@ export class AuthServiceService {
         this.isUsersignin = true;
         localStorage.setItem('isUsersignin', JSON.stringify(this.isUsersignin));
 
-        console.log('isUsersignin', this.isUsersignin);
+        // console.log('isUsersignin', this.isUsersignin);
         await this.initializeUserData();
       } else {
         this.isUsersignin = false;
         localStorage.setItem('isUsersignin', JSON.stringify(this.isUsersignin));
 
-        console.log('isUsersignin', this.isUsersignin);
+        // console.log('isUsersignin', this.isUsersignin);
       }
 
       return true;
@@ -120,7 +120,7 @@ export class AuthServiceService {
     // console.log('this.getCurrentUser', userData.email);
 
     if (querySnapshot.empty) {
-      console.log('No matching documents.');
+      // console.log('No matching documents.');
       return null;
     } else {
       querySnapshot.forEach((doc) => {
@@ -166,11 +166,11 @@ export class AuthServiceService {
       await updateDoc(docRef, {
         [keyToUpdate]: newValue,
       });
-      console.log(
-        `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${Object.keys(
-          newValue
-        )}"`
-      );
+      // console.log(
+      //   `Field "${keyToUpdate}" in document "${documentId}" successfully updated to "${Object.keys(
+      //     newValue
+      //   )}"`
+      // );
     } catch (error) {
       console.error('Error updating document field: ', error);
     }
@@ -202,7 +202,7 @@ export class AuthServiceService {
       const userData = await this.getUser();
       this.userData = userData;
 
-      console.log('User Data:111', this.userData);
+      // console.log('User Data:111', this.userData);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }

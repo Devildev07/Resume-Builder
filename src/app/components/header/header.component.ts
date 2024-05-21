@@ -33,7 +33,7 @@ export class HeaderComponent {
     localStorage.setItem('theme', currentTheme);
 
     this.savedTheme = localStorage.getItem('theme');
-    console.log(this.savedTheme);
+    // console.log(this.savedTheme);
     if (this.savedTheme) {
       document.documentElement.classList.add(this.savedTheme);
     }

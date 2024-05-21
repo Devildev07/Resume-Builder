@@ -349,12 +349,12 @@ export class ViewTemplateComponent implements OnInit {
                 const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
                 html += temp;
               });
-              console.log(
-                'html === ',
-                key,
-                typeof html,
-                typeof this.templateContent
-              );
+              // console.log(
+              //   'html === ',
+              //   key,
+              //   typeof html,
+              //   typeof this.templateContent
+              // );
               const projectRegex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
               this.templateContent = this.templateContent.replaceAll(
                 projectRegex,
@@ -387,7 +387,7 @@ export class ViewTemplateComponent implements OnInit {
             }
             break;
           default:
-            console.log(`No match found for key: ${key}`);
+            // console.log(`No match found for key: ${key}`);
             break;
         }
         // console.log("html === ", key, html);

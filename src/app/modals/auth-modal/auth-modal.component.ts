@@ -78,7 +78,7 @@ export class AuthModalComponent implements OnInit {
     if (this.authForm.valid) {
       if (this.formMode === 'signin') {
         this.signIn();
-        console.log('Logging in with:', this.authForm.value);
+        // console.log('Logging in with:', this.authForm.value);
       } else {
         // console.log('Signing up with:', this.authForm.value);
         this.signUp();
@@ -132,7 +132,7 @@ export class AuthModalComponent implements OnInit {
             this.authService.autoLogout();
             // this.formMode = 'signin';
           } else {
-            console.log('Registration failed. Provide correct values.');
+            // console.log('Registration failed. Provide correct values.');
           }
         }
       }
