@@ -19,7 +19,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CommonServicesService implements OnInit {
   // canShowModal: boolean = false;
-  superAdmin = 'Your Name';
+  superAdmin = '';
   currentUrl?: string;
   selectedTemplateArray: any[] = [];
 
@@ -49,8 +49,11 @@ export class CommonServicesService implements OnInit {
     this.getCurrentUrl();
     this.profilePicUpdate();
     this.authService.initializeUserData();
-    this.superAdmin =
-      this.authService.userData.userData.setProfileData.formBuilder.personalDetails.firstName;
+    this.superAdmin = this.authService.userData.userData.setProfileData
+      .formBuilder.personalDetails.firstName
+      ? this.authService.userData.userData.setProfileData.formBuilder
+          .personalDetails.firstName
+      : 'Your Name';
     // console.log(this.superAdmin);
   }
 
@@ -188,7 +191,7 @@ export class CommonServicesService implements OnInit {
             };
 
             const userDocId = this.getLocalStorage('userDocId');
-            console.log('userDocId', userDocId);
+            // console.log('userDocId', userDocId);
 
             if (this.currentUrl === '/dashboard/builder') {
               this.userResumeProfileImage = imageObject.base64Image;
@@ -217,7 +220,7 @@ export class CommonServicesService implements OnInit {
                       'resumeProfileImage',
                       imageObject
                     );
-                    console.log('Complete URL:', url);
+                    // console.log('Complete URL:', url);
                     this.cloudImageUrl = url;
                     this.authService.initializeUserData();
                     this.profilePicUpdate();
@@ -251,7 +254,7 @@ export class CommonServicesService implements OnInit {
                       'profileImage',
                       imageObject
                     );
-                    console.log('Complete URL:', url);
+                    // console.log('Complete URL:', url);
                     this.cloudImageUrl = url;
                     this.authService.initializeUserData();
                     this.profilePicUpdate();
@@ -280,7 +283,7 @@ export class CommonServicesService implements OnInit {
             },
           });
 
-          console.log('File uploaded successfully!');
+          // console.log('File uploaded successfully!');
         }
       }, 200);
     });
