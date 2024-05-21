@@ -117,7 +117,7 @@ export class AuthServiceService {
     const collectionRef = collection(this.firestore, 'users');
     const q = query(collectionRef, where('email', '==', userData.email));
     const querySnapshot = await getDocs(q);
-    console.log('this.getCurrentUser', userData.email);
+    // console.log('this.getCurrentUser', userData.email);
 
     if (querySnapshot.empty) {
       console.log('No matching documents.');

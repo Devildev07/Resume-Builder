@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
   ) {
     try {
       this.userDocs = this.authService.userData;
-      console.log('User Docs:', this.userDocs);
+      // console.log('User Docs:', this.userDocs);
 
       this.getResumeData = this.userDocs.userData.setResumeFormData;
       this.getProfileData = this.userDocs.userData.setProfileData;
@@ -48,19 +48,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getResumeData = this.commonService.getLocalStorage(
-    //   'setLocalResumeFormData'
-    // );
-    // this.getProfileData = this.commonService.getLocalStorage(
-    //   'setLocalProfileData'
-    // );
-
-    console.log('this.getResumeData === ', this.getResumeData);
-    console.log(
-      ' this.getProfileData',
-      this.getProfileData,
-      typeof this.getProfileData
-    );
     if (
       this.getProfileData != null &&
       Object.keys(this.getProfileData).length > 0

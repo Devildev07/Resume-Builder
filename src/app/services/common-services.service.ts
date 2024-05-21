@@ -19,7 +19,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CommonServicesService implements OnInit {
   // canShowModal: boolean = false;
-  superAdmin = 'Dewanshu';
+  superAdmin = 'Your Name';
   currentUrl?: string;
   selectedTemplateArray: any[] = [];
 
@@ -35,6 +35,8 @@ export class CommonServicesService implements OnInit {
   imageUrl: string | ArrayBuffer | null = null;
   uploadProgress: number = 0;
 
+  cloudImageUrl: any = '';
+
   private firestore: Firestore = inject(Firestore);
   private storage = inject(Storage);
 
@@ -46,6 +48,10 @@ export class CommonServicesService implements OnInit {
   ) {
     this.getCurrentUrl();
     this.profilePicUpdate();
+    this.authService.initializeUserData();
+    this.superAdmin =
+      this.authService.userData.userData.setProfileData.formBuilder.personalDetails.firstName;
+    // console.log(this.superAdmin);
   }
 
   async ngOnInit() {
@@ -109,7 +115,11 @@ export class CommonServicesService implements OnInit {
         // console.log("userResumeProfileImage", this.userResumeProfileImage)
       }
       if (profilePicData) {
-        this.userProfileImage = profilePicData.base64Image;
+        if (this.cloudImageUrl != '') {
+          this.userProfileImage = this.cloudImageUrl;
+        } else {
+          this.userProfileImage = profilePicData.base64Image;
+        }
         this.userProfileImgName = profilePicData.fileName;
         this.userProfileImgSize = Math.round(profilePicData.fileSize / 1024);
         // console.log("userProfileImage", this.userProfileImage)
@@ -180,21 +190,6 @@ export class CommonServicesService implements OnInit {
             const userDocId = this.getLocalStorage('userDocId');
             console.log('userDocId', userDocId);
 
-            const storageRef = ref(
-              this.storage,
-              `users/${userDocId}/${this.selectedFile.name}`
-            );
-
-            await uploadBytes(storageRef, this.selectedFile)
-              .then((snapshot) => {
-                console.log('File uploaded successfully!');
-              })
-              .catch((error) => {
-                console.error('Error uploading file:', error);
-              });
-              const imgUrl = await getDownloadURL(storageRef);
-              console.log('imgUrl', imgUrl);
-
             if (this.currentUrl === '/dashboard/builder') {
               this.userResumeProfileImage = imageObject.base64Image;
               this.userResumeProfileImgName = imageObject.fileName;
@@ -202,28 +197,70 @@ export class CommonServicesService implements OnInit {
                 imageObject.fileSize / 1024
               );
 
-              this.updateDocumentField(
-                userDocId,
-                'resumeProfileImage',
-                imageObject
+              const imgfolderRef = ref(
+                this.storage,
+                'users/' +
+                  userDocId +
+                  '/' +
+                  'ResumeImage' +
+                  '/' +
+                  this.selectedFile.name
               );
 
-              this.authService.initializeUserData();
-            } else if (this.currentUrl === '/dashboard/profile') {
-              console.log('userDocId', userDocId, imageObject);
+              await uploadBytes(imgfolderRef, this.selectedFile)
+                .then((snapshot) => {
+                  getDownloadURL(imgfolderRef).then((url) => {
+                    imageObject.base64Image = url;
 
+                    this.updateDocumentField(
+                      userDocId,
+                      'resumeProfileImage',
+                      imageObject
+                    );
+                    console.log('Complete URL:', url);
+                    this.cloudImageUrl = url;
+                    this.authService.initializeUserData();
+                    this.profilePicUpdate();
+                    return url;
+                  });
+                })
+                .catch((error) => {
+                  console.error(' Error uploading file:', error);
+                });
+            } else if (this.currentUrl === '/dashboard/profile') {
               this.userProfileImage = imageObject.base64Image;
               this.userProfileImgName = imageObject.fileName;
               this.userProfileImgSize = Math.round(imageObject.fileSize / 1024);
 
-              console.log('userDocId', userDocId, imageObject);
-
-              await this.updateDocumentField(
-                userDocId,
-                'profileImage',
-                imageObject
+              const imgfolderRef = ref(
+                this.storage,
+                'users/' +
+                  userDocId +
+                  '/' +
+                  'ProfileImage' +
+                  '/' +
+                  this.selectedFile.name
               );
-              this.authService.initializeUserData();
+
+              await uploadBytes(imgfolderRef, this.selectedFile)
+                .then((snapshot) => {
+                  getDownloadURL(imgfolderRef).then((url) => {
+                    imageObject.base64Image = url;
+                    this.updateDocumentField(
+                      userDocId,
+                      'profileImage',
+                      imageObject
+                    );
+                    console.log('Complete URL:', url);
+                    this.cloudImageUrl = url;
+                    this.authService.initializeUserData();
+                    this.profilePicUpdate();
+                    return url;
+                  });
+                })
+                .catch((error) => {
+                  console.error(' Error uploading file:', error);
+                });
             }
             resolve();
           };
@@ -242,8 +279,6 @@ export class CommonServicesService implements OnInit {
               buttonCss: 'success-dialog-btn',
             },
           });
-
-          await this.profilePicUpdate();
 
           console.log('File uploaded successfully!');
         }

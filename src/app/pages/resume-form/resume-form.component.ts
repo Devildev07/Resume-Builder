@@ -370,7 +370,6 @@ export class ResumeFormComponent implements OnInit {
           this.allResumeData
         );
 
-        
         console.log('firstFormGroup data here', this.allResumeData);
       } catch (error) {
         // console.error('Error during file upload:', error);
@@ -419,8 +418,27 @@ export class ResumeFormComponent implements OnInit {
     }
   }
 
-  extractDate(dateTimeString: string): string {
-    return dateTimeString ? moment(dateTimeString).format('YYYY-MM-DD') : '';
+  // extractDate(dateTimeString: string): string {
+  //   return dateTimeString ? moment(dateTimeString).format('YYYY-MM-DD') : '';
+  // }
+
+  extractDate(
+    dateTime: string | { seconds: number; nanoseconds: number }
+  ): string {
+    if (!dateTime) {
+      return '';
+    }
+
+    if (
+      typeof dateTime === 'object' &&
+      'seconds' in dateTime &&
+      'nanoseconds' in dateTime
+    ) {
+      const date = new Date(dateTime.seconds * 1000);
+      return moment(date).format('YYYY-MM-DD');
+    }
+
+    return moment(dateTime).format('YYYY-MM-DD');
   }
 
   getSkillValue(index: number): number {
