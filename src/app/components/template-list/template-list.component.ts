@@ -40,12 +40,16 @@ export class TemplateListComponent implements OnInit {
     try {
       // this.userDocs = await this.authService.getUser();
       this.userDocs = this.authService.userData;
-      // console.log('User Docs:', this.userDocs);
+      console.log('User Docs:', this.userDocs);
       this.fetchTemplates();
     } catch (error) {
       console.error('Error fetching user docs:', error);
     }
   }
+  checkValueExistence(value: any): boolean {
+    return this.userDocs.userData.selectedTemplateArray && this.userDocs.userData.selectedTemplateArray.some((t: any) => t.Name === value);
+  }
+  
 
   //view template modal
   viewTemplate(template: any) {
@@ -126,7 +130,6 @@ export class TemplateListComponent implements OnInit {
   async addToFireStore(template: any) {
     await this.authService.initializeUserData();
     try {
-      // Ensure userDocs is initialized
       if (!this.userDocs) {
         console.error('User docs are not initialized');
         return;

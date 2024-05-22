@@ -37,7 +37,7 @@
   </div>
   } @for (template of templates; track $index) {
   <div
-    class="templateBox h-fit xl:basis-[18.5rem] lg:basis-[19rem] sm:basis-[21rem] basis-full flex flex-col justify-between gap-2"
+    class="templateBox h-fit xl:basis-[18.5rem] lg:basis-[19rem] sm:basis-[21rem] basis-full flex flex-col justify-between gap-2 relative"
   >
     <div
       class="template border-2 rounded-lg hover:border-blue-500 hover:border-3 group flex-col relative"
@@ -171,6 +171,9 @@
       <!-- {{ template.name || "Template " + ($index + 1) }} -->
       {{ template["Name"] }}
     </p>
+    @if (checkValueExistence(template["Name"]) ) {
+    <span class="green-badge absolute top-2 right-1">Added</span>
+    }
   </div>
   }
   <!--  -->

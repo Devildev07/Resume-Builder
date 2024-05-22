@@ -25,6 +25,8 @@ import {
 import { AutoAdjustHeightDirective } from '../../directives/auto-adjust-height.directive';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-view-template',
@@ -51,9 +53,11 @@ export class ViewTemplateComponent implements OnInit {
   templateName: any;
 
   zoomFactor = 0.1;
+  userDocs: any = '';
 
   constructor(
     public commonService: CommonServicesService,
+    public authService: AuthServiceService,
     public dialogRef: MatDialogRef<ViewTemplateComponent>,
     public route: Router,
     private sanitizer: DomSanitizer,
@@ -103,7 +107,14 @@ export class ViewTemplateComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    try {
+      // this.userDocs = await this.authService.getUser();
+      this.userDocs = this.authService.userData;
+      // console.log('User Docs:', this.userDocs);
+    } catch (error) {
+      console.error('Error fetching user docs:', error);
+    }
   }
 
   dataReplacement(receivedData: any, resumeFormData: any) {
@@ -136,7 +147,6 @@ export class ViewTemplateComponent implements OnInit {
       } else {
         // this.route.navigate(['/dashboard/builder']);
       }
-
     });
     // console.log(templateData);
     this.updatingResumeData(templateData);
@@ -443,6 +453,74 @@ export class ViewTemplateComponent implements OnInit {
     this.route.navigate(['/dashboard/builder']);
     this.dialogRef.close();
     // console.log("this.templateContent.id === ", this.temp_id);
+    this.addToFireStore(selectedTempData);
+  }
+
+  async addToFireStore(template: any) {
+    await this.authService.initializeUserData();
+    try {
+      if (!this.userDocs) {
+        console.error('User docs are not initialized');
+        return;
+      }
+
+      let storageData =
+        this.authService.userData.userData.selectedTemplateArray;
+      // console.log('storageData:', storageData);
+
+      if (storageData && Array.isArray(storageData) && storageData.length > 0) {
+        const exists = storageData.some((item: any) => {
+          // console.log('item.Id:', item.Id, 'this.temp_id:', this.temp_id);
+          return item.Id === this.temp_id;
+        });
+
+        if (exists) {
+          this.dialog.open(DialogBoxComponent, {
+            width: '400px',
+            height: 'auto',
+            panelClass: 'rounded-lg',
+            data: {
+              title: 'Template already added',
+              dialogCss: 'warning-dialog',
+              message:
+                'Please check your dashboard to edit your selected template',
+              buttonText: 'OK',
+              buttonCss: 'warning-dialog-btn',
+            },
+          });
+
+          setTimeout(() => {
+            this.dialog.closeAll();
+            this.route.navigate(['/dashboard/builder']);
+          }, 2000);
+        } else {
+          this.commonService.selectedTemplateArray = storageData;
+          this.commonService.selectedTemplateArray.push(template);
+
+          await this.authService.updateDocumentField(
+            this.userDocs.docId,
+            'selectedTemplateArray',
+            this.commonService.selectedTemplateArray
+          );
+          this.authService.initializeUserData();
+          // console.log('Template added to existing array');
+          this.route.navigate(['/dashboard/builder']);
+        }
+      } else {
+        // console.log('No existing templates, adding new one');
+        this.commonService.selectedTemplateArray.push(template);
+
+        await this.authService.updateDocumentField(
+          this.userDocs.docId,
+          'selectedTemplateArray',
+          this.commonService.selectedTemplateArray
+        );
+
+        await this.authService.initializeUserData();
+      }
+    } catch (error) {
+      console.error('Error in addToFireStore:', error);
+    }
   }
 
   downloadTemplate(templateName: any) {
