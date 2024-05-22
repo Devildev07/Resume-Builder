@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonServicesService } from 'src/app/services/common-services.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -10,6 +10,8 @@ import {
 } from '@angular/forms';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 import * as moment from 'moment';
+import { Firestore, deleteDoc, doc } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -29,15 +31,36 @@ export class ProfileComponent implements OnInit {
   getProfileData: any;
 
   userDocs: any = {};
+  accountId: any;
+  accountEmail: any;
+  numberOfTemplates: any;
+
+  countdown?: string;
+  timerInterval: any;
+
+  private firestore: Firestore = inject(Firestore);
 
   constructor(
     public commonService: CommonServicesService,
     private formBuilder: FormBuilder,
-    private authService: AuthServiceService
+    private authService: AuthServiceService,
+    public router: Router
   ) {
     try {
+      // this.authService.initializeUserData();
+
       this.userDocs = this.authService.userData;
       // console.log('User Docs:', this.userDocs);
+      this.accountEmail = this.userDocs?.userData?.email
+        ? this.userDocs?.userData?.email
+        : 'Your Account Email';
+      this.accountId = this.userDocs?.userData?.Id
+        ? this.userDocs?.userData?.Id
+        : 'Your Account Id';
+      this.numberOfTemplates = this.userDocs?.userData?.selectedTemplateArray
+        .length
+        ? this.userDocs?.userData?.selectedTemplateArray.length
+        : 'Number of Templates you used';
 
       this.getResumeData = this.userDocs.userData.setResumeFormData;
       this.getProfileData = this.userDocs.userData.setProfileData;
@@ -204,7 +227,7 @@ export class ProfileComponent implements OnInit {
   async submitProfileForm() {
     if (this.profileForm.valid) {
       this.allProfileData = {};
-      await this.authService.initializeUserData();
+      // await this.authService.initializeUserData();
 
       try {
         await this.commonService.uploadFile();
@@ -227,9 +250,76 @@ export class ProfileComponent implements OnInit {
 
         this.commonService.userProfileImage =
           this.authService.userData.userData.profileImage.base64Image;
-      } catch (error) { }
+      } catch (error) {}
     } else {
       // console.log('firstFormGroup not have valid enteries');
     }
+  }
+
+  // private startCountdown() {
+  //   const targetDate = new Date();
+  //   targetDate.setDate(targetDate.getDate() + 1);
+
+  //   this.timerInterval = setInterval(() => {
+  //     const now = new Date();
+  //     const difference = targetDate.getTime() - now.getTime();
+
+  //     if (difference <= 0) {
+  //       this.daleteDoc();
+  //       clearInterval(this.timerInterval);
+  //       this.countdown = 'Data deleted';
+  //     } else {
+  //       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  //       const hours = Math.floor(
+  //         (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  //       );
+  //       const minutes = Math.floor(
+  //         (difference % (1000 * 60 * 60)) / (1000 * 60)
+  //       );
+  //       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  //       this.countdown = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  //       console.log('countdown', this.countdown);
+  //     }
+  //   }, 1000);
+  // }
+
+  async startCountdown() {
+    const targetDate = new Date();
+    targetDate.setMinutes(targetDate.getMinutes() + 15);
+
+    this.timerInterval = setInterval(async () => {
+      const now = new Date();
+      const difference = targetDate.getTime() - now.getTime();
+
+      if (difference <= 0) {
+        await this.deleteDoc();
+        this.authService.signOutUser();
+        clearInterval(this.timerInterval);
+        this.countdown = 'Data deleted';
+      } else {
+        const minutes = Math.floor(difference / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        this.countdown = `${minutes}m ${seconds}s`;
+        // console.log('countdown', this.countdown);
+      }
+    }, 1000);
+  }
+
+  deleteDoc() {
+    const docId = this.commonService.getLocalStorage('userDocId');
+    const docInstance = doc(this.firestore, 'users', docId);
+    console.log('Document successfully deleted');
+    deleteDoc(docInstance)
+      .then(() => {
+        console.log('Document successfully deleted');
+      })
+      .catch((err) => {
+        console.log('Error deleting document:', err);
+      });
+  }
+
+  stopCountdown() {
+    clearInterval(this.timerInterval);
+    this.countdown = '';
   }
 }

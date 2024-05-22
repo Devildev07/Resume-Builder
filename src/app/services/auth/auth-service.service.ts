@@ -9,6 +9,7 @@ import {
   updateDoc,
   where,
 } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,7 @@ export class AuthServiceService {
 
   private firestore: Firestore = inject(Firestore);
 
-  constructor() { }
+  constructor(public router : Router) {}
 
   // auth-functionality starts here
   // registerUser
@@ -100,16 +101,12 @@ export class AuthServiceService {
   // signout
   async signOutUser() {
     this.isUsersignin = false;
-    // localStorage.setItem('isUsersignin', this.isUsersignin.toString());
 
-    // localStorage.setItem('userEmail', '');
     localStorage.removeItem('userEmail');
     localStorage.removeItem('isUsersignin');
     localStorage.removeItem('userDocId');
-
-    // localStorage.setItem('userDocId', '');
-
-    // console.log('isUsersignin', this.isUsersignin);
+    localStorage.removeItem('selectedTempData');
+    this.router.navigate(['/home']);
   }
 
   // get current user

@@ -52,7 +52,7 @@ export class CommonServicesService implements OnInit {
     this.superAdmin = this.authService.userData?.userData?.setProfileData
       ?.formBuilder?.personalDetails?.firstName
       ? this.authService.userData.userData.setProfileData.formBuilder
-        .personalDetails.firstName
+          .personalDetails.firstName
       : 'Your Name';
     // console.log(this.superAdmin);
   }
@@ -203,11 +203,11 @@ export class CommonServicesService implements OnInit {
               const imgfolderRef = ref(
                 this.storage,
                 'users/' +
-                userDocId +
-                '/' +
-                'ResumeImage' +
-                '/' +
-                this.selectedFile.name
+                  userDocId +
+                  '/' +
+                  'ResumeImage' +
+                  '/' +
+                  this.selectedFile.name
               );
 
               await uploadBytes(imgfolderRef, this.selectedFile)
@@ -238,11 +238,11 @@ export class CommonServicesService implements OnInit {
               const imgfolderRef = ref(
                 this.storage,
                 'users/' +
-                userDocId +
-                '/' +
-                'ProfileImage' +
-                '/' +
-                this.selectedFile.name
+                  userDocId +
+                  '/' +
+                  'ProfileImage' +
+                  '/' +
+                  this.selectedFile.name
               );
 
               await uploadBytes(imgfolderRef, this.selectedFile)
@@ -325,6 +325,12 @@ export class CommonServicesService implements OnInit {
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
+      verticalPosition: 'top',
+      horizontalPosition: 'end',
+    });
+  }
+  openSnackBarNoDuration(message: string, action: string) {
+    this._snackBar.open(message, action, {
       verticalPosition: 'top',
       horizontalPosition: 'end',
     });

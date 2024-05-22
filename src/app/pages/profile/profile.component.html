@@ -376,26 +376,62 @@
       <div class="sm:basis-96">
         <div class="flex gap-2 pb-1">
           <strong class="basis-48">Account Id:</strong>
-          <span class="basis-72">9876543210</span>
+          <span class="basis-72">{{ accountId }}</span>
         </div>
         <!--  -->
         <div class="flex gap-2 pb-1">
           <strong class="basis-48">Account Email:</strong>
-          <span class="basis-72">abc&#64;gmail.com</span>
+          <span class="basis-72">{{ accountEmail }}</span>
         </div>
         <!--  -->
         <div class="flex gap-2 pb-1">
-          <strong class="basis-48">Account Type:</strong>
-          <span class="basis-72">Basic</span>
+          <strong class="basis-48">Templates Used:</strong>
+          <span class="basis-72">{{ numberOfTemplates }}</span>
         </div>
         <!--  -->
       </div>
     </div>
-    <button
-      class="rounded-md bg-red-500 py-2 px-4 mt-4 text-white hover:bg-red-700"
-    >
-      Request Account Deletion
-    </button>
+    <div class="flex gap-2 items-start mt-4 flex-col">
+      <button
+        (click)="startCountdown()"
+        class="rounded-md bg-red-500 py-2 px-4 text-white hover:bg-red-700"
+      >
+        Request Account Deletion
+      </button>
+
+      @if (countdown) {
+      <div
+        class="flex items-center w-fit p-2 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+      >
+        <div class="ms-3 text-sm font-normal">
+          This account will be deleted in
+          <span class="font-bold">{{ countdown }}</span>
+        </div>
+        <button
+          (click)="stopCountdown()"
+          type="button"
+          class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <span class="sr-only">Close</span>
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+          </svg>
+        </button>
+      </div>
+      }
+    </div>
   </div>
   }
 </div>
