@@ -236,7 +236,7 @@
             </h1>
             <p class="py-3">Start creating your fantastic resume here !</p>
             <!--  -->
-            <div class="flex gap-3 flex-wrap sm:w-4/5 m-auto my-6">
+            <!-- <div class="flex gap-3 flex-wrap sm:w-4/5 m-auto my-6">
               <div
                 class="border-2 rounded-lg basis-56 grow h-32 flex items-center justify-center hover:ring-blue-500 hover:ring-2 hover:border-none cursor-pointer"
                 (click)="createResume()"
@@ -264,9 +264,15 @@
                   </svg>
                 </h3>
               </div>
-            </div>
+            </div> -->
             <!--  -->
-            <p class="py-3 poppins-semibold text-2xl">Your Templates</p>
+            <div class="flex gap-4 justify-between items-center">
+              <p class="py-3 poppins-semibold text-2xl">Your Templates</p>
+              <button (click)="createResume()" class="primary-btn">
+                <h3 class="p-1 poppins-semibold">Create Resume</h3>
+              </button>
+            </div>
+            <!-- <p class="py-3 poppins-semibold text-2xl">Your Templates</p> -->
             <!-- templates area-->
 
             <app-template-list></app-template-list>
